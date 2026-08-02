@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["crates/bevy-vn-core"]
+members = ["crates/bevy-vn-core", "crates/bevy-vn-render"]

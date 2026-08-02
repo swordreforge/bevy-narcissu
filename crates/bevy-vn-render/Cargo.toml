@@ -1,0 +1,15 @@
+[package]
+name = "bevy-vn-render"
+version = "0.1.0"
+edition = "2021"
+description = "Rendering plugin for bevy-vn-engine"
+
+[dependencies]
+bevy = { version = "0.19", default-features = false, features = [
+    "bevy_sprite",
+    "bevy_ui_render",
+    "bevy_log",
+    "jpeg",
+] }
+bevy-vn-core = { path = "../bevy-vn-core" }
+rand = "0.10.2"
