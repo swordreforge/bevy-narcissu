@@ -187,3 +187,107 @@ fn chrono_now() -> String {
         .map(|d| format!("{}", d.as_secs()))
         .unwrap_or_default()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::collections::HashMap;
+
+    fn make_engine() -> ScriptEngine {
+        let mut e = ScriptEngine::new();
+        e.flags.insert("score".into(), 42);
+        e.global_flags.insert(100, 1);
+        e.current_script = "main".into();
+        e.current_line = 5;
+        e.call_stack = vec![("main".into(), 2)];
+        e.current_route = Some("heroine_a".into());
+        e
+    }
+
+    #[test]
+    fn snapshot_roundtrip() {
+        let engine = make_engine();
+        let snap = EngineSnapshot::from(&engine);
+        assert_eq!(snap.current_script, "main");
+        assert_eq!(snap.current_line, 5);
+        assert_eq!(snap.flags.get("score"), Some(&42));
+        assert_eq!(snap.global_flags.get(&100), Some(&1));
+
+        let mut restored = ScriptEngine::new();
+        restored.current_script = "other".into();
+        restored.current_line = 99;
+        snap.apply(&mut restored);
+        assert_eq!(restored.current_script, "main");
+        assert_eq!(restored.current_line, 5);
+        assert!(!restored.finished); // reset on load
+        assert_eq!(restored.flags.get("score"), Some(&42));
+    }
+
+    #[test]
+    fn save_slot_json_roundtrip() {
+        let engine = make_engine();
+        let slot = SaveSlot {
+            version: 1,
+            timestamp: 1234567890,
+            description: "test save".into(),
+            engine: EngineSnapshot::from(&engine),
+            subsystems: HashMap::new(),
+        };
+        let json = serde_json::to_string(&slot).unwrap();
+        let parsed: SaveSlot = serde_json::from_str(&json).unwrap();
+        assert_eq!(parsed.version, 1);
+        assert_eq!(parsed.description, "test save");
+        assert_eq!(parsed.engine.current_line, 5);
+        assert_eq!(parsed.engine.flags.get("score"), Some(&42));
+    }
+
+    #[test]
+    fn save_load_in_memory() {
+        let tmp = std::env::temp_dir().join("bevy_vn_test_saves");
+        let _ = std::fs::remove_dir_all(&tmp);
+        let mut mgr = SaveManager::new(tmp.clone());
+        assert!(!mgr.slots[0].is_some());
+
+        let mut engine = make_engine();
+        // Save
+        mgr.save(0, &engine, "auto").unwrap();
+        assert!(mgr.slots[0].is_some());
+        assert_eq!(mgr.slots[0].as_ref().unwrap().description, "auto");
+
+        // Modify engine then load
+        engine.current_line = 999;
+        engine.flags.clear();
+        mgr.load(0, &mut engine).unwrap();
+        assert_eq!(engine.current_line, 5);
+        assert_eq!(engine.flags.get("score"), Some(&42));
+
+        // Load empty slot
+        assert!(mgr.load(5, &mut engine).is_err());
+
+        // Delete
+        mgr.delete(0).unwrap();
+        assert!(mgr.slots[0].is_none());
+
+        let _ = std::fs::remove_dir_all(&tmp);
+    }
+
+    #[test]
+    fn save_version_mismatch() {
+        let tmp = std::env::temp_dir().join("bevy_vn_test_saves_v");
+        let _ = std::fs::remove_dir_all(&tmp);
+        let mut mgr = SaveManager::new(tmp.clone());
+        let mut engine = make_engine();
+
+        mgr.save(0, &engine, "v1").unwrap();
+        // Corrupt version
+        if let Some(ref mut slot) = mgr.slots[0] {
+            slot.version = 999;
+            let json = serde_json::to_string(slot).unwrap();
+            std::fs::write(mgr.slot_path(0), json).unwrap();
+        }
+        mgr.refresh();
+        assert!(mgr.load(0, &mut engine).is_err());
+
+        let _ = std::fs::remove_dir_all(&tmp);
+    }
+}
