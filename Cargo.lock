@@ -257,6 +257,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy-vn-audio"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy-vn-core",
+]
+
+[[package]]
 name = "bevy-vn-core"
 version = "0.1.0"
 dependencies = [

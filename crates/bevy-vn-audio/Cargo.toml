@@ -1,0 +1,12 @@
+[package]
+name = "bevy-vn-audio"
+version = "0.1.0"
+edition = "2021"
+description = "Audio plugin for bevy-vn-engine"
+
+[dependencies]
+bevy = { version = "0.19", default-features = false, features = [
+    "bevy_audio",
+    "vorbis",
+] }
+bevy-vn-core = { path = "../bevy-vn-core" }
