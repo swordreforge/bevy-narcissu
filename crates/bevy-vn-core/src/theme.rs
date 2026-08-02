@@ -1,0 +1,171 @@
+//! Theme system — three-layer override model.
+//!
+//! Layer 1: VnTheme::default() (built-in defaults)
+//! Layer 2: assets/theme.ron (RON config file)
+//! Layer 3: bsn!{} component-level override (per-spawn)
+//!
+//! Theme values with type f32 for font sizes are converted to FontSize
+//! via `px()` at the use site (see bevy-vn-ui).
+
+use bevy::prelude::*;
+use serde::{Deserialize, Serialize};
+
+/// Global theme configuration resource.
+#[derive(Resource, Debug, Clone, Serialize, Deserialize)]
+pub struct VnTheme {
+    pub dialogue: DialogueTheme,
+    pub choice: ChoiceTheme,
+    pub title: TitleTheme,
+    pub settings: SettingsTheme,
+    pub save_load: SaveLoadTheme,
+    pub backlog: BacklogTheme,
+    pub gallery: GalleryTheme,
+    pub transitions: TransitionTheme,
+    pub fonts: FontTheme,
+    pub colors: ColorTheme,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct DialogueTheme {
+    /// Distance from screen bottom
+    pub margin_bottom: f32,
+    /// Dialogue box height
+    pub height: f32,
+    /// Background color [r, g, b, a]
+    pub background_color: [f32; 4],
+    /// Text color [r, g, b, a]
+    pub text_color: [f32; 4],
+    /// Speaker name color [r, g, b, a]
+    pub speaker_color: [f32; 4],
+    /// Speaker name box width
+    pub speaker_box_width: f32,
+    /// Font size in pixels (wrapped with px() at use site)
+    pub font_size: f32,
+    /// Speaker name font size in pixels
+    pub speaker_font_size: f32,
+    /// Inner padding [left, right, top, bottom]
+    pub padding: [f32; 4],
+    /// Text reveal speed (chars/sec). Overrides VnEngineConfig.text_speed when set.
+    pub text_speed: Option<f64>,
+    /// Window design variant
+    pub design: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ChoiceTheme {
+    pub max_visible: usize,
+    pub item_height: f32,
+    pub font_size: f32,
+    pub padding: [f32; 4],
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct TitleTheme {
+    pub title_font_size: f32,
+    pub menu_font_size: f32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SettingsTheme {
+    pub font_size: f32,
+    pub slider_width: f32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct SaveLoadTheme {
+    pub font_size: f32,
+    pub thumbnail_width: f32,
+    pub thumbnail_height: f32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct BacklogTheme {
+    pub font_size: f32,
+    pub max_entries: usize,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+pub struct GalleryTheme {
+    pub thumbnail_width: f32,
+    pub thumbnail_height: f32,
+    pub columns: usize,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct TransitionTheme {
+    pub fade_duration: f32,
+    pub fg_fade_duration: f32,
+    pub cg_fade_duration: f32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ColorTheme {
+    pub menu_bg: [f32; 4],
+    pub menu_text: [f32; 4],
+    pub button_normal: [f32; 4],
+    pub button_hover: [f32; 4],
+    pub button_press: [f32; 4],
+    pub choice_highlight: [f32; 4],
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct FontTheme {
+    /// Default UI font path
+    pub default: String,
+    /// Dialogue font (None = use default)
+    pub dialogue: Option<String>,
+    /// Title font (None = use default)
+    pub title: Option<String>,
+    /// Monospace font
+    pub mono: Option<String>,
+}
+
+impl Default for VnTheme {
+    fn default() -> Self {
+        Self {
+            dialogue: DialogueTheme {
+                margin_bottom: 20.0,
+                height: 180.0,
+                background_color: [0.0, 0.0, 0.0, 0.7],
+                text_color: [1.0, 1.0, 1.0, 1.0],
+                speaker_color: [0.8, 0.8, 1.0, 1.0],
+                speaker_box_width: 200.0,
+                font_size: 28.0,
+                speaker_font_size: 22.0,
+                padding: [20.0, 20.0, 20.0, 20.0],
+                text_speed: None,
+                design: "default".into(),
+            },
+            choice: ChoiceTheme {
+                max_visible: 6,
+                item_height: 48.0,
+                font_size: 24.0,
+                padding: [12.0, 24.0, 12.0, 24.0],
+            },
+            transitions: TransitionTheme {
+                fade_duration: 1.0,
+                fg_fade_duration: 0.5,
+                cg_fade_duration: 1.0,
+            },
+            fonts: FontTheme {
+                default: "fonts/default.ttf".into(),
+                dialogue: None,
+                title: None,
+                mono: None,
+            },
+            colors: ColorTheme {
+                menu_bg: [0.05, 0.05, 0.1, 0.95],
+                menu_text: [0.9, 0.9, 0.95, 1.0],
+                button_normal: [0.15, 0.15, 0.25, 1.0],
+                button_hover: [0.25, 0.25, 0.40, 1.0],
+                button_press: [0.35, 0.35, 0.50, 1.0],
+                choice_highlight: [0.3, 0.5, 0.8, 1.0],
+            },
+            title: TitleTheme::default(),
+            settings: SettingsTheme::default(),
+            save_load: SaveLoadTheme::default(),
+            backlog: BacklogTheme::default(),
+            gallery: GalleryTheme::default(),
+        }
+    }
+}
