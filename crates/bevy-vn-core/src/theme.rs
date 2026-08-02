@@ -51,13 +51,21 @@ pub struct DialogueTheme {
     pub design: String,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct ChoiceTheme {
+    #[serde(default = "default_max_visible")]
     pub max_visible: usize,
+    #[serde(default = "default_item_height")]
     pub item_height: f32,
+    #[serde(default = "default_font_size_24")]
     pub font_size: f32,
+    #[serde(default = "default_choice_padding")]
     pub padding: [f32; 4],
 }
+fn default_max_visible() -> usize { 6 }
+fn default_item_height() -> f32 { 48.0 }
+fn default_font_size_24() -> f32 { 24.0 }
+fn default_choice_padding() -> [f32; 4] { [12.0, 24.0, 12.0, 24.0] }
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct TitleTheme {
