@@ -9,6 +9,7 @@
 pub mod assets;
 pub mod engine_config;
 pub mod messages;
+pub mod runner;
 pub mod save;
 pub mod script;
 pub mod state;
@@ -85,6 +86,9 @@ impl Plugin for VnCorePlugin {
         app.add_message::<messages::ClearDialogueEvent>();
         app.add_message::<messages::ChoiceStateEvent>();
         app.add_message::<messages::ChoiceSelectedEvent>();
+
+        // ── Script runner (bridges ScriptEngine → Messages) ──
+        app.add_plugins(runner::ScriptRunnerPlugin);
     }
 }
 
