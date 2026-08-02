@@ -284,6 +284,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy-vn-save"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy-vn-core",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "bevy-vn-ui"
 version = "0.1.0"
 dependencies = [
