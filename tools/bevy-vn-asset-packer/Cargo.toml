@@ -1,0 +1,12 @@
+[package]
+name = "bevy-vn-asset-packer"
+version = "0.1.0"
+edition = "2021"
+description = "Standalone PAK packer for bevy-vn-engine assets"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+zstd = { version = "0.13", default-features = false, features = ["experimental"] }
+walkdir = "2"
+serde = { version = "1", features = ["derive"] }
+ron = "0.8"

@@ -1,0 +1,17 @@
+[package]
+name = "bevy-vn-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.19", default-features = false, features = [
+    "bevy_asset", "bevy_audio", "bevy_sprite", "bevy_ui", "bevy_text",
+    "bevy_ui_render", "bevy_log", "bevy_state",
+    "vorbis", "jpeg",
+] }
+bevy-vn-core = { path = "../../crates/bevy-vn-core" }
+bevy-vn-render = { path = "../../crates/bevy-vn-render" }
+bevy-vn-audio = { path = "../../crates/bevy-vn-audio" }
+bevy-vn-ui = { path = "../../crates/bevy-vn-ui" }
+bevy-vn-save = { path = "../../crates/bevy-vn-save" }
+bevy-vn-video = { path = "../../crates/bevy-vn-video" }

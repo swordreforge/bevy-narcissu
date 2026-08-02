@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["crates/bevy-vn-core", "crates/bevy-vn-render", "crates/bevy-vn-audio", "crates/bevy-vn-ui", "crates/bevy-vn-save", "crates/bevy-vn-video"]
+members = ["crates/bevy-vn-core", "crates/bevy-vn-render", "crates/bevy-vn-audio", "crates/bevy-vn-ui", "crates/bevy-vn-save", "crates/bevy-vn-video", "tools/bevy-vn-asset-packer", "tools/artemis-converter", "examples/minimal"]
