@@ -1,0 +1,26 @@
+[package]
+name = "bevy-vn-video"
+version = "0.1.0"
+edition = "2021"
+description = "Video playback plugin for bevy-vn-engine"
+
+[dependencies]
+bevy = { version = "0.19", default-features = false, features = [
+    "bevy_ui",
+    "bevy_ui_render",
+    "bevy_log",
+] }
+bevy-vn-core = { path = "../bevy-vn-core" }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+gstreamer = { version = "0.25", optional = true }
+gstreamer-video = { version = "0.25", optional = true }
+gstreamer-app = { version = "0.25", optional = true }
+
+[target.'cfg(target_os = "android")'.dependencies]
+ffmpeg-the-third = { version = "5", features = ["build"], optional = true }
+
+[features]
+default = []
+gstreamer = ["dep:gstreamer", "dep:gstreamer-video", "dep:gstreamer-app"]
+ffmpeg = ["dep:ffmpeg-the-third"]
