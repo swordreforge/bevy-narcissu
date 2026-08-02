@@ -30,6 +30,10 @@ impl Plugin for VnUiPlugin {
             DialoguePlugin,
             ChoicePlugin,
             backlog::BacklogPlugin,
+            title::TitlePlugin,
+            settings::SettingsPlugin,
+            save_load_ui::SaveLoadUiPlugin,
+            gallery::GalleryPlugin,
         ));
     }
 }

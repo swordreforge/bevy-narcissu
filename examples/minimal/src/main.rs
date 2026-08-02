@@ -1,6 +1,7 @@
 //! Minimal bevy-vn-engine example.
 //!
-//! Demonstrates loading a .vnscript.ron script and stepping through it.
+//! Demonstrates loading a script and using ScriptRunner to drive execution.
+//! Press Space or click to advance — ScriptRunner handles all dispatch.
 
 use bevy::prelude::*;
 use bevy_vn_core::prelude::*;
@@ -22,18 +23,12 @@ fn main() {
         .add_plugins(VnVideoPlugin)
         .insert_resource(AssetPathProvider::default())
         .add_systems(Startup, load_scripts)
-        .add_systems(Update, step_script)
-        .init_state::<VnAppState>()
+        .add_systems(Update, user_input)
         .run();
 }
 
-fn load_scripts(
-    mut engine: ResMut<ScriptEngine>,
-    _assets: Res<AssetServer>,
-) {
-    info!("Loading scripts...");
-    // Scripts are loaded as VnScriptAsset via AssetServer.
-    // For this minimal example, we embed a tiny script directly.
+fn load_scripts(mut engine: ResMut<ScriptEngine>) {
+    info!("Loading demo script...");
     use bevy_vn_core::script::cmd::*;
     let script = VnScript {
         version: ScriptVersion::V1,
@@ -52,23 +47,15 @@ fn load_scripts(
     info!("Script loaded. Press Space or click to advance.");
 }
 
-fn step_script(
+/// Fires AdvanceEvent on user input — ScriptRunner handles the rest.
+fn user_input(
     keys: Res<ButtonInput<KeyCode>>,
     mouse: Res<ButtonInput<MouseButton>>,
-    mut engine: ResMut<ScriptEngine>,
-    mut writer: MessageWriter<bevy_vn_core::messages::DialogueStateEvent>,
+    mut writer: MessageWriter<AdvanceEvent>,
+    engine: Res<ScriptEngine>,
 ) {
+    if !engine.has_more() { return; }
     if keys.just_pressed(KeyCode::Space) || mouse.just_pressed(MouseButton::Left) {
-        if !engine.has_more() {
-            info!("Script finished!");
-            return;
-        }
-        match engine.current() {
-            Some(ScriptCmd::Dialogue { speaker, text, .. }) => {
-                writer.write(DialogueStateEvent { speaker: speaker.clone(), text: text.clone() });
-            }
-            _ => {}
-        }
-        engine.advance();
+        writer.write(AdvanceEvent { source: AdvanceSource::UserInput });
     }
 }
