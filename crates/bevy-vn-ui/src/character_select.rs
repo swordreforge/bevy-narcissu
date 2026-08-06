@@ -57,67 +57,79 @@ fn spawn_character(mut commands: Commands, asset_server: Res<AssetServer>) {
             width: percent(100),
             height: percent(100),
             position_type: PositionType::Absolute,
+            align_items: AlignItems::Center,
+            justify_content: JustifyContent::Center,
             ..default()
         },
     ))
     .with_children(|parent| {
         parent.spawn((
-            ImageNode { image: bg, image_mode: NodeImageMode::Stretch, ..default() },
             Node {
-                position_type: PositionType::Absolute,
-                left: Val::Px(0.0),
-                top: Val::Px(0.0),
                 width: Val::Px(960.0),
-                height: Val::Px(500.0),
+                height: Val::Px(540.0),
+                flex_shrink: 0.0,
                 ..default()
             },
-            ZIndex(0),
-        ));
+        ))
+        .with_children(|canvas| {
+            canvas.spawn((
+                ImageNode { image: bg, image_mode: NodeImageMode::Stretch, ..default() },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(0.0),
+                    top: Val::Px(0.0),
+                    width: Val::Px(960.0),
+                    height: Val::Px(500.0),
+                    ..default()
+                },
+                ZIndex(0),
+            ));
 
-        for s in STORIES {
-            parent.spawn((
-                StoryEntry { script: s.script.into(), label: s.label.into() },
+            for s in STORIES {
+                canvas.spawn((
+                    StoryEntry { script: s.script.into(), label: s.label.into() },
+                    Button,
+                    ImageNode {
+                        image: btn.clone(),
+                        rect: Some(Rect::new(0.0, s.clip_y, 152.0, s.clip_y + 48.0)),
+                        ..default()
+                    },
+                    Node {
+                        position_type: PositionType::Absolute,
+                        left: Val::Px(s.x),
+                        top: Val::Px(s.y),
+                        width: Val::Px(152.0),
+                        height: Val::Px(48.0),
+                        ..default()
+                    },
+                    ZIndex(1),
+                ))
+                .with_child((
+                    Text::new(s.name),
+                    TextFont { font_size: FontSize::Px(18.0), ..default() },
+                    TextColor(Color::WHITE),
+                ));
+            }
+
+            canvas.spawn((
+                ExitButton,
                 Button,
                 ImageNode {
-                    image: btn.clone(),
-                    rect: Some(Rect::new(0.0, s.clip_y, 152.0, s.clip_y + 48.0)),
+                    image: exit,
+                    rect: Some(Rect::new(0.0, 1008.0, 197.0, 1056.0)),
                     ..default()
                 },
                 Node {
                     position_type: PositionType::Absolute,
-                    left: Val::Px(s.x),
-                    top: Val::Px(s.y),
-                    width: Val::Px(152.0),
+                    left: Val::Px(780.0),
+                    top: Val::Px(55.0),
+                    width: Val::Px(197.0),
                     height: Val::Px(48.0),
                     ..default()
                 },
                 ZIndex(1),
-            ))
-            .with_child((
-                Text::new(s.name),
-                TextFont { font_size: FontSize::Px(18.0), ..default() },
-                TextColor(Color::WHITE),
             ));
-        }
-
-        parent.spawn((
-            ExitButton,
-            Button,
-            ImageNode {
-                image: exit,
-                rect: Some(Rect::new(0.0, 1008.0, 197.0, 1056.0)),
-                ..default()
-            },
-            Node {
-                position_type: PositionType::Absolute,
-                left: Val::Px(780.0),
-                top: Val::Px(55.0),
-                width: Val::Px(197.0),
-                height: Val::Px(48.0),
-                ..default()
-            },
-            ZIndex(1),
-        ));
+        });
     });
 }
 

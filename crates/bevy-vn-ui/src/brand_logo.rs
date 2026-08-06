@@ -39,31 +39,43 @@ fn spawn_brand_logo(mut commands: Commands, asset_server: Res<AssetServer>, mut 
             width: percent(100),
             height: percent(100),
             position_type: PositionType::Absolute,
+            align_items: AlignItems::Center,
+            justify_content: JustifyContent::Center,
             ..default()
         },
         BackgroundColor(Color::BLACK),
     ))
     .with_children(|parent| {
-        for (i, path) in FRAMES.iter().enumerate() {
-            parent.spawn((
-                LogoFrame { index: i },
-                ImageNode {
-                    image: asset_server.load::<Image>(*path),
-                    image_mode: NodeImageMode::Stretch,
-                    ..default()
-                },
-                Node {
-                    position_type: PositionType::Absolute,
-                    left: Val::Px(0.0),
-                    top: Val::Px(0.0),
-                    width: Val::Px(960.0),
-                    height: Val::Px(540.0),
-                    display: Display::None,
-                    ..default()
-                },
-                ZIndex(1),
-            ));
-        }
+        parent.spawn((
+            Node {
+                width: Val::Px(960.0),
+                height: Val::Px(540.0),
+                flex_shrink: 0.0,
+                ..default()
+            },
+        ))
+        .with_children(|canvas| {
+            for (i, path) in FRAMES.iter().enumerate() {
+                canvas.spawn((
+                    LogoFrame { index: i },
+                    ImageNode {
+                        image: asset_server.load::<Image>(*path),
+                        image_mode: NodeImageMode::Stretch,
+                        ..default()
+                    },
+                    Node {
+                        position_type: PositionType::Absolute,
+                        left: Val::Px(0.0),
+                        top: Val::Px(0.0),
+                        width: Val::Px(960.0),
+                        height: Val::Px(540.0),
+                        display: Display::None,
+                        ..default()
+                    },
+                    ZIndex(1),
+                ));
+            }
+        });
     });
 }
 

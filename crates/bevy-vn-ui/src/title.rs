@@ -57,74 +57,87 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
             width: percent(100),
             height: percent(100),
             position_type: PositionType::Absolute,
+            align_items: AlignItems::Center,
+            justify_content: JustifyContent::Center,
             ..default()
         },
     ))
     .with_children(|parent| {
+        // Fixed 960x540 canvas, centered in whatever window size.
         parent.spawn((
-            ImageNode {
-                image: bg,
-                image_mode: NodeImageMode::Stretch,
-                ..default()
-            },
             Node {
-                position_type: PositionType::Absolute,
-                left: Val::Px(0.0),
-                top: Val::Px(0.0),
                 width: Val::Px(960.0),
                 height: Val::Px(540.0),
-                overflow: Overflow::clip(),
+                flex_shrink: 0.0,
                 ..default()
             },
-            ZIndex(0),
-        ));
-
-        parent.spawn((
-            ImageNode { image: logo, ..default() },
-            Node {
-                position_type: PositionType::Absolute,
-                left: Val::Px(50.0),
-                top: Val::Px(49.0),
-                width: Val::Px(336.0),
-                height: Val::Px(152.0),
-                ..default()
-            },
-            ZIndex(1),
-        ));
-
-        parent.spawn((
-            ImageNode { image: typemoon, ..default() },
-            Node {
-                position_type: PositionType::Absolute,
-                left: Val::Px(850.0),
-                top: Val::Px(510.0),
-                width: Val::Px(105.0),
-                height: Val::Px(30.0),
-                ..default()
-            },
-            ZIndex(1),
-        ));
-
-        for b in buttons {
-            parent.spawn((
-                TitleButton(b.action),
-                Button,
+        ))
+        .with_children(|canvas| {
+            canvas.spawn((
                 ImageNode {
-                    image: btn.clone(),
-                    rect: Some(Rect::new(0.0, b.clip_y, b.w, b.clip_y + b.h)),
+                    image: bg,
+                    image_mode: NodeImageMode::Stretch,
                     ..default()
                 },
                 Node {
                     position_type: PositionType::Absolute,
-                    left: Val::Px(b.x),
-                    top: Val::Px(b.y),
-                    width: Val::Px(b.w),
-                    height: Val::Px(b.h),
+                    left: Val::Px(0.0),
+                    top: Val::Px(0.0),
+                    width: Val::Px(960.0),
+                    height: Val::Px(540.0),
+                    overflow: Overflow::clip(),
                     ..default()
                 },
-                ZIndex(2),
+                ZIndex(0),
             ));
-        }
+
+            canvas.spawn((
+                ImageNode { image: logo, ..default() },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(50.0),
+                    top: Val::Px(49.0),
+                    width: Val::Px(336.0),
+                    height: Val::Px(152.0),
+                    ..default()
+                },
+                ZIndex(1),
+            ));
+
+            canvas.spawn((
+                ImageNode { image: typemoon, ..default() },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(850.0),
+                    top: Val::Px(510.0),
+                    width: Val::Px(105.0),
+                    height: Val::Px(30.0),
+                    ..default()
+                },
+                ZIndex(1),
+            ));
+
+            for b in buttons {
+                canvas.spawn((
+                    TitleButton(b.action),
+                    Button,
+                    ImageNode {
+                        image: btn.clone(),
+                        rect: Some(Rect::new(0.0, b.clip_y, b.w, b.clip_y + b.h)),
+                        ..default()
+                    },
+                    Node {
+                        position_type: PositionType::Absolute,
+                        left: Val::Px(b.x),
+                        top: Val::Px(b.y),
+                        width: Val::Px(b.w),
+                        height: Val::Px(b.h),
+                        ..default()
+                    },
+                    ZIndex(2),
+                ));
+            }
+        });
     });
 }
 
