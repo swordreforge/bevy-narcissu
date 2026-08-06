@@ -11,7 +11,7 @@ struct SpeakerText;
 struct DialogueText;
 
 #[derive(Component)]
-struct DialogueRoot;
+pub struct DialogueRoot;
 
 #[derive(Resource, Default)]
 pub struct DialogueUiState {

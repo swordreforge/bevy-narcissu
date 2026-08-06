@@ -46,6 +46,31 @@ impl Default for VnRenderPlugin { fn default() -> Self { Self { fg_slots: 3 } } 
 impl Plugin for VnRenderPlugin {
     fn build(&self, app: &mut App) {
         app.insert_resource(fg::FgSlotConfig { slot_count: self.fg_slots });
-        app.add_plugins((BgPlugin, FgPlugin, CgPlugin, OverlayPlugin, SpriteOverlayPlugin));
+        app.add_plugins((BgPlugin, FgPlugin, CgPlugin, OverlayPlugin, SpriteOverlayPlugin))
+            .add_systems(OnExit(bevy_vn_core::state::VnAppState::Gameplay), clear_gameplay_scene);
     }
+}
+
+/// Wipe every gameplay-stage visual on exit (backgrounds, characters, CG,
+/// overlays, sprites) and reset the per-subsystem bookkeeping, so returning
+/// to the title never shows leftover story art behind the menu.
+fn clear_gameplay_scene(
+    mut commands: Commands,
+    mut bg: ResMut<bg::BgState>,
+    mut cg: ResMut<cg::CgState>,
+    mut fg: ResMut<fg::FgSlotState>,
+    mut ov: ResMut<overlay::OverlayState>,
+    q_bg: Query<Entity, With<bg::BgMarker>>,
+    q_cg: Query<Entity, With<cg::CgMarker>>,
+    q_fg: Query<Entity, With<fg::FgSlotMarker>>,
+    q_ov: Query<Entity, With<overlay::OverlayMarker>>,
+    q_sp: Query<Entity, With<sprite::SpriteOverlayMarker>>,
+) {
+    for e in q_bg.iter().chain(q_cg.iter()).chain(q_fg.iter()).chain(q_ov.iter()).chain(q_sp.iter()) {
+        commands.entity(e).despawn();
+    }
+    *bg = bg::BgState::default();
+    *cg = cg::CgState::default();
+    *fg = fg::FgSlotState::default();
+    *ov = overlay::OverlayState::default();
 }

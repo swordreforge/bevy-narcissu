@@ -46,7 +46,21 @@ impl Plugin for VnUiPlugin {
             story_detail::StoryDetailPlugin,
             brand_logo::BrandLogoPlugin,
         ))
-        .add_systems(Update, force_any_character_linebreak);
+        .add_systems(Update, force_any_character_linebreak)
+        .add_systems(OnExit(bevy_vn_core::state::VnAppState::Gameplay), hide_dialogue_ui);
+    }
+}
+
+/// Dialogue box is spawned once at startup and stays alive; hide it whenever
+/// gameplay ends so a finished story never leaves the box over the title.
+fn hide_dialogue_ui(
+    state: Option<Res<dialogue::DialogueUiState>>,
+    mut q_root: Query<&mut Node, With<dialogue::DialogueRoot>>,
+) {
+    let Some(state) = state else { return };
+    let Some(root) = state.root else { return };
+    if let Ok(mut node) = q_root.get_mut(root) {
+        node.display = Display::None;
     }
 }
 
