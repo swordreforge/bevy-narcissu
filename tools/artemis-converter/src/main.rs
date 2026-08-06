@@ -1,9 +1,14 @@
-//! artemis-converter — Converts Artemis engine .asb/.iet scripts to .vnscript.ron.
+//! artemis-converter — Converts Artemis engine scripts to .vnscript.ron.
 //!
 //! Usage: artemis-converter --input <dir> --output <dir>
+//!        artemis-converter --ast-dir <dir> --output <dir>   (水仙10周年 .ast Lua tables)
 //!
 //! Scans `<input>/scenario/*.asb` and `<input>/scenario/*.iet`,
-//! converts them to `<output>/*.vnscript.ron`.
+//! converts them to `<output>/*.vnscript.ron`. With `--ast-dir`, scans `.ast`
+//! Lua-table scripts instead.
+
+mod ast;
+mod ast_mapper;
 
 use bevy_vn_core::script::cmd::{
     FgPosition, ScreenEffectKind, ScriptCmd, ScriptMeta, ScriptVersion, VnScript,
@@ -22,6 +27,9 @@ struct Args {
     input: PathBuf,
     #[arg(long, default_value = "assets/scripts")]
     output: PathBuf,
+    /// Convert 水仙10周年 `.ast` Lua-table scripts found under this dir.
+    #[arg(long)]
+    ast_dir: Option<PathBuf>,
     #[arg(long)]
     verbose: bool,
 }
@@ -29,6 +37,10 @@ struct Args {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
     fs::create_dir_all(&args.output)?;
+
+    if let Some(ast_dir) = &args.ast_dir {
+        return run_ast_conversion(ast_dir, &args.output, args.verbose);
+    }
 
     let scenario_dir = args.input.join("scenario");
     if !scenario_dir.is_dir() {
@@ -78,6 +90,54 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("Done — output in {}", args.output.display());
     Ok(())
+}
+
+fn run_ast_conversion(ast_dir: &Path, output: &Path, verbose: bool) -> Result<(), Box<dyn std::error::Error>> {
+    let mut ast_files = Vec::new();
+    collect_ast_files(ast_dir, &mut ast_files);
+    ast_files.sort();
+    if ast_files.is_empty() {
+        eprintln!("No .ast files found under {}", ast_dir.display());
+        std::process::exit(1);
+    }
+    eprintln!("Found {} .ast files", ast_files.len());
+
+    let mut converted = 0;
+    let mut skipped = 0;
+    for path in &ast_files {
+        let name = path.file_stem().unwrap().to_str().unwrap_or("unknown");
+        let script = match ast::parse_ast(path) {
+            Ok(s) => s,
+            Err(e) => {
+                eprintln!("  [warn] Failed to parse {}: {}", path.display(), e);
+                skipped += 1;
+                continue;
+            }
+        };
+        let vn = ast_mapper::map_ast_script(&script, name, verbose);
+        let ron = ron::ser::to_string_pretty(&vn, ron::ser::PrettyConfig::default())?;
+        fs::write(output.join(format!("{name}.vnscript.ron")), ron)?;
+        if verbose {
+            eprintln!("  -> {} ({} instructions)", name, vn.instructions.len());
+        }
+        converted += 1;
+    }
+
+    println!("AST done: {converted} converted, {skipped} skipped — output in {}", output.display());
+    Ok(())
+}
+
+fn collect_ast_files(dir: &Path, files: &mut Vec<PathBuf>) {
+    if let Ok(entries) = fs::read_dir(dir) {
+        for entry in entries.flatten() {
+            let path = entry.path();
+            if path.is_dir() {
+                collect_ast_files(&path, files);
+            } else if path.extension().map_or(false, |e| e == "ast") {
+                files.push(path);
+            }
+        }
+    }
 }
 
 // ── ASB binary parser ──

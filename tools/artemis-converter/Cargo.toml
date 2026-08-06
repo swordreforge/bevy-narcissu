@@ -5,6 +5,7 @@ edition = "2021"
 description = "Artemis ASB/IET converter for bevy-vn-engine"
 
 [dependencies]
+anyhow = "1"
 bevy-vn-core = { path = "../../crates/bevy-vn-core" }
 clap = { version = "4", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
