@@ -160,7 +160,6 @@ fn handle_custom_tag(
             "タイトル" => {
                 block.blocked = true;
                 next.set(VnAppState::Title);
-                info!("custom タイトル: switching to Title");
             }
             "brandlogo" => {
                 next.set(VnAppState::Splash);
@@ -186,5 +185,4 @@ fn return_to_title_on_story_end(
     if engine.has_more() { return; }
     block.blocked = true;
     next.set(VnAppState::Title);
-    info!("story_end: switching to Title");
 }

@@ -58,7 +58,6 @@ fn handle_play_movie(
     mut pending: ResMut<PendingVideo>,
 ) {
     for event in reader.read() {
-        info!("PlayMovie requested: {} (blocking: {})", event.file, event.blocking);
         // TODO: platform-specific video playback
         pending.playing = event.blocking;
         pending.file = Some(event.file.clone());
@@ -88,7 +87,6 @@ fn handle_sprite_video(
             x: event.x,
             y: event.y,
         });
-        info!("SpriteVideo {}: {} at ({}, {})", event.id, event.file, event.x, event.y);
     }
 }
 

@@ -34,7 +34,6 @@ fn preload_story_voices(
     for event in reader.read() {
         let files = engine.collect_voice_files(&event.script);
         if files.is_empty() { continue; }
-        bevy::log::info!("[voice] preloading {} files for {}", files.len(), event.script);
         for f in &files {
             let path = format!("audio/voice/{}.ogg", f);
             let _ = asset_server.load::<AudioSource>(&path);
@@ -52,9 +51,7 @@ fn handle_play_voice(
         if let Some(e) = mgr.entity { commands.entity(e).try_despawn(); }
         let path = format!("audio/voice/{}.ogg", event.file);
         let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
-        bevy::log::info!("[voice] play event: file={} path={} vol={} mgr_vol={}", event.file, path, vol, mgr.volume);
         let handle = asset_server.load::<AudioSource>(&path);
-        bevy::log::info!("[voice] handle state: {:?}", asset_server.get_load_state(&handle));
         mgr.entity = Some(commands.spawn((
             AudioPlayer(handle),
             PlaybackSettings { mode: PlaybackMode::Despawn, volume: Volume::Linear(vol), ..default() },
