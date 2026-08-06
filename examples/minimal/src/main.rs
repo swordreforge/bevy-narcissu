@@ -45,9 +45,8 @@ fn main() {
         .add_plugins(VnSavePlugin::default())
         .add_plugins(VnVideoPlugin)
         .insert_resource(AssetPathProvider::default())
-        .insert_resource(AutoAdvance(Timer::from_seconds(2.5, TimerMode::Repeating)))
         .add_systems(Startup, (spawn_camera, load_font, load_scripts))
-        .add_systems(Update, (user_input, auto_advance, apply_font))
+        .add_systems(Update, (user_input, apply_font))
         .run();
 }
 
@@ -116,34 +115,15 @@ fn apply_font(font: Res<GameFont>, mut q: Query<&mut TextFont>) {
     }
 }
 
-/// Fires AdvanceEvent on user input — ScriptRunner handles the rest.
+/// Fires AdvanceEvent on Space — mouse clicks are handled by HotspotPlugin
+/// (which honors script-declared hotspot regions).
 fn user_input(
     keys: Res<ButtonInput<KeyCode>>,
-    mouse: Res<ButtonInput<MouseButton>>,
     mut writer: MessageWriter<AdvanceEvent>,
     engine: Res<ScriptEngine>,
 ) {
     if !engine.has_more() { return; }
-    if keys.just_pressed(KeyCode::Space) || mouse.just_pressed(MouseButton::Left) {
+    if keys.just_pressed(KeyCode::Space) {
         writer.write(AdvanceEvent { source: AdvanceSource::UserInput });
-    }
-}
-
-/// 临时自动推进：每 2.5 秒发一次 AdvanceEvent，用于验证渲染管线。
-#[derive(Resource)]
-struct AutoAdvance(Timer);
-
-fn auto_advance(
-    time: Res<Time>,
-    mut timer: ResMut<AutoAdvance>,
-    mut writer: MessageWriter<AdvanceEvent>,
-    engine: Res<ScriptEngine>,
-) {
-    if !engine.has_more() { return; }
-    timer.0.tick(time.delta());
-    if timer.0.just_finished() {
-        let cur = engine.current();
-        info!("auto-advance @ {cur:?}");
-        writer.write(AdvanceEvent { source: AdvanceSource::Auto });
     }
 }

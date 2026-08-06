@@ -14,6 +14,7 @@ pub mod title;
 pub mod settings;
 pub mod save_load_ui;
 pub mod gallery;
+pub mod hotspot;
 
 use bevy::prelude::*;
 
@@ -34,6 +35,7 @@ impl Plugin for VnUiPlugin {
             settings::SettingsPlugin,
             save_load_ui::SaveLoadUiPlugin,
             gallery::GalleryPlugin,
+            hotspot::HotspotPlugin,
         ));
     }
 }

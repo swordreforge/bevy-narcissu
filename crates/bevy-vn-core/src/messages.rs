@@ -116,6 +116,22 @@ pub struct ScreenEffectEvent {
     pub duration_ms: u64,
 }
 
+// ── Interaction hotspots ──
+
+/// Add or update a clickable screen region (pixel coords, origin top-left).
+#[derive(Message, Clone)]
+pub struct HotspotEvent {
+    pub id: String,
+    pub x: f32,
+    pub y: f32,
+    pub width: f32,
+    pub height: f32,
+}
+
+/// Remove all active hotspots.
+#[derive(Message, Clone)]
+pub struct HotspotClearEvent;
+
 // ── Audio ──
 
 #[derive(Message, Clone)]

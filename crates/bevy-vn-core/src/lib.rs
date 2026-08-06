@@ -88,6 +88,10 @@ impl Plugin for VnCorePlugin {
         app.add_message::<messages::ChoiceStateEvent>();
         app.add_message::<messages::ChoiceSelectedEvent>();
 
+        // Interaction hotspot events
+        app.add_message::<messages::HotspotEvent>();
+        app.add_message::<messages::HotspotClearEvent>();
+
         // ── Script runner (bridges ScriptEngine → Messages) ──
         app.add_plugins(runner::ScriptRunnerPlugin);
     }

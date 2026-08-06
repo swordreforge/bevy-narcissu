@@ -124,6 +124,20 @@ pub enum ScriptCmd {
         convergence: String,
     },
 
+    // ── Interaction hotspots ──
+    /// Declare a clickable screen region (pixel coords, origin top-left).
+    /// While any hotspots are active, clicks outside them do nothing;
+    /// with none active, the whole screen advances (default).
+    Hotspot {
+        id: String,
+        x: f32,
+        y: f32,
+        width: f32,
+        height: f32,
+    },
+    /// Remove all active hotspots.
+    HotspotClear,
+
     // ── Rendering ──
     SetBg {
         image: String,
@@ -454,5 +468,31 @@ mod serde_tests {
         };
         let ron_str = ron::ser::to_string(&script).unwrap();
         let _parsed: VnScript = ron::de::from_str(&ron_str).unwrap();
+    }
+
+    #[test]
+    fn ron_roundtrip_hotspot() {
+        let script = VnScript {
+            version: ScriptVersion::V1,
+            meta: ScriptMeta::default(),
+            instructions: vec![
+                ScriptCmd::Hotspot { id: "menu_1".into(), x: 100.0, y: 200.0, width: 300.0, height: 80.0 },
+                ScriptCmd::HotspotClear,
+            ],
+        };
+        let ron_str = ron::ser::to_string(&script).unwrap();
+        let parsed: VnScript = ron::de::from_str(&ron_str).unwrap();
+        assert_eq!(parsed.instructions.len(), 2);
+        match &parsed.instructions[0] {
+            ScriptCmd::Hotspot { id, x, y, width, height } => {
+                assert_eq!(id, "menu_1");
+                assert_eq!(*x, 100.0);
+                assert_eq!(*y, 200.0);
+                assert_eq!(*width, 300.0);
+                assert_eq!(*height, 80.0);
+            }
+            other => panic!("expected Hotspot, got {other:?}"),
+        }
+        assert!(matches!(parsed.instructions[1], ScriptCmd::HotspotClear));
     }
 }

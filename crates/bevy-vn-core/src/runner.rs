@@ -16,12 +16,31 @@ pub struct WaitTimer { pub timer: Option<Timer> }
 #[derive(Resource, Default)]
 pub struct EventQueue { items: Vec<EventItem> }
 
+impl EventQueue {
+    /// Remove and return only the items matching `pred`, leaving the rest
+    /// for other flush systems (each flush consumes only its own kind).
+    fn take_where(&mut self, mut pred: impl FnMut(&EventItem) -> bool) -> Vec<EventItem> {
+        let mut out = Vec::new();
+        let mut i = 0;
+        while i < self.items.len() {
+            if pred(&self.items[i]) {
+                out.push(self.items.remove(i));
+            } else {
+                i += 1;
+            }
+        }
+        out
+    }
+}
+
 #[derive(Clone)]
 enum EventItem {
     Dialogue(DialogueStateEvent),
     ClearDialogue,
     Choice(ChoiceStateEvent),
     Backlog(BacklogPushEvent),
+    Hotspot(HotspotEvent),
+    HotspotClear,
     Render(RenderEvent),
     Audio(AudioEvent),
     Video(VideoEvent),
@@ -44,6 +63,7 @@ impl Plugin for ScriptRunnerPlugin {
             .add_systems(Update, auto_skip_tick)
             .add_systems(Update, wait_tick)
             .add_systems(Update, flush_render)
+            .add_systems(Update, flush_hotspot)
             .add_systems(Update, flush_audio)
             .add_systems(Update, flush_video)
             .add_systems(Update, flush_other);
@@ -141,6 +161,11 @@ fn dispatch(
             R::Block
         }
         ScriptCmd::ChoiceEnd { .. } => R::Continue,
+        ScriptCmd::Hotspot { id, x, y, width, height } => {
+            q.items.push(EventItem::Hotspot(HotspotEvent { id: id.clone(), x: *x, y: *y, width: *width, height: *height }));
+            R::Continue
+        }
+        ScriptCmd::HotspotClear => { q.items.push(EventItem::HotspotClear); R::Continue }
         ScriptCmd::SetBg { image, transition } => { q.items.push(EventItem::Render(RenderEvent::SetBg(SetBgEvent { image: image.clone(), transition: *transition }))); R::Continue }
         ScriptCmd::ShowFg { char_id, expression, position, transition } => {
             q.items.push(EventItem::Render(RenderEvent::ShowFg(ShowFgEvent { char_id: char_id.clone(), expression: expression.clone(), position: *position, transition: *transition }))); R::Continue
@@ -198,7 +223,7 @@ fn dispatch(
 // ── Flush systems (split to avoid Bevy param count limit) ──
 
 fn flush_other(mut q: ResMut<EventQueue>, mut wuc: MessageWriter<UnlockCgEvent>, mut wub: MessageWriter<UnlockBgmEvent>, mut wsv: MessageWriter<SavePointEvent>) {
-    for evt in q.items.drain(..) {
+    for evt in q.take_where(|e| matches!(e, EventItem::Other(_))) {
         match evt {
             EventItem::Other(OtherEvent::UnlockCg(e)) => { let _ = wuc.write(e); }
             EventItem::Other(OtherEvent::UnlockBgm(e)) => { let _ = wub.write(e); }
@@ -209,7 +234,7 @@ fn flush_other(mut q: ResMut<EventQueue>, mut wuc: MessageWriter<UnlockCgEvent>,
 }
 
 fn flush_video(mut q: ResMut<EventQueue>, mut wmv: MessageWriter<PlayMovieEvent>, mut wms: MessageWriter<StopMovieEvent>, mut wsvid: MessageWriter<SpriteVideoEvent>, mut wsvs: MessageWriter<StopSpriteVideoEvent>) {
-    for evt in q.items.drain(..) {
+    for evt in q.take_where(|e| matches!(e, EventItem::Video(_))) {
         match evt {
             EventItem::Video(VideoEvent::PlayMovie(e)) => { let _ = wmv.write(e); }
             EventItem::Video(VideoEvent::StopMovie) => { let _ = wms.write(StopMovieEvent); }
@@ -220,8 +245,18 @@ fn flush_video(mut q: ResMut<EventQueue>, mut wmv: MessageWriter<PlayMovieEvent>
     }
 }
 
+fn flush_hotspot(mut q: ResMut<EventQueue>, mut wh: MessageWriter<HotspotEvent>, mut wc: MessageWriter<HotspotClearEvent>) {
+    for evt in q.take_where(|e| matches!(e, EventItem::Hotspot(_) | EventItem::HotspotClear)) {
+        match evt {
+            EventItem::Hotspot(e) => { let _ = wh.write(e); }
+            EventItem::HotspotClear => { let _ = wc.write(HotspotClearEvent); }
+            _ => {}
+        }
+    }
+}
+
 fn flush_audio(mut q: ResMut<EventQueue>, mut wbm: MessageWriter<PlayBgmEvent>, mut wbs: MessageWriter<StopBgmEvent>, mut wse: MessageWriter<PlaySeEvent>, mut wss: MessageWriter<StopSeEvent>, mut wvo: MessageWriter<PlayVoiceEvent>, mut wvl: MessageWriter<SetVolumeEvent>) {
-    for evt in q.items.drain(..) {
+    for evt in q.take_where(|e| matches!(e, EventItem::Audio(_))) {
         match evt {
             EventItem::Audio(AudioEvent::PlayBgm(e)) => { let _ = wbm.write(e); }
             EventItem::Audio(AudioEvent::StopBgm(e)) => { let _ = wbs.write(e); }
@@ -239,7 +274,11 @@ fn flush_render(mut q: ResMut<EventQueue>, mut wd: MessageWriter<DialogueStateEv
     mut wcg_s: MessageWriter<ShowCgEvent>, mut wcg_h: MessageWriter<HideCgEvent>, mut wsc: MessageWriter<ScrollBgEvent>,
     mut wsp: MessageWriter<SpriteEvent>, mut wspf: MessageWriter<SpriteEffectEvent>, mut wov: MessageWriter<ScreenEffectEvent>,
 ) {
-    for evt in q.items.drain(..) {
+    for evt in q.take_where(|e| {
+        matches!(e,
+            EventItem::Dialogue(_) | EventItem::ClearDialogue | EventItem::Choice(_) |
+            EventItem::Backlog(_) | EventItem::Render(_))
+    }) {
         match evt {
             EventItem::Dialogue(e) => { let _ = wd.write(e); }
             EventItem::ClearDialogue => { let _ = wc.write(ClearDialogueEvent); }
