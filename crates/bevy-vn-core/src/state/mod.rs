@@ -28,6 +28,8 @@ pub enum VnMenuState {
     Gallery,
     Backlog,
     RouteSelect,
+    ChapterSelect,
+    StoryDetail,
     AfterStory,
 }
 

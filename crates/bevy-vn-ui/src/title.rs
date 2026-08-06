@@ -155,8 +155,12 @@ fn handle_title_click(
     for (btn, inter) in q.iter() {
         if *inter != Interaction::Pressed { continue; }
         match btn.0 {
-            TitleAction::Start | TitleAction::Chapter => {
+            TitleAction::Start => {
                 next_menu.set(VnMenuState::RouteSelect);
+                next.set(VnAppState::Menu);
+            }
+            TitleAction::Chapter => {
+                next_menu.set(VnMenuState::ChapterSelect);
                 next.set(VnAppState::Menu);
             }
             TitleAction::Load => {
