@@ -169,7 +169,9 @@ fn handle_custom_tag(
     }
 }
 
-/// Script reached its end (`halt` → `ScriptEngine.finished`). No more
+/// Script reached its end — either a `halt` command (`ScriptEngine.finished`)
+/// or the last instruction of a script entered directly from chapter select
+/// (`has_more()` is false because `current()` is past the end). No more
 /// `AdvanceEvent` will be produced, so leave Gameplay and return to the
 /// title screen — matching the original game, where each of the six
 /// short stories ends back at the title.
@@ -180,7 +182,7 @@ fn return_to_title_on_story_end(
     mut next: ResMut<NextState<VnAppState>>,
 ) {
     if *state.get() != VnAppState::Gameplay { return; }
-    if !engine.finished { return; }
+    if engine.has_more() { return; }
     block.blocked = true;
     next.set(VnAppState::Title);
 }
