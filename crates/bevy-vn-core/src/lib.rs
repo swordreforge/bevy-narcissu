@@ -34,6 +34,7 @@ impl Plugin for VnCorePlugin {
         app.insert_resource(self.config.clone());
         app.insert_resource(VnTheme::default());
         app.insert_resource(VnTransition::default());
+        app.init_resource::<script::ScriptEngine>();
 
         // ── State machine ──
         app.init_state::<VnAppState>();

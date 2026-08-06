@@ -84,7 +84,7 @@ struct TextReveal {
 
 fn handle_dialogue(
     mut reader: MessageReader<DialogueStateEvent>,
-    mut q_root: Query<&mut Node, With<DialogueRoot>>,
+    mut q_root: Query<&mut Node, (With<DialogueRoot>, Without<SpeakerText>)>,
     mut q_speaker: Query<(&mut Text, &mut Node), (With<SpeakerText>, Without<DialogueText>)>,
     _q_text: Query<&mut Text, With<DialogueText>>,
     mut reveal: Local<TextReveal>,

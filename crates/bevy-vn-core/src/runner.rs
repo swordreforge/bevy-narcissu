@@ -8,8 +8,13 @@ pub struct ScriptBlock { pub blocked: bool }
 #[derive(Resource, Default)]
 pub struct AutoSkip { pub enabled: bool, pub timer: Timer }
 
+/// Auto-advance timer armed by `Wait` commands. When it elapses, an
+/// `AdvanceEvent(Auto)` is emitted so the script continues without input.
 #[derive(Resource, Default)]
-pub struct EventQueue { pub items: Vec<EventItem> }
+pub struct WaitTimer { pub timer: Option<Timer> }
+
+#[derive(Resource, Default)]
+pub struct EventQueue { items: Vec<EventItem> }
 
 #[derive(Clone)]
 enum EventItem {
@@ -32,10 +37,12 @@ impl Plugin for ScriptRunnerPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<ScriptBlock>()
             .init_resource::<AutoSkip>()
+            .init_resource::<WaitTimer>()
             .init_resource::<EventQueue>()
             .add_systems(Update, unblock_on_choice)
             .add_systems(Update, process_advance)
             .add_systems(Update, auto_skip_tick)
+            .add_systems(Update, wait_tick)
             .add_systems(Update, flush_render)
             .add_systems(Update, flush_audio)
             .add_systems(Update, flush_video)
@@ -47,6 +54,7 @@ fn unblock_on_choice(mut r: MessageReader<ChoiceSelectedEvent>, mut blk: ResMut<
     for _ in r.read() { blk.blocked = false; }
 }
 
+#[derive(PartialEq)]
 enum R { Continue, Block, Finished }
 
 fn process_advance(
@@ -54,23 +62,48 @@ fn process_advance(
     mut engine: ResMut<ScriptEngine>,
     block: Res<ScriptBlock>,
     mut queue: ResMut<EventQueue>,
+    mut wait: ResMut<WaitTimer>,
 ) {
     if block.blocked { return; }
     let mut skip = false;
-    for e in reader.read() { skip = e.source == AdvanceSource::Skip; }
-    if reader.is_empty() { return; }
+    let mut had_event = false;
+    for e in reader.read() {
+        had_event = true;
+        skip = e.source == AdvanceSource::Skip;
+    }
+    if !had_event { return; }
     loop {
-        let Some(cmd) = engine.current().cloned() else { break; };
-        match dispatch(&cmd, &mut *engine, skip, &mut queue) {
+        let Some(cmd) = engine.current().cloned() else { break };
+        match dispatch(&cmd, &mut *engine, skip, &mut queue, &mut wait) {
             R::Continue => { engine.advance(); }
-            R::Block => break,
+            R::Block => { engine.advance(); break; }
             R::Finished => { engine.finished = true; break; }
         }
         if block.blocked { break; }
     }
 }
 
-fn dispatch(cmd: &ScriptCmd, eng: &mut ScriptEngine, skip: bool, q: &mut EventQueue) -> R {
+fn wait_tick(
+    time: Res<Time>,
+    mut wait: ResMut<WaitTimer>,
+    mut writer: MessageWriter<AdvanceEvent>,
+) {
+    if let Some(timer) = &mut wait.timer {
+        timer.tick(time.delta());
+        if timer.just_finished() {
+            wait.timer = None;
+            let _ = writer.write(AdvanceEvent { source: AdvanceSource::Auto });
+        }
+    }
+}
+
+fn dispatch(
+    cmd: &ScriptCmd,
+    eng: &mut ScriptEngine,
+    skip: bool,
+    q: &mut EventQueue,
+    wt: &mut WaitTimer,
+) -> R {
     use crate::script::cmd::ConditionOp;
     match cmd {
         ScriptCmd::Label { .. } => R::Continue,
@@ -138,7 +171,13 @@ fn dispatch(cmd: &ScriptCmd, eng: &mut ScriptEngine, skip: bool, q: &mut EventQu
         ScriptCmd::StopSe { channel } => { q.items.push(EventItem::Audio(AudioEvent::StopSe(StopSeEvent { channel: *channel }))); R::Continue }
         ScriptCmd::PlayVoice { file, volume } => { q.items.push(EventItem::Audio(AudioEvent::PlayVoice(PlayVoiceEvent { file: file.clone(), volume: *volume }))); R::Continue }
         ScriptCmd::SetVolume { bgm, se, voice } => { q.items.push(EventItem::Audio(AudioEvent::SetVolume(SetVolumeEvent { bgm: *bgm, se: *se, voice: *voice }))); R::Continue }
-        ScriptCmd::Wait { .. } => { if skip { R::Continue } else { R::Block } }
+        ScriptCmd::Wait { time_ms } => {
+            if skip { R::Continue }
+            else {
+                wt.timer = Some(Timer::from_seconds(*time_ms as f32 / 1000.0, TimerMode::Once));
+                R::Block
+            }
+        }
         ScriptCmd::SetFlag { key, value } => { eng.flags.insert(key.clone(), *value); R::Continue }
         ScriptCmd::SetGlobalFlag { flag_id, value } => { eng.global_flags.insert(*flag_id, *value); R::Continue }
         ScriptCmd::UnlockCg { image } => { q.items.push(EventItem::Other(OtherEvent::UnlockCg(UnlockCgEvent { image: image.clone() }))); R::Continue }

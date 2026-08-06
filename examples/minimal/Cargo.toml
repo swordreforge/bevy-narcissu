@@ -7,8 +7,12 @@ edition = "2021"
 bevy = { version = "0.19", default-features = false, features = [
     "bevy_asset", "bevy_audio", "bevy_sprite", "bevy_ui", "bevy_text",
     "bevy_ui_render", "bevy_log", "bevy_state",
+    "bevy_winit", "bevy_window", "bevy_render", "bevy_core_pipeline",
+    "bevy_picking", "multi_threaded", "png",
+    "x11", "wayland", "debug",
     "vorbis", "jpeg",
 ] }
+ron = "0.8"
 bevy-vn-core = { path = "../../crates/bevy-vn-core" }
 bevy-vn-render = { path = "../../crates/bevy-vn-render" }
 bevy-vn-audio = { path = "../../crates/bevy-vn-audio" }
