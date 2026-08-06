@@ -1,7 +1,7 @@
 //! Settings screen.
 
 use bevy::prelude::*;
-use bevy_vn_core::state::VnAppState;
+use bevy_vn_core::state::VnMenuState;
 use bevy_vn_core::theme::VnTheme;
 
 #[derive(Component)]
@@ -11,13 +11,9 @@ pub struct SettingsPlugin;
 
 impl Plugin for SettingsPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(OnEnter(VnAppState::Menu), spawn_settings.run_if(settings_active))
-            .add_systems(OnExit(VnAppState::Menu), despawn_settings);
+        app.add_systems(OnEnter(VnMenuState::Settings), spawn_settings)
+            .add_systems(OnExit(VnMenuState::Settings), despawn_settings);
     }
-}
-
-fn settings_active(state: Res<State<VnAppState>>) -> bool {
-    *state.get() == VnAppState::Menu
 }
 
 fn spawn_settings(mut commands: Commands, theme: Option<Res<VnTheme>>) {

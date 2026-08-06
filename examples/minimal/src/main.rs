@@ -1,13 +1,14 @@
 //! Minimal bevy-vn-engine example — 水仙10周年 real scripts.
 //!
-//! Loads every `*.vnscript.ron` from assets/scripts into the ScriptEngine
-//! at startup, starts at `gamestart`, and lets ScriptRunner drive execution.
-//! Space/click to advance; Wait commands auto-advance via the engine's WaitTimer.
+//! Flow: Splash (brand logo) → Title (image-based) → RouteSelect (story pick)
+//! → Gameplay (script-driven). Loads every `*.vnscript.ron` from assets/scripts
+//! into the ScriptEngine at startup; scripts start only after a story is chosen.
 
 use std::path::Path;
 
 use bevy::prelude::*;
 use bevy_vn_core::prelude::*;
+use bevy_vn_core::runner::ScriptBlock;
 use bevy_vn_core::script::ScriptEngine;
 use bevy_vn_audio::VnAudioPlugin;
 use bevy_vn_render::{AssetPathProvider, VnRenderPlugin};
@@ -17,8 +18,6 @@ use bevy_vn_video::VnVideoPlugin;
 
 const SCRIPT_DIR: &str = "assets/scripts";
 const FONT_PATH: &str = "fonts/font-2.otf";
-const ENTRY_SCRIPT: &str = "gamestart";
-const ENTRY_LABEL: &str = "top";
 
 #[derive(Resource)]
 struct GameFont(Handle<Font>);
@@ -28,7 +27,7 @@ fn main() {
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "水仙10周年".into(),
-                resolution: [1280, 720].into(),
+                resolution: [960, 540].into(),
                 ..default()
             }),
             ..default()
@@ -45,8 +44,8 @@ fn main() {
         .add_plugins(VnSavePlugin::default())
         .add_plugins(VnVideoPlugin)
         .insert_resource(AssetPathProvider::default())
-        .add_systems(Startup, (spawn_camera, load_font, load_scripts))
-        .add_systems(Update, (user_input, apply_font))
+        .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
+        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag))
         .run();
 }
 
@@ -58,8 +57,13 @@ fn load_font(asset_server: Res<AssetServer>, mut commands: Commands) {
     commands.insert_resource(GameFont(asset_server.load::<Font>(FONT_PATH)));
 }
 
-/// Load every `*.vnscript.ron` from assets/scripts into the ScriptEngine,
-/// then start at the `gamestart` script's `top` label.
+/// Begin the opening sequence: brand logo first.
+fn start_at_splash(mut next: ResMut<NextState<VnAppState>>) {
+    next.set(VnAppState::Splash);
+}
+
+/// Load every `*.vnscript.ron` from assets/scripts into the ScriptEngine.
+/// No script is started — the user picks a story from the RouteSelect UI.
 fn load_scripts(mut engine: ResMut<ScriptEngine>) {
     let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join(SCRIPT_DIR);
     let mut entries: Vec<_> = std::fs::read_dir(&dir)
@@ -98,10 +102,6 @@ fn load_scripts(mut engine: ResMut<ScriptEngine>) {
         loaded += 1;
     }
     info!("Loaded {loaded} scripts from {SCRIPT_DIR}");
-
-    engine
-        .set_current(ENTRY_SCRIPT, Some(ENTRY_LABEL))
-        .unwrap_or_else(|e| error!("start failed: {e}"));
 }
 
 /// Bevy's default font has no CJK glyphs — force every UI TextFont to
@@ -115,15 +115,56 @@ fn apply_font(font: Res<GameFont>, mut q: Query<&mut TextFont>) {
     }
 }
 
-/// Fires AdvanceEvent on Space — mouse clicks are handled by HotspotPlugin
-/// (which honors script-declared hotspot regions).
+/// Fires AdvanceEvent on Space — only while actually playing a script.
+/// Mouse clicks on dialogue are handled by HotspotPlugin.
 fn user_input(
+    state: Res<State<VnAppState>>,
     keys: Res<ButtonInput<KeyCode>>,
     mut writer: MessageWriter<AdvanceEvent>,
     engine: Res<ScriptEngine>,
 ) {
+    if *state.get() != VnAppState::Gameplay { return; }
     if !engine.has_more() { return; }
     if keys.just_pressed(KeyCode::Space) {
         writer.write(AdvanceEvent { source: AdvanceSource::UserInput });
+    }
+}
+
+/// RouteSelect chose a story → jump the engine to that script/label, play.
+fn handle_story_select(
+    mut reader: MessageReader<StorySelectEvent>,
+    mut engine: ResMut<ScriptEngine>,
+    mut block: ResMut<ScriptBlock>,
+    mut next: ResMut<NextState<VnAppState>>,
+) {
+    for e in reader.read() {
+        match engine.set_current(&e.script, Some(&e.label)) {
+            Ok(()) => {
+                block.blocked = false;
+                next.set(VnAppState::Gameplay);
+            }
+            Err(err) => error!("story select {}.{} failed: {err}", e.script, e.label),
+        }
+    }
+}
+
+/// Gameplay script hit a custom tag. `タイトル` returns to the title screen;
+/// `brandlogo` replays the opening (used by some scripts).
+fn handle_custom_tag(
+    mut reader: MessageReader<CustomTagEvent>,
+    mut block: ResMut<ScriptBlock>,
+    mut next: ResMut<NextState<VnAppState>>,
+) {
+    for e in reader.read() {
+        match e.tag.as_str() {
+            "タイトル" => {
+                block.blocked = true;
+                next.set(VnAppState::Title);
+            }
+            "brandlogo" => {
+                next.set(VnAppState::Splash);
+            }
+            _ => {}
+        }
     }
 }

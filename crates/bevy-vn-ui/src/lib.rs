@@ -15,6 +15,8 @@ pub mod settings;
 pub mod save_load_ui;
 pub mod gallery;
 pub mod hotspot;
+pub mod character_select;
+pub mod brand_logo;
 
 use bevy::prelude::*;
 
@@ -36,6 +38,8 @@ impl Plugin for VnUiPlugin {
             save_load_ui::SaveLoadUiPlugin,
             gallery::GalleryPlugin,
             hotspot::HotspotPlugin,
+            character_select::CharacterSelectPlugin,
+            brand_logo::BrandLogoPlugin,
         ));
     }
 }

@@ -34,6 +34,22 @@ pub struct TransitionComplete {
     pub target: crate::state::VnAppState,
 }
 
+/// Game-specific custom tag dispatched from script execution.
+/// Carries the tag name and its string-keyed data map.
+#[derive(Message, Clone)]
+pub struct CustomTagEvent {
+    pub tag: String,
+    pub data: std::collections::HashMap<String, String>,
+}
+
+/// User picked a story from the character/chapter select screen.
+/// Consumed by the example to jump the ScriptEngine to the story label.
+#[derive(Message, Clone)]
+pub struct StorySelectEvent {
+    pub script: String,
+    pub label: String,
+}
+
 // ── Rendering ──
 
 #[derive(Message, Clone)]

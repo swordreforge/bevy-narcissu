@@ -1,7 +1,7 @@
 //! Save/Load screen UI.
 
 use bevy::prelude::*;
-use bevy_vn_core::state::VnAppState;
+use bevy_vn_core::state::VnMenuState;
 use bevy_vn_core::theme::VnTheme;
 
 #[derive(Component)]
@@ -11,13 +11,9 @@ pub struct SaveLoadUiPlugin;
 
 impl Plugin for SaveLoadUiPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(OnEnter(VnAppState::Menu), spawn_save_load.run_if(in_save_load))
-            .add_systems(OnExit(VnAppState::Menu), despawn_save_load);
+        app.add_systems(OnEnter(VnMenuState::SaveLoad), spawn_save_load)
+            .add_systems(OnExit(VnMenuState::SaveLoad), despawn_save_load);
     }
-}
-
-fn in_save_load(state: Res<State<VnAppState>>) -> bool {
-    *state.get() == VnAppState::Menu
 }
 
 fn spawn_save_load(mut commands: Commands, theme: Option<Res<VnTheme>>) {

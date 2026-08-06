@@ -45,6 +45,7 @@ enum EventItem {
     Audio(AudioEvent),
     Video(VideoEvent),
     Other(OtherEvent),
+    Custom(CustomTagEvent),
 }
 #[derive(Clone)] enum RenderEvent { SetBg(SetBgEvent), ShowFg(ShowFgEvent), HideFg(HideFgEvent), ShowFace(ShowFaceEvent), ShowCg(ShowCgEvent), HideCg(HideCgEvent), ScrollBg(ScrollBgEvent), Sprite(SpriteEvent), SpriteEffect(SpriteEffectEvent), ScreenEffect(ScreenEffectEvent) }
 #[derive(Clone)] enum AudioEvent { PlayBgm(PlayBgmEvent), StopBgm(StopBgmEvent), PlaySe(PlaySeEvent), StopSe(StopSeEvent), PlayVoice(PlayVoiceEvent), SetVolume(SetVolumeEvent) }
@@ -64,6 +65,7 @@ impl Plugin for ScriptRunnerPlugin {
             .add_systems(Update, wait_tick)
             .add_systems(Update, flush_render)
             .add_systems(Update, flush_hotspot)
+            .add_systems(Update, flush_custom)
             .add_systems(Update, flush_audio)
             .add_systems(Update, flush_video)
             .add_systems(Update, flush_other);
@@ -216,7 +218,18 @@ fn dispatch(
         ScriptCmd::StopMovie => { q.items.push(EventItem::Video(VideoEvent::StopMovie)); R::Continue }
         ScriptCmd::SpriteVideo { id, file, x, y } => { q.items.push(EventItem::Video(VideoEvent::SpriteVideo(SpriteVideoEvent { id: id.clone(), file: file.clone(), x: *x, y: *y }))); R::Continue }
         ScriptCmd::StopSpriteVideo { id } => { q.items.push(EventItem::Video(VideoEvent::StopSpriteVideo(StopSpriteVideoEvent { id: id.clone() }))); R::Continue }
-        ScriptCmd::Custom { .. } | ScriptCmd::Unknown | ScriptCmd::HideFace { .. } | ScriptCmd::UnlockScene { .. } | ScriptCmd::ScrollView { .. } => R::Continue,
+        ScriptCmd::Custom { tag, data } => match tag.as_str() {
+            "タイトル" => {
+                q.items.push(EventItem::Custom(CustomTagEvent { tag: tag.clone(), data: data.clone() }));
+                R::Block
+            }
+            "brandlogo" => {
+                q.items.push(EventItem::Custom(CustomTagEvent { tag: tag.clone(), data: data.clone() }));
+                R::Continue
+            }
+            "msg" | "msgoff" | "keyskip" | _ => R::Continue,
+        },
+        ScriptCmd::Unknown | ScriptCmd::HideFace { .. } | ScriptCmd::UnlockScene { .. } | ScriptCmd::ScrollView { .. } => R::Continue,
     }
 }
 
@@ -252,6 +265,12 @@ fn flush_hotspot(mut q: ResMut<EventQueue>, mut wh: MessageWriter<HotspotEvent>,
             EventItem::HotspotClear => { let _ = wc.write(HotspotClearEvent); }
             _ => {}
         }
+    }
+}
+
+fn flush_custom(mut q: ResMut<EventQueue>, mut wc: MessageWriter<CustomTagEvent>) {
+    for evt in q.take_where(|e| matches!(e, EventItem::Custom(_))) {
+        if let EventItem::Custom(e) = evt { let _ = wc.write(e); }
     }
 }
 

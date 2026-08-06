@@ -1,7 +1,7 @@
 //! CG Gallery screen.
 
 use bevy::prelude::*;
-use bevy_vn_core::state::VnAppState;
+use bevy_vn_core::state::VnMenuState;
 use bevy_vn_core::theme::VnTheme;
 
 #[derive(Component)]
@@ -11,13 +11,9 @@ pub struct GalleryPlugin;
 
 impl Plugin for GalleryPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(OnEnter(VnAppState::Menu), spawn_gallery.run_if(in_gallery))
-            .add_systems(OnExit(VnAppState::Menu), despawn_gallery);
+        app.add_systems(OnEnter(VnMenuState::Gallery), spawn_gallery)
+            .add_systems(OnExit(VnMenuState::Gallery), despawn_gallery);
     }
-}
-
-fn in_gallery(state: Res<State<VnAppState>>) -> bool {
-    *state.get() == VnAppState::Menu
 }
 
 fn spawn_gallery(mut commands: Commands, theme: Option<Res<VnTheme>>) {

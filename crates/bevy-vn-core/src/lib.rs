@@ -19,7 +19,7 @@ use bevy::prelude::*;
 
 use engine_config::VnEngineConfig;
 use script::VnScriptLoader;
-use state::{VnAppState, VnTransition};
+use state::{VnAppState, VnMenuState, VnTransition};
 use theme::VnTheme;
 
 /// Core engine plugin. Must be added before any subsystem plugin
@@ -38,6 +38,7 @@ impl Plugin for VnCorePlugin {
 
         // ── State machine ──
         app.init_state::<VnAppState>();
+        app.add_sub_state::<VnMenuState>();
 
         // ── Asset loader for .vnscript.ron ──
         app.init_asset::<script::VnScriptAsset>();
@@ -47,6 +48,8 @@ impl Plugin for VnCorePlugin {
         app.add_message::<messages::AdvanceEvent>();
         app.add_message::<messages::TransitionRequest>();
         app.add_message::<messages::TransitionComplete>();
+        app.add_message::<messages::CustomTagEvent>();
+        app.add_message::<messages::StorySelectEvent>();
 
         // Rendering events
         app.add_message::<messages::SetBgEvent>();
