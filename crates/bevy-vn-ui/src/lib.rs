@@ -44,6 +44,20 @@ impl Plugin for VnUiPlugin {
             chapter_select::ChapterSelectPlugin,
             story_detail::StoryDetailPlugin,
             brand_logo::BrandLogoPlugin,
-        ));
+        ))
+        .add_systems(Update, force_any_character_linebreak);
+    }
+}
+
+/// Override Bevy's default word-boundary line breaking (ICU4X UAX#14).
+/// The bundled icu data has no Japanese segmentation model, so every CJK
+/// text layout logs "No segmentation model for language: ja" — switch to
+/// per-character breaking, which is visually identical for CJK text and
+/// avoids the ICU4X lookup entirely.
+fn force_any_character_linebreak(mut q: Query<&mut TextLayout>) {
+    for mut layout in &mut q {
+        if layout.linebreak != LineBreak::AnyCharacter {
+            layout.linebreak = LineBreak::AnyCharacter;
+        }
     }
 }

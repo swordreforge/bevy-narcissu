@@ -150,9 +150,13 @@ fn dispatch(
             }; if ok { let _ = eng.jump_to_label(goto); }; R::Continue
         }
         ScriptCmd::Halt => R::Finished,
-        ScriptCmd::Dialogue { speaker, text, .. } => {
+        ScriptCmd::Dialogue { speaker, text, voice } => {
             if skip { return R::Continue; }
-            q.items.push(EventItem::Backlog(BacklogPushEvent { entry: BacklogEntry { speaker: speaker.clone(), text: text.clone(), voice_file: None }}));
+            q.items.push(EventItem::Backlog(BacklogPushEvent { entry: BacklogEntry { speaker: speaker.clone(), text: text.clone(), voice_file: voice.clone() }}));
+            if let Some(file) = voice {
+                bevy::log::info!("[voice] dialogue queued: {} (speaker={:?})", file, speaker);
+                q.items.push(EventItem::Audio(AudioEvent::PlayVoice(PlayVoiceEvent { file: file.clone(), volume: None })));
+            }
             q.items.push(EventItem::Dialogue(DialogueStateEvent { speaker: speaker.clone(), text: text.clone() }));
             R::Block
         }
@@ -281,7 +285,7 @@ fn flush_audio(mut q: ResMut<EventQueue>, mut wbm: MessageWriter<PlayBgmEvent>, 
             EventItem::Audio(AudioEvent::StopBgm(e)) => { let _ = wbs.write(e); }
             EventItem::Audio(AudioEvent::PlaySe(e)) => { let _ = wse.write(e); }
             EventItem::Audio(AudioEvent::StopSe(e)) => { let _ = wss.write(e); }
-            EventItem::Audio(AudioEvent::PlayVoice(e)) => { let _ = wvo.write(e); }
+            EventItem::Audio(AudioEvent::PlayVoice(e)) => { bevy::log::info!("[voice] flushed to writer: {}", e.file); let _ = wvo.write(e); }
             EventItem::Audio(AudioEvent::SetVolume(e)) => { let _ = wvl.write(e); }
             _ => {}
         }

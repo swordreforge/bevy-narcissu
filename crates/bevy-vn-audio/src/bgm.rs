@@ -3,11 +3,17 @@ use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 
 use bevy_vn_core::messages::{PlayBgmEvent, StopBgmEvent, SetVolumeEvent};
 
-#[derive(Resource, Default)]
+#[derive(Resource)]
 pub struct BgmManager {
     pub entity: Option<Entity>,
     pub current_id: Option<String>,
     pub volume: f32,
+}
+
+impl Default for BgmManager {
+    fn default() -> Self {
+        Self { entity: None, current_id: None, volume: 1.0 }
+    }
 }
 
 pub struct BgmPlugin;

@@ -340,6 +340,20 @@ mod serde_tests {
     }
 
     #[test]
+    fn ron_roundtrip_dialogue_voice() {
+        let script = VnScript {
+            version: ScriptVersion::V1,
+            meta: ScriptMeta::default(),
+            instructions: vec![
+                ScriptCmd::Dialogue { speaker: Some("Alice".into()), text: "Hello".into(), voice: Some("li/n002".into()) },
+            ],
+        };
+        let ron_str = ron::ser::to_string_pretty(&script, ron::ser::PrettyConfig::default()).unwrap();
+        let parsed: VnScript = ron::de::from_str(&ron_str).unwrap();
+        assert!(matches!(&parsed.instructions[0], ScriptCmd::Dialogue { voice: Some(v), .. } if v == "li/n002"));
+    }
+
+    #[test]
     fn ron_roundtrip_control_flow() {
         let script = VnScript {
             version: ScriptVersion::V1,

@@ -3,10 +3,16 @@ use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 
 use bevy_vn_core::messages::{PlayVoiceEvent, SetVolumeEvent};
 
-#[derive(Resource, Default)]
+#[derive(Resource)]
 pub struct VoiceManager {
     pub entity: Option<Entity>,
     pub volume: f32,
+}
+
+impl Default for VoiceManager {
+    fn default() -> Self {
+        Self { entity: None, volume: 1.0 }
+    }
 }
 
 pub struct VoicePlugin;
@@ -24,11 +30,14 @@ fn handle_play_voice(
     mut mgr: ResMut<VoiceManager>,
 ) {
     for event in reader.read() {
-        if let Some(e) = mgr.entity { commands.entity(e).despawn(); }
+        if let Some(e) = mgr.entity { commands.entity(e).try_despawn(); }
         let path = format!("audio/voice/{}.ogg", event.file);
         let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
+        bevy::log::info!("[voice] play event: file={} path={} vol={} mgr_vol={}", event.file, path, vol, mgr.volume);
+        let handle = asset_server.load::<AudioSource>(&path);
+        bevy::log::info!("[voice] handle state: {:?}", asset_server.get_load_state(&handle));
         mgr.entity = Some(commands.spawn((
-            AudioPlayer(asset_server.load::<AudioSource>(&path)),
+            AudioPlayer(handle),
             PlaybackSettings { mode: PlaybackMode::Despawn, volume: Volume::Linear(vol), ..default() },
         )).id());
     }

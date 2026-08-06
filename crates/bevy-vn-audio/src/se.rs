@@ -5,10 +5,16 @@ use bevy_vn_core::messages::{PlaySeEvent, StopSeEvent, SetVolumeEvent};
 
 const MAX_CHANNELS: usize = 8;
 
-#[derive(Resource, Default)]
+#[derive(Resource)]
 pub struct SeManager {
     pub entities: [Option<Entity>; MAX_CHANNELS],
     pub volume: f32,
+}
+
+impl Default for SeManager {
+    fn default() -> Self {
+        Self { entities: [None; MAX_CHANNELS], volume: 1.0 }
+    }
 }
 
 pub struct SePlugin;
