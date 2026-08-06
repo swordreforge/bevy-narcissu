@@ -67,36 +67,61 @@ fn default_item_height() -> f32 { 48.0 }
 fn default_font_size_24() -> f32 { 24.0 }
 fn default_choice_padding() -> [f32; 4] { [12.0, 24.0, 12.0, 24.0] }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TitleTheme {
     pub title_font_size: f32,
     pub menu_font_size: f32,
 }
+impl Default for TitleTheme {
+    fn default() -> Self {
+        Self { title_font_size: 56.0, menu_font_size: 28.0 }
+    }
+}
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SettingsTheme {
     pub font_size: f32,
     pub slider_width: f32,
 }
+impl Default for SettingsTheme {
+    fn default() -> Self {
+        Self { font_size: 24.0, slider_width: 300.0 }
+    }
+}
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SaveLoadTheme {
     pub font_size: f32,
     pub thumbnail_width: f32,
     pub thumbnail_height: f32,
 }
+impl Default for SaveLoadTheme {
+    fn default() -> Self {
+        Self { font_size: 24.0, thumbnail_width: 200.0, thumbnail_height: 112.0 }
+    }
+}
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BacklogTheme {
     pub font_size: f32,
     pub max_entries: usize,
 }
+impl Default for BacklogTheme {
+    fn default() -> Self {
+        Self { font_size: 22.0, max_entries: 50 }
+    }
+}
 
-#[derive(Debug, Clone, Serialize, Deserialize, Default)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GalleryTheme {
     pub thumbnail_width: f32,
     pub thumbnail_height: f32,
     pub columns: usize,
+}
+impl Default for GalleryTheme {
+    fn default() -> Self {
+        Self { thumbnail_width: 240.0, thumbnail_height: 135.0, columns: 4 }
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

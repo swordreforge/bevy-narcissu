@@ -23,6 +23,7 @@ pub struct DialoguePlugin;
 impl Plugin for DialoguePlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<DialogueUiState>()
+            .init_resource::<TextReveal>()
             .add_systems(Startup, spawn_dialogue_ui)
             .add_systems(Update, (handle_dialogue, handle_clear, reveal_text));
     }
@@ -87,7 +88,7 @@ fn handle_dialogue(
     mut q_root: Query<&mut Node, (With<DialogueRoot>, Without<SpeakerText>)>,
     mut q_speaker: Query<(&mut Text, &mut Node), (With<SpeakerText>, Without<DialogueText>)>,
     _q_text: Query<&mut Text, With<DialogueText>>,
-    mut reveal: Local<TextReveal>,
+    mut reveal: ResMut<TextReveal>,
     theme: Option<Res<VnTheme>>,
 ) {
     for event in reader.read() {
@@ -112,7 +113,7 @@ fn handle_dialogue(
 
 fn reveal_text(
     time: Res<Time>,
-    mut reveal: Local<TextReveal>,
+    mut reveal: ResMut<TextReveal>,
     mut q: Query<&mut Text, With<DialogueText>>,
 ) {
     if reveal.full_text.is_empty() { return; }
@@ -128,7 +129,7 @@ fn reveal_text(
 fn handle_clear(
     mut reader: MessageReader<ClearDialogueEvent>,
     mut q_root: Query<&mut Node, With<DialogueRoot>>,
-    mut reveal: Local<TextReveal>,
+    mut reveal: ResMut<TextReveal>,
 ) {
     for _ in reader.read() {
         for mut node in q_root.iter_mut() { node.display = Display::None; }
