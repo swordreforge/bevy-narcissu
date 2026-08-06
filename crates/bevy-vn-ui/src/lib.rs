@@ -12,6 +12,7 @@ pub mod choice;
 pub mod backlog;
 pub mod title;
 pub mod settings;
+pub mod settings_data;
 pub mod save_load_ui;
 pub mod gallery;
 pub mod hotspot;
