@@ -8,7 +8,7 @@ use bevy::prelude::*;
 use bevy::text::FontSize;
 use bevy_vn_core::engine_config::VnEngineConfig;
 use bevy_vn_core::messages::SetVolumeEvent;
-use bevy_vn_core::state::VnMenuState;
+use bevy_vn_core::state::{VnAppState, VnMenuState};
 use bevy_vn_core::theme::VnTheme;
 
 use crate::settings_data::{load_settings, save_settings, GameSettings};
@@ -778,6 +778,7 @@ fn handle_settings_clicks(
     settings: Res<GameSettings>,
     mut commands: Commands,
     mut next_menu: ResMut<NextState<VnMenuState>>,
+    mut next_app: ResMut<NextState<VnAppState>>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
 
@@ -790,6 +791,7 @@ fn handle_settings_clicks(
             }
             NavTarget::Title | NavTarget::Back => {
                 next_menu.set(VnMenuState::Main);
+                next_app.set(VnAppState::Title);
                 return;
             }
             NavTarget::Page1 | NavTarget::Page2 => {

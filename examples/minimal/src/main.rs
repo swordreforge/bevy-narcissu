@@ -45,7 +45,7 @@ fn main() {
         .add_plugins(VnVideoPlugin)
         .insert_resource(AssetPathProvider::default())
         .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
-        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag))
+        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end))
         .run();
 }
 
@@ -167,4 +167,20 @@ fn handle_custom_tag(
             _ => {}
         }
     }
+}
+
+/// Script reached its end (`halt` → `ScriptEngine.finished`). No more
+/// `AdvanceEvent` will be produced, so leave Gameplay and return to the
+/// title screen — matching the original game, where each of the six
+/// short stories ends back at the title.
+fn return_to_title_on_story_end(
+    state: Res<State<VnAppState>>,
+    engine: Res<ScriptEngine>,
+    mut block: ResMut<ScriptBlock>,
+    mut next: ResMut<NextState<VnAppState>>,
+) {
+    if *state.get() != VnAppState::Gameplay { return; }
+    if !engine.finished { return; }
+    block.blocked = true;
+    next.set(VnAppState::Title);
 }
