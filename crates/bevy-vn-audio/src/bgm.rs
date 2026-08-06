@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 
 use bevy_vn_core::messages::{PlayBgmEvent, StopBgmEvent, SetVolumeEvent};
+use bevy_vn_core::runner::flush_audio;
 
 #[derive(Resource)]
 pub struct BgmManager {
@@ -20,7 +21,7 @@ pub struct BgmPlugin;
 impl Plugin for BgmPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<BgmManager>()
-            .add_systems(Update, (handle_play_bgm, handle_stop_bgm, handle_bgm_volume));
+            .add_systems(Update, (handle_play_bgm, handle_stop_bgm, handle_bgm_volume).after(flush_audio));
     }
 }
 

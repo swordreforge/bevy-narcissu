@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 
 use bevy_vn_core::messages::{PlaySeEvent, StopSeEvent, SetVolumeEvent};
+use bevy_vn_core::runner::flush_audio;
 
 const MAX_CHANNELS: usize = 8;
 
@@ -21,7 +22,7 @@ pub struct SePlugin;
 impl Plugin for SePlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<SeManager>()
-            .add_systems(Update, (handle_play_se, handle_stop_se, handle_se_volume));
+            .add_systems(Update, (handle_play_se, handle_stop_se, handle_se_volume).after(flush_audio));
     }
 }
 

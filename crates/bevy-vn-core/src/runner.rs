@@ -278,7 +278,7 @@ fn flush_custom(mut q: ResMut<EventQueue>, mut wc: MessageWriter<CustomTagEvent>
     }
 }
 
-fn flush_audio(mut q: ResMut<EventQueue>, mut wbm: MessageWriter<PlayBgmEvent>, mut wbs: MessageWriter<StopBgmEvent>, mut wse: MessageWriter<PlaySeEvent>, mut wss: MessageWriter<StopSeEvent>, mut wvo: MessageWriter<PlayVoiceEvent>, mut wvl: MessageWriter<SetVolumeEvent>) {
+pub fn flush_audio(mut q: ResMut<EventQueue>, mut wbm: MessageWriter<PlayBgmEvent>, mut wbs: MessageWriter<StopBgmEvent>, mut wse: MessageWriter<PlaySeEvent>, mut wss: MessageWriter<StopSeEvent>, mut wvo: MessageWriter<PlayVoiceEvent>, mut wvl: MessageWriter<SetVolumeEvent>) {
     for evt in q.take_where(|e| matches!(e, EventItem::Audio(_))) {
         match evt {
             EventItem::Audio(AudioEvent::PlayBgm(e)) => { let _ = wbm.write(e); }

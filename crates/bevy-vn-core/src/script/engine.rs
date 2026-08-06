@@ -218,6 +218,36 @@ impl ScriptEngine {
             matches!(c, ScriptCmd::Label { name } if name == label)
         })
     }
+
+    /// Collect every voice file referenced by a script (its own instructions
+    /// plus every script it may `call`/`call_script` transitively).
+    /// Used for voice preloading so playback never waits on asset loading.
+    pub fn collect_voice_files(&self, script_name: &str) -> Vec<String> {
+        let mut out = Vec::new();
+        let mut seen = std::collections::HashSet::new();
+        let mut stack = vec![script_name.to_owned()];
+        while let Some(name) = stack.pop() {
+            if !seen.insert(name.clone()) { continue; }
+            let Some(script) = self.scripts.get(&name) else { continue };
+            for cmd in &script.instructions {
+                match cmd {
+                    ScriptCmd::Dialogue { voice: Some(f), .. } => {
+                        if !out.contains(f) { out.push(f.clone()); }
+                    }
+                    ScriptCmd::PlayVoice { file, .. } => {
+                        if !out.contains(file) { out.push(file.clone()); }
+                    }
+                    ScriptCmd::CallScript { script: s, .. } => stack.push(s.clone()),
+                    ScriptCmd::SetNextScript { .. } => {}
+                    _ => {}
+                }
+            }
+            if let Some(next) = script.meta.next_script.as_deref() {
+                stack.push(next.to_owned());
+            }
+        }
+        out
+    }
 }
 
 // ── Default ──
@@ -481,5 +511,52 @@ mod tests {
         e.set_current("test", None).unwrap();
         let next = e.peek_next().unwrap();
         assert!(matches!(next, ScriptCmd::Dialogue { text, .. } if text == "b"));
+    }
+
+    #[test]
+    fn collect_voice_files_includes_dialogue_playvoice_and_calls() {
+        let mut e = ScriptEngine::new();
+        e.load_script(
+            "main".into(),
+            make_script(
+                "main",
+                Some("next"),
+                vec![
+                    ScriptCmd::Dialogue { speaker: None, text: "a".into(), voice: Some("li/a1".into()) },
+                    ScriptCmd::Dialogue { speaker: None, text: "b".into(), voice: Some("li/a2".into()) },
+                    ScriptCmd::PlayVoice { file: "li/a3".into(), volume: None },
+                    ScriptCmd::CallScript { script: "sub".into(), label: None },
+                ],
+            ),
+        );
+        e.load_script(
+            "sub".into(),
+            make_script(
+                "sub",
+                None,
+                vec![ScriptCmd::Dialogue { speaker: None, text: "c".into(), voice: Some("li/b1".into()) }],
+            ),
+        );
+        e.load_script(
+            "next".into(),
+            make_script(
+                "next",
+                None,
+                vec![ScriptCmd::Dialogue { speaker: None, text: "d".into(), voice: Some("li/c1".into()) }],
+            ),
+        );
+        let files = e.collect_voice_files("main");
+        assert!(files.contains(&"li/a1".to_string()));
+        assert!(files.contains(&"li/a2".to_string()));
+        assert!(files.contains(&"li/a3".to_string()));
+        assert!(files.contains(&"li/b1".to_string()));
+        assert!(files.contains(&"li/c1".to_string()));
+        assert_eq!(files.len(), 5);
+    }
+
+    #[test]
+    fn collect_voice_files_handles_missing_script() {
+        let e = ScriptEngine::new();
+        assert!(e.collect_voice_files("nope").is_empty());
     }
 }

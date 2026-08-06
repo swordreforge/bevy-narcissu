@@ -1,7 +1,9 @@
 use bevy::prelude::*;
 use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 
-use bevy_vn_core::messages::{PlayVoiceEvent, SetVolumeEvent};
+use bevy_vn_core::messages::{PlayVoiceEvent, SetVolumeEvent, StorySelectEvent};
+use bevy_vn_core::runner::flush_audio;
+use bevy_vn_core::script::ScriptEngine;
 
 #[derive(Resource)]
 pub struct VoiceManager {
@@ -19,7 +21,24 @@ pub struct VoicePlugin;
 impl Plugin for VoicePlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<VoiceManager>()
-            .add_systems(Update, (handle_play_voice, handle_voice_volume));
+            .add_systems(Update, (handle_play_voice, handle_voice_volume).after(flush_audio))
+            .add_systems(Update, preload_story_voices.after(flush_audio));
+    }
+}
+
+fn preload_story_voices(
+    mut reader: MessageReader<StorySelectEvent>,
+    asset_server: Res<AssetServer>,
+    engine: Res<ScriptEngine>,
+) {
+    for event in reader.read() {
+        let files = engine.collect_voice_files(&event.script);
+        if files.is_empty() { continue; }
+        bevy::log::info!("[voice] preloading {} files for {}", files.len(), event.script);
+        for f in &files {
+            let path = format!("audio/voice/{}.ogg", f);
+            let _ = asset_server.load::<AudioSource>(&path);
+        }
     }
 }
 
