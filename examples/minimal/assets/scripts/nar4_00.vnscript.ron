@@ -1,0 +1,1998 @@
+(
+    version: V1,
+    meta: (
+        name: Some("nar4_00"),
+        next_script: None,
+    ),
+    instructions: [
+        (
+            cmd: label,
+            args: (
+                name: "block_00000",
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "top",
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "z00",
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "z01",
+            ),
+        ),
+        (
+            cmd: save_point,
+            args: (
+                id: "水仙零 - 00",
+            ),
+        ),
+        (
+            cmd: save_point,
+            args: (
+                id: "autosave",
+            ),
+        ),
+        (
+            cmd: set_flag,
+            args: (
+                key: "chap01",
+                value: 1,
+            ),
+        ),
+        (
+            cmd: custom,
+            args: (
+                tag: "msg",
+                data: {
+                    "mode": "novel",
+                    "no": "99",
+                },
+            ),
+        ),
+        (
+            cmd: hide_cg,
+            args: (
+                transition: None,
+            ),
+        ),
+        (
+            cmd: hide_fg,
+            args: (
+                char_id: "all",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "black",
+                transition: Some(fade(
+                    duration: 1.5,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 1500,
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "……人只有在意识到自己的死亡时，\n才会体会到活着的感觉吧。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00001",
+            ),
+        ),
+        (
+            cmd: play_bgm,
+            args: (
+                id: "66",
+                volume: Some(0.78431374),
+                fade_ms: Some(500),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「虽然只是一句老套的话……\n但如今，我切身地体会到了这一点」",
+                voice: Some("li/2n4yoko_0080"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00002",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "n4ev_0012b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「那个时候，\n我想留给人的选择一定已所剩无几……」",
+                voice: Some("li/2n4yoko_0081"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00003",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「想要不被任何人察觉，\n不留下任何痕迹地，悄悄地离去……」",
+                voice: Some("li/2n4yoko_0082"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00004",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "n4ev_0012b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「又或是，想要留下曾经活着的证明」",
+                voice: Some("li/2n4yoko_0083"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00005",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "n4ev_0012b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「一定是从这两者中选其一吧」",
+                voice: Some("li/2n4yoko_0084"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00006",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "向来没有其他的选项。\n我也不知道哪一个是正确答案。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00007",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "是想要悄然离去，\n还是期望留下某些证明……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00008",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「我……选择了后者」",
+                voice: Some("li/2n4yoko_0085"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00009",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "只是，仅此而已。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00010",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "不，准确来说最开始是前者。\n但逐渐转变成了后者……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00011",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "nar4_tel00",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "sora012b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "11月清澈的天空。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00012",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "吹拂的风，也将要正式染上冬天的气息。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00013",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "中庭。\n我一如往常地正在给花坛浇水…",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00014",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「今天也是个好天气啊……」",
+                voice: Some("li/n4obasan001"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00015",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "有位女士向我搭话。\n是位偶尔在谈话室说过话的，面熟的人。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00016",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「哎，可以的话，能收下这个吗？」",
+                voice: Some("li/n4obasan002"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00017",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "我看了一下，是一本诗集。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00018",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "因为她总是将这本书带在身边，\n想必是本她心爱的书。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00019",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "但是，我没有收下它的理由。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00020",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……为什么……要给我？」",
+                voice: Some("li/n4setu_016"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00021",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「因为你看上去，是个喜欢读书的人……\n而且也没有其他能给的人了……」",
+                voice: Some("li/n4obasan003"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00022",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "说完，她用手指了指我手上拿着的地图和图鉴一类的东西。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00023",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「毕竟，给其他人的话……\n收下了也会感觉很为难吧？」",
+                voice: Some("li/n4obasan004"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00024",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「是啊…………会很为难呢」",
+                voice: Some("li/n4setu_017"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00025",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "我对她的话表示同意，并收下了书。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00026",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "在我接过书时，她那像是寂寞，又像是欣喜的……\n十分复杂的表情，给我留下了深刻的印象。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00027",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "花坛前，仍然日头高照。\n属于一段同为白手环佩戴者之间的对话。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00028",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「那么，我也差不多该走了」",
+                voice: Some("li/n4obasan005"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00029",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……嗯」",
+                voice: Some("li/new_086"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00030",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "说完这句话后，那位女士向家人身边走去。\n即使是同样戴着白手环的人，但这是她第三次临时出院。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00031",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "……恐怕，已经不会再次见面了吧。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00032",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "我把收下的书放到长椅上，再次拿起了喷水壶。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00033",
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "mizuyari",
+                channel: Some(1),
+                volume: Some(0.78431374),
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "n4ev_006b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "在其他花都已枯萎，冷冷清清的花坛之中……\n有颗独自，青葱成长着的水仙。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00034",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "明明还没有到正式的花期，\n却已经开始绽放出星星点点的白花。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00035",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "……曾经，和姬子小姐一起种下的这些花儿。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00036",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "在那之后又绽开多少次了呢？",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00037",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "―水仙正式的花期是1月到３月。\n虽然能用种子栽培，但还是以鳞茎栽培为主。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00038",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "还有……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00039",
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 400,
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "……花语是爱自己。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00040",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "尽管迄今为止这些年，我一直能见到这些花的身姿……\n总觉得今年似乎有些困难了。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00041",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "是这些花会先绽放和凋零呢……\n还是，我会先死去呢……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00042",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "大概，会是在一个接近的时间点吧。\n我想离这个预测不会差太远。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00043",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "但是，看着已经星星点点绽开的几朵花儿，能感觉到说不定花会更早。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00044",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "在我还在漠然地思考那些事的时候。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00045",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……真是性急呢，已经在开花了吗」",
+                voice: Some("li/4syuji_042"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00046",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "回头看去，那是一位穿着白大褂的中年大叔。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00047",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "印象里有见过几次。\n记得好像是这个医院里一位地位很高的医生。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00048",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "sin_b06b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「那些花……是你在照料吗？」",
+                voice: Some("li/4syuji_043"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00049",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「并不……」",
+                voice: Some("li/setsumi_0026"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00050",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「可我经常看见你呢」",
+                voice: Some("li/4syuji_044"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00051",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "接着他来到我面前的长椅上，坐下说道，",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00052",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「来吧，你也坐一会如何？」",
+                voice: Some("li/4syuji_045"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00053",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「…………」",
+                voice: Some("li/n4setu_019"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00054",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「今天是个好天气，感觉很舒服啊」",
+                voice: Some("li/4syuji_046"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00055",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……嗯，明白了」",
+                voice: Some("li/n4setu_020"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00056",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "我照他说的在长椅上坐下。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00057",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "n4ev_007",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "……真是个有些奇怪的人。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00058",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "一般来说，医院里的医生，不知是不是因为顾及我们的感受，\n总是对我们很客气……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00059",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "不知为何从这个人身上，却感受不到那样的氛围。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00060",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "话说，医院里的大人物，在这种地方无所事事真的好吗？",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00061",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……你……很闲吗？」",
+                voice: Some("li/n4setu_021"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00062",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「不过，还是没有你们闲吧」",
+                voice: Some("li/4syuji_047"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00063",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……………」",
+                voice: Some("li/setunp_1075"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00064",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……听说病人的工作就是好好睡觉」",
+                voice: Some("li/n4setu_023"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00065",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「嗯，这话没错」",
+                voice: Some("li/4syuji_048"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00066",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "虽然语气沉着，说话内容却直言不讳。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00067",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「真是个怪人……你应该是医院里的大人物吧」",
+                voice: Some("li/n4setu_024"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00068",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「是啊，别看我这样其实很厉害哦」",
+                voice: Some("li/4syuji_049"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00069",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「现在担任着医疗局长，以前也做过院长」",
+                voice: Some("li/4syuji_050"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00070",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "虽然不是很清楚，\n但如果是院长的话应该是医院里最厉害的人了吧。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00071",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「那么……这么厉害的医生，找我有什么事吗？」",
+                voice: Some("li/n4setu_025"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00072",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「嗯，因为我对那个有些在意」",
+                voice: Some("li/4syuji_051"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00073",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "说着他望着我手里拿着的那些书。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00074",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「地图、图鉴和诗集……\n明明这么年轻兴趣却很广泛呢？」",
+                voice: Some("li/4syuji_052"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00075",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「没什么。我不年轻，书也是从别人那里收下的」",
+                voice: Some("li/n4setu_026"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00076",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……原来如此。收下的东西吗」",
+                voice: Some("li/4syuji_053"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00077",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "不知为何，他又自顾自地认同了。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00078",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "接着，又看着我手上的白手环说道，",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00079",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「话说回来，七楼还住得惯吧？」",
+                voice: Some("li/4syuji_054"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00080",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……一般」",
+                voice: Some("li/n4setu_027"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00081",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「一般啊……你真是相当严厉呢」",
+                voice: Some("li/4syuji_055"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00082",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「顺便一问，规则还在流传着吗？」",
+                voice: Some("li/4syuji_056"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00083",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「咦……」",
+                voice: Some("li/n4setu_028"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00084",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "……规则？为什么这个人会知道这些……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00085",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "听说规则只会在七楼的人之间流传，\n姬子也这么说过。",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00086",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "而现在自己来到七楼后，\n也认为这些说法是真的……",
+                voice: None,
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00087",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「哎呀，别摆出那种架势。\n我并不是说要你告诉我那些……」",
+                voice: Some("li/4syuji_057"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00088",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「你……真是个奇怪的医生」",
+                voice: Some("li/n4setu_030"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00089",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「是啊……或许的确是这样呢……」",
+                voice: Some("li/4syuji_058"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00090",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「但……也并不是……」",
+                voice: Some("li/4syuji_059"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00091",
+            ),
+        ),
+        (
+            cmd: dialogue,
+            args: (
+                speaker: None,
+                text: "「……并不是从一开始就打算成为医生的……」",
+                voice: Some("li/4syuji_0592"),
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "block_00092",
+            ),
+        ),
+        (
+            cmd: set_bg,
+            args: (
+                image: "b",
+                transition: Some(fade(
+                    duration: 0.8,
+                )),
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 500,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: custom,
+            args: (
+                tag: "msgoff",
+                data: {},
+            ),
+        ),
+        (
+            cmd: wait,
+            args: (
+                time_ms: 1000,
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(1),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(2),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(3),
+            ),
+        ),
+        (
+            cmd: stop_se,
+            args: (
+                channel: Some(4),
+            ),
+        ),
+        (
+            cmd: stop_bgm,
+            args: (
+                fade_ms: Some(1000),
+            ),
+        ),
+        (
+            cmd: return,
+        ),
+    ],
+)
