@@ -21,7 +21,10 @@ pub struct BgState {
 struct BgFade {
     elapsed: f32,
     duration: f32,
+    handle: Handle<Image>,
 }
+
+const DEFAULT_BG_FADE: f32 = 1.0;
 
 pub struct BgPlugin;
 impl Plugin for BgPlugin {
@@ -65,11 +68,17 @@ fn handle_set_bg(
             }
         }
 
-        match event.transition {
+        // 未指定过渡时用原作默认 bg_fade=1000ms;显式 None 才立即切换
+        let fade = match event.transition {
             Some(Transition::Fade { duration }) if duration > 0.0 => {
-                bg_state.fading = Some(BgFade { elapsed: 0.0, duration });
+                Some(BgFade { elapsed: 0.0, duration, handle: handle.clone() })
             }
-            _ => {
+            None => Some(BgFade { elapsed: 0.0, duration: DEFAULT_BG_FADE, handle: handle.clone() }),
+            _ => None,
+        };
+        match fade {
+            Some(f) => bg_state.fading = Some(f),
+            None => {
                 if let Some(ae) = bg_state.entities[bg_state.active_idx] {
                     if let Ok((_, mut node)) = q_bg.get_mut(ae) {
                         node.display = Display::None;
@@ -81,7 +90,6 @@ fn handle_set_bg(
                     }
                 }
                 bg_state.active_idx = inactive;
-                bg_state.fading = None;
             }
         }
         bg_state.current_bg = Some(event.image.clone());
@@ -90,6 +98,7 @@ fn handle_set_bg(
 
 fn update_bg_fade(
     time: Res<Time>,
+    images: Res<Assets<Image>>,
     mut bg_state: ResMut<BgState>,
     mut q_bg: Query<(&mut ImageNode, &mut Node), With<BgImage>>,
 ) {
@@ -111,21 +120,29 @@ fn update_bg_fade(
                 img.color.set_alpha(0.0);
             }
         }
-    } else {
-        // Fade the new background in from black.
-        if let Some(e) = bg_state.entities[bg_state.active_idx] {
-            if let Ok((_, mut node)) = q_bg.get_mut(e) {
-                node.display = Display::None;
-            }
-        }
-        let a = (t - 0.5) * 2.0;
-        if let Some(e) = bg_state.entities[inactive] {
-            if let Ok((mut img, _)) = q_bg.get_mut(e) {
-                img.color.set_alpha(a);
-            }
-        }
+        bg_state.fading = Some(fade);
+        return;
     }
 
+    // Black midpoint reached: drop the old buffer and wait for the new
+    // texture to finish loading before fading in, so the frame the texture
+    // becomes ready never pops from black to a partial alpha.
+    if let Some(e) = bg_state.entities[bg_state.active_idx] {
+        if let Ok((_, mut node)) = q_bg.get_mut(e) {
+            node.display = Display::None;
+        }
+    }
+    if images.get(&fade.handle).is_none() {
+        bg_state.fading = Some(fade);
+        return;
+    }
+
+    let a = (t - 0.5) * 2.0;
+    if let Some(e) = bg_state.entities[inactive] {
+        if let Ok((mut img, _)) = q_bg.get_mut(e) {
+            img.color.set_alpha(a);
+        }
+    }
     if t >= 1.0 {
         bg_state.active_idx = inactive;
     } else {
