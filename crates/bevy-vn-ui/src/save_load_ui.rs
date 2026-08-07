@@ -338,7 +338,7 @@ fn spawn_save_load_screen(
                         spawn_slot(root, &btn, &none_img, server, provider, mgr, slot_idx, x, y);
                     }
 
-                    spawn_page_buttons(root, &btn, mode.kind);
+                    spawn_page_buttons(root, &btn, mode.kind, page);
 
                     let btnsys = server.load::<Image>(BTNSYS_PATH);
                     spawn_back_button(root, &btnsys);
@@ -483,19 +483,20 @@ fn spawn_slot(
     }
 }
 
-fn spawn_page_buttons(root: &mut ChildSpawnerCommands, btn: &Handle<Image>, kind: SaveLoadKind) {
-    let pages: [(usize, f32, Rect); 3] = [
-        (0, 762.0, Rect::new(0.0, 0.0, 24.0, 15.0)),
-        (1, 788.0, Rect::new(24.0, 0.0, 48.0, 15.0)),
-        (2, 814.0, Rect::new(48.0, 0.0, 72.0, 15.0)),
-    ];
-    for (p, x, rect) in pages {
+fn spawn_page_buttons(
+    root: &mut ChildSpawnerCommands,
+    btn: &Handle<Image>,
+    kind: SaveLoadKind,
+    page: usize,
+) {
+    let pages: [(usize, f32); 3] = [(0, 762.0), (1, 788.0), (2, 814.0)];
+    for (p, x) in pages {
         root.spawn((
             PageButton(p),
             Button,
             ImageNode {
                 image: btn.clone(),
-                rect: Some(rect),
+                rect: Some(Rect::new(p as f32 * 24.0, 0.0, p as f32 * 24.0 + 24.0, 15.0)),
                 ..default()
             },
             Node {
@@ -508,6 +509,42 @@ fn spawn_page_buttons(root: &mut ChildSpawnerCommands, btn: &Handle<Image>, kind
             },
             ZIndex(Z_CTRL),
         ));
+        if p == page {
+            // 当前页:红色数字(btn.png 红态 y32-48)顶在黑色数字上,垂直对齐偏移 +1
+            root.spawn((
+                ImageNode {
+                    image: btn.clone(),
+                    rect: Some(Rect::new(p as f32 * 24.0, 32.0, p as f32 * 24.0 + 24.0, 48.0)),
+                    ..default()
+                },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(x),
+                    top: Val::Px(82.0),
+                    width: Val::Px(24.0),
+                    height: Val::Px(16.0),
+                    ..default()
+                },
+                ZIndex(Z_CTRL + 1),
+            ));
+            // 当前页:▼ 下三角顶在页码上方(btn.png x487-496, y32-48)
+            root.spawn((
+                ImageNode {
+                    image: btn.clone(),
+                    rect: Some(Rect::new(487.0, 32.0, 496.0, 48.0)),
+                    ..default()
+                },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(x + 7.0),
+                    top: Val::Px(67.0),
+                    width: Val::Px(9.0),
+                    height: Val::Px(16.0),
+                    ..default()
+                },
+                ZIndex(Z_CTRL + 1),
+            ));
+        }
     }
 
     if kind == SaveLoadKind::Save {
