@@ -6,8 +6,9 @@
 //! `sys01`/`sys02` buttons on `extra/btn.png`.
 
 use bevy::prelude::*;
+use bevy::ui::RelativeCursorPosition;
 use bevy_vn_audio::bgm::BgmManager;
-use bevy_vn_core::messages::{PlayBgmEvent, StopBgmEvent};
+use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
 use bevy_vn_core::state::{VnAppState, VnMenuState};
 
 const BG_CG: &str = "ui/extra/gallery-bg.png";
@@ -60,6 +61,13 @@ struct Viewer;
 #[derive(Component)]
 struct ViewerClose;
 
+/// Volume slider track (clickable) + its draggable pin.
+#[derive(Component)]
+struct VolumeSlider;
+
+#[derive(Component)]
+struct VolumePin;
+
 /// Marks a background node as belonging to a specific mode (CG or BGM).
 #[derive(Component)]
 struct ExtraBg(ExtraMode);
@@ -90,10 +98,12 @@ impl Plugin for GalleryPlugin {
                     handle_bgm_play,
                     handle_cg_view,
                     handle_player,
+                    handle_volume,
                     handle_back,
                     handle_paging,
                     handle_viewer_click,
                     update_bgm_state,
+                    update_volume_pin,
                 )
                     .chain(),
             )
@@ -151,10 +161,10 @@ fn spawn_gallery(mut commands: Commands, asset_server: Res<AssetServer>) {
                 ZIndex(0),
             ));
 
-            // Pins (decorative, both modes).
+            // Pins (decorative, both modes) — from btn.png clip 440,144.
             for (px, py) in [(-2.0, -13.0), (0.0, -11.0)] {
                 canvas.spawn((
-                    ImageNode { image: pin.clone(), rect: Some(Rect::new(440.0, 144.0, 455.0, 159.0)), ..default() },
+                    ImageNode { image: btn.clone(), rect: Some(Rect::new(440.0, 144.0, 455.0, 159.0)), ..default() },
                     Node {
                         position_type: PositionType::Absolute,
                         left: Val::Px(px), top: Val::Px(py),
@@ -274,6 +284,34 @@ fn spawn_gallery(mut commands: Commands, asset_server: Res<AssetServer>) {
             player_button(canvas, &btn, PlayerAction::Play, 78.0, 430.0, 480.0, 63.0);
             player_button(canvas, &btn, PlayerAction::Stop, 155.0, 430.0, 543.0, 32.0);
             player_button(canvas, &btn, PlayerAction::Next, 254.0, 430.0, 608.0, 32.0);
+
+            // Volume slider: track from btn.png clip 639,96 (189x24), pin 19x24 from pin.png.
+            canvas.spawn((
+                VolumeSlider,
+                ExtraModeOnly(ExtraMode::Bgm),
+                Button,
+                RelativeCursorPosition::default(),
+                ImageNode { image: btn.clone(), rect: Some(Rect::new(639.0, 96.0, 828.0, 120.0)), ..default() },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(98.0), top: Val::Px(395.0),
+                    width: Val::Px(189.0), height: Val::Px(24.0),
+                    display: Display::None,
+                    ..default()
+                },
+                ZIndex(2),
+            ))
+            .with_child((
+                VolumePin,
+                ImageNode { image: pin.clone(), rect: Some(Rect::new(0.0, 0.0, 19.0, 24.0)), ..default() },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(0.0), top: Val::Px(0.0),
+                    width: Val::Px(19.0), height: Val::Px(24.0),
+                    ..default()
+                },
+                ZIndex(3),
+            ));
         });
     });
 }
@@ -424,10 +462,25 @@ fn handle_player(
     }
 }
 
+/// Volume slider: click/drag on track → set volume.
+fn handle_volume(
+    q_slider: Query<(&VolumeSlider, &Interaction, &RelativeCursorPosition)>,
+    mouse: Res<ButtonInput<MouseButton>>,
+    mut writer: MessageWriter<SetVolumeEvent>,
+) {
+    if !(mouse.just_pressed(MouseButton::Left) || mouse.pressed(MouseButton::Left)) { return; }
+    for (_, inter, rel) in &q_slider {
+        let active = *inter == Interaction::Pressed && rel.cursor_over;
+        if !active { continue; }
+        if let Some(n) = rel.normalized {
+            writer.write(SetVolumeEvent { bgm: Some(n.x.clamp(0.0, 1.0)), se: None, voice: None });
+        }
+    }
+}
+
 fn handle_back(
     q_back: Query<&Interaction, (With<BackButton>, Changed<Interaction>)>,
-    mouse: Res<ButtonInput<MouseButton>>,
-    mut stop: MessageWriter<StopBgmEvent>,
+    mouse: Res<ButtonInput<MouseButton>>,    mut stop: MessageWriter<StopBgmEvent>,
     mut next_menu: ResMut<NextState<VnMenuState>>,
     mut next: ResMut<NextState<VnAppState>>,
 ) {
@@ -487,6 +540,18 @@ fn update_bgm_state(
         let selected = bt.0 == cur;
         let rx = if selected { 176.0 } else { 0.0 };
         img.rect = Some(Rect::new(rx, 0.0, rx + 176.0, 28.0));
+    }
+}
+
+/// Keep the volume pin aligned with the current BGM volume (189px track, 19px pin).
+fn update_volume_pin(
+    bgm: Res<BgmManager>,
+    mut q: Query<&mut Node, With<VolumePin>>,
+) {
+    let max_left = 189.0 - 19.0;
+    let left = (bgm.volume.clamp(0.0, 1.0) * max_left) as f32;
+    for mut node in &mut q {
+        node.left = Val::Px(left);
     }
 }
 
