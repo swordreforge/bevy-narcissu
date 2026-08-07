@@ -6,6 +6,18 @@ use crate::state::{SaveLoadMode, VnAppState};
 #[derive(Resource, Default)]
 pub struct ScriptBlock { pub blocked: bool }
 
+/// Set while the runner waits for a `SetBgEvent` transition to finish
+/// (the original engine waits for the bg change to complete before the
+/// script continues). Cleared by `SetBgDoneEvent`, or by a timeout in
+/// headless environments without a renderer.
+#[derive(Resource, Default)]
+pub struct BgWait {
+    pub waiting: bool,
+    elapsed: f32,
+}
+
+const BG_WAIT_TIMEOUT: f32 = 2.0;
+
 #[derive(Resource, Default)]
 pub struct AutoSkip { pub enabled: bool, pub timer: Timer }
 
@@ -59,8 +71,11 @@ impl Plugin for ScriptRunnerPlugin {
         app.init_resource::<ScriptBlock>()
             .init_resource::<AutoSkip>()
             .init_resource::<WaitTimer>()
+            .init_resource::<BgWait>()
             .init_resource::<EventQueue>()
             .add_systems(Update, unblock_on_choice)
+            .add_systems(Update, unblock_on_bg_done)
+            .add_systems(Update, bg_wait_timeout)
             .add_systems(Update, process_advance.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
             .add_systems(Update, auto_skip_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
             .add_systems(Update, wait_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
@@ -90,8 +105,9 @@ fn process_advance(
     block: Res<ScriptBlock>,
     mut queue: ResMut<EventQueue>,
     mut wait: ResMut<WaitTimer>,
+    mut bg_wait: ResMut<BgWait>,
 ) {
-    if block.blocked { return; }
+    if block.blocked || bg_wait.waiting { return; }
     let mut skip = false;
     let mut had_event = false;
     for e in reader.read() {
@@ -101,7 +117,7 @@ fn process_advance(
     if !had_event { return; }
     loop {
         let Some(cmd) = engine.current().cloned() else { break };
-        match dispatch(&cmd, &mut *engine, skip, &mut queue, &mut wait) {
+        match dispatch(&cmd, &mut *engine, skip, &mut queue, &mut wait, &mut *bg_wait) {
             R::Continue => { engine.advance(); }
             R::Block => { engine.advance(); break; }
             R::Finished => { engine.finished = true; break; }
@@ -124,12 +140,41 @@ fn wait_tick(
     }
 }
 
+fn unblock_on_bg_done(
+    mut reader: MessageReader<SetBgDoneEvent>,
+    mut bg_wait: ResMut<BgWait>,
+    mut writer: MessageWriter<AdvanceEvent>,
+) {
+    for _ in reader.read() {
+        if bg_wait.waiting {
+            bg_wait.waiting = false;
+            bg_wait.elapsed = 0.0;
+            let _ = writer.write(AdvanceEvent { source: AdvanceSource::Auto });
+        }
+    }
+}
+
+fn bg_wait_timeout(
+    time: Res<Time>,
+    mut bg_wait: ResMut<BgWait>,
+    mut writer: MessageWriter<AdvanceEvent>,
+) {
+    if !bg_wait.waiting { return; }
+    bg_wait.elapsed += time.delta_secs();
+    if bg_wait.elapsed >= BG_WAIT_TIMEOUT {
+        bg_wait.waiting = false;
+        bg_wait.elapsed = 0.0;
+        let _ = writer.write(AdvanceEvent { source: AdvanceSource::Auto });
+    }
+}
+
 fn dispatch(
     cmd: &ScriptCmd,
     eng: &mut ScriptEngine,
     skip: bool,
     q: &mut EventQueue,
     wt: &mut WaitTimer,
+    bw: &mut BgWait,
 ) -> R {
     use crate::script::cmd::ConditionOp;
     match cmd {
@@ -176,7 +221,13 @@ fn dispatch(
             R::Continue
         }
         ScriptCmd::HotspotClear => { q.items.push(EventItem::HotspotClear); R::Continue }
-        ScriptCmd::SetBg { image, transition } => { q.items.push(EventItem::Render(RenderEvent::SetBg(SetBgEvent { image: image.clone(), transition: *transition }))); R::Continue }
+        ScriptCmd::SetBg { image, transition } => {
+            q.items.push(EventItem::Render(RenderEvent::SetBg(SetBgEvent { image: image.clone(), transition: *transition })));
+            eng.advance();
+            bw.waiting = true;
+            bw.elapsed = 0.0;
+            R::Block
+        }
         ScriptCmd::ShowFg { char_id, expression, position, transition } => {
             q.items.push(EventItem::Render(RenderEvent::ShowFg(ShowFgEvent { char_id: char_id.clone(), expression: expression.clone(), position: *position, transition: *transition }))); R::Continue
         }

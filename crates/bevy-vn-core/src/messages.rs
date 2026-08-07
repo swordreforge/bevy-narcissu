@@ -58,6 +58,12 @@ pub struct SetBgEvent {
     pub transition: Option<crate::script::cmd::Transition>,
 }
 
+/// Emitted by the background renderer once a `SetBgEvent` transition has
+/// finished (fade completed, instant switch, or same-image no-op), so the
+/// script runner can resume.
+#[derive(Message, Clone)]
+pub struct SetBgDoneEvent;
+
 #[derive(Message, Clone)]
 pub struct ShowFgEvent {
     pub char_id: String,

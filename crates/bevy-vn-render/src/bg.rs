@@ -2,7 +2,7 @@
 //! the original engine's bg_fade behavior (black scenes are intentional).
 
 use bevy::prelude::*;
-use bevy_vn_core::messages::SetBgEvent;
+use bevy_vn_core::messages::{SetBgDoneEvent, SetBgEvent};
 use bevy_vn_core::script::cmd::Transition;
 
 use crate::AssetPathProvider;
@@ -41,11 +41,13 @@ fn handle_set_bg(
     provider: Option<Res<AssetPathProvider>>,
     mut bg_state: ResMut<BgState>,
     mut q_bg: Query<(&mut ImageNode, &mut Node), With<BgImage>>,
+    mut wbg_done: MessageWriter<SetBgDoneEvent>,
 ) {
     for event in reader.read() {
         // Same image as the current one: no re-transition, script just
         // keeps advancing.
         if bg_state.current_bg.as_deref() == Some(event.image.as_str()) {
+            let _ = wbg_done.write(SetBgDoneEvent);
             continue;
         }
         let path = provider.as_ref()
@@ -95,6 +97,7 @@ fn handle_set_bg(
                     }
                 }
                 bg_state.active_idx = inactive;
+                let _ = wbg_done.write(SetBgDoneEvent);
             }
         }
         bg_state.current_bg = Some(event.image.clone());
@@ -106,6 +109,7 @@ fn update_bg_fade(
     images: Res<Assets<Image>>,
     mut bg_state: ResMut<BgState>,
     mut q_bg: Query<(&mut ImageNode, &mut Node), With<BgImage>>,
+    mut wbg_done: MessageWriter<SetBgDoneEvent>,
 ) {
     let Some(mut fade) = bg_state.fading.take() else { return };
     fade.elapsed += time.delta_secs();
@@ -150,6 +154,7 @@ fn update_bg_fade(
     }
     if t >= 1.0 {
         bg_state.active_idx = inactive;
+        let _ = wbg_done.write(SetBgDoneEvent);
     } else {
         bg_state.fading = Some(fade);
     }

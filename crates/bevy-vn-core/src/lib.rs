@@ -54,6 +54,7 @@ impl Plugin for VnCorePlugin {
 
         // Rendering events
         app.add_message::<messages::SetBgEvent>();
+        app.add_message::<messages::SetBgDoneEvent>();
         app.add_message::<messages::ShowFgEvent>();
         app.add_message::<messages::HideFgEvent>();
         app.add_message::<messages::ShowFaceEvent>();

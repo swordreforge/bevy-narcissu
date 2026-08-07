@@ -3,7 +3,7 @@ use bevy::prelude::*;
 use bevy_vn_core::messages::*;
 use bevy_vn_core::runner::*;
 use bevy_vn_core::script::{ScriptEngine, VnScript};
-use bevy_vn_core::state::VnAppState;
+use bevy_vn_core::state::{SaveLoadMode, VnAppState};
 
 fn load_all_scripts(engine: &mut ScriptEngine, dir: &std::path::Path) -> usize {
     let mut entries: Vec<_> = std::fs::read_dir(dir)
@@ -35,6 +35,7 @@ fn register_messages(app: &mut App) {
     app.add_message::<ChoiceSelectedEvent>();
     app.add_message::<BacklogPushEvent>();
     app.add_message::<SetBgEvent>();
+    app.add_message::<SetBgDoneEvent>();
     app.add_message::<ShowFgEvent>();
     app.add_message::<HideFgEvent>();
     app.add_message::<ShowFaceEvent>();
@@ -72,6 +73,7 @@ fn build_app() -> App {
     app.add_plugins(bevy::state::app::StatesPlugin);
     register_messages(&mut app);
     app.init_state::<VnAppState>();
+    app.insert_resource(SaveLoadMode::default());
     app.insert_resource(ScriptEngine::new());
     app.add_plugins(ScriptRunnerPlugin);
     app.add_systems(Update, return_to_title_on_story_end_like);
@@ -121,6 +123,10 @@ fn chapter_nar1_08_returns_to_title_on_end() {
         if app.world().resource::<WaitTimer>().timer.is_some() {
             // pretend the wait finished: clear it, then the runner advances past it
             app.world_mut().resource_mut::<WaitTimer>().timer = None;
+        }
+        if app.world().resource::<BgWait>().waiting {
+            // headless test: pretend the bg transition finished immediately
+            let _ = app.world_mut().write_message(SetBgDoneEvent);
         }
         let _ = app.world_mut().write_message(AdvanceEvent { source: AdvanceSource::UserInput });
         app.update();
