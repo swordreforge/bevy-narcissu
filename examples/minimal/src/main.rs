@@ -45,8 +45,22 @@ fn main() {
         .add_plugins(VnVideoPlugin)
         .insert_resource(AssetPathProvider::default())
         .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
+        .add_systems(OnEnter(VnAppState::Title), play_title_bgm)
+        .add_systems(OnExit(VnAppState::Title), stop_title_bgm)
         .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end))
         .run();
+}
+
+/// Title BGM — the original game plays `bgm01` (disc1/01-Scarlet -arranged)
+/// on the title screen (list_windows.tbl `titlebgm_title={"bgm01","bgm22"}`,
+/// normal version takes index 1). Only active in Title state.
+fn play_title_bgm(mut writer: MessageWriter<PlayBgmEvent>) {
+    writer.write(PlayBgmEvent { id: "1".into(), volume: None, fade_ms: None });
+}
+
+/// Stop the title BGM as soon as we leave the title screen.
+fn stop_title_bgm(mut writer: MessageWriter<StopBgmEvent>) {
+    writer.write(StopBgmEvent { fade_ms: None });
 }
 
 fn spawn_camera(mut commands: Commands) {

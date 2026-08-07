@@ -12,6 +12,7 @@ bevy = { version = "0.19", default-features = false, features = [
     "bevy_log",
 ] }
 bevy-vn-core = { path = "../bevy-vn-core" }
+bevy-vn-audio = { path = "../bevy-vn-audio" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 ron = "0.8"
