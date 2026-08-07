@@ -1,4 +1,5 @@
 # Bevy VN Engine
+基于 Bevy 0.19 的通用视觉小说引擎,支持脚本驱动的 AVG 游戏。当前承载《水仙 10 周年》移植项目。
 ## ⚠️ 重要声明 / Legal Disclaimer
 
 **本仓库仅供学习、研究与技术交流之用。**
@@ -13,7 +14,6 @@
    - [Narcissu 10th Anniversary Anthology Project on Steam](https://store.steampowered.com/app/426690/Narcissu_10th_Anniversary_Anthology_Project/?l=schinese)
 
 5. **侵权处理**：如版权方认为本仓库内容侵犯了您的合法权益，请通过 Issue 或邮件联系，我们将在第一时间处理[reference:5]。
-基于 Bevy 0.19 的通用视觉小说引擎,支持脚本驱动的 AVG 游戏。当前承载《水仙 10 周年》移植项目。
 
 ## 快速开始
 
