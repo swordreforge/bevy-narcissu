@@ -195,6 +195,7 @@ fn spawn_gallery(mut commands: Commands, asset_server: Res<AssetServer>) {
                     canvas.spawn((
                         CgButton(idx),
                         CgPage(page),
+                        ExtraModeOnly(ExtraMode::Cg),
                         Button,
                         ImageNode { image: btn2.clone(), rect: Some(Rect::new(0.0, 0.0, 240.0, 135.0)), ..default() },
                         Node {
@@ -336,7 +337,9 @@ fn handle_mode_switch(
     q_mode: Query<(&ModeButton, &Interaction)>,
     mouse: Res<ButtonInput<MouseButton>>,
     mut mode_q: Query<(&mut Node, &ExtraBg), Without<ExtraModeOnly>>,
-    mut mode_only: Query<(&mut Node, &ExtraModeOnly), Without<ExtraBg>>,
+    mut mode_only: Query<(&mut Node, &ExtraModeOnly), (Without<ExtraBg>, Without<CgPage>)>,
+    mut cg_page: Query<(&CgPage, &mut Node), (With<CgButton>, Without<ExtraBg>)>,
+    page: Res<PageState>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
     for (mb, inter) in &q_mode {
@@ -347,6 +350,10 @@ fn handle_mode_switch(
         }
         for (mut node, mo) in &mut mode_only {
             node.display = if mo.0 == target { Display::Flex } else { Display::None };
+        }
+        for (cp, mut node) in &mut cg_page {
+            let visible = target == ExtraMode::Cg && cp.0 == page.cg;
+            node.display = if visible { Display::Flex } else { Display::None };
         }
     }
 }
