@@ -501,6 +501,8 @@ dependencies = [
  "bevy",
  "bevy-vn-audio",
  "bevy-vn-core",
+ "bevy-vn-render",
+ "bevy-vn-save",
  "ron 0.8.1",
  "serde",
  "serde_json",
