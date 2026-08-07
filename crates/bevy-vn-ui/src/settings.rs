@@ -38,6 +38,11 @@ const SLIDER_ZONES: usize = 20;
 #[derive(Component)]
 struct SettingsScreen;
 
+/// The 960×540 content canvas under `SettingsScreen`. Replaced as a whole
+/// when switching pages so children are never left orphaned.
+#[derive(Component)]
+struct SettingsCanvas;
+
 #[derive(Component)]
 struct TabBar;
 
@@ -173,6 +178,7 @@ fn setup_settings(
     .with_children(|parent| {
         parent
             .spawn((
+                SettingsCanvas,
                 Node {
                     width: Val::Px(960.0),
                     height: Val::Px(540.0),
@@ -769,12 +775,9 @@ fn handle_settings_clicks(
     mouse: Res<ButtonInput<MouseButton>>,
     asset_server: Res<AssetServer>,
     q_nav: Query<(&NavAction, &Interaction)>,
-    q_canvas: Query<Entity, With<SettingsScreen>>,
+    q_root: Query<Entity, With<SettingsScreen>>,
+    q_canvas: Query<Entity, With<SettingsCanvas>>,
     q_sub: Query<Entity, With<SubScreenRoot>>,
-    q_p1: Query<Entity, With<Page1Root>>,
-    q_p2: Query<Entity, With<Page2Root>>,
-    q_tab: Query<Entity, With<TabBar>>,
-    q_back: Query<Entity, With<BackButton>>,
     settings: Res<GameSettings>,
     mut commands: Commands,
     mut next_menu: ResMut<NextState<VnMenuState>>,
@@ -796,13 +799,25 @@ fn handle_settings_clicks(
             }
             NavTarget::Page1 | NavTarget::Page2 => {
                 let page = if nav.0 == NavTarget::Page1 { 1 } else { 2 };
-                let canvas = q_canvas.iter().next();
-                for e in q_p1.iter().chain(q_p2.iter()).chain(q_tab.iter()).chain(q_back.iter()) {
+                let root = q_root.iter().next();
+                for e in q_canvas.iter().chain(q_sub.iter()) {
                     commands.entity(e).despawn();
                 }
-                if let Some(c) = canvas {
-                    commands.entity(c).with_children(|parent| {
-                        spawn_canvas_content(parent, &asset_server, &settings, page);
+                if let Some(r) = root {
+                    commands.entity(r).with_children(|parent| {
+                        parent
+                            .spawn((
+                                SettingsCanvas,
+                                Node {
+                                    width: Val::Px(960.0),
+                                    height: Val::Px(540.0),
+                                    flex_shrink: 0.0,
+                                    ..default()
+                                },
+                            ))
+                            .with_children(|canvas| {
+                                spawn_canvas_content(canvas, &asset_server, &settings, page);
+                            });
                     });
                 }
                 return;
