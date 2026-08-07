@@ -1,0 +1,150 @@
+(
+    version: V1,
+    meta: (
+        name: Some("pack"),
+        next_script: None,
+    ),
+    instructions: [
+        (
+            cmd: label,
+            args: (
+                name: "block_00000",
+            ),
+        ),
+        (
+            cmd: custom,
+            args: (
+                tag: "msg",
+                data: {
+                    "no": "99",
+                    "mode": "novel",
+                },
+            ),
+        ),
+        (
+            cmd: show_cg,
+            args: (
+                image: "cg_ts98",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: play_bgm,
+            args: (
+                id: "song01",
+                volume: None,
+                fade_ms: None,
+            ),
+        ),
+        (
+            cmd: play_bgm,
+            args: (
+                id: "song02",
+                volume: None,
+                fade_ms: None,
+            ),
+        ),
+        (
+            cmd: play_bgm,
+            args: (
+                id: "song03",
+                volume: None,
+                fade_ms: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z000300016",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z000700142",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z900000013",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z900000015",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z900000020",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z900000086",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: play_se,
+            args: (
+                file: "z900000113",
+                channel: Some(1),
+                volume: None,
+            ),
+        ),
+        (
+            cmd: show_cg,
+            args: (
+                image: "cg_ts98",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: show_cg,
+            args: (
+                image: "cg_ts19_01",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: show_cg,
+            args: (
+                image: "cg_ts40_02",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: show_cg,
+            args: (
+                image: "cg_ts01_02",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: show_cg,
+            args: (
+                image: "cg_ts17",
+                transition: None,
+            ),
+        ),
+        (
+            cmd: halt,
+        ),
+    ],
+)

@@ -1,0 +1,48 @@
+(
+    version: V1,
+    meta: (
+        name: Some("chap02"),
+        next_script: None,
+    ),
+    instructions: [
+        (
+            cmd: label,
+            args: (
+                name: "block_00000",
+            ),
+        ),
+        (
+            cmd: label,
+            args: (
+                name: "top",
+            ),
+        ),
+        (
+            cmd: custom,
+            args: (
+                tag: "msg",
+                data: {
+                    "no": "99",
+                    "mode": "novel",
+                },
+            ),
+        ),
+        (
+            cmd: set_flag,
+            args: (
+                key: "f.chap",
+                value: 2,
+            ),
+        ),
+        (
+            cmd: call_script,
+            args: (
+                script: "game-logic",
+                label: Some("story02"),
+            ),
+        ),
+        (
+            cmd: halt,
+        ),
+    ],
+)
