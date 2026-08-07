@@ -69,7 +69,11 @@ impl Plugin for SaveLoadUiPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<SaveLoadUiState>().add_systems(
             Update,
-            (update_save_load_ui, handle_save_load_clicks, update_slot_visuals),
+            (
+                update_save_load_ui,
+                handle_save_load_clicks,
+                update_slot_visuals,
+            ),
         );
     }
 }
@@ -189,9 +193,7 @@ fn handle_save_load_clicks(
                 if mgr.slots[index].is_none() {
                     continue;
                 }
-                let bg_key = mgr.slots[index]
-                    .as_ref()
-                    .and_then(|s| s.meta.bg.clone());
+                let bg_key = mgr.slots[index].as_ref().and_then(|s| s.meta.bg.clone());
                 if let Err(e) = mgr.load(index, &mut engine) {
                     warn!("load failed: {e}");
                     continue;
@@ -287,52 +289,60 @@ fn spawn_save_load_screen(
         .spawn((
             SaveLoadScreen,
             Node {
+                width: Val::Percent(100.0),
+                height: Val::Percent(100.0),
                 position_type: PositionType::Absolute,
-                left: Val::Px(0.0),
-                top: Val::Px(0.0),
-                width: Val::Px(960.0),
-                height: Val::Px(540.0),
+                align_items: AlignItems::Center,
+                justify_content: JustifyContent::Center,
                 ..default()
             },
         ))
-        .with_children(|root| {
-            let bg_img = server.load::<Image>(bg_path);
-            root.spawn((
-                ImageNode {
-                    image: bg_img,
-                    ..default()
-                },
-                Node {
-                    position_type: PositionType::Absolute,
-                    left: Val::Px(0.0),
-                    top: Val::Px(0.0),
+        .with_children(|container| {
+            // Fixed 960x540 canvas, centered in whatever window size.
+            container
+                .spawn((Node {
                     width: Val::Px(960.0),
                     height: Val::Px(540.0),
+                    flex_shrink: 0.0,
                     ..default()
-                },
-                ZIndex(Z_BG),
-            ));
+                },))
+                .with_children(|root| {
+                    let bg_img = server.load::<Image>(bg_path);
+                    root.spawn((
+                        ImageNode {
+                            image: bg_img,
+                            ..default()
+                        },
+                        Node {
+                            position_type: PositionType::Absolute,
+                            left: Val::Px(0.0),
+                            top: Val::Px(0.0),
+                            width: Val::Px(960.0),
+                            height: Val::Px(540.0),
+                            ..default()
+                        },
+                        ZIndex(Z_BG),
+                    ));
 
-            let btn = server.load::<Image>(BTN_PATH);
-            let none_img = server.load::<Image>(NONE_PATH);
+                    let btn = server.load::<Image>(BTN_PATH);
+                    let none_img = server.load::<Image>(NONE_PATH);
 
-            let slots_on_page = match page {
-                0 | 1 => 8,
-                2 => 4,
-                _ => 0,
-            };
-            for i in 0..slots_on_page {
-                let slot_idx = page * 8 + i;
-                let (x, y) = SLOT_POSITIONS[i];
-                spawn_slot(
-                    root, &btn, &none_img, server, provider, mgr, slot_idx, x, y,
-                );
-            }
+                    let slots_on_page = match page {
+                        0 | 1 => 8,
+                        2 => 4,
+                        _ => 0,
+                    };
+                    for i in 0..slots_on_page {
+                        let slot_idx = page * 8 + i;
+                        let (x, y) = SLOT_POSITIONS[i];
+                        spawn_slot(root, &btn, &none_img, server, provider, mgr, slot_idx, x, y);
+                    }
 
-            spawn_page_buttons(root, &btn, mode.kind);
+                    spawn_page_buttons(root, &btn, mode.kind);
 
-            let btnsys = server.load::<Image>(BTNSYS_PATH);
-            spawn_back_button(root, &btnsys);
+                    let btnsys = server.load::<Image>(BTNSYS_PATH);
+                    spawn_back_button(root, &btnsys);
+                });
         });
 }
 
