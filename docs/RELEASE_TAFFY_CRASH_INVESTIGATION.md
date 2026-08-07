@@ -29,6 +29,8 @@
 
 因此该 miscompile **不需要**上报 rustc(已在上游修复),也 **不需要**向 bevy 提交 workaround 建议(编译器已修复,无需改依赖写法)。升级工具链到 2026-08-06 之后的 nightly(或任意较新 stable)即可规避。
 
+**上游 issue 引用(已验证存在)**:本 bug 即 [rust-lang/rust#159116](https://github.com/rust-lang/rust/issues/159116)(2026-07-11 报告,`I-miscompile` / `P-high`,由 [PR #159148](https://github.com/rust-lang/rust/pull/159148) 于 07-12 修复);其下游崩溃报告为 [bevyengine/bevy#24952](https://github.com/bevyengine/bevy/issues/24952),崩溃点与本次调查完全一致(`taffy resolve.rs:68` `unreachable!` / `Compute Task Pool` / `ui_layout_system`)。详见 §11。
+
 ### English
 
 After the initial fix landed, the rustup toolchain was updated to the latest nightly (`rustc 1.99.0-nightly (84b36a78a 2026-08-06)`). A minimal standalone reproducer (MRE, §10) was used to verify the original construction code on **three toolchains**:
@@ -48,6 +50,8 @@ Conclusion: **rustc fixed this deterministic miscompile in the 2026-08-06 nightl
 4. `cargo check --workspace`: ✅ clean (only the pre-existing artemis-converter warning).
 
 Consequently this miscompile does **not** need to be reported to rustc (already fixed upstream), nor does bevy need a workaround suggestion (the compiler is fixed, no dependency change required). Simply upgrade to the 2026-08-06 nightly or any newer stable to avoid it.
+
+**Upstream issue references (verified)**: this bug is [rust-lang/rust#159116](https://github.com/rust-lang/rust/issues/159116) (filed 2026-07-11, `I-miscompile` / `P-high`, fixed by [PR #159148](https://github.com/rust-lang/rust/pull/159148) on 07-12); its downstream crash report is [bevyengine/bevy#24952](https://github.com/bevyengine/bevy/issues/24952), whose crash site matches this investigation exactly (`taffy resolve.rs:68` `unreachable!` / `Compute Task Pool` / `ui_layout_system`). See §11.
 
 ---
 
@@ -417,3 +421,49 @@ let updated: Style = Style {
 };
 // assert: both Styles byte-identical AND all three CompactLength tags == 3
 ```
+
+---
+
+## 11. 上游 issue 定位 / Upstream Issue Identification
+
+### 中文
+
+经检索 rust-lang/rust 与 bevyengine 的 issue 追踪器,本 bug 已在上游被完整报告、定位并修复,无需我们再提交任何 issue:
+
+| 仓库 | Issue | 状态 | 说明 |
+|---|---|---|---|
+| rust-lang/rust | [#159116](https://github.com/rust-lang/rust/issues/159116) "memory corruption with nightly-2026-07-10" | CLOSED(由 PR #159148 修复) | **根因 issue**。`I-miscompile` / `A-codegen` / `P-high` / `regression-from-stable-to-nightly` |
+| bevyengine/bevy | [#24952](https://github.com/bevyengine/bevy/issues/24952) "Memory corruption bug in rustc causes UI panics on nightly" | CLOSED | **下游崩溃报告**,崩溃点与本调查完全一致 |
+
+**根因细节**(rust#159116):
+
+- **引入**:PR [#158666](https://github.com/rust-lang/rust/pull/158666) "Carry the `b_offset` inside `BackendRepr::ScalarPair`",提交 [`4ccf0ea`](https://github.com/rust-lang/rust/commit/4ccf0eadf7087640a20d0b5e09ea4b73b4d67033),2026-07-09 合并。
+- **修复**:PR [#159148](https://github.com/rust-lang/rust/pull/159148) "Fix offset used to read the second part of scalar pairs from a `const`",2026-07-12 合并。
+- **机制**:rustc codegen 在从 `const` 读取 ScalarPair(双值表示)的第二部分时使用了错误的偏移("global vs relative coordinate space" 混淆,`b_offset` 计算多加了偏移)。Release 优化下,经结构体更新语法构造的 tagged enum(如 taffy `CompactLength`)第二个槽位被读出错误字节 → tag 变为非法值 → 触发下游 `unreachable!`。
+
+**与我们调查的对应关系**:
+
+- 我们崩溃使用的 nightly `be8e82435`(2026-07-11)正好位于引入(07-09)与修复(07-12)之间的受影响窗口。
+- MRE 验证的 4 个工具链结果与修复时间线完全一致:旧 nightly 坏、新 nightly(08-06,已含 07-12 修复)好、stable 1.97.1 / 1.94.1 好。
+- bevy#24952 报告者同样复现于 `taffy-0.10.1/src/util/resolve.rs:68:18`(`unreachable!`)、`Compute Task Pool` 线程、`bevy_ui::layout::ui_layout_system` 系统 —— 与我们在插桩前的崩溃现场完全吻合(我们插桩后行号漂移至 74)。
+
+### English
+
+A search of the rust-lang/rust and bevyengine issue trackers shows this bug was already fully reported, bisected, and fixed upstream — no further issue submission is needed from us:
+
+| Repo | Issue | State | Notes |
+|---|---|---|---|
+| rust-lang/rust | [#159116](https://github.com/rust-lang/rust/issues/159116) "memory corruption with nightly-2026-07-10" | CLOSED (fixed by PR #159148) | **Root-cause issue**. `I-miscompile` / `A-codegen` / `P-high` / `regression-from-stable-to-nightly` |
+| bevyengine/bevy | [#24952](https://github.com/bevyengine/bevy/issues/24952) "Memory corruption bug in rustc causes UI panics on nightly" | CLOSED | **Downstream crash report**; crash site matches this investigation exactly |
+
+**Root-cause details** (rust#159116):
+
+- **Introduced by**: PR [#158666](https://github.com/rust-lang/rust/pull/158666) "Carry the `b_offset` inside `BackendRepr::ScalarPair`", commit [`4ccf0ea`](https://github.com/rust-lang/rust/commit/4ccf0eadf7087640a20d0b5e09ea4b73b4d67033), merged 2026-07-09.
+- **Fixed by**: PR [#159148](https://github.com/rust-lang/rust/pull/159148) "Fix offset used to read the second part of scalar pairs from a `const`", merged 2026-07-12.
+- **Mechanism**: rustc codegen used the wrong offset when reading the second part of a ScalarPair (two-value representation) from a `const` — a "global vs relative coordinate space" mixup with an extra `offset +` in `b_offset`. Under release optimization, tagged enums built via struct-update syntax (e.g. taffy `CompactLength`) read corrupted bytes into the second slot → illegal tag → downstream `unreachable!`.
+
+**Correspondence with our investigation**:
+
+- Our crashing nightly `be8e82435` (2026-07-11) sits exactly in the affected window between introduction (07-09) and fix (07-12).
+- The MRE's four-toolchain results match the fix timeline precisely: old nightly broken; new nightly (08-06, includes the 07-12 fix) clean; stable 1.97.1 / 1.94.1 clean.
+- The bevy#24952 reporter hit the identical site: `taffy-0.10.1/src/util/resolve.rs:68:18` (`unreachable!`), `Compute Task Pool` thread, `bevy_ui::layout::ui_layout_system` — matching our pre-instrumentation crash exactly (post-instrumentation line drifted to 74).
