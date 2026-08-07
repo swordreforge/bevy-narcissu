@@ -143,43 +143,45 @@ impl Plugin for SettingsPlugin {
             .add_systems(Update, update_settings_overlay)
             .add_systems(
                 Update,
-                handle_settings_clicks.run_if(settings_ui_active),
+                handle_settings_clicks.run_if(settings_screen_present),
             )
             .add_systems(
                 Update,
-                handle_value_clicks.run_if(settings_ui_active),
+                handle_value_clicks.run_if(settings_screen_present),
             )
             .add_systems(
                 Update,
-                update_slider_visuals.run_if(settings_ui_active),
+                update_slider_visuals.run_if(settings_screen_present),
             )
             .add_systems(
                 Update,
-                update_toggle_visuals.run_if(settings_ui_active),
+                update_toggle_visuals.run_if(settings_screen_present),
             )
             .add_systems(OnExit(VnMenuState::Settings), teardown_settings);
     }
 }
 
-/// Settings UI is shown either in the menu tree (`VnMenuState::Settings`)
-/// or as an in-game overlay opened from the system menu (原作 adv_config).
-fn settings_ui_active(
-    state: Option<Res<State<VnMenuState>>>,
-    overlay: Res<SettingsOverlayMode>,
-) -> bool {
-    overlay.active || state.is_some_and(|s| *s.get() == VnMenuState::Settings)
+/// Run only once the settings screen entity exists — `SettingsScreen` and
+/// `GameSettings` are inserted by the same command batch, so this keeps
+/// the UI systems in sync with resource availability.
+fn settings_screen_present(q: Query<(), With<SettingsScreen>>) -> bool {
+    !q.is_empty()
 }
 
 fn update_settings_overlay(
     overlay: Res<SettingsOverlayMode>,
     q_root: Query<Entity, With<SettingsScreen>>,
+    settings: Option<Res<GameSettings>>,
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     config: Res<VnEngineConfig>,
 ) {
     if overlay.active && q_root.is_empty() {
         spawn_settings_screen(&mut commands, &asset_server, &config);
-    } else if !overlay.active && !q_root.is_empty() {
+    } else if overlay.is_changed() && !overlay.active && !q_root.is_empty() {
+        if let Some(s) = settings {
+            save_settings(&s, &config.save_dir);
+        }
         for e in q_root.iter() {
             commands.entity(e).despawn();
         }
