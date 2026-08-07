@@ -76,12 +76,28 @@ fn spawn_dialogue_ui(
     state.root = Some(root);
 }
 
-#[derive(Resource, Default)]
+#[derive(Resource)]
 struct TextReveal {
     full_text: String,
     revealed: usize,
     timer: Timer,
+    fade: f32,
+    base_alpha: f32,
 }
+
+impl Default for TextReveal {
+    fn default() -> Self {
+        Self {
+            full_text: String::new(),
+            revealed: 0,
+            timer: Timer::from_seconds(0.02, TimerMode::Repeating),
+            fade: 1.0,
+            base_alpha: 1.0,
+        }
+    }
+}
+
+const DIALOGUE_FADE: f32 = 0.25;
 
 fn handle_dialogue(
     mut reader: MessageReader<DialogueStateEvent>,
@@ -101,6 +117,10 @@ fn handle_dialogue(
 
         reveal.full_text = text;
         reveal.revealed = 0;
+        reveal.fade = 0.0;
+        reveal.base_alpha = theme.as_ref()
+            .and_then(|t| t.dialogue.text_color.get(3).copied())
+            .unwrap_or(1.0);
         reveal.timer = Timer::from_seconds((1.0 / speed) as f32, TimerMode::Repeating);
 
         // Speaker
@@ -114,15 +134,19 @@ fn handle_dialogue(
 fn reveal_text(
     time: Res<Time>,
     mut reveal: ResMut<TextReveal>,
-    mut q: Query<&mut Text, With<DialogueText>>,
+    mut q: Query<(&mut Text, &mut TextColor), With<DialogueText>>,
 ) {
     if reveal.full_text.is_empty() { return; }
+    if reveal.fade < 1.0 {
+        reveal.fade = (reveal.fade + time.delta_secs() / DIALOGUE_FADE).min(1.0);
+    }
     reveal.timer.tick(time.delta());
     let chars = reveal.timer.times_finished_this_tick() as usize;
     reveal.revealed = (reveal.revealed + chars).min(reveal.full_text.chars().count());
-    for mut t in q.iter_mut() {
+    for (mut t, mut c) in q.iter_mut() {
         let visible: String = reveal.full_text.chars().take(reveal.revealed).collect();
         **t = visible;
+        c.0.set_alpha(reveal.fade * reveal.base_alpha);
     }
 }
 
@@ -135,5 +159,6 @@ fn handle_clear(
         for mut node in q_root.iter_mut() { node.display = Display::None; }
         reveal.full_text.clear();
         reveal.revealed = 0;
+        reveal.fade = 1.0;
     }
 }
