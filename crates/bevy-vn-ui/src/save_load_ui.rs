@@ -491,12 +491,18 @@ fn spawn_page_buttons(
 ) {
     let pages: [(usize, f32); 3] = [(0, 762.0), (1, 788.0), (2, 814.0)];
     for (p, x) in pages {
+        // 页码按钮 clip 依原作 tbl:普通=y0-15 黑,当前页 clip_c=y31-46 红
+        let rect = if p == page {
+            Rect::new(p as f32 * 24.0, 31.0, p as f32 * 24.0 + 24.0, 46.0)
+        } else {
+            Rect::new(p as f32 * 24.0, 0.0, p as f32 * 24.0 + 24.0, 15.0)
+        };
         root.spawn((
             PageButton(p),
             Button,
             ImageNode {
                 image: btn.clone(),
-                rect: Some(Rect::new(p as f32 * 24.0, 0.0, p as f32 * 24.0 + 24.0, 15.0)),
+                rect: Some(rect),
                 ..default()
             },
             Node {
@@ -509,64 +515,53 @@ fn spawn_page_buttons(
             },
             ZIndex(Z_CTRL),
         ));
-        if p == page {
-            // 当前页:红色数字(btn.png 红态 y32-48)顶在黑色数字上,垂直对齐偏移 +1
-            root.spawn((
-                ImageNode {
-                    image: btn.clone(),
-                    rect: Some(Rect::new(p as f32 * 24.0, 32.0, p as f32 * 24.0 + 24.0, 48.0)),
-                    ..default()
-                },
-                Node {
-                    position_type: PositionType::Absolute,
-                    left: Val::Px(x),
-                    top: Val::Px(82.0),
-                    width: Val::Px(24.0),
-                    height: Val::Px(16.0),
-                    ..default()
-                },
-                ZIndex(Z_CTRL + 1),
-            ));
-            // 当前页:▼ 下三角顶在页码上方(btn.png x487-496, y32-48)
-            root.spawn((
-                ImageNode {
-                    image: btn.clone(),
-                    rect: Some(Rect::new(487.0, 32.0, 496.0, 48.0)),
-                    ..default()
-                },
-                Node {
-                    position_type: PositionType::Absolute,
-                    left: Val::Px(x + 7.0),
-                    top: Val::Px(67.0),
-                    width: Val::Px(9.0),
-                    height: Val::Px(16.0),
-                    ..default()
-                },
-                ZIndex(Z_CTRL + 1),
-            ));
-        }
     }
 
-    if kind == SaveLoadKind::Save {
+    // icon:下三角顶在当前页码上方(btn.png save y48-63 白 / load y63-78 红),
+    // 依原作 tbl: icon x=0,y=-15 相对页码按钮,即 left=页码x, top=83-15
+    if page <= 2 {
+        let (_, x) = pages[page];
+        let icon_rect = match kind {
+            SaveLoadKind::Save => Rect::new(392.0, 48.0, 416.0, 63.0),
+            SaveLoadKind::Load => Rect::new(392.0, 63.0, 416.0, 78.0),
+        };
         root.spawn((
-            PageButton(2),
-            Button,
             ImageNode {
                 image: btn.clone(),
-                rect: Some(Rect::new(351.0, 48.0, 390.0, 63.0)),
+                rect: Some(icon_rect),
                 ..default()
             },
             Node {
                 position_type: PositionType::Absolute,
-                left: Val::Px(720.0),
-                top: Val::Px(86.0),
-                width: Val::Px(39.0),
+                left: Val::Px(x),
+                top: Val::Px(68.0),
+                width: Val::Px(24.0),
                 height: Val::Px(15.0),
                 ..default()
             },
-            ZIndex(Z_CTRL),
+            ZIndex(Z_CTRL + 1),
         ));
     }
+
+    // bt_page00: pagenew 按钮 — 回第一页(原作 x720 y86 w39 clip=351,48,39,15)
+    root.spawn((
+        PageButton(0),
+        Button,
+        ImageNode {
+            image: btn.clone(),
+            rect: Some(Rect::new(351.0, 48.0, 390.0, 63.0)),
+            ..default()
+        },
+        Node {
+            position_type: PositionType::Absolute,
+            left: Val::Px(720.0),
+            top: Val::Px(86.0),
+            width: Val::Px(39.0),
+            height: Val::Px(15.0),
+            ..default()
+        },
+        ZIndex(Z_CTRL),
+    ));
 }
 
 fn spawn_back_button(root: &mut ChildSpawnerCommands, btnsys: &Handle<Image>) {
