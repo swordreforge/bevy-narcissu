@@ -463,17 +463,18 @@ fn handle_player(
 }
 
 /// Volume slider: click/drag on track → set volume.
+/// RelativeCursorPosition.normalized is centered on the node (-0.5..0.5).
 fn handle_volume(
     q_slider: Query<(&VolumeSlider, &Interaction, &RelativeCursorPosition)>,
     mouse: Res<ButtonInput<MouseButton>>,
     mut writer: MessageWriter<SetVolumeEvent>,
 ) {
-    if !(mouse.just_pressed(MouseButton::Left) || mouse.pressed(MouseButton::Left)) { return; }
+    if !mouse.pressed(MouseButton::Left) { return; }
     for (_, inter, rel) in &q_slider {
-        let active = *inter == Interaction::Pressed && rel.cursor_over;
-        if !active { continue; }
+        if *inter != Interaction::Pressed { continue; }
         if let Some(n) = rel.normalized {
-            writer.write(SetVolumeEvent { bgm: Some(n.x.clamp(0.0, 1.0)), se: None, voice: None });
+            let t = (n.x + 0.5).clamp(0.0, 1.0);
+            writer.write(SetVolumeEvent { bgm: Some(t), se: None, voice: None });
         }
     }
 }
