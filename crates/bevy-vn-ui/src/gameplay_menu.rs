@@ -20,7 +20,7 @@ use crate::backlog::BacklogState;
 const BG_PATH: &str = "pa/ja/mw/bg-mean.png";
 const BTN_PATH: &str = "pa/ja/mw/btn-mean.png";
 const BTNSYS_PATH: &str = "pa/ja/save/btnsys.png";
-const BLACK_PATH: &str = "image/bg/black.png";
+const BLACK_PATH: &str = "image/bg/black.basisu.ktx2";
 
 const Z_FIL: i32 = 5;
 const Z_BG: i32 = 6;

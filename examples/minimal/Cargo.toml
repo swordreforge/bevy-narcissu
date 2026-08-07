@@ -12,6 +12,7 @@ bevy = { version = "0.19", default-features = false, features = [
     "x11", "wayland",
     "vorbis",
 ] }
+bevy_basisu_loader = "0.6.1"
 ron = "0.8"
 bevy-vn-core = { path = "../../crates/bevy-vn-core" }
 bevy-vn-render = { path = "../../crates/bevy-vn-render" }

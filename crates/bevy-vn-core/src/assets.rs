@@ -52,15 +52,15 @@ pub struct DefaultAssetProvider {
 
 impl VnAssetProvider for DefaultAssetProvider {
     fn fg_path(&self, char_id: &str, expression: &str) -> String {
-        format!("{}/{}/{}.png", self.fg_dir, char_id, expression)
+        format!("{}/{}/{}.basisu.ktx2", self.fg_dir, char_id, expression)
     }
 
     fn bg_path(&self, image: &str) -> String {
-        format!("{}/{}.png", self.bg_dir, image)
+        format!("{}/{}.basisu.ktx2", self.bg_dir, image)
     }
 
     fn cg_path(&self, image: &str) -> String {
-        format!("{}/{}.png", self.cg_dir, image)
+        format!("{}/{}.basisu.ktx2", self.cg_dir, image)
     }
 
     fn bgm_path(&self, id: &str) -> BgmPathInfo {
@@ -81,6 +81,6 @@ impl VnAssetProvider for DefaultAssetProvider {
     }
 
     fn sprite_path(&self, id: &str) -> Option<String> {
-        Some(format!("image/anime/{}.png", id))
+        Some(format!("image/anime/{}.basisu.ktx2", id))
     }
 }

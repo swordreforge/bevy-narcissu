@@ -201,7 +201,7 @@ fn spawn_gallery(mut commands: Commands, asset_server: Res<AssetServer>) {
                     if idx > CG_COUNT { continue; }
                     let x = 101.0 + (i % 3) as f32 * 259.0;
                     let y = 182.0 + (i / 3) as f32 * 156.0;
-                    let thumb = asset_server.load::<Image>(&format!("{CG_THUMB}{idx:02}.png"));
+                    let thumb = asset_server.load::<Image>(&format!("{CG_THUMB}{idx:02}.basisu.ktx2"));
                     canvas.spawn((
                         CgButton(idx),
                         CgPage(page),
@@ -558,7 +558,7 @@ fn update_volume_pin(
 
 fn spawn_viewer(commands: &mut Commands, asset_server: &AssetServer, idx: u32) {
     if idx > CG_COUNT { return; }
-    let path = format!("{CG_THUMB}{idx:02}.png");
+    let path = format!("{CG_THUMB}{idx:02}.basisu.ktx2");
     commands.spawn((
         Viewer,
         Node {

@@ -7,6 +7,7 @@
 use std::path::Path;
 
 use bevy::prelude::*;
+use bevy_basisu_loader::BasisuLoaderPlugin;
 use bevy_vn_core::prelude::*;
 use bevy_vn_core::runner::ScriptBlock;
 use bevy_vn_core::script::ScriptEngine;
@@ -36,6 +37,7 @@ fn main() {
             }),
             ..default()
         }))
+        .add_plugins(BasisuLoaderPlugin)
         .add_plugins(VnCorePlugin {
             config: VnEngineConfig {
                 default_font: FONT_PATH.into(),

@@ -52,7 +52,7 @@ fn handle_set_bg(
         }
         let path = provider.as_ref()
             .map(|p| p.bg(&event.image))
-            .unwrap_or_else(|| format!("image/bg/{}.png", event.image));
+            .unwrap_or_else(|| format!("image/bg/{}.basisu.ktx2", event.image));
         let handle = asset_server.load::<Image>(&path);
 
         let inactive = 1 - bg_state.active_idx;

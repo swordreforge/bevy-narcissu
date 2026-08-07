@@ -70,7 +70,7 @@ fn handle_show_fg(
 ) {
     for event in reader.read() {
         let path = provider.as_ref().map(|p| p.fg(&event.char_id, &event.expression))
-            .unwrap_or_else(|| format!("image/obj/{}/{}.png", event.char_id, event.expression));
+            .unwrap_or_else(|| format!("image/obj/{}/{}.basisu.ktx2", event.char_id, event.expression));
         let handle = asset_server.load::<Image>(&path);
 
         let slot = slot_for_char(&state, &event.char_id).or_else(|| empty_slot(&state));
@@ -112,7 +112,7 @@ fn handle_show_face(
 ) {
     for event in reader.read() {
         let path = provider.as_ref().map(|p| p.fg(&event.char_id, &event.expression))
-            .unwrap_or_else(|| format!("image/obj/{}/{}.png", event.char_id, event.expression));
+            .unwrap_or_else(|| format!("image/obj/{}/{}.basisu.ktx2", event.char_id, event.expression));
         let handle = asset_server.load::<Image>(&path);
 
         if let Some(idx) = slot_for_char(&state, &event.char_id) {

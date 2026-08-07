@@ -424,6 +424,28 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9d297deb1925b89f2ccc13d7635fa0714f12c87adce1c75356b39ca9b7178567"
 
 [[package]]
+name = "basisu_c_sys"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "de0fae7751dbbd99a7e538b34234c89d26e3630eee0ab75db81de21191cfb151"
+dependencies = [
+ "async-lock",
+ "bindgen",
+ "bitflags 2.13.1",
+ "bytemuck",
+ "cc",
+ "cmake",
+ "js-sys",
+ "prettyplease",
+ "serde",
+ "syn 2.0.119",
+ "thiserror 2.0.19",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "wgpu-types",
+]
+
+[[package]]
 name = "bevy"
 version = "0.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -472,6 +494,7 @@ dependencies = [
  "bevy-vn-save",
  "bevy-vn-ui",
  "bevy-vn-video",
+ "bevy_basisu_loader",
  "ron 0.8.1",
 ]
 
@@ -633,6 +656,21 @@ dependencies = [
  "bevy_transform",
  "rodio",
  "tracing",
+]
+
+[[package]]
+name = "bevy_basisu_loader"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6259785bcbc9ebff736f5082753a9fe88a4c69e2144d3fc454cbb11772cb476a"
+dependencies = [
+ "async-lock",
+ "basisu_c_sys",
+ "bevy",
+ "bitflags 2.13.1",
+ "log",
+ "serde",
+ "thiserror 2.0.19",
 ]
 
 [[package]]
@@ -960,7 +998,6 @@ dependencies = [
  "bevy_material",
  "bevy_math",
  "bevy_mesh",
- "bevy_picking",
  "bevy_platform",
  "bevy_ptr",
  "bevy_reflect",
@@ -1113,28 +1150,6 @@ dependencies = [
  "thiserror 2.0.19",
  "tracing",
  "wgpu-types",
-]
-
-[[package]]
-name = "bevy_picking"
-version = "0.19.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "93468ac5937f76be3af763d496f01e899edf6d9c1a1d39a87ae4ce8eba36f78b"
-dependencies = [
- "bevy_app",
- "bevy_asset",
- "bevy_camera",
- "bevy_derive",
- "bevy_ecs",
- "bevy_input",
- "bevy_math",
- "bevy_platform",
- "bevy_reflect",
- "bevy_time",
- "bevy_transform",
- "bevy_window",
- "tracing",
- "uuid",
 ]
 
 [[package]]
@@ -1595,6 +1610,8 @@ dependencies = [
  "cexpr",
  "clang-sys",
  "itertools 0.13.0",
+ "log",
+ "prettyplease",
  "proc-macro2",
  "quote",
  "regex",
@@ -1868,6 +1885,15 @@ name = "clap_lex"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c8d4a3bb8b1e0c1050499d1815f5ab16d04f0959b233085fb31653fbfc9d98f9"
+
+[[package]]
+name = "cmake"
+version = "0.1.58"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c0f78a02292a74a88ac736019ab962ece0bc380e3f977bf72e376c5d78ff0678"
+dependencies = [
+ "cc",
+]
 
 [[package]]
 name = "codespan-reporting"
@@ -4166,6 +4192,16 @@ name = "presser"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8cf8e6a8aa66ce33f63993ffc4ea4271eb5b0530a9002db8455ea6050c77bfa"
+
+[[package]]
+name = "prettyplease"
+version = "0.2.37"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "479ca8adacdd7ce8f1fb39ce9ecccbfe93a3f1344b3d0d97f20bc0196208f62b"
+dependencies = [
+ "proc-macro2",
+ "syn 2.0.119",
+]
 
 [[package]]
 name = "proc-macro-crate"

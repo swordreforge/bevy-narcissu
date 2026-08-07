@@ -34,10 +34,10 @@ impl Default for AssetPathProvider {
 }
 
 impl AssetPathProvider {
-    pub fn fg(&self, char_id: &str, expr: &str) -> String { format!("{}/{}/{}.png", self.fg_dir, char_id, expr) }
-    pub fn bg(&self, image: &str) -> String { format!("{}/{}.png", self.bg_dir, image) }
-    pub fn cg(&self, image: &str) -> String { format!("{}/{}.png", self.cg_dir, image) }
-    pub fn sprite(&self, id: &str) -> String { format!("{}/{}.png", self.anime_dir, id) }
+    pub fn fg(&self, char_id: &str, expr: &str) -> String { format!("{}/{}/{}.basisu.ktx2", self.fg_dir, char_id, expr) }
+    pub fn bg(&self, image: &str) -> String { format!("{}/{}.basisu.ktx2", self.bg_dir, image) }
+    pub fn cg(&self, image: &str) -> String { format!("{}/{}.basisu.ktx2", self.cg_dir, image) }
+    pub fn sprite(&self, id: &str) -> String { format!("{}/{}.basisu.ktx2", self.anime_dir, id) }
 }
 
 pub struct VnRenderPlugin { pub fg_slots: usize }
