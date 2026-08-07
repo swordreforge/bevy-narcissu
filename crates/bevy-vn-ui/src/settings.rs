@@ -8,7 +8,7 @@ use bevy::prelude::*;
 use bevy::text::FontSize;
 use bevy_vn_core::engine_config::VnEngineConfig;
 use bevy_vn_core::messages::SetVolumeEvent;
-use bevy_vn_core::state::{VnAppState, VnMenuState};
+use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState};
 use bevy_vn_core::theme::VnTheme;
 
 use crate::settings_data::{load_settings, save_settings, GameSettings};
@@ -625,13 +625,14 @@ fn spawn_group_toggle(
     current: i32,
 ) {
     let circle = server.load::<Image>(CIRCLE_PATH);
-    let cy = if current == value { 0.0 } else { 60.0 };
+    // button-circle.png: horizontal 20px frames, selected = yellow (x=20..40).
+    let cx = if current == value { 20.0 } else { 0.0 };
     parent.spawn((
         Button,
         ToggleSetting { kind, value },
         ImageNode {
             image: circle.clone(),
-            rect: Some(Rect::new(0.0, cy, 20.0, cy + 20.0)),
+            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
             ..default()
         },
         Node {
@@ -655,13 +656,13 @@ fn spawn_bool_toggle(
     y: f32,
 ) {
     let circle = server.load::<Image>(CIRCLE_PATH);
-    let cy = if on { 0.0 } else { 60.0 };
+    let cx = if on { 20.0 } else { 0.0 };
     parent.spawn((
         Button,
         ToggleSetting { kind, value: if on { 1 } else { 0 } },
         ImageNode {
             image: circle.clone(),
-            rect: Some(Rect::new(0.0, cy, 20.0, cy + 20.0)),
+            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
             ..default()
         },
         Node {
@@ -707,13 +708,13 @@ fn spawn_circle_bool(
     y: f32,
     z: i32,
 ) {
-    let cy = if on { 0.0 } else { 60.0 };
+    let cx = if on { 20.0 } else { 0.0 };
     parent.spawn((
         Button,
         ToggleSetting { kind, value: if on { 1 } else { 0 } },
         ImageNode {
             image: circle.clone(),
-            rect: Some(Rect::new(0.0, cy, 20.0, cy + 20.0)),
+            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
             ..default()
         },
         Node {
@@ -739,7 +740,8 @@ fn spawn_check_label(
     y: f32,
 ) {
     let check = server.load::<Image>(CHECK_PATHS[idx]);
-    let cy = if on { 0.0 } else { 15.0 };
+    // check0N.png: vertical 15px states, checked = black box (y=31), else gray.
+    let cy = if on { 31.0 } else { 0.0 };
     parent.spawn((
         Button,
         ToggleSetting { kind, value: if on { 1 } else { 0 } },
@@ -762,13 +764,13 @@ fn spawn_check_label(
 
 fn spawn_char_toggle(parent: &mut ChildSpawnerCommands, server: &AssetServer, idx: u8, on: bool, x: f32, y: f32) {
     let circle = server.load::<Image>(CIRCLE_PATH);
-    let cy = if on { 0.0 } else { 60.0 };
+    let cx = if on { 20.0 } else { 0.0 };
     parent.spawn((
         Button,
         ToggleSetting { kind: ToggleKind::FlChar(idx), value: if on { 1 } else { 0 } },
         ImageNode {
             image: circle.clone(),
-            rect: Some(Rect::new(0.0, cy, 20.0, cy + 20.0)),
+            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
             ..default()
         },
         Node {
@@ -796,6 +798,7 @@ fn handle_settings_clicks(
     mut commands: Commands,
     mut next_menu: ResMut<NextState<VnMenuState>>,
     mut next_app: ResMut<NextState<VnAppState>>,
+    mut mode: ResMut<SaveLoadMode>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
 
@@ -803,6 +806,12 @@ fn handle_settings_clicks(
         if *inter != Interaction::Pressed { continue; }
         match nav.0 {
             NavTarget::Save | NavTarget::Load => {
+                let kind = if nav.0 == NavTarget::Save { SaveLoadKind::Save } else { SaveLoadKind::Load };
+                *mode = SaveLoadMode {
+                    active: true,
+                    kind,
+                    return_to: SaveLoadReturn::Settings,
+                };
                 next_menu.set(VnMenuState::SaveLoad);
                 return;
             }
@@ -1002,11 +1011,26 @@ fn update_toggle_visuals(
             ToggleKind::Rclick => settings.rclick == tg.value,
             _ => toggle_value(&settings, tg.kind),
         };
-        let cy = if on { 0.0 } else { 60.0 };
+        // Circle toggles (button-circle.png): horizontal 20px frames,
+        // selected = yellow (x=20..40). Checkboxes (check0N.png): vertical
+        // 15px states, checked = black box (y=31..47).
+        let (dx, dy) = match tg.kind {
+            ToggleKind::Effect | ToggleKind::Messkip | ToggleKind::Rclick
+            | ToggleKind::FlMspeed | ToggleKind::FlChar(_)
+            | ToggleKind::Shadow | ToggleKind::Outline => {
+                if on { (20.0, 0.0) } else { (0.0, 0.0) }
+            }
+            _ => {
+                if on { (0.0, 31.0) } else { (0.0, 0.0) }
+            }
+        };
         if let Some(rect) = &mut img.rect {
+            let w = rect.max.x - rect.min.x;
             let h = rect.max.y - rect.min.y;
-            rect.min.y = cy;
-            rect.max.y = cy + h;
+            rect.min.x = dx;
+            rect.max.x = dx + w;
+            rect.min.y = dy;
+            rect.max.y = dy + h;
         }
     }
 }

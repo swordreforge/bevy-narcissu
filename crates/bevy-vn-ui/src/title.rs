@@ -2,7 +2,7 @@
 //! Anniversary layout (960x540 logical pixels).
 
 use bevy::prelude::*;
-use bevy_vn_core::state::{VnAppState, VnMenuState};
+use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState};
 
 const BG_PATH: &str = "pa/title/bg.png";
 const LOGO_PATH: &str = "pa/title/logo.png";
@@ -147,6 +147,7 @@ fn handle_title_click(
     mouse: Res<ButtonInput<MouseButton>>,
     mut next: ResMut<NextState<VnAppState>>,
     mut next_menu: ResMut<NextState<VnMenuState>>,
+    mut mode: ResMut<SaveLoadMode>,
     mut exit: MessageWriter<AppExit>,
 ) {
     if *state.get() != VnAppState::Title { return; }
@@ -164,6 +165,11 @@ fn handle_title_click(
                 next.set(VnAppState::Menu);
             }
             TitleAction::Load => {
+                *mode = SaveLoadMode {
+                    active: true,
+                    kind: SaveLoadKind::Load,
+                    return_to: SaveLoadReturn::Title,
+                };
                 next_menu.set(VnMenuState::SaveLoad);
                 next.set(VnAppState::Menu);
             }

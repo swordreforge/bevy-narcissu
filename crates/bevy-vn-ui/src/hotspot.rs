@@ -7,6 +7,7 @@
 
 use bevy::prelude::*;
 use bevy_vn_core::messages::{AdvanceEvent, AdvanceSource, HotspotClearEvent, HotspotEvent};
+use bevy_vn_core::state::SaveLoadMode;
 
 #[derive(Debug, Clone)]
 pub struct HotspotRect {
@@ -59,9 +60,13 @@ fn hotspot_click_input(
     windows: Query<&Window>,
     mouse: Res<ButtonInput<MouseButton>>,
     active: Res<ActiveHotspots>,
+    mode: Res<SaveLoadMode>,
     mut writer: MessageWriter<AdvanceEvent>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) {
+        return;
+    }
+    if mode.active {
         return;
     }
     let Some(window) = windows.iter().find(|w| w.focused) else {
