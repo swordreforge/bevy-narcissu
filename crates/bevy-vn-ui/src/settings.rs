@@ -458,10 +458,11 @@ fn spawn_slider(
 ) {
     let track = server.load::<Image>(TRACK_PATH);
     let pin = server.load::<Image>(PIN_PATH);
-    // Visual track width = tbl clip/cw (190 on the sound page, w on the
-    // basic page); pin renders at spin01's natural 38px (p2=19 is half).
+    // Track visual width = tbl clip/cw (190 on the sound page, w on the
+    // basic page). spin01.png is a two-state sheet: light knob (idle) left,
+    // dark knob (dragging) right, each pin_w=19px wide; p2=19 is that width.
     let zone_w = clip_w / SLIDER_ZONES as f32;
-    let pin_w = 38.0;
+    let pin_w = 19.0;
     let pin_x = x + (val / 100.0) * (clip_w - pin_w);
 
     parent.spawn((
@@ -499,7 +500,11 @@ fn spawn_slider(
 
     parent.spawn((
         SliderPin { kind, track_left: x, track_w: clip_w, pin_w },
-        ImageNode { image: pin, ..default() },
+        ImageNode {
+            image: pin,
+            rect: Some(Rect::new(0.0, 0.0, pin_w, 24.0)),
+            ..default()
+        },
         Node {
             position_type: PositionType::Absolute,
             left: Val::Px(pin_x),
@@ -532,8 +537,8 @@ fn spawn_vo_slider(parent: &mut ChildSpawnerCommands, server: &AssetServer, idx:
     let pin = server.load::<Image>(VO_PIN_PATH);
     let w = 84.0;
     let zone_w = w / SLIDER_ZONES as f32;
-    // spin02.png is 30×15 natural size; tbl p2=15 is its half width.
-    let pin_w = 30.0;
+    // spin02.png: same two-state sheet as spin01, 15px per state (p2=15).
+    let pin_w = 15.0;
     let pin_x = x + (val / 100.0) * (w - pin_w);
 
     parent.spawn((
@@ -571,7 +576,11 @@ fn spawn_vo_slider(parent: &mut ChildSpawnerCommands, server: &AssetServer, idx:
 
     parent.spawn((
         SliderPin { kind, track_left: x, track_w: w, pin_w },
-        ImageNode { image: pin, ..default() },
+        ImageNode {
+            image: pin,
+            rect: Some(Rect::new(0.0, 0.0, pin_w, 15.0)),
+            ..default()
+        },
         Node {
             position_type: PositionType::Absolute,
             left: Val::Px(pin_x),
@@ -953,12 +962,26 @@ fn sync_to_engine(
 
 fn update_slider_visuals(
     settings: Res<GameSettings>,
+    q_zone: Query<(&SliderZone, &Interaction)>,
     mut q_pin: Query<(&SliderPin, &mut Node)>,
+    mut q_pin_img: Query<(&SliderPin, &mut ImageNode)>,
     mut q_val: Query<(&SliderValue, &mut Text)>,
 ) {
     for (pin, mut node) in q_pin.iter_mut() {
         let val = slider_value(&settings, pin.kind);
         node.left = Val::Px(pin.track_left + (val / 100.0) * (pin.track_w - pin.pin_w));
+    }
+    // Pin sprite sheets hold two states side by side: light knob (idle) at
+    // x=0..pin_w, dark knob (dragged) at x=pin_w..2*pin_w.
+    for (pin, mut img) in q_pin_img.iter_mut() {
+        let dragging = q_zone
+            .iter()
+            .any(|(z, i)| z.kind == pin.kind && *i == Interaction::Pressed);
+        if let Some(rect) = &mut img.rect {
+            let x0 = if dragging { pin.pin_w } else { 0.0 };
+            rect.min.x = x0;
+            rect.max.x = x0 + pin.pin_w;
+        }
     }
     for (val, mut text) in q_val.iter_mut() {
         text.0 = format!("{:>3}", slider_value(&settings, val.kind) as i32);
