@@ -336,24 +336,30 @@ fn bgm_slots() -> Vec<BgmSlot> {
 fn handle_mode_switch(
     q_mode: Query<(&ModeButton, &Interaction)>,
     mouse: Res<ButtonInput<MouseButton>>,
-    mut mode_q: Query<(&mut Node, &ExtraBg), Without<ExtraModeOnly>>,
-    mut mode_only: Query<(&mut Node, &ExtraModeOnly), (Without<ExtraBg>, Without<CgPage>)>,
-    mut cg_page: Query<(&CgPage, &mut Node), (With<CgButton>, Without<ExtraBg>)>,
     page: Res<PageState>,
+    mut nodes: ParamSet<(
+        Query<(&mut Node, &ExtraBg), Without<ExtraModeOnly>>,
+        Query<(&mut Node, &ExtraModeOnly), (Without<ExtraBg>, Without<CgPage>)>,
+        Query<(&CgPage, &mut Node), (With<CgButton>, Without<ExtraBg>)>,
+        Query<&mut Node, With<BackButton>>,
+    )>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
     for (mb, inter) in &q_mode {
         if *inter != Interaction::Pressed { continue; }
         let target = mb.0;
-        for (mut node, bg) in &mut mode_q {
+        for (mut node, bg) in nodes.p0().iter_mut() {
             node.display = if bg.0 == target { Display::Flex } else { Display::None };
         }
-        for (mut node, mo) in &mut mode_only {
+        for (mut node, mo) in nodes.p1().iter_mut() {
             node.display = if mo.0 == target { Display::Flex } else { Display::None };
         }
-        for (cp, mut node) in &mut cg_page {
+        for (cp, mut node) in nodes.p2().iter_mut() {
             let visible = target == ExtraMode::Cg && cp.0 == page.cg;
             node.display = if visible { Display::Flex } else { Display::None };
+        }
+        for mut node in nodes.p3().iter_mut() {
+            node.left = Val::Px(if target == ExtraMode::Cg { 760.0 } else { 130.0 });
         }
     }
 }
