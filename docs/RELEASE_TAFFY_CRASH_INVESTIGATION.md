@@ -3,6 +3,51 @@
 > 项目 / Project: bevy-vn-engine (水仙10周年版本 v1.2.0)
 > 日期 / Date: 2026-08-07
 > 状态 / Status: 已修复并验证 / Fixed & Verified
+> 后续更新 / Follow-up: rustc 已在后续 nightly 修复该误编译,本项目已移除 vendor workaround(见 §10)
+
+---
+
+## 0. 后续更新 / Follow-up (2026-08-07)
+
+### 中文
+
+在初始修复落地后,rustup 工具链更新到最新 nightly(`rustc 1.99.0-nightly (84b36a78a 2026-08-06)`)。用最小独立复现(MRE,见 §10)在 **三个工具链** 上验证原始构造代码:
+
+| 工具链 / Toolchain | `min/max/gap.height` CompactLength tag | 旧 tag=8 破坏 |
+|---|---|---|
+| 旧 nightly `be8e82435` (2026-07-11) | min=**8**(非法) | ❌ 存在(崩溃根因) |
+| 新 nightly `84b36a78a` (2026-08-06) | [3, 3, 1] 全部合法 | ✅ 已修复 |
+| stable 1.97.1 | [3, 3, 1] 全部合法 | ✅ 已修复 |
+| 1.94.1 | [3, 3, 1] 全部合法 | ✅ 已修复 |
+
+结论:**rustc 已在 2026-08-06 的 nightly 中修复该确定性误编译**(stable 1.97.1、1.94.1 亦无此问题,仅旧 nightly 受影响)。据此:
+
+1. 移除了 `[patch.crates-io] bevy_ui = { path = "vendor/bevy_ui" }` 与整个 `vendor/` 目录,恢复 registry 上游 bevy_ui 0.19.0。
+2. 用新工具链重新构建 release:✅ 通过(0 error)。
+3. 连续两次 15 秒冒烟运行:✅ `exit=124`(正常超时)、**0 panic**、viewport `min_w_tag=3 min_h_tag=3`(合法 Auto)。
+4. `cargo check --workspace`:✅ 干净(仅预存 artemis-converter warning)。
+
+因此该 miscompile **不需要**上报 rustc(已在上游修复),也 **不需要**向 bevy 提交 workaround 建议(编译器已修复,无需改依赖写法)。升级工具链到 2026-08-06 之后的 nightly(或任意较新 stable)即可规避。
+
+### English
+
+After the initial fix landed, the rustup toolchain was updated to the latest nightly (`rustc 1.99.0-nightly (84b36a78a 2026-08-06)`). A minimal standalone reproducer (MRE, §10) was used to verify the original construction code on **three toolchains**:
+
+| Toolchain | `min/max/gap.height` CompactLength tag | Old tag=8 corruption |
+|---|---|---|
+| Old nightly `be8e82435` (2026-07-11) | min=**8** (illegal) | ❌ present (crash root cause) |
+| New nightly `84b36a78a` (2026-08-06) | [3, 3, 1] all legal | ✅ fixed |
+| stable 1.97.1 | [3, 3, 1] all legal | ✅ fixed |
+| 1.94.1 | [3, 3, 1] all legal | ✅ fixed |
+
+Conclusion: **rustc fixed this deterministic miscompile in the 2026-08-06 nightly** (stable 1.97.1 and 1.94.1 are also clean; only the old nightly is affected). Accordingly:
+
+1. Removed `[patch.crates-io] bevy_ui = { path = "vendor/bevy_ui" }` and the entire `vendor/` directory, reverting to upstream registry bevy_ui 0.19.0.
+2. Rebuilt release with the new toolchain: ✅ passed (0 errors).
+3. Two consecutive 15-second smoke runs: ✅ `exit=124` (normal timeout), **0 panics**, viewport `min_w_tag=3 min_h_tag=3` (legal Auto).
+4. `cargo check --workspace`: ✅ clean (only the pre-existing artemis-converter warning).
+
+Consequently this miscompile does **not** need to be reported to rustc (already fixed upstream), nor does bevy need a workaround suggestion (the compiler is fixed, no dependency change required). Simply upgrade to the 2026-08-06 nightly or any newer stable to avoid it.
 
 ---
 
@@ -279,16 +324,96 @@ Assessment: this is a deterministic miscompile in the compiler backend (LLVM thr
 
 ### 中文
 
-本次崩溃是 rustc 1.99.0-nightly release 优化对「结构体更新 + `..default()`」语法的确定性误编译所致,通过将 bevy_ui 中触发点改为「先 default 后逐字段赋值」并 vendor 该 crate 修复。后续建议:
+本次崩溃是 rustc 1.99.0-nightly release 优化对「结构体更新 + `..default()`」语法的确定性误编译所致,通过将 bevy_ui 中触发点改为「先 default 后逐字段赋值」并 vendor 该 crate 修复。**该误编译已在 2026-08-06 的 nightly 中由 rustc 上游修复**(见 §0 与 §10),故本项目已移除 vendor 与 `[patch]`,回归上游 bevy_ui。后续建议:
 
-1. **上报上游**:向 rustc 提交该确定性误编译 bug。最小复现:release 下对包含 3 个 `CompactLength` 的 536 字节结构体执行 `Style { display: Grid, ..default() }`,default 区 3 个 tag 被写为 8。
-2. **切换 stable 可移除 vendor**:系统已装 stable / 1.94.1 工具链。若确认该误编译为 nightly 回归,可将项目切到 stable,届时可删除 `vendor/` 与 `[patch]`,恢复上游 bevy_ui。
-3. **警惕同类模式**:仓库代码中如还有对 taffy/其他 tagged-enum 结构体使用「覆盖部分字段 + `..default()`」的写法,且仅 release 出现异常,应优先怀疑同类误编译,改用显式构造。
+1. **保持工具链更新**:升级到 2026-08-06 之后的 nightly 或任意较新 stable 即可规避该问题,无需任何代码改动。
+2. **无需上报**:误编译已在上游修复,不需要向 rustc 提交 issue,也不需要向 bevy 提交 workaround 建议。
+3. **警惕同类模式**:如仓库代码对 taffy/其他 tagged-enum 结构体使用「覆盖部分字段 + `..default()`」且仅 release 异常,应优先怀疑同类误编译,并记录当时使用的工具链版本。
 
 ### English
 
-The crash was a deterministic miscompile by rustc 1.99.0-nightly of the struct-update + `..default()` pattern under release optimization. It is fixed by switching the trigger site in bevy_ui to "default-then-mutate" and vendoring the crate. Recommendations:
+The crash was a deterministic miscompile by rustc 1.99.0-nightly of the struct-update + `..default()` pattern under release optimization, initially fixed by switching the trigger site in bevy_ui to "default-then-mutate" and vendoring the crate. **The miscompile has since been fixed upstream by rustc in the 2026-08-06 nightly** (see §0 and §10), so this project has removed `vendor/` and `[patch]` and reverted to upstream bevy_ui. Recommendations:
 
-1. **Report upstream**: file a bug against rustc. Minimal repro: in release, on a 536-byte struct containing three `CompactLength`s, `Style { display: Grid, ..default() }` writes tag 8 into three defaulted slots.
-2. **Drop vendor on stable**: stable / 1.94.1 toolchains are already installed. If the miscompile is confirmed as a nightly regression, switch the project to stable and remove `vendor/` + `[patch]` to go back to upstream bevy_ui.
-3. **Watch for the same pattern**: if any other code in this repo uses "override some fields + `..default()`" on taffy or other tagged-enum structs and misbehaves only in release, suspect the same class of miscompile and switch to explicit construction.
+1. **Keep the toolchain current**: upgrading to the 2026-08-06 nightly or any newer stable avoids the issue with zero code changes.
+2. **No upstream report needed**: the miscompile is already fixed upstream — no rustc issue and no bevy workaround request required.
+3. **Watch for the same pattern**: if any code in this repo uses "override some fields + `..default()`" on taffy or other tagged-enum structs and misbehaves only in release, suspect the same class of miscompile and record the exact toolchain version in use.
+
+---
+
+## 10. 附录:MRE 验证 / Appendix: MRE Verification
+
+### 中文
+
+为验证误编译是否已在更新后的工具链修复,编写了独立最小复现(位于 `/tmp/opencode/mre`,不依赖本项目,vendor 之外直接用 registry taffy 0.10.1):
+
+- **复刻内容**:逐字复刻 bevy_ui 0.19.0 `get_or_insert_taffy_viewport_node` 的构造代码 —— `Style { display: Grid, size: {100%}, align_items: Start, justify_items: Start, ..Default::default() }`。
+- **判定方法**:同一 `Style` 用两种方式构造(结构体更新 vs 先 default 后 mutate),二者语义必须逐字节一致;再直接读取 `min_size.height` / `max_size.height` / `gap.height` 三个 `CompactLength` 的 tag(低 8 位,`AUTO_TAG=3`)。
+- **关键字节布局**(x86_64,`size_of::<Style>()=536`):`min_size @ 0x0160`、`max_size @ 0x0170`、`gap @ 0x01e0`,每个 `Size<T>` 16 字节,`.height` 即 `offset+8`。
+
+三个工具链 release 下的结果(各跑 10 轮,完全确定):
+
+| 工具链 | tags (min/max/gap.height) | 两侧字节一致 | 判定 |
+|---|---|---|---|
+| 旧 nightly `be8e82435` | min=8(max=3, gap=1) | ❌ tag 区损坏 | **误编译仍在** |
+| 新 nightly `84b36a78a` | [3, 3, 1] | ✅(仅 0x00ac padding 2 字节差异) | ✅ 已修复 |
+| stable 1.97.1 | [3, 3, 1] | ✅(仅 padding 差异) | ✅ 已修复 |
+| 1.94.1 | [3, 3, 1] | ✅(仅 padding 差异) | ✅ 已修复 |
+
+> 注:新工具链上仍存在的 2 字节差异位于 `aspect_ratio: Option<f32>`(8 字节,`@ 0x00a8`)内部 0x00ac/0x00ad —— 该字段两侧的 Debug 输出与 `PartialEq` 均相等,属未初始化 padding 字节差异,语义无害,不影响任何行为。
+
+MRE 源码核心:
+
+```rust
+let mut mutated: Style = Style::default();
+mutated.display = Display::Grid;
+mutated.size = Size { width: percent(1.0), height: percent(1.0) };
+mutated.align_items = Some(AlignItems::Start);
+mutated.justify_items = Some(JustifyItems::Start);
+
+let updated: Style = Style {
+    display: Display::Grid,
+    size: Size { width: percent(1.0), height: percent(1.0) },
+    align_items: Some(AlignItems::Start),
+    justify_items: Some(JustifyItems::Start),
+    ..Default::default()
+};
+// 断言:两个 Style 逐字节一致,且三个 CompactLength tag 均为 3
+```
+
+### English
+
+To verify whether the miscompile was fixed by the updated toolchain, a minimal standalone reproducer was written (at `/tmp/opencode/mre`, independent of this project, using registry taffy 0.10.1):
+
+- **What it replicates**: verbatim copy of bevy_ui 0.19.0 `get_or_insert_taffy_viewport_node`'s construction — `Style { display: Grid, size: {100%}, align_items: Start, justify_items: Start, ..Default::default() }`.
+- **How it judges**: the same `Style` built two ways (struct-update vs default-then-mutate) must be byte-identical; additionally the `CompactLength` tags (low 8 bits, `AUTO_TAG=3`) of `min_size.height` / `max_size.height` / `gap.height` are read directly.
+- **Key byte layout** (x86_64, `size_of::<Style>()=536`): `min_size @ 0x0160`, `max_size @ 0x0170`, `gap @ 0x01e0`, each `Size<T>` is 16 bytes, so `.height` is at `offset+8`.
+
+Release results across three toolchains (10 rounds each, fully deterministic):
+
+| Toolchain | tags (min/max/gap.height) | byte-identical | Verdict |
+|---|---|---|---|
+| Old nightly `be8e82435` | min=8 (max=3, gap=1) | ❌ tag region corrupted | **miscompile present** |
+| New nightly `84b36a78a` | [3, 3, 1] | ✅ (only 2 padding bytes @0x00ac) | ✅ fixed |
+| stable 1.97.1 | [3, 3, 1] | ✅ (padding only) | ✅ fixed |
+| 1.94.1 | [3, 3, 1] | ✅ (padding only) | ✅ fixed |
+
+> Note: the 2 remaining differing bytes on new toolchains sit inside `aspect_ratio: Option<f32>` (8 bytes, `@ 0x00a8`) at 0x00ac/0x00ad — Debug output and `PartialEq` are equal on both sides; this is an uninitialized-padding byte difference, semantically harmless.
+
+MRE core:
+
+```rust
+let mut mutated: Style = Style::default();
+mutated.display = Display::Grid;
+mutated.size = Size { width: percent(1.0), height: percent(1.0) };
+mutated.align_items = Some(AlignItems::Start);
+mutated.justify_items = Some(JustifyItems::Start);
+
+let updated: Style = Style {
+    display: Display::Grid,
+    size: Size { width: percent(1.0), height: percent(1.0) },
+    align_items: Some(AlignItems::Start),
+    justify_items: Some(JustifyItems::Start),
+    ..Default::default()
+};
+// assert: both Styles byte-identical AND all three CompactLength tags == 3
+```
