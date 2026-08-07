@@ -8,7 +8,9 @@ use bevy::prelude::*;
 use bevy::text::FontSize;
 use bevy_vn_core::engine_config::VnEngineConfig;
 use bevy_vn_core::messages::SetVolumeEvent;
-use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState};
+use bevy_vn_core::state::{
+    SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, VnAppState, VnMenuState,
+};
 use bevy_vn_core::theme::VnTheme;
 
 use crate::settings_data::{load_settings, save_settings, GameSettings};
@@ -138,24 +140,86 @@ pub struct SettingsPlugin;
 impl Plugin for SettingsPlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(OnEnter(VnMenuState::Settings), setup_settings)
+            .add_systems(Update, update_settings_overlay)
             .add_systems(
                 Update,
-                handle_settings_clicks.run_if(in_state(VnMenuState::Settings)),
+                handle_settings_clicks.run_if(settings_ui_active),
             )
             .add_systems(
                 Update,
-                handle_value_clicks.run_if(in_state(VnMenuState::Settings)),
+                handle_value_clicks.run_if(settings_ui_active),
             )
             .add_systems(
                 Update,
-                update_slider_visuals.run_if(in_state(VnMenuState::Settings)),
+                update_slider_visuals.run_if(settings_ui_active),
             )
             .add_systems(
                 Update,
-                update_toggle_visuals.run_if(in_state(VnMenuState::Settings)),
+                update_toggle_visuals.run_if(settings_ui_active),
             )
             .add_systems(OnExit(VnMenuState::Settings), teardown_settings);
     }
+}
+
+/// Settings UI is shown either in the menu tree (`VnMenuState::Settings`)
+/// or as an in-game overlay opened from the system menu (原作 adv_config).
+fn settings_ui_active(
+    state: Option<Res<State<VnMenuState>>>,
+    overlay: Res<SettingsOverlayMode>,
+) -> bool {
+    overlay.active || state.is_some_and(|s| *s.get() == VnMenuState::Settings)
+}
+
+fn update_settings_overlay(
+    overlay: Res<SettingsOverlayMode>,
+    q_root: Query<Entity, With<SettingsScreen>>,
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    config: Res<VnEngineConfig>,
+) {
+    if overlay.active && q_root.is_empty() {
+        spawn_settings_screen(&mut commands, &asset_server, &config);
+    } else if !overlay.active && !q_root.is_empty() {
+        for e in q_root.iter() {
+            commands.entity(e).despawn();
+        }
+    }
+}
+
+fn spawn_settings_screen(
+    commands: &mut Commands,
+    asset_server: &AssetServer,
+    config: &VnEngineConfig,
+) {
+    let settings = load_settings(&config.save_dir);
+    commands
+        .spawn((
+            SettingsScreen,
+            Node {
+                width: percent(100),
+                height: percent(100),
+                position_type: PositionType::Absolute,
+                align_items: AlignItems::Center,
+                justify_content: JustifyContent::Center,
+                ..default()
+            },
+        ))
+        .with_children(|parent| {
+            parent
+                .spawn((
+                    SettingsCanvas,
+                    Node {
+                        width: Val::Px(960.0),
+                        height: Val::Px(540.0),
+                        flex_shrink: 0.0,
+                        ..default()
+                    },
+                ))
+                .with_children(|canvas| {
+                    spawn_canvas_content(canvas, asset_server, &settings, 1);
+                });
+        });
+    commands.insert_resource(settings);
 }
 
 fn setup_settings(
@@ -163,34 +227,7 @@ fn setup_settings(
     asset_server: Res<AssetServer>,
     config: Res<VnEngineConfig>,
 ) {
-    let settings = load_settings(&config.save_dir);
-    commands.spawn((
-        SettingsScreen,
-        Node {
-            width: percent(100),
-            height: percent(100),
-            position_type: PositionType::Absolute,
-            align_items: AlignItems::Center,
-            justify_content: JustifyContent::Center,
-            ..default()
-        },
-    ))
-    .with_children(|parent| {
-        parent
-            .spawn((
-                SettingsCanvas,
-                Node {
-                    width: Val::Px(960.0),
-                    height: Val::Px(540.0),
-                    flex_shrink: 0.0,
-                    ..default()
-                },
-            ))
-            .with_children(|canvas| {
-                spawn_canvas_content(canvas, &asset_server, &settings, 1);
-            });
-    });
-    commands.insert_resource(settings);
+    spawn_settings_screen(&mut commands, &asset_server, &config);
 }
 
 fn spawn_canvas_content(
@@ -799,6 +836,7 @@ fn handle_settings_clicks(
     mut next_menu: ResMut<NextState<VnMenuState>>,
     mut next_app: ResMut<NextState<VnAppState>>,
     mut mode: ResMut<SaveLoadMode>,
+    mut settings_overlay: ResMut<SettingsOverlayMode>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
 
@@ -807,17 +845,24 @@ fn handle_settings_clicks(
         match nav.0 {
             NavTarget::Save | NavTarget::Load => {
                 let kind = if nav.0 == NavTarget::Save { SaveLoadKind::Save } else { SaveLoadKind::Load };
+                let in_overlay = settings_overlay.active;
                 *mode = SaveLoadMode {
                     active: true,
                     kind,
-                    return_to: SaveLoadReturn::Settings,
+                    return_to: if in_overlay { SaveLoadReturn::Gameplay } else { SaveLoadReturn::Settings },
                 };
-                next_menu.set(VnMenuState::SaveLoad);
+                if !in_overlay {
+                    next_menu.set(VnMenuState::SaveLoad);
+                }
                 return;
             }
             NavTarget::Title | NavTarget::Back => {
-                next_menu.set(VnMenuState::Main);
-                next_app.set(VnAppState::Title);
+                if settings_overlay.active {
+                    settings_overlay.active = false;
+                } else {
+                    next_menu.set(VnMenuState::Main);
+                    next_app.set(VnAppState::Title);
+                }
                 return;
             }
             NavTarget::Page1 | NavTarget::Page2 => {

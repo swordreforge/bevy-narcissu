@@ -3,7 +3,9 @@ use bevy::prelude::*;
 use bevy_vn_core::messages::*;
 use bevy_vn_core::runner::*;
 use bevy_vn_core::script::{ScriptEngine, VnScript};
-use bevy_vn_core::state::{SaveLoadMode, VnAppState};
+use bevy_vn_core::state::{
+    GameplayMenuMode, SaveLoadMode, SettingsOverlayMode, SkipMode, VnAppState,
+};
 
 fn load_all_scripts(engine: &mut ScriptEngine, dir: &std::path::Path) -> usize {
     let mut entries: Vec<_> = std::fs::read_dir(dir)
@@ -74,6 +76,10 @@ fn build_app() -> App {
     register_messages(&mut app);
     app.init_state::<VnAppState>();
     app.insert_resource(SaveLoadMode::default());
+    app.insert_resource(GameplayMenuMode::default());
+    app.insert_resource(SettingsOverlayMode::default());
+    app.insert_resource(SkipMode::default());
+    app.insert_resource(SkipTimer(Timer::from_seconds(0.08, TimerMode::Repeating)));
     app.insert_resource(ScriptEngine::new());
     app.add_plugins(ScriptRunnerPlugin);
     app.add_systems(Update, return_to_title_on_story_end_like);

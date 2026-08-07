@@ -36,6 +36,9 @@ impl Plugin for VnCorePlugin {
         app.insert_resource(VnTransition::default());
         app.init_resource::<script::ScriptEngine>();
         app.init_resource::<state::SaveLoadMode>();
+        app.init_resource::<state::GameplayMenuMode>();
+        app.init_resource::<state::SettingsOverlayMode>();
+        app.init_resource::<state::SkipMode>();
 
         // ── State machine ──
         app.init_state::<VnAppState>();

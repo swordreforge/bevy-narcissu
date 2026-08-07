@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 use crate::messages::*;
 use crate::script::{ScriptCmd, ScriptEngine};
-use crate::state::{SaveLoadMode, VnAppState};
+use crate::state::{GameplayMenuMode, SaveLoadMode, SettingsOverlayMode, SkipMode, VnAppState};
 
 #[derive(Resource, Default)]
 pub struct ScriptBlock { pub blocked: bool }
@@ -20,6 +20,9 @@ const BG_WAIT_TIMEOUT: f32 = 2.0;
 
 #[derive(Resource, Default)]
 pub struct AutoSkip { pub enabled: bool, pub timer: Timer }
+
+#[derive(Resource)]
+pub struct SkipTimer(pub Timer);
 
 /// Auto-advance timer armed by `Wait` commands. When it elapses, an
 /// `AdvanceEvent(Auto)` is emitted so the script continues without input.
@@ -73,12 +76,14 @@ impl Plugin for ScriptRunnerPlugin {
             .init_resource::<WaitTimer>()
             .init_resource::<BgWait>()
             .init_resource::<EventQueue>()
+            .insert_resource(SkipTimer(Timer::from_seconds(0.08, TimerMode::Repeating)))
             .add_systems(Update, unblock_on_choice)
             .add_systems(Update, unblock_on_bg_done)
             .add_systems(Update, bg_wait_timeout)
-            .add_systems(Update, process_advance.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
-            .add_systems(Update, auto_skip_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
-            .add_systems(Update, wait_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
+            .add_systems(Update, process_advance.run_if(in_state(VnAppState::Gameplay)).run_if(not(overlay_active)))
+            .add_systems(Update, auto_skip_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(overlay_active)))
+            .add_systems(Update, wait_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(overlay_active)))
+            .add_systems(Update, skip_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(overlay_active)))
             .add_systems(Update, flush_render)
             .add_systems(Update, flush_hotspot)
             .add_systems(Update, flush_custom)
@@ -92,8 +97,12 @@ fn unblock_on_choice(mut r: MessageReader<ChoiceSelectedEvent>, mut blk: ResMut<
     for _ in r.read() { blk.blocked = false; }
 }
 
-fn save_load_active(mode: Res<SaveLoadMode>) -> bool {
-    mode.active
+fn overlay_active(
+    mode: Res<SaveLoadMode>,
+    menu: Res<GameplayMenuMode>,
+    settings_overlay: Res<SettingsOverlayMode>,
+) -> bool {
+    mode.active || menu.active || settings_overlay.active
 }
 
 #[derive(PartialEq)]
@@ -380,4 +389,16 @@ fn flush_render(mut q: ResMut<EventQueue>, mut wd: MessageWriter<DialogueStateEv
 fn auto_skip_tick(time: Res<Time>, mut skip: ResMut<AutoSkip>, mut w: MessageWriter<AdvanceEvent>) {
     skip.timer.tick(time.delta());
     if skip.timer.just_finished() { w.write(AdvanceEvent { source: AdvanceSource::Auto }); }
+}
+
+fn skip_tick(
+    time: Res<Time>,
+    mut timer: ResMut<SkipTimer>,
+    skip: Res<SkipMode>,
+    mut w: MessageWriter<AdvanceEvent>,
+) {
+    timer.0.tick(time.delta());
+    if skip.active && timer.0.just_finished() {
+        w.write(AdvanceEvent { source: AdvanceSource::Skip });
+    }
 }

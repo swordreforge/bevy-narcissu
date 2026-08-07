@@ -24,7 +24,19 @@ pub struct BacklogPlugin;
 impl Plugin for BacklogPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<BacklogState>()
-            .add_systems(Update, (handle_backlog_push, rebuild_backlog_ui));
+            .add_systems(Update, (handle_backlog_push, rebuild_backlog_ui, update_backlog_visibility));
+    }
+}
+
+fn update_backlog_visibility(
+    state: Res<BacklogState>,
+    mut q_root: Query<&mut Node, With<BacklogRoot>>,
+) {
+    for mut node in q_root.iter_mut() {
+        let want = if state.visible { Display::Flex } else { Display::None };
+        if node.display != want {
+            node.display = want;
+        }
     }
 }
 

@@ -106,6 +106,7 @@ mod tests {
         let mut app = App::new();
         app.init_resource::<ActiveHotspots>();
         app.init_resource::<ButtonInput<MouseButton>>();
+        app.init_resource::<SaveLoadMode>();
         app.init_resource::<AdvanceCount>();
         app.add_message::<AdvanceEvent>();
         app.add_message::<HotspotEvent>();

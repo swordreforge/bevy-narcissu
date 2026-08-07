@@ -17,6 +17,7 @@ pub mod chapter_names;
 pub mod save_load_ui;
 pub mod gallery;
 pub mod hotspot;
+pub mod gameplay_menu;
 pub mod character_select;
 pub mod chapter_select;
 pub mod story_detail;
@@ -47,6 +48,7 @@ impl Plugin for VnUiPlugin {
             chapter_select::ChapterSelectPlugin,
             story_detail::StoryDetailPlugin,
             brand_logo::BrandLogoPlugin,
+            gameplay_menu::GameplayMenuPlugin,
         ))
         .add_systems(Update, force_any_character_linebreak)
         .add_systems(Update, play_button_click_sfx)

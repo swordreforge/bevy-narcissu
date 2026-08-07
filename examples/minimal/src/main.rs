@@ -10,10 +10,13 @@ use bevy::prelude::*;
 use bevy_vn_core::prelude::*;
 use bevy_vn_core::runner::ScriptBlock;
 use bevy_vn_core::script::ScriptEngine;
-use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn};
+use bevy_vn_core::state::{
+    GameplayMenuMode, SaveLoadMode, SettingsOverlayMode, VnAppState,
+};
 use bevy_vn_audio::VnAudioPlugin;
 use bevy_vn_render::{AssetPathProvider, VnRenderPlugin};
 use bevy_vn_save::VnSavePlugin;
+use bevy_vn_ui::backlog::BacklogState;
 use bevy_vn_ui::VnUiPlugin;
 use bevy_vn_video::VnVideoPlugin;
 
@@ -48,7 +51,7 @@ fn main() {
         .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
         .add_systems(OnEnter(VnAppState::Title), play_title_bgm)
         .add_systems(OnExit(VnAppState::Title), stop_title_bgm)
-        .add_systems(Update, (user_input, open_save_from_gameplay, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end))
+        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end))
         .run();
 }
 
@@ -130,7 +133,8 @@ fn apply_font(font: Res<GameFont>, mut q: Query<&mut TextFont>) {
     }
 }
 
-/// Fires AdvanceEvent on Space — only while actually playing a script.
+/// Fires AdvanceEvent on Space — only while actually playing a script and
+/// no overlay (save/load, system menu, settings, backlog) is open.
 /// Mouse clicks on dialogue are handled by HotspotPlugin.
 fn user_input(
     state: Res<State<VnAppState>>,
@@ -138,31 +142,15 @@ fn user_input(
     mut writer: MessageWriter<AdvanceEvent>,
     engine: Res<ScriptEngine>,
     mode: Res<SaveLoadMode>,
+    menu: Res<GameplayMenuMode>,
+    settings_overlay: Res<SettingsOverlayMode>,
+    backlog: Res<BacklogState>,
 ) {
     if *state.get() != VnAppState::Gameplay { return; }
-    if mode.active { return; }
+    if mode.active || menu.active || settings_overlay.active || backlog.visible { return; }
     if !engine.has_more() { return; }
     if keys.just_pressed(KeyCode::Space) {
         writer.write(AdvanceEvent { source: AdvanceSource::UserInput });
-    }
-}
-
-/// In-game save menu entry: ESC or right-click opens the save screen
-/// without leaving Gameplay (so the scene stays intact).
-fn open_save_from_gameplay(
-    state: Res<State<VnAppState>>,
-    keys: Res<ButtonInput<KeyCode>>,
-    mouse: Res<ButtonInput<MouseButton>>,
-    mut mode: ResMut<SaveLoadMode>,
-) {
-    if *state.get() != VnAppState::Gameplay { return; }
-    if mode.active { return; }
-    if keys.just_pressed(KeyCode::Escape) || mouse.just_pressed(MouseButton::Right) {
-        *mode = SaveLoadMode {
-            active: true,
-            kind: SaveLoadKind::Save,
-            return_to: SaveLoadReturn::Gameplay,
-        };
     }
 }
 
