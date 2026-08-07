@@ -73,6 +73,13 @@ cargo run -p minimal --release
 | `pa/` | 4.4M | 立绘 |
 | `ui/` | 1.1M | UI 素材 |
 
+### 预览代码(git 稀疏检出)
+```
+如果只想看代码，不想下载几百兆的图片/模型，可以这样克隆：
+git clone --filter=blob:none --sparse <你的仓库URL>
+cd <仓库名>
+git sparse-checkout set src crates tools  # 只拉取代码文件夹
+```
 ## 文档
 
 - [架构设计](docs/ARCHITECTURE.md)
