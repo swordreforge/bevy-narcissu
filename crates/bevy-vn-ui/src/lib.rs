@@ -23,6 +23,7 @@ pub mod story_detail;
 pub mod brand_logo;
 
 use bevy::prelude::*;
+use bevy_vn_core::messages::PlaySeEvent;
 
 use dialogue::DialoguePlugin;
 use choice::ChoicePlugin;
@@ -48,7 +49,23 @@ impl Plugin for VnUiPlugin {
             brand_logo::BrandLogoPlugin,
         ))
         .add_systems(Update, force_any_character_linebreak)
+        .add_systems(Update, play_button_click_sfx)
         .add_systems(OnExit(bevy_vn_core::state::VnAppState::Gameplay), hide_dialogue_ui);
+    }
+}
+
+/// Original engine fires the system ok SE (sysse ok -> system_cancel.ogg)
+/// on every button press; mirror that for all UI buttons.
+fn play_button_click_sfx(
+    q: Query<&Interaction, (With<Button>, Changed<Interaction>)>,
+    mut se: MessageWriter<PlaySeEvent>,
+) {
+    if q.iter().any(|i| *i == Interaction::Pressed) {
+        se.write(PlaySeEvent {
+            file: "system_cancel".to_string(),
+            channel: Some(0),
+            volume: None,
+        });
     }
 }
 
