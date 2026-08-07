@@ -15,7 +15,7 @@
 //! `Custom` so the info survives conversion and a game plugin may act on them.
 
 use crate::ast::{AstCommand, AstLabelRef, AstScript, AstTextField};
-use bevy_vn_core::script::cmd::{ScriptCmd, VnScript, ScriptMeta, ScriptVersion};
+use bevy_vn_core::script::cmd::{ScriptCmd, Transition, VnScript, ScriptMeta, ScriptVersion};
 use std::collections::{HashMap, HashSet};
 
 /// Map a whole .ast script. `script_name` is the output script id (e.g. "nar1_00").
@@ -105,9 +105,13 @@ fn map_command(cmd: &AstCommand, text: Option<&AstTextField>) -> Option<ScriptCm
                 let y: f32 = cmd.attrs.get("y").and_then(|s| s.parse().ok()).unwrap_or(0.0);
                 Some(ScriptCmd::Sprite { id, image, x, y, anchor_x: None, anchor_y: None, z: None })
             } else if path.contains("ev") {
-                Some(ScriptCmd::ShowCg { image, transition: None })
+                let fade_ms = cmd.attrs.get("time").and_then(|s| s.parse::<u64>().ok());
+                let transition = fade_ms.map(|ms| Transition::Fade { duration: ms as f32 / 1000.0 });
+                Some(ScriptCmd::ShowCg { image, transition })
             } else {
-                Some(ScriptCmd::SetBg { image, transition: None })
+                let fade_ms = cmd.attrs.get("time").and_then(|s| s.parse::<u64>().ok());
+                let transition = fade_ms.map(|ms| Transition::Fade { duration: ms as f32 / 1000.0 });
+                Some(ScriptCmd::SetBg { image, transition })
             }
         }
         "fg" => {
@@ -224,6 +228,13 @@ mod tests {
     #[test]
     fn bg_with_bg_path_is_setbg() {
         let c = cmd("bg", vec![("path", ":bg/"), ("file", "sora_ame01"), ("time", "800")]);
+        let r = map_command(&c, None).unwrap();
+        assert!(matches!(&r, ScriptCmd::SetBg { image, transition: Some(Transition::Fade { duration }) } if image == "sora_ame01" && (*duration - 0.8).abs() < 1e-6));
+    }
+
+    #[test]
+    fn bg_without_time_is_setbg_none() {
+        let c = cmd("bg", vec![("path", ":bg/"), ("file", "sora_ame01")]);
         let r = map_command(&c, None).unwrap();
         assert!(matches!(&r, ScriptCmd::SetBg { image, transition: None } if image == "sora_ame01"));
     }
