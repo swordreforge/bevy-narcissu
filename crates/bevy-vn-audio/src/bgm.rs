@@ -32,7 +32,7 @@ fn handle_play_bgm(
     mut mgr: ResMut<BgmManager>,
 ) {
     for event in reader.read() {
-        if let Some(e) = mgr.entity { commands.entity(e).despawn(); }
+        if let Some(e) = mgr.entity { commands.entity(e).try_despawn(); }
         let path = format!("audio/bgm/{}.ogg", event.id);
         let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
         mgr.entity = Some(commands.spawn((
@@ -49,7 +49,7 @@ fn handle_stop_bgm(
     mut mgr: ResMut<BgmManager>,
 ) {
     for _ in reader.read() {
-        if let Some(e) = mgr.entity.take() { commands.entity(e).despawn(); }
+        if let Some(e) = mgr.entity.take() { commands.entity(e).try_despawn(); }
         mgr.current_id = None;
     }
 }

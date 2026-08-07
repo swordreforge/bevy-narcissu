@@ -34,7 +34,7 @@ fn handle_play_se(
 ) {
     for event in reader.read() {
         let ch = event.channel.unwrap_or(0) % MAX_CHANNELS;
-        if let Some(e) = mgr.entities[ch] { commands.entity(e).despawn(); }
+        if let Some(e) = mgr.entities[ch] { commands.entity(e).try_despawn(); }
         let path = format!("audio/se/{}.ogg", event.file);
         let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
         mgr.entities[ch] = Some(commands.spawn((
@@ -52,10 +52,10 @@ fn handle_stop_se(
     for event in reader.read() {
         if let Some(ch) = event.channel {
             let ch = ch % MAX_CHANNELS;
-            if let Some(e) = mgr.entities[ch].take() { commands.entity(e).despawn(); }
+            if let Some(e) = mgr.entities[ch].take() { commands.entity(e).try_despawn(); }
         } else {
             for slot in mgr.entities.iter_mut() {
-                if let Some(e) = slot.take() { commands.entity(e).despawn(); }
+                if let Some(e) = slot.take() { commands.entity(e).try_despawn(); }
             }
         }
     }

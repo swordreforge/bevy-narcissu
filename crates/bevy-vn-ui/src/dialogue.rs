@@ -2,6 +2,7 @@
 
 use bevy::prelude::*;
 use bevy_vn_core::messages::{ClearDialogueEvent, DialogueStateEvent};
+use bevy_vn_core::state::VnAppState;
 use bevy_vn_core::theme::VnTheme;
 
 #[derive(Component)]
@@ -100,6 +101,7 @@ impl Default for TextReveal {
 const DIALOGUE_FADE: f32 = 0.25;
 
 fn handle_dialogue(
+    state: Res<State<VnAppState>>,
     mut reader: MessageReader<DialogueStateEvent>,
     mut q_root: Query<&mut Node, (With<DialogueRoot>, Without<SpeakerText>)>,
     mut q_speaker: Query<(&mut Text, &mut Node), (With<SpeakerText>, Without<DialogueText>)>,
@@ -107,6 +109,10 @@ fn handle_dialogue(
     mut reveal: ResMut<TextReveal>,
     theme: Option<Res<VnTheme>>,
 ) {
+    // 迟到的对话事件(离开 Gameplay 的同帧/次帧 flush)不得重新显示对话框
+    if *state.get() != VnAppState::Gameplay {
+        return;
+    }
     for event in reader.read() {
         for mut node in q_root.iter_mut() { node.display = Display::Flex; }
 

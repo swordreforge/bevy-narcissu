@@ -4,6 +4,7 @@ use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 use bevy_vn_core::messages::{PlayVoiceEvent, SetVolumeEvent, StorySelectEvent};
 use bevy_vn_core::runner::flush_audio;
 use bevy_vn_core::script::ScriptEngine;
+use bevy_vn_core::state::VnAppState;
 
 #[derive(Resource)]
 pub struct VoiceManager {
@@ -22,7 +23,15 @@ impl Plugin for VoicePlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<VoiceManager>()
             .add_systems(Update, (handle_play_voice, handle_voice_volume).after(flush_audio))
-            .add_systems(Update, preload_story_voices.after(flush_audio));
+            .add_systems(Update, preload_story_voices.after(flush_audio))
+            .add_systems(OnExit(VnAppState::Gameplay), stop_voice_on_exit);
+    }
+}
+
+fn stop_voice_on_exit(mut mgr: ResMut<VoiceManager>, mut commands: Commands) {
+    if let Some(e) = mgr.entity {
+        commands.entity(e).try_despawn();
+        mgr.entity = None;
     }
 }
 
