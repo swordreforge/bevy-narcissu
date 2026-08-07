@@ -24,6 +24,7 @@ const Z_CTRL: i32 = 3;
 const BTN_PATH: &str = "pa/ja/save/btn.png";
 const BTNSYS_PATH: &str = "pa/ja/save/btnsys.png";
 const NONE_PATH: &str = "pa/ja/save/none.png";
+const NEW_PATH: &str = "pa/ja/save/new.png";
 
 const SLOT_W: f32 = 176.0;
 const SLOT_H: f32 = 96.0;
@@ -326,6 +327,16 @@ fn spawn_save_load_screen(
 
                     let btn = server.load::<Image>(BTN_PATH);
                     let none_img = server.load::<Image>(NONE_PATH);
+                    let new_img = server.load::<Image>(NEW_PATH);
+
+                    // 原作 save.lua: new 标识贴最近存档槽 (no == saveslot.last)
+                    let latest = mgr
+                        .slots
+                        .iter()
+                        .enumerate()
+                        .filter_map(|(i, s)| s.as_ref().map(|s| (i, s.timestamp)))
+                        .max_by_key(|&(_, t)| t)
+                        .map(|(i, _)| i);
 
                     let slots_on_page = match page {
                         0 | 1 => 8,
@@ -335,7 +346,9 @@ fn spawn_save_load_screen(
                     for i in 0..slots_on_page {
                         let slot_idx = page * 8 + i;
                         let (x, y) = SLOT_POSITIONS[i];
-                        spawn_slot(root, &btn, &none_img, server, provider, mgr, slot_idx, x, y);
+                        spawn_slot(
+                            root, &btn, &none_img, &new_img, server, provider, mgr, slot_idx, x, y, latest,
+                        );
                     }
 
                     spawn_page_buttons(root, &btn, mode.kind, page);
@@ -350,12 +363,14 @@ fn spawn_slot(
     root: &mut ChildSpawnerCommands,
     btn: &Handle<Image>,
     none_img: &Handle<Image>,
+    new_img: &Handle<Image>,
     server: &AssetServer,
     provider: &AssetPathProvider,
     mgr: &SaveManager,
     slot_idx: usize,
     x: f32,
     y: f32,
+    latest: Option<usize>,
 ) {
     let slot = mgr.slots.get(slot_idx).and_then(|s| s.as_ref());
     let filled = slot.is_some();
@@ -416,6 +431,24 @@ fn spawn_slot(
             },
             ZIndex(Z_SLOT),
         ));
+        if filled && latest == Some(slot_idx) {
+            // 原作: new.png 32x32 贴最近存档槽左上角 (v.x + 0, v.y + 0)
+            slot_parent.spawn((
+                ImageNode {
+                    image: new_img.clone(),
+                    ..default()
+                },
+                Node {
+                    position_type: PositionType::Absolute,
+                    left: Val::Px(0.0),
+                    top: Val::Px(0.0),
+                    width: Val::Px(32.0),
+                    height: Val::Px(32.0),
+                    ..default()
+                },
+                ZIndex(Z_SLOT + 1),
+            ));
+        }
     });
 
     let title = slot
