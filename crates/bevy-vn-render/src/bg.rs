@@ -43,6 +43,11 @@ fn handle_set_bg(
     mut q_bg: Query<(&mut ImageNode, &mut Node), With<BgImage>>,
 ) {
     for event in reader.read() {
+        // Same image as the current one: no re-transition, script just
+        // keeps advancing.
+        if bg_state.current_bg.as_deref() == Some(event.image.as_str()) {
+            continue;
+        }
         let path = provider.as_ref()
             .map(|p| p.bg(&event.image))
             .unwrap_or_else(|| format!("image/bg/{}.png", event.image));
