@@ -49,3 +49,30 @@ pub struct VnTransition {
     pub pending: Option<VnAppState>,
     pub duration: f32,
 }
+
+/// Which operation the save/load screen performs.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum SaveLoadKind {
+    #[default]
+    Load,
+    Save,
+}
+
+/// Where to return after closing the save/load screen.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum SaveLoadReturn {
+    #[default]
+    Title,
+    Settings,
+    Gameplay,
+}
+
+/// Runtime mode for the save/load screen. `active` gates both the UI
+/// spawn/despawn and script advancement, so the in-game menu can stay
+/// inside `VnAppState::Gameplay` without wiping the scene.
+#[derive(Resource, Debug, Clone, Copy, Default)]
+pub struct SaveLoadMode {
+    pub active: bool,
+    pub kind: SaveLoadKind,
+    pub return_to: SaveLoadReturn,
+}

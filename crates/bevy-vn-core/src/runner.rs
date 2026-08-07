@@ -1,6 +1,7 @@
 use bevy::prelude::*;
 use crate::messages::*;
 use crate::script::{ScriptCmd, ScriptEngine};
+use crate::state::{SaveLoadMode, VnAppState};
 
 #[derive(Resource, Default)]
 pub struct ScriptBlock { pub blocked: bool }
@@ -60,9 +61,9 @@ impl Plugin for ScriptRunnerPlugin {
             .init_resource::<WaitTimer>()
             .init_resource::<EventQueue>()
             .add_systems(Update, unblock_on_choice)
-            .add_systems(Update, process_advance)
-            .add_systems(Update, auto_skip_tick)
-            .add_systems(Update, wait_tick)
+            .add_systems(Update, process_advance.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
+            .add_systems(Update, auto_skip_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
+            .add_systems(Update, wait_tick.run_if(in_state(VnAppState::Gameplay)).run_if(not(save_load_active)))
             .add_systems(Update, flush_render)
             .add_systems(Update, flush_hotspot)
             .add_systems(Update, flush_custom)
@@ -74,6 +75,10 @@ impl Plugin for ScriptRunnerPlugin {
 
 fn unblock_on_choice(mut r: MessageReader<ChoiceSelectedEvent>, mut blk: ResMut<ScriptBlock>) {
     for _ in r.read() { blk.blocked = false; }
+}
+
+fn save_load_active(mode: Res<SaveLoadMode>) -> bool {
+    mode.active
 }
 
 #[derive(PartialEq)]
