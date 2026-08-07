@@ -346,18 +346,20 @@ fn spawn_page2(parent: &mut ChildSpawnerCommands, server: &AssetServer, s: &Game
             ));
 
             let vol_sliders = [
-                (SliderKind::Master, 239.0, 187.0, 300.0, s.master),
-                (SliderKind::Bgm, 239.0, 235.0, 365.0, s.bgm),
-                (SliderKind::Bgmvo, 239.0, 280.0, 362.0, s.bgmvo),
-                (SliderKind::Voice, 239.0, 330.0, 362.0, s.voice),
-                (SliderKind::Se, 239.0, 370.0, 362.0, s.se),
-                (SliderKind::Sysse, 239.0, 410.0, 368.0, s.sysse),
-                (SliderKind::Movie, 239.0, 460.0, 362.0, s.movie),
+                (SliderKind::Master, 239.0, 187.0, s.master),
+                (SliderKind::Bgm, 239.0, 235.0, s.bgm),
+                (SliderKind::Bgmvo, 239.0, 280.0, s.bgmvo),
+                (SliderKind::Voice, 239.0, 330.0, s.voice),
+                (SliderKind::Se, 239.0, 370.0, s.se),
+                (SliderKind::Sysse, 239.0, 410.0, s.sysse),
+                (SliderKind::Movie, 239.0, 460.0, s.movie),
             ];
             let labels = ["マスター", "BGM", "BGM+ボイス", "ボイス", "SE", "システムSE", "ムービー"];
-            for ((kind, x, y, w, val), label) in vol_sliders.into_iter().zip(labels) {
+            for ((kind, x, y, val), label) in vol_sliders.into_iter().zip(labels) {
                 spawn_label(p, label, x - 142.0, y);
-                spawn_slider(p, server, kind, x, y, w, val);
+                // tbl ui_config2: all seven share clip/cw=190, area=190; the
+                // per-slider `w` is only the click hitbox, not the track.
+                spawn_slider(p, server, kind, x, y, 190.0, val);
             }
 
             let fl_defs = [
@@ -451,26 +453,28 @@ fn spawn_slider(
     kind: SliderKind,
     x: f32,
     y: f32,
-    w: f32,
+    clip_w: f32,
     val: f32,
 ) {
     let track = server.load::<Image>(TRACK_PATH);
     let pin = server.load::<Image>(PIN_PATH);
-    let zone_w = w / SLIDER_ZONES as f32;
-    let pin_w = 19.0;
-    let pin_x = x + (val / 100.0) * (w - pin_w);
+    // Visual track width = tbl clip/cw (190 on the sound page, w on the
+    // basic page); pin renders at spin01's natural 38px (p2=19 is half).
+    let zone_w = clip_w / SLIDER_ZONES as f32;
+    let pin_w = 38.0;
+    let pin_x = x + (val / 100.0) * (clip_w - pin_w);
 
     parent.spawn((
         ImageNode {
             image: track.clone(),
-            rect: Some(Rect::new(0.0, 183.0, w, 207.0)),
+            rect: Some(Rect::new(0.0, 183.0, clip_w, 207.0)),
             ..default()
         },
         Node {
             position_type: PositionType::Absolute,
             left: Val::Px(x),
             top: Val::Px(y),
-            width: Val::Px(w),
+            width: Val::Px(clip_w),
             height: Val::Px(24.0),
             ..default()
         },
@@ -494,7 +498,7 @@ fn spawn_slider(
     }
 
     parent.spawn((
-        SliderPin { kind, track_left: x, track_w: w, pin_w },
+        SliderPin { kind, track_left: x, track_w: clip_w, pin_w },
         ImageNode { image: pin, ..default() },
         Node {
             position_type: PositionType::Absolute,
@@ -514,7 +518,7 @@ fn spawn_slider(
         TextColor(Color::WHITE),
         Node {
             position_type: PositionType::Absolute,
-            left: Val::Px(x + w + 8.0),
+            left: Val::Px(x + clip_w + 8.0),
             top: Val::Px(y + 5.0),
             ..default()
         },
@@ -528,7 +532,8 @@ fn spawn_vo_slider(parent: &mut ChildSpawnerCommands, server: &AssetServer, idx:
     let pin = server.load::<Image>(VO_PIN_PATH);
     let w = 84.0;
     let zone_w = w / SLIDER_ZONES as f32;
-    let pin_w = 15.0;
+    // spin02.png is 30×15 natural size; tbl p2=15 is its half width.
+    let pin_w = 30.0;
     let pin_x = x + (val / 100.0) * (w - pin_w);
 
     parent.spawn((
