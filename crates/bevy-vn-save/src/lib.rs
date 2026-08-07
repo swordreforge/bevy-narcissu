@@ -20,9 +20,28 @@ pub struct SaveSlot {
     pub timestamp: u64,
     pub description: String,
     pub engine: EngineSnapshot,
+    /// Display metadata captured at save time (scene thumbnail, chapter,
+    /// dialogue preview). Missing on old saves — `#[serde(default)]` keeps
+    /// them loadable.
+    #[serde(default)]
+    pub meta: SlotMeta,
     /// Extension point: per-subsystem JSON blobs.
     #[serde(default)]
     pub subsystems: HashMap<String, serde_json::Value>,
+}
+
+/// Display metadata shown on the save/load screen slot.
+#[derive(Debug, Clone, PartialEq, Default, Serialize, Deserialize)]
+pub struct SlotMeta {
+    /// Background image key (e.g. "bg01"), resolved via `AssetPathProvider`.
+    pub bg: Option<String>,
+    /// Human-readable chapter title (e.g. "一号公路").
+    pub chapter: Option<String>,
+    /// Abbreviated dialogue preview (multi-line, truncated).
+    pub preview: Option<String>,
+    /// Last spoken line `(speaker, text)` — re-shown on load so the player
+    /// sees the line they saved on.
+    pub last_dialogue: Option<(Option<String>, String)>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -103,6 +122,17 @@ impl SaveManager {
 
     /// Save engine state to a slot.
     pub fn save(&mut self, index: usize, engine: &ScriptEngine, description: &str) -> Result<(), String> {
+        self.save_with_meta(index, engine, description, SlotMeta::default())
+    }
+
+    /// Save engine state plus display metadata to a slot.
+    pub fn save_with_meta(
+        &mut self,
+        index: usize,
+        engine: &ScriptEngine,
+        description: &str,
+        meta: SlotMeta,
+    ) -> Result<(), String> {
         if index >= SLOT_COUNT {
             return Err(format!("slot index {index} out of range"));
         }
@@ -114,6 +144,7 @@ impl SaveManager {
                 .as_secs(),
             description: description.to_string(),
             engine: EngineSnapshot::from(engine),
+            meta,
             subsystems: HashMap::new(),
         };
         let json = serde_json::to_string_pretty(&slot).map_err(|e| e.to_string())?;
@@ -231,6 +262,7 @@ mod tests {
             timestamp: 1234567890,
             description: "test save".into(),
             engine: EngineSnapshot::from(&engine),
+            meta: SlotMeta::default(),
             subsystems: HashMap::new(),
         };
         let json = serde_json::to_string(&slot).unwrap();
@@ -239,6 +271,46 @@ mod tests {
         assert_eq!(parsed.description, "test save");
         assert_eq!(parsed.engine.current_line, 5);
         assert_eq!(parsed.engine.flags.get("score"), Some(&42));
+    }
+
+    #[test]
+    fn legacy_slot_without_meta_loads() {
+        let legacy = r#"{
+            "version": 1,
+            "timestamp": 1234567890,
+            "description": "old save",
+            "engine": {"current_script":"main","current_line":5,"call_stack":[["main",2]],"flags":{"score":42},"global_flags":{},"current_route":null,"finished":false},
+            "subsystems": {}
+        }"#;
+        let parsed: SaveSlot = serde_json::from_str(legacy).unwrap();
+        assert_eq!(parsed.description, "old save");
+        assert_eq!(parsed.meta, SlotMeta::default());
+    }
+
+    #[test]
+    fn save_with_meta_roundtrip() {
+        let tmp = std::env::temp_dir().join("bevy_vn_test_saves_meta");
+        let _ = std::fs::remove_dir_all(&tmp);
+        let mut mgr = SaveManager::new(tmp.clone());
+        let engine = make_engine();
+
+        let meta = SlotMeta {
+            bg: Some("bg01".into()),
+            chapter: Some("一号公路".into()),
+            preview: Some("行.「その道は…」".into()),
+            last_dialogue: Some((Some("濑津美".into()), "その道は…".into())),
+        };
+        mgr.save_with_meta(1, &engine, "meta save", meta.clone()).unwrap();
+        assert_eq!(mgr.slots[1].as_ref().unwrap().meta.chapter.as_deref(), Some("一号公路"));
+
+        mgr.refresh();
+        assert_eq!(mgr.slots[1].as_ref().unwrap().meta.bg.as_deref(), Some("bg01"));
+        assert_eq!(
+            mgr.slots[1].as_ref().unwrap().meta.last_dialogue,
+            Some((Some("濑津美".into()), "その道は…".into()))
+        );
+
+        let _ = std::fs::remove_dir_all(&tmp);
     }
 
     #[test]
