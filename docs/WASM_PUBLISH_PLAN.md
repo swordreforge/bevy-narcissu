@@ -13,7 +13,7 @@
 | D1 | 渲染后端 | **双后端 `webgpu` + `webgl2`**(Bevy 0.19 features 可共存;wgpu 29 运行时自动 fallback:WebGPU 可用则用之,否则(如 Firefox Linux)走 WebGL2。**冒烟已验证:Brave=BrowserWebGpu、Firefox=Gl**) |
 | D2 | 存档存储 | **`localStorage`**(小 JSON,同步语义,5MB 配额足够) |
 | D3 | 资产存储 | **`OPFS`(Origin Private File System)**(400MB 二进制小文件场景:写入快 3-4 倍、无单文件大小限制、文件系统语义匹配;**注意**:Bevy 自带 `web_asset_cache` 是 native-only 且写本地磁盘,wasm 端无任何现成缓存,需自研 `AssetReader` 包装层,见 §2.4) |
-| D4 | 脚本加载 | **AssetServer 懒加载**(统一原生/wasm,顺带修 theme CWD bug) |
+| D4 | 脚本加载 | **AssetServer 懒加载 + ScriptManifest 清单**(统一原生/wasm,顺带修 theme CWD bug;**wasm 上 `load_folder` 不可用**——Bevy 0.19 `HttpWasmAssetReader::read_directory` 返回空流,见 §2 手段 C) |
 | D5 | 体积优化 | **后续再做**(本期直接静态托管 440M,AssetServer 天然按需加载) |
 | D6 | 部署 | **GitHub Pages**(静态托管 + MIME 配置) |
 
@@ -123,7 +123,8 @@ pub trait AppStorage: Send + Sync {
 
 ### 手段 C：cfg 分支（最小兜底，用于无法抽象的点）
 
-1. **脚本加载**（#1）：**已定 D4，Phase 1 已实现** — `AssetServer::load_folder("scripts")` + `ingest_scripts` 系统等 `LoadedFolder` 就绪后，遍历 handles downcast 成 `VnScriptAsset`，key 取 `script.meta.name`（83 个脚本全有 name），`pack` 跳过。原生/wasm 同一条代码路径。弃用 `include_str!`（+15M wasm，且失去懒加载）。
+1. **脚本加载**（#1）：**已定 D4，Phase 1+2 已实现** — 采用 **ScriptManifest 清单**方案：`assets/scripts/manifest.list`（每行一个文件名，`#` 注释），`ScriptManifestLoader`（`.list` 扩展）解析；`main.rs` 加载 manifest → 对每个文件名 `asset_server.load::<VnScriptAsset>("scripts/{f}")` → `Assets<VnScriptAsset>` 全就绪后按 `meta.name` 逐个 `engine.load_script`（`pack` 跳过）。原生/wasm 同一条代码路径。
+   - ⚠️ **为何不用 `load_folder`**：Bevy 0.19 wasm 端 `HttpWasmAssetReader::read_directory`（`bevy_asset-0.19.0/src/io/wasm.rs:127-134`）**无条件返回空流**并记 error——wasm 上 `load_folder("scripts")` 会加载 0 个脚本。原生 OK，故原生/wasm 行为不一致，必须换成显式清单（文件名列表随 assets 一起发布）。
 2. **theme.ron**（#4）：**Phase 1 已实现** — `VnTheme` 加 `#[derive(Asset, TypePath)]` + `VnThemeLoader`（同 `VnScriptLoader` 模式，解析 ron），UI 侧 `VnThemePlugin` 在 Startup `asset_server.load("theme.ron")`，Update 轮询 `Assets<VnTheme>` 就绪后 `insert_resource`（缺失/失败保持默认，与旧行为一致）。注册用 `app.register_asset_loader`（`init_asset_loader` 要求 `FromWorld`）。原生/wasm 统一，CWD bug 已修。
 3. **视频插件**（#3）：example 里 `#[cfg(not(target_arch = "wasm32"))]` 注册即可，引擎侧不动。
 4. **入口**：wasm 没有 `main` 的 `run()` 阻塞语义，Bevy 0.19 wasm 入口仍用 `App::run()`（内部适配），一般无需独立 main。若出现 wasm 特有问题再拆 `wasm_entry.rs`。
@@ -209,13 +210,15 @@ AssetServer ─→ OpfsAssetReader（自定义）
 
 > **Phase 1 完成（2026-08-08）**：`cargo test --workspace` 81 个测试全绿；`cargo run -p bevy-vn-example --release` 实机验证 `Loaded 82 scripts via AssetServer`（83 − pack）与改造前一致。实现差异 vs 计划（详见 §2 手段 B/C）：① `AppStorage::read` 返回 `Result<Option<String>, String>`（区分"不存在"与"IO 错误"）；② 注入用 `Arc<dyn AppStorage>` 包成 `AppStorageResource`（Resource 要求具体类型，Arc 让 SaveManager 与 settings 共享同一实例）；③ `VnTheme` 同时 derive `Resource + Asset`，loader 用 `app.register_asset_loader`（`init_asset_loader` 要求 `FromWorld`）；④ 仓库中 theme.ron 实际不存在（旧 CWD 读取一直静默失败走默认），AssetServer 版本行为一致；⑤ 脚本 key 直接取 `meta.name`（83 个脚本全有 name），`ingest_scripts` 依赖 `LoadedFolder` 依赖就绪语义（全量成功才触发，现有脚本全部 parse 健康）。
 
-### Phase 2 — wasm 编译通过（1 天）
-- [ ] 各 Cargo.toml 加 wasm target 条件段（**webgl2 + webgpu / D1**、single_threaded）。
-- [ ] `trunk build` 出产物，修复编译错误（主要为 target 差异、无 fs 分支）。
-- [ ] **index.html 必须 `<link data-trunk rel="copy-dir" href="assets">`**：trunk 默认只打包 index.html 声明的资源，`assets/` 目录不会自动复制，否则全部资源 404（Phase 0 已踩坑）。
-- [ ] example 层 `#[cfg(not(wasm))]` 屏蔽视频插件。
-- [ ] **AssetPlugin 设 `meta_check: AssetMetaCheck::Never`**(wasm 段):跳过 `.meta` 查找,避免每个资产一次 404 请求;且 itch.io 等平台缺失文件返回 403 会被 Bevy 视为致命错误导致整个加载失败。
-- **验证**：`trunk serve` 浏览器可启动，标题画面出现，能进 RouteSelect。
+### Phase 2 — wasm 编译通过 ✅ 已完成（2026-08-08）
+- [x] 各 Cargo.toml 加 wasm target 条件段（**webgl2 + webgpu / D1**、single_threaded；仅 examples/minimal 需要，各 crate 无平台 feature）。
+- [x] `trunk build` 出产物，修复编译错误（**wasm-bindgen 0.2.126 CLI 锁定**：Cargo.lock 锁定 0.2.126（js-sys 0.3.103 硬性 `=0.2.126`），trunk 下载机制被墙，`cargo install wasm-bindgen-cli --version 0.2.126 --root /tmp/opencode/wb126` 解决；emcc 用系统包 `source /etc/profile.d/emscripten.sh`（basisu_c_sys 需 emscripten 编译））。
+- [x] **index.html `<link data-trunk rel="copy-dir" href="assets">`**：dist/ 完整包含 assets（478M = wasm 41M + assets 439M）。
+- [x] example 层 `#[cfg(not(wasm))]` 屏蔽视频插件 + `#[cfg(wasm)]` 段设 `AssetPlugin.meta_check = AssetMetaCheck::Never` + `WgpuSettings { backends: Some(BROWSER_WEBGPU | GL) }`。
+- [x] **AssetPlugin 设 `meta_check: AssetMetaCheck::Never`**(wasm 段):跳过 `.meta` 查找,避免每个资产一次 404 请求。
+- [x] **脚本加载 wasm 缺陷修复（D4 关键发现）**：wasm 上 `load_folder` 返回空流（见 §2 手段 C）→ 定案 ScriptManifest 清单方案，core 新增 `ScriptManifest` + `ScriptManifestLoader`，main.rs 改 manifest 驱动。
+- **验证**：`trunk build --release` 成功；浏览器实测标题画面出现、可进 RouteSelect、82 脚本加载、交互正常。
+- **实现差异 vs 计划**：① **D4 方案变更**：`load_folder` → ScriptManifest 清单（wasm `read_directory` 空流，原生/wasm 统一为清单驱动，manifest.list 83 行随 assets 发布）；② wasm-bindgen CLI 版本必须与 Cargo.lock 完全一致（0.2.126），否则 wasm-bindgen 后处理产物不匹配；③ 原生回归时直接跑二进制会因 `current_exe()` 基路径解析到 `target/release/assets` 而全 404——Bevy 0.19 `FileAssetReader::get_base_path` 优先级为 `BEVY_ASSET_ROOT` → `CARGO_MANIFEST_DIR` → `current_exe()` 目录，用 `cargo run`（设 CARGO_MANIFEST_DIR）即正确；④ 已知 13 个语音文件在资源包中缺失（`aka_0409b`、`mom_a0{12,22,32,42,52,62}`、`npetcm36_010/011/012`、`npetcw2_146`、`0snyuka_0125/0128`，引用 6955 个中 0.2%），**预先存在的问题**（原生同样 404，用户资源包本身无此文件），引擎对缺失音频不阻塞剧情（`AudioPlayer` 直接 spawn 静默跳过），决定忽略；⑤ 构建产物 `dist/`（478M）加入 `.gitignore` 不入库，GitHub Pages 部署时单独处理（见 Phase 4）。
 
 ### Phase 3 — 运行时验证 + OPFS 缓存（1-2 天）
 - [ ] **D3**：实现 `OpfsAssetReader`（包装 `WebAssetReader`，主线程异步 OPFS API），wasm 段注册；首次加载后刷新页面验证命中缓存（Network 面板无重复请求）。

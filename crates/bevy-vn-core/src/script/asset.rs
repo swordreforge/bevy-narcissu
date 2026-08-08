@@ -38,6 +38,48 @@ impl AssetLoader for VnScriptLoader {
     }
 }
 
+/// Manifest listing every `.vnscript.ron` file to load, one filename per
+/// line. `load_folder` cannot be used on wasm (HttpWasmAssetReader returns
+/// an empty directory listing), so the script set is enumerated in this
+/// file and loaded individually — same code path on native and wasm.
+#[derive(Asset, TypePath, Debug, Clone, Default)]
+pub struct ScriptManifest {
+    pub files: Vec<String>,
+}
+
+/// AssetLoader for `manifest.list` files.
+#[derive(TypePath)]
+pub struct ScriptManifestLoader;
+
+impl AssetLoader for ScriptManifestLoader {
+    type Asset = ScriptManifest;
+    type Settings = ();
+    type Error = std::io::Error;
+
+    async fn load(
+        &self,
+        reader: &mut dyn Reader,
+        _settings: &Self::Settings,
+        _load_context: &mut LoadContext<'_>,
+    ) -> Result<Self::Asset, Self::Error> {
+        let mut bytes = Vec::new();
+        reader.read_to_end(&mut bytes).await?;
+        let text = String::from_utf8(bytes)
+            .map_err(|e| std::io::Error::new(std::io::ErrorKind::InvalidData, e.to_string()))?;
+        let files = text
+            .lines()
+            .map(str::trim)
+            .filter(|l| !l.is_empty() && !l.starts_with('#'))
+            .map(ToOwned::to_owned)
+            .collect();
+        Ok(ScriptManifest { files })
+    }
+
+    fn extensions(&self) -> &[&str] {
+        &["list"]
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::script::cmd::*;

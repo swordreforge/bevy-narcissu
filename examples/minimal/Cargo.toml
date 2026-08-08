@@ -20,3 +20,16 @@ bevy-vn-audio = { path = "../../crates/bevy-vn-audio" }
 bevy-vn-ui = { path = "../../crates/bevy-vn-ui" }
 bevy-vn-save = { path = "../../crates/bevy-vn-save" }
 bevy-vn-video = { path = "../../crates/bevy-vn-video" }
+
+# wasm 构建:双后端 webgpu+webgl2(可共存,wgpu 29 运行时自动 fallback);
+# 不写 multi_threaded(默认 single_threaded);无 x11/wayland。
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+bevy = { version = "0.19", default-features = false, features = [
+    "bevy_asset", "bevy_audio", "bevy_sprite", "bevy_ui", "bevy_text",
+    "bevy_ui_render", "bevy_log", "bevy_state",
+    "bevy_winit", "bevy_window", "bevy_render", "bevy_core_pipeline",
+    "webgpu", "webgl2",
+    "png", "vorbis",
+] }
+# rand(bevy-vn-render 依赖)→ getrandom 0.4:wasm32-unknown-unknown 需显式 wasm_js feature。
+getrandom = { version = "0.4", features = ["wasm_js"] }

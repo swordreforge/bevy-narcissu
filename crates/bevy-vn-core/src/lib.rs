@@ -19,7 +19,6 @@ pub mod theme;
 use bevy::prelude::*;
 
 use engine_config::VnEngineConfig;
-use script::VnScriptLoader;
 use state::{VnAppState, VnMenuState, VnTransition};
 use theme::VnTheme;
 
@@ -47,7 +46,10 @@ impl Plugin for VnCorePlugin {
 
         // ── Asset loader for .vnscript.ron ──
         app.init_asset::<script::VnScriptAsset>();
-        app.register_asset_loader(VnScriptLoader);
+        app.register_asset_loader(script::VnScriptLoader);
+        // ── Asset loader for script manifest (native/wasm unified loading) ──
+        app.init_asset::<script::ScriptManifest>();
+        app.register_asset_loader(script::ScriptManifestLoader);
 
         // ── Event types (registered once, consumed by subsystem plugins) ──
         app.add_message::<messages::AdvanceEvent>();
@@ -114,7 +116,8 @@ pub mod prelude {
     pub use crate::save::{SaveData, SaveStateProvider};
     pub use crate::script::{
         ConditionOp, ExpressionError, FgPosition, ScreenEffectKind, ScriptCmd, ScriptEngine,
-        ScriptMeta, ScriptVersion, Transition, VnScript, VnScriptAsset, VnScriptLoader,
+        ScriptManifest, ScriptManifestLoader, ScriptMeta, ScriptVersion, Transition, VnScript,
+        VnScriptAsset, VnScriptLoader,
     };
     pub use crate::storage::{AppStorage, FsStorage};
     pub use crate::state::{TransitionPhase, VnAppState, VnMenuState, VnTransition};

@@ -3,3 +3,4 @@ saves/
 .omo/
 backups/
 bevy-vn-example-linux-amd64_86-*.tar.xz
+examples/minimal/dist/
