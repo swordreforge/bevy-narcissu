@@ -20,7 +20,6 @@ struct StoryEntry { story_idx: usize }
 struct ExitButton;
 
 struct StorySpec {
-    name: &'static str,
     x: f32,
     y: f32,
     story_idx: usize,
@@ -30,12 +29,12 @@ struct StorySpec {
 }
 
 const STORIES: [StorySpec; 6] = [
-    StorySpec { name: "水仙1+2合集", x: 177.0, y: 322.0, story_idx: 0, clip_y: 0.0, clip_w: 228.0, clip_h: 50.0 },
-    StorySpec { name: "水仙2", x: 418.0, y: 322.0, story_idx: 1, clip_y: 52.0, clip_w: 228.0, clip_h: 52.0 },
-    StorySpec { name: "水仙Zero", x: 662.0, y: 322.0, story_idx: 2, clip_y: 100.0, clip_w: 228.0, clip_h: 50.0 },
-    StorySpec { name: "水仙堇", x: 182.0, y: 450.0, story_idx: 3, clip_y: 148.0, clip_w: 228.0, clip_h: 50.0 },
-    StorySpec { name: "水仙姬子", x: 418.0, y: 450.0, story_idx: 4, clip_y: 200.0, clip_w: 228.0, clip_h: 42.0 },
-    StorySpec { name: "小小伊丽丝", x: 662.0, y: 450.0, story_idx: 5, clip_y: 246.0, clip_w: 228.0, clip_h: 50.0 },
+    StorySpec { x: 177.0, y: 322.0, story_idx: 0, clip_y: 0.0, clip_w: 228.0, clip_h: 50.0 },
+    StorySpec { x: 418.0, y: 322.0, story_idx: 1, clip_y: 52.0, clip_w: 228.0, clip_h: 52.0 },
+    StorySpec { x: 662.0, y: 322.0, story_idx: 2, clip_y: 100.0, clip_w: 228.0, clip_h: 50.0 },
+    StorySpec { x: 182.0, y: 450.0, story_idx: 3, clip_y: 148.0, clip_w: 228.0, clip_h: 50.0 },
+    StorySpec { x: 418.0, y: 450.0, story_idx: 4, clip_y: 200.0, clip_w: 228.0, clip_h: 42.0 },
+    StorySpec { x: 662.0, y: 450.0, story_idx: 5, clip_y: 246.0, clip_w: 228.0, clip_h: 50.0 },
 ];
 
 pub struct ChapterSelectPlugin;
@@ -103,11 +102,6 @@ fn spawn_chapter(mut commands: Commands, asset_server: Res<AssetServer>) {
                         ..default()
                     },
                     ZIndex(1),
-                ))
-                .with_child((
-                    Text::new(s.name),
-                    TextFont { font_size: FontSize::Px(18.0), ..default() },
-                    TextColor(Color::WHITE),
                 ));
             }
 
