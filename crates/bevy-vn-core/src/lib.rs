@@ -13,6 +13,7 @@ pub mod runner;
 pub mod save;
 pub mod script;
 pub mod state;
+pub mod storage;
 pub mod theme;
 
 use bevy::prelude::*;
@@ -115,10 +116,11 @@ pub mod prelude {
         ConditionOp, ExpressionError, FgPosition, ScreenEffectKind, ScriptCmd, ScriptEngine,
         ScriptMeta, ScriptVersion, Transition, VnScript, VnScriptAsset, VnScriptLoader,
     };
+    pub use crate::storage::{AppStorage, FsStorage};
     pub use crate::state::{TransitionPhase, VnAppState, VnMenuState, VnTransition};
     pub use crate::theme::{
         BacklogTheme, ChoiceTheme, ColorTheme, DialogueTheme, FontTheme, GalleryTheme,
-        SaveLoadTheme, SettingsTheme, TitleTheme, TransitionTheme, VnTheme,
+        SaveLoadTheme, SettingsTheme, TitleTheme, TransitionTheme, VnTheme, VnThemeLoader,
     };
     pub use crate::VnCorePlugin;
 }

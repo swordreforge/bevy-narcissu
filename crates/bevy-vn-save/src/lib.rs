@@ -1,16 +1,19 @@
 //! bevy-vn-save — Save/load plugin for the Bevy VN engine.
 //!
-//! Manages persistent save slots as JSON files. Collects script engine
-//! state (flags, position, call stack) and restores it on load.
+//! Manages persistent save slots as JSON files through the [`AppStorage`]
+//! abstraction (native: FsStorage; wasm: injected localStorage impl).
+//! Collects script engine state (flags, position, call stack) and restores
+//! it on load.
 //!
 //! Save file layout: `saves/slot_N.json`
 
+use std::sync::Arc;
+
 use bevy::prelude::*;
 use bevy_vn_core::script::ScriptEngine;
+use bevy_vn_core::storage::{AppStorage, FsStorage};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use std::fs;
-use std::path::PathBuf;
 
 // ── Save data ──
 
@@ -88,14 +91,16 @@ const SAVE_VERSION: u32 = 1;
 
 #[derive(Resource)]
 pub struct SaveManager {
-    pub save_dir: PathBuf,
+    pub storage: Arc<dyn AppStorage>,
+    pub save_dir: String,
     pub slots: [Option<SaveSlot>; SLOT_COUNT],
     pub loaded: bool,
 }
 
 impl SaveManager {
-    pub fn new(save_dir: PathBuf) -> Self {
+    pub fn new(save_dir: String, storage: Arc<dyn AppStorage>) -> Self {
         let mut mgr = Self {
+            storage,
             save_dir,
             slots: [const { None }; SLOT_COUNT],
             loaded: false,
@@ -106,15 +111,15 @@ impl SaveManager {
 
     /// Scan the save directory for existing slots.
     pub fn refresh(&mut self) {
-        let _ = fs::create_dir_all(&self.save_dir);
         for i in 0..SLOT_COUNT {
             let path = self.slot_path(i);
-            if let Ok(bytes) = fs::read(&path) {
-                if let Ok(slot) = serde_json::from_slice::<SaveSlot>(&bytes) {
-                    self.slots[i] = Some(slot);
+            match self.storage.read(&path) {
+                Ok(Some(text)) => {
+                    if let Ok(slot) = serde_json::from_str::<SaveSlot>(&text) {
+                        self.slots[i] = Some(slot);
+                    }
                 }
-            } else {
-                self.slots[i] = None;
+                _ => self.slots[i] = None,
             }
         }
         self.loaded = true;
@@ -148,7 +153,7 @@ impl SaveManager {
             subsystems: HashMap::new(),
         };
         let json = serde_json::to_string_pretty(&slot).map_err(|e| e.to_string())?;
-        fs::write(self.slot_path(index), json).map_err(|e| e.to_string())?;
+        self.storage.write(&self.slot_path(index), &json)?;
         self.slots[index] = Some(slot);
         Ok(())
     }
@@ -167,32 +172,43 @@ impl SaveManager {
     /// Delete a save slot.
     pub fn delete(&mut self, index: usize) -> Result<(), String> {
         if index >= SLOT_COUNT { return Err("index out of range".into()); }
-        fs::remove_file(self.slot_path(index)).map_err(|e| e.to_string())?;
+        self.storage.remove(&self.slot_path(index))?;
         self.slots[index] = None;
         Ok(())
     }
 
-    fn slot_path(&self, index: usize) -> PathBuf {
-        self.save_dir.join(format!("slot_{index}.json"))
+    fn slot_path(&self, index: usize) -> String {
+        format!("{}/slot_{index}.json", self.save_dir)
     }
 }
 
 // ── Plugin ──
 
+/// The platform storage injected as a Bevy resource — shared by save slots
+/// and settings persistence. Native default is [`FsStorage`]; wasm builds
+/// insert a localStorage-backed impl before adding `VnSavePlugin`.
+#[derive(Resource, Clone)]
+pub struct AppStorageResource(pub Arc<dyn AppStorage>);
+
 pub struct VnSavePlugin {
     pub save_dir: String,
+    pub storage: Option<Arc<dyn AppStorage>>,
 }
 
 impl Default for VnSavePlugin {
     fn default() -> Self {
-        Self { save_dir: "saves".into() }
+        Self { save_dir: "saves".into(), storage: None }
     }
 }
 
 impl Plugin for VnSavePlugin {
     fn build(&self, app: &mut App) {
-        let save_dir = PathBuf::from(&self.save_dir);
-        app.insert_resource(SaveManager::new(save_dir));
+        let storage: Arc<dyn AppStorage> = match &self.storage {
+            Some(s) => s.clone(),
+            None => Arc::new(FsStorage),
+        };
+        app.insert_resource(AppStorageResource(storage.clone()));
+        app.insert_resource(SaveManager::new(self.save_dir.clone(), storage));
         app.add_systems(Update, handle_save_point);
     }
 }
@@ -291,7 +307,7 @@ mod tests {
     fn save_with_meta_roundtrip() {
         let tmp = std::env::temp_dir().join("bevy_vn_test_saves_meta");
         let _ = std::fs::remove_dir_all(&tmp);
-        let mut mgr = SaveManager::new(tmp.clone());
+        let mut mgr = SaveManager::new(tmp.to_str().unwrap().into(), Arc::new(FsStorage));
         let engine = make_engine();
 
         let meta = SlotMeta {
@@ -317,7 +333,7 @@ mod tests {
     fn save_load_in_memory() {
         let tmp = std::env::temp_dir().join("bevy_vn_test_saves");
         let _ = std::fs::remove_dir_all(&tmp);
-        let mut mgr = SaveManager::new(tmp.clone());
+        let mut mgr = SaveManager::new(tmp.to_str().unwrap().into(), Arc::new(FsStorage));
         assert!(!mgr.slots[0].is_some());
 
         let mut engine = make_engine();
@@ -347,7 +363,7 @@ mod tests {
     fn save_version_mismatch() {
         let tmp = std::env::temp_dir().join("bevy_vn_test_saves_v");
         let _ = std::fs::remove_dir_all(&tmp);
-        let mut mgr = SaveManager::new(tmp.clone());
+        let mut mgr = SaveManager::new(tmp.to_str().unwrap().into(), Arc::new(FsStorage));
         let mut engine = make_engine();
 
         mgr.save(0, &engine, "v1").unwrap();

@@ -1,17 +1,23 @@
 //! Theme system — three-layer override model.
 //!
 //! Layer 1: VnTheme::default() (built-in defaults)
-//! Layer 2: assets/theme.ron (RON config file)
+//! Layer 2: assets/theme.ron (RON config file, loaded via AssetServer)
 //! Layer 3: bsn!{} component-level override (per-spawn)
 //!
 //! Theme values with type f32 for font sizes are converted to FontSize
 //! via `px()` at the use site (see bevy-vn-ui).
+//!
+//! VnTheme doubles as a Bevy [`Asset`] so theme.ron is loaded through the
+//! AssetServer — this fixes the old CWD-relative `std::fs` read (which
+//! silently fell back to defaults) and works identically on wasm.
 
+use bevy::asset::io::Reader;
+use bevy::asset::{AssetLoader, LoadContext};
 use bevy::prelude::*;
 use serde::{Deserialize, Serialize};
 
 /// Global theme configuration resource.
-#[derive(Resource, Debug, Clone, Serialize, Deserialize)]
+#[derive(Resource, Asset, TypePath, Debug, Clone, Serialize, Deserialize)]
 pub struct VnTheme {
     pub dialogue: DialogueTheme,
     pub choice: ChoiceTheme,
@@ -200,5 +206,31 @@ impl Default for VnTheme {
             backlog: BacklogTheme::default(),
             gallery: GalleryTheme::default(),
         }
+    }
+}
+
+/// AssetLoader for `theme.ron` — parses the RON text into a [`VnTheme`].
+#[derive(TypePath)]
+pub struct VnThemeLoader;
+
+impl AssetLoader for VnThemeLoader {
+    type Asset = VnTheme;
+    type Settings = ();
+    type Error = std::io::Error;
+
+    async fn load(
+        &self,
+        reader: &mut dyn Reader,
+        _settings: &Self::Settings,
+        _load_context: &mut LoadContext<'_>,
+    ) -> Result<Self::Asset, Self::Error> {
+        let mut bytes = Vec::new();
+        reader.read_to_end(&mut bytes).await?;
+        ron::de::from_bytes(&bytes)
+            .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e.to_string()))
+    }
+
+    fn extensions(&self) -> &[&str] {
+        &["ron"]
     }
 }
