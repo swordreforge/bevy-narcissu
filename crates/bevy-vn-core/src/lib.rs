@@ -120,6 +120,8 @@ pub mod prelude {
         VnScriptAsset, VnScriptLoader,
     };
     pub use crate::storage::{AppStorage, FsStorage};
+    #[cfg(target_arch = "wasm32")]
+    pub use crate::storage::LocalStorage;
     pub use crate::state::{TransitionPhase, VnAppState, VnMenuState, VnTransition};
     pub use crate::theme::{
         BacklogTheme, ChoiceTheme, ColorTheme, DialogueTheme, FontTheme, GalleryTheme,
