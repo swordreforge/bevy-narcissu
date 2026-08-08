@@ -11,12 +11,12 @@ use bevy::ecs::hierarchy::ChildSpawnerCommands;
 use bevy::prelude::*;
 use bevy_vn_core::messages::PlaySeEvent;
 use bevy_vn_core::state::{
-    GameplayMenuMode, SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, SkipMode,
-    VnAppState, VnTransition,
+    GameplayMenuMode, OverlayToggle, SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode,
+    SkipMode, TransitionPhase, VnAppState, VnTransition,
 };
 
 use crate::backlog::BacklogState;
-use crate::transition::request_transition;
+use crate::transition::{request_overlay, request_transition_with_overlay};
 
 const BG_PATH: &str = "pa/ja/mw/bg-mean.png";
 const BTN_PATH: &str = "pa/ja/mw/btn-mean.png";
@@ -85,23 +85,27 @@ fn toggle_menu_input(
     mode: Res<SaveLoadMode>,
     settings_overlay: Res<SettingsOverlayMode>,
     mut backlog: ResMut<BacklogState>,
-    mut menu: ResMut<GameplayMenuMode>,
+    menu: Res<GameplayMenuMode>,
+    mut transition: ResMut<VnTransition>,
 ) {
     if *state.get() != VnAppState::Gameplay {
         return;
     }
+    if transition.phase != TransitionPhase::Idle {
+        return;
+    }
     if keys.just_pressed(KeyCode::Escape) || mouse.just_pressed(MouseButton::Right) {
         if menu.active {
-            menu.active = false;
+            request_overlay(&mut transition, vec![OverlayToggle::GameplayMenu(false)]);
         } else if backlog.visible {
             backlog.visible = false;
         } else if !mode.active && !settings_overlay.active {
-            menu.active = true;
+            request_overlay(&mut transition, vec![OverlayToggle::GameplayMenu(true)]);
         }
     }
     if keys.just_pressed(KeyCode::F2) && !menu.active {
         if !mode.active && !settings_overlay.active && !backlog.visible {
-            menu.active = true;
+            request_overlay(&mut transition, vec![OverlayToggle::GameplayMenu(true)]);
         }
     }
 }
@@ -236,8 +240,6 @@ fn handle_menu_clicks(
     q_root: Query<Entity, With<GameplayMenuRoot>>,
     q_btn: Query<(&MenuButton, &Interaction)>,
     mut menu: ResMut<GameplayMenuMode>,
-    mut mode: ResMut<SaveLoadMode>,
-    mut settings_overlay: ResMut<SettingsOverlayMode>,
     mut skip: ResMut<SkipMode>,
     mut backlog: ResMut<BacklogState>,
     mut transition: ResMut<VnTransition>,
@@ -247,6 +249,9 @@ fn handle_menu_clicks(
         return;
     }
     if !menu.active || q_root.is_empty() {
+        return;
+    }
+    if transition.phase != TransitionPhase::Idle {
         return;
     }
     for (btn, inter) in q_btn.iter() {
@@ -265,16 +270,25 @@ fn handle_menu_clicks(
                 } else {
                     SaveLoadKind::Load
                 };
-                menu.active = false;
-                *mode = SaveLoadMode {
-                    active: true,
-                    kind,
-                    return_to: SaveLoadReturn::Gameplay,
-                };
+                request_overlay(
+                    &mut transition,
+                    vec![
+                        OverlayToggle::GameplayMenu(false),
+                        OverlayToggle::SaveLoad {
+                            kind,
+                            return_to: SaveLoadReturn::Gameplay,
+                        },
+                    ],
+                );
             }
             MenuAction::Config => {
-                menu.active = false;
-                settings_overlay.active = true;
+                request_overlay(
+                    &mut transition,
+                    vec![
+                        OverlayToggle::GameplayMenu(false),
+                        OverlayToggle::SettingsOverlay(true),
+                    ],
+                );
             }
             MenuAction::Backlog => {
                 menu.active = false;
@@ -284,11 +298,15 @@ fn handle_menu_clicks(
                 skip.active = !skip.active;
             }
             MenuAction::Title => {
-                menu.active = false;
-                request_transition(&mut transition, Some(VnAppState::Title), None);
+                request_transition_with_overlay(
+                    &mut transition,
+                    Some(VnAppState::Title),
+                    None,
+                    vec![OverlayToggle::GameplayMenu(false)],
+                );
             }
             MenuAction::Close => {
-                menu.active = false;
+                request_overlay(&mut transition, vec![OverlayToggle::GameplayMenu(false)]);
             }
         }
         break;
