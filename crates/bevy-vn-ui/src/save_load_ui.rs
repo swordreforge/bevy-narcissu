@@ -8,14 +8,16 @@ use bevy::prelude::*;
 use bevy::text::FontSize;
 use bevy_vn_core::messages::SetBgEvent;
 use bevy_vn_core::script::ScriptEngine;
-use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState, VnTransition};
+use bevy_vn_core::state::{
+    OverlayToggle, SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState, VnTransition,
+};
 use bevy_vn_render::bg::BgState;
 use bevy_vn_render::AssetPathProvider;
 use bevy_vn_save::{SaveManager, SlotMeta};
 
 use crate::backlog::BacklogState;
 use crate::chapter_names::chapter_title;
-use crate::transition::request_transition;
+use crate::transition::{request_overlay, request_transition_with_overlay};
 
 const Z_BG: i32 = 0;
 const Z_SLOT: i32 = 1;
@@ -130,7 +132,7 @@ fn handle_save_load_clicks(
     mut engine: ResMut<ScriptEngine>,
     bg: Res<BgState>,
     backlog: Res<BacklogState>,
-    mut mode: ResMut<SaveLoadMode>,
+    mode: Res<SaveLoadMode>,
     mut ui_state: ResMut<SaveLoadUiState>,
     mut transition: ResMut<VnTransition>,
     mut wbg: MessageWriter<SetBgEvent>,
@@ -205,15 +207,18 @@ fn handle_save_load_clicks(
                         transition: None,
                     });
                 }
-                *mode = SaveLoadMode::default();
-                request_transition(&mut transition, Some(VnAppState::Gameplay), None);
+                request_transition_with_overlay(
+                    &mut transition,
+                    Some(VnAppState::Gameplay),
+                    None,
+                    vec![OverlayToggle::SaveLoadClose],
+                );
                 return;
             }
         }
     }
 
-    for (del, inter) in q_del.iter() {
-        if *inter != Interaction::Pressed {
+    for (del, inter) in q_del.iter() {        if *inter != Interaction::Pressed {
             continue;
         }
         if let Err(e) = mgr.delete(del.0) {
@@ -234,15 +239,26 @@ fn handle_save_load_clicks(
         if *inter != Interaction::Pressed {
             continue;
         }
-        *mode = SaveLoadMode::default();
         match return_to {
             SaveLoadReturn::Title => {
-                request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
+                request_transition_with_overlay(
+                    &mut transition,
+                    Some(VnAppState::Title),
+                    Some(VnMenuState::Main),
+                    vec![OverlayToggle::SaveLoadClose],
+                );
             }
             SaveLoadReturn::Settings => {
-                request_transition(&mut transition, None, Some(VnMenuState::Settings));
+                request_transition_with_overlay(
+                    &mut transition,
+                    None,
+                    Some(VnMenuState::Settings),
+                    vec![OverlayToggle::SaveLoadClose],
+                );
             }
-            SaveLoadReturn::Gameplay => {}
+            SaveLoadReturn::Gameplay => {
+                request_overlay(&mut transition, vec![OverlayToggle::SaveLoadClose]);
+            }
         }
         return;
     }

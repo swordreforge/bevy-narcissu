@@ -9,11 +9,12 @@ use bevy::text::FontSize;
 use bevy_vn_core::engine_config::VnEngineConfig;
 use bevy_vn_core::messages::SetVolumeEvent;
 use bevy_vn_core::state::{
-    SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, VnAppState, VnMenuState, VnTransition,
+    OverlayToggle, SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, VnAppState,
+    VnMenuState, VnTransition,
 };
 use bevy_vn_core::theme::VnTheme;
 
-use crate::transition::request_transition;
+use crate::transition::{request_overlay, request_transition};
 
 use crate::settings_data::{load_settings, save_settings, GameSettings};
 
@@ -839,7 +840,7 @@ fn handle_settings_clicks(
     mut commands: Commands,
     mut transition: ResMut<VnTransition>,
     mut mode: ResMut<SaveLoadMode>,
-    mut settings_overlay: ResMut<SettingsOverlayMode>,
+    settings_overlay: Res<SettingsOverlayMode>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
 
@@ -861,7 +862,7 @@ fn handle_settings_clicks(
             }
             NavTarget::Title | NavTarget::Back => {
                 if settings_overlay.active {
-                    settings_overlay.active = false;
+                    request_overlay(&mut transition, vec![OverlayToggle::SettingsOverlay(false)]);
                 } else {
                     request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
                 }

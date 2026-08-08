@@ -52,10 +52,29 @@ pub struct VnTransition {
     pub pending: Option<VnAppState>,
     /// Pending menu sub-state committed together with `pending`.
     pub pending_menu: Option<VnMenuState>,
+    /// Pending in-game overlay switches applied when the fade-out finishes
+    /// (menu/settings/save-load opened from Gameplay — they are resource
+    /// flags, not state transitions).
+    pub pending_overlays: Vec<OverlayToggle>,
     /// Per-phase duration in seconds (e.g. 0.15 for the cover, 0.25 for reveal).
     pub duration: f32,
     /// Seconds elapsed in the current phase.
     pub elapsed: f32,
+}
+
+/// One overlay-state change applied when a menu fade completes. Overlays
+/// are `Resource` flags that gate UI spawning inside `VnAppState::Gameplay`
+/// (原作 adv_menu / adv_config / save / load), so they fade like states.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum OverlayToggle {
+    /// Set `GameplayMenuMode.active`.
+    GameplayMenu(bool),
+    /// Set `SettingsOverlayMode.active`.
+    SettingsOverlay(bool),
+    /// Open the save/load screen with the given kind and return target.
+    SaveLoad { kind: SaveLoadKind, return_to: SaveLoadReturn },
+    /// Close the save/load screen (back to gameplay).
+    SaveLoadClose,
 }
 
 /// Which operation the save/load screen performs.
