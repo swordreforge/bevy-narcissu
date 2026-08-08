@@ -1,5 +1,10 @@
 //! Title screen — image-based, faithful to the original Narcissu 10th
 //! Anniversary layout (960x540 logical pixels).
+//!
+//! Background follows the original engine (list_windows.tbl `ui_title01`):
+//! `bg = { file="title/bg", x=0, y=-423, w=960, h=540 }`. The source PNG is
+//! 960x963; the original displays the bottom 540px band (y offset -423) and
+//! animates it from the top band down over 7s (title.lua `title_anime`).
 
 use bevy::prelude::*;
 use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState};
@@ -9,8 +14,25 @@ const LOGO_PATH: &str = "pa/title/logo.png";
 const BTN_PATH: &str = "pa/title/btn.png";
 const TYPEMOON_PATH: &str = "pa/title/TYPEMOON.png";
 
+/// Original title.bg is 960x963 — only the bottom 540px band is shown in the
+/// 960x540 viewport (y=-423 in the original engine's ui_title01 table).
+const BG_SRC_W: f32 = 960.0;
+const BG_SRC_H: f32 = 963.0;
+const BG_BAND_H: f32 = 540.0;
+const BG_OFFSET_MAX: f32 = BG_SRC_H - BG_BAND_H; // 423 — bottom band offset
+
+/// Background slide-in animation, matching title.lua `title_anime`:
+/// `systween{ id=bg, y="0,-423", time=7000, ease="none" }`.
+const BG_SLIDE_DURATION: f32 = 7.0;
+
 #[derive(Component)]
 struct TitleScreen;
+
+/// Drives the background band slide (y offset 0 → BG_OFFSET_MAX over 7s).
+#[derive(Component)]
+struct BgSlideAnim {
+    elapsed: f32,
+}
 
 #[derive(Component, Clone, Copy, PartialEq, Eq)]
 enum TitleAction { Start, Chapter, Load, Settings, Extra, Quit }
@@ -31,7 +53,7 @@ pub struct TitlePlugin;
 impl Plugin for TitlePlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(OnEnter(VnAppState::Title), spawn_title)
-            .add_systems(Update, handle_title_click)
+            .add_systems(Update, (animate_bg_slide, handle_title_click))
             .add_systems(OnExit(VnAppState::Title), despawn_title);
     }
 }
@@ -77,6 +99,9 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
                 ImageNode {
                     image: bg,
                     image_mode: NodeImageMode::Stretch,
+                    // Crop the source (960x963) to a 960x540 band; the band's y
+                    // offset starts at 0 (top) and slides down to 423 (bottom).
+                    rect: Some(Rect::new(0.0, 0.0, BG_SRC_W, BG_BAND_H)),
                     ..default()
                 },
                 Node {
@@ -88,6 +113,7 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
                     overflow: Overflow::clip(),
                     ..default()
                 },
+                BgSlideAnim { elapsed: 0.0 },
                 ZIndex(0),
             ));
 
@@ -139,6 +165,22 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
             }
         });
     });
+}
+
+/// Slides the background band from the top (y=0) down to the bottom band
+/// (y=423) over BG_SLIDE_DURATION seconds — mirrors title.lua `title_anime`.
+/// Linear ease matches the original (`ease="none"`). The slide stops on
+/// leaving the title state (the entity is despawned by `despawn_title`).
+fn animate_bg_slide(
+    time: Res<Time>,
+    mut q: Query<(&mut BgSlideAnim, &mut ImageNode)>,
+) {
+    for (mut anim, mut image) in &mut q {
+        anim.elapsed += time.delta_secs();
+        let t = (anim.elapsed / BG_SLIDE_DURATION).clamp(0.0, 1.0);
+        let y = BG_OFFSET_MAX * t;
+        image.rect = Some(Rect::new(0.0, y, BG_SRC_W, y + BG_BAND_H));
+    }
 }
 
 fn handle_title_click(
