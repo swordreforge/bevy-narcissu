@@ -4,7 +4,9 @@
 
 use bevy::prelude::*;
 use bevy_vn_core::messages::StorySelectEvent;
-use bevy_vn_core::state::{VnAppState, VnMenuState};
+use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
+
+use crate::transition::request_transition;
 
 const BG_PATH: &str = "pa/charters/bg.png";
 const BTN_PATH: &str = "pa/charters/btn-分支.png";
@@ -139,8 +141,7 @@ fn handle_character_click(
     q_exit: Query<&Interaction, With<ExitButton>>,
     mouse: Res<ButtonInput<MouseButton>>,
     mut writer: MessageWriter<StorySelectEvent>,
-    mut next: ResMut<NextState<VnMenuState>>,
-    mut next_app: ResMut<NextState<VnAppState>>,
+    mut transition: ResMut<VnTransition>,
 ) {
     let Some(state) = state else { return };
     if *state.get() != VnMenuState::RouteSelect { return; }
@@ -149,13 +150,12 @@ fn handle_character_click(
     for (entry, inter) in q.iter() {
         if *inter != Interaction::Pressed { continue; }
         writer.write(StorySelectEvent { script: entry.script.clone(), label: entry.label.clone() });
-        next_app.set(VnAppState::Gameplay);
+        request_transition(&mut transition, Some(VnAppState::Gameplay), None);
         return;
     }
     for inter in q_exit.iter() {
         if *inter == Interaction::Pressed {
-            next.set(VnMenuState::Main);
-            next_app.set(VnAppState::Title);
+            request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
             return;
         }
     }

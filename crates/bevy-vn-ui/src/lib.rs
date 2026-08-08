@@ -22,6 +22,7 @@ pub mod character_select;
 pub mod chapter_select;
 pub mod story_detail;
 pub mod brand_logo;
+pub mod transition;
 
 use bevy::prelude::*;
 use bevy_vn_core::messages::PlaySeEvent;
@@ -49,6 +50,7 @@ impl Plugin for VnUiPlugin {
             story_detail::StoryDetailPlugin,
             brand_logo::BrandLogoPlugin,
             gameplay_menu::GameplayMenuPlugin,
+            transition::TransitionPlugin,
         ))
         .add_systems(Update, force_any_character_linebreak)
         .add_systems(Update, play_button_click_sfx)
