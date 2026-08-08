@@ -4,7 +4,6 @@
 //! → Gameplay (script-driven). Scripts load lazily via `AssetServer::load_folder`
 //! once the app starts; a script only runs after a story is chosen.
 
-use bevy::asset::LoadedFolder;
 use bevy::prelude::*;
 use bevy_basisu_loader::BasisuLoaderPlugin;
 use bevy_vn_core::prelude::*;
@@ -18,27 +17,71 @@ use bevy_vn_render::{AssetPathProvider, VnRenderPlugin};
 use bevy_vn_save::VnSavePlugin;
 use bevy_vn_ui::backlog::BacklogState;
 use bevy_vn_ui::VnUiPlugin;
+
+#[cfg(not(target_arch = "wasm32"))]
 use bevy_vn_video::VnVideoPlugin;
 
 const FONT_PATH: &str = "fonts/font-2.otf";
+const SCRIPT_MANIFEST: &str = "scripts/manifest.list";
 
 #[derive(Resource)]
 struct GameFont(Handle<Font>);
 
 #[derive(Resource)]
-struct ScriptFolder(Handle<LoadedFolder>);
+struct ScriptManifestHandle(Handle<ScriptManifest>);
+
+#[derive(Resource)]
+struct PendingScripts(Vec<Handle<VnScriptAsset>>);
 
 fn main() {
-    App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
+    let mut app = App::new();
+
+    #[cfg(target_arch = "wasm32")]
+    {
+        use bevy::asset::AssetMetaCheck;
+        use bevy::render::settings::{Backends, RenderCreation, WgpuSettings};
+        use bevy::render::RenderPlugin;
+        app.add_plugins(DefaultPlugins
+            .set(AssetPlugin {
+                // wasm 上跳过 .meta 查找:避免每个资产产生 404 请求;
+                // 且 itch.io 等平台缺失文件返回 403 会被 Bevy 视为致命错误,
+                // 直接导致整个资产加载失败。原生保留默认 Always。
+                meta_check: AssetMetaCheck::Never,
+                ..default()
+            })
+            .set(RenderPlugin {
+                // wasm 双后端:WebGPU 优先,浏览器无 WebGPU(如 Firefox Linux)时
+                // 自动 fallback 到 WebGL2(wgpu-core)。Bevy 默认只给 BROWSER_WEBGPU,
+                // 必须显式包含 GL,否则 fallback 后找不到 WebGL2 适配器。
+                // priority 保持默认 Functionality:bevy 会取 adapter.limits()。
+                render_creation: RenderCreation::Automatic(Box::new(WgpuSettings {
+                    backends: Some(Backends::BROWSER_WEBGPU | Backends::GL),
+                    ..default()
+                })),
+                ..default()
+            })
+            .set(WindowPlugin {
+                primary_window: Some(Window {
+                    title: "水仙10周年".into(),
+                    resolution: [960, 540].into(),
+                    ..default()
+                }),
+                ..default()
+            }));
+    }
+    #[cfg(not(target_arch = "wasm32"))]
+    {
+        app.add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "水仙10周年".into(),
                 resolution: [960, 540].into(),
                 ..default()
             }),
             ..default()
-        }))
-        .add_plugins(BasisuLoaderPlugin)
+        }));
+    }
+
+    app.add_plugins(BasisuLoaderPlugin)
         .add_plugins(VnCorePlugin {
             config: VnEngineConfig {
                 default_font: FONT_PATH.into(),
@@ -48,13 +91,16 @@ fn main() {
         .add_plugins(VnRenderPlugin::default())
         .add_plugins(VnAudioPlugin)
         .add_plugins(VnUiPlugin)
-        .add_plugins(VnSavePlugin::default())
-        .add_plugins(VnVideoPlugin)
-        .insert_resource(AssetPathProvider::default())
+        .add_plugins(VnSavePlugin::default());
+
+    #[cfg(not(target_arch = "wasm32"))]
+    app.add_plugins(VnVideoPlugin);
+
+    app.insert_resource(AssetPathProvider::default())
         .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
         .add_systems(OnEnter(VnAppState::Title), play_title_bgm)
         .add_systems(OnExit(VnAppState::Title), stop_title_bgm)
-        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end, ingest_scripts))
+        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end, request_scripts_from_manifest, ingest_scripts))
         .run();
 }
 
@@ -83,41 +129,58 @@ fn start_at_splash(mut next: ResMut<NextState<VnAppState>>) {
     next.set(VnAppState::Splash);
 }
 
-/// Kick off lazy loading of every script in `assets/scripts/`.
+/// Kick off lazy loading of every script listed in `scripts/manifest.list`.
 fn load_scripts(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let handle = asset_server.load_folder("scripts");
-    commands.insert_resource(ScriptFolder(handle));
+    commands.insert_resource(ScriptManifestHandle(asset_server.load(SCRIPT_MANIFEST)));
 }
 
-/// Once `scripts/` finishes loading, ingest every script into the
+/// Once the manifest is loaded, issue an individual load per listed script.
+fn request_scripts_from_manifest(
+    manifest: Res<ScriptManifestHandle>,
+    manifests: Res<Assets<ScriptManifest>>,
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut started: Local<bool>,
+) {
+    if *started { return; }
+    let Some(manifest_asset) = manifests.get(&manifest.0) else { return; };
+    let handles = manifest_asset
+        .files
+        .iter()
+        .map(|f| asset_server.load::<VnScriptAsset>(format!("scripts/{f}")))
+        .collect();
+    commands.insert_resource(PendingScripts(handles));
+    info!("Script manifest loaded: {} files", manifest_asset.files.len());
+    *started = true;
+}
+
+/// Once every listed script has finished loading, ingest them into the
 /// ScriptEngine. Runs exactly once. A script is only *played* after the user
 /// picks a story from the RouteSelect UI.
 fn ingest_scripts(
-    folder: Res<ScriptFolder>,
-    folders: Res<Assets<LoadedFolder>>,
+    pending: Option<Res<PendingScripts>>,
     scripts: Res<Assets<VnScriptAsset>>,
     mut engine: ResMut<ScriptEngine>,
     mut done: Local<bool>,
 ) {
     if *done { return; }
-    let Some(folder_asset) = folders.get(&folder.0) else { return; };
+    let Some(pending) = pending else { return; };
+    if pending.0.iter().any(|h| scripts.get(h).is_none()) { return; }
 
     let mut loaded = 0usize;
-    for handle in &folder_asset.handles {
-        let Some(script) = scripts.get(&handle.clone().typed::<VnScriptAsset>()) else {
-            continue;
-        };
-        let Some(name) = script.script.meta.name.clone() else {
+    for handle in &pending.0 {
+        let Some(asset) = scripts.get(handle) else { continue; };
+        let Some(name) = asset.script.meta.name.clone() else {
             continue;
         };
         if name == "pack" {
             // 宣传脚本：引用的资源几乎全部缺失，跳过
             continue;
         }
-        engine.load_script(name, script.script.clone());
+        engine.load_script(name, asset.script.clone());
         loaded += 1;
     }
-    info!("Loaded {loaded} scripts via AssetServer");
+    info!("Loaded {loaded} scripts from manifest");
     *done = true;
 }
 
