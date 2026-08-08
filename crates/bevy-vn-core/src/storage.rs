@@ -3,7 +3,7 @@
 //!
 //! Platform differences are isolated behind a single trait:
 //! - Native: [`FsStorage`] (std::fs, paths relative to process CWD).
-//! - Web (Phase 3): a localStorage-backed impl registered at app startup.
+//! - Web: [`LocalStorage`] (browser localStorage, wasm32 only).
 //!
 //! Consumers (`bevy-vn-save`, `bevy-vn-ui/settings_data`) take
 //! `&dyn AppStorage` and never touch `std::fs` directly.
@@ -54,6 +54,48 @@ impl AppStorage for FsStorage {
             Err(e) => Err(e.to_string()),
         }
     }
+}
+
+/// Browser localStorage implementation (wasm32 only). Persists JSON blobs
+/// across page reloads; keys are prefixed `bevy_vn:` to avoid collisions
+/// with other apps sharing the origin.
+#[cfg(target_arch = "wasm32")]
+#[derive(Debug, Clone, Copy, Default)]
+pub struct LocalStorage;
+
+#[cfg(target_arch = "wasm32")]
+impl AppStorage for LocalStorage {
+    fn read(&self, path: &str) -> Result<Option<String>, String> {
+        let storage = local_storage()?;
+        storage.get_item(&key(path)).map_err(js_error)
+    }
+
+    fn write(&self, path: &str, data: &str) -> Result<(), String> {
+        let storage = local_storage()?;
+        storage.set_item(&key(path), data).map_err(js_error)
+    }
+
+    fn remove(&self, path: &str) -> Result<(), String> {
+        let storage = local_storage()?;
+        storage.remove_item(&key(path)).map_err(js_error)
+    }
+}
+
+#[cfg(target_arch = "wasm32")]
+fn local_storage() -> Result<web_sys::Storage, String> {
+    web_sys::window()
+        .and_then(|w| w.local_storage().ok().flatten())
+        .ok_or_else(|| "localStorage unavailable".into())
+}
+
+#[cfg(target_arch = "wasm32")]
+fn key(path: &str) -> String {
+    format!("bevy_vn:{path}")
+}
+
+#[cfg(target_arch = "wasm32")]
+fn js_error(e: wasm_bindgen::JsValue) -> String {
+    e.as_string().unwrap_or_else(|| "browser storage error".into())
 }
 
 #[cfg(test)]

@@ -1,7 +1,8 @@
 //! bevy-vn-save — Save/load plugin for the Bevy VN engine.
 //!
 //! Manages persistent save slots as JSON files through the [`AppStorage`]
-//! abstraction (native: FsStorage; wasm: injected localStorage impl).
+//! abstraction (native: FsStorage; wasm: LocalStorage — auto-selected in
+//! [`VnSavePlugin::build`]).
 //! Collects script engine state (flags, position, call stack) and restores
 //! it on load.
 //!
@@ -185,8 +186,8 @@ impl SaveManager {
 // ── Plugin ──
 
 /// The platform storage injected as a Bevy resource — shared by save slots
-/// and settings persistence. Native default is [`FsStorage`]; wasm builds
-/// insert a localStorage-backed impl before adding `VnSavePlugin`.
+/// and settings persistence. `VnSavePlugin::build` picks the backend by
+/// target: native [`FsStorage`], wasm [`LocalStorage`].
 #[derive(Resource, Clone)]
 pub struct AppStorageResource(pub Arc<dyn AppStorage>);
 
@@ -205,7 +206,16 @@ impl Plugin for VnSavePlugin {
     fn build(&self, app: &mut App) {
         let storage: Arc<dyn AppStorage> = match &self.storage {
             Some(s) => s.clone(),
-            None => Arc::new(FsStorage),
+            None => {
+                #[cfg(target_arch = "wasm32")]
+                {
+                    Arc::new(bevy_vn_core::storage::LocalStorage)
+                }
+                #[cfg(not(target_arch = "wasm32"))]
+                {
+                    Arc::new(FsStorage)
+                }
+            }
         };
         app.insert_resource(AppStorageResource(storage.clone()));
         app.insert_resource(SaveManager::new(self.save_dir.clone(), storage));
