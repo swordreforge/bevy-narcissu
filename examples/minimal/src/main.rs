@@ -1,11 +1,10 @@
 //! Minimal bevy-vn-engine example — 水仙10周年 real scripts.
 //!
 //! Flow: Splash (brand logo) → Title (image-based) → RouteSelect (story pick)
-//! → Gameplay (script-driven). Loads every `*.vnscript.ron` from assets/scripts
-//! into the ScriptEngine at startup; scripts start only after a story is chosen.
+//! → Gameplay (script-driven). Scripts load lazily via `AssetServer::load_folder`
+//! once the app starts; a script only runs after a story is chosen.
 
-use std::path::Path;
-
+use bevy::asset::LoadedFolder;
 use bevy::prelude::*;
 use bevy_basisu_loader::BasisuLoaderPlugin;
 use bevy_vn_core::prelude::*;
@@ -21,11 +20,13 @@ use bevy_vn_ui::backlog::BacklogState;
 use bevy_vn_ui::VnUiPlugin;
 use bevy_vn_video::VnVideoPlugin;
 
-const SCRIPT_DIR: &str = "assets/scripts";
 const FONT_PATH: &str = "fonts/font-2.otf";
 
 #[derive(Resource)]
 struct GameFont(Handle<Font>);
+
+#[derive(Resource)]
+struct ScriptFolder(Handle<LoadedFolder>);
 
 fn main() {
     App::new()
@@ -53,7 +54,7 @@ fn main() {
         .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
         .add_systems(OnEnter(VnAppState::Title), play_title_bgm)
         .add_systems(OnExit(VnAppState::Title), stop_title_bgm)
-        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end))
+        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end, ingest_scripts))
         .run();
 }
 
@@ -82,46 +83,42 @@ fn start_at_splash(mut next: ResMut<NextState<VnAppState>>) {
     next.set(VnAppState::Splash);
 }
 
-/// Load every `*.vnscript.ron` from assets/scripts into the ScriptEngine.
-/// No script is started — the user picks a story from the RouteSelect UI.
-fn load_scripts(mut engine: ResMut<ScriptEngine>) {
-    let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join(SCRIPT_DIR);
-    let mut entries: Vec<_> = std::fs::read_dir(&dir)
-        .map(|rd| rd.filter_map(Result::ok).collect())
-        .unwrap_or_default();
-    entries.sort_by_key(|e| e.file_name());
+/// Kick off lazy loading of every script in `assets/scripts/`.
+fn load_scripts(mut commands: Commands, asset_server: Res<AssetServer>) {
+    let handle = asset_server.load_folder("scripts");
+    commands.insert_resource(ScriptFolder(handle));
+}
+
+/// Once `scripts/` finishes loading, ingest every script into the
+/// ScriptEngine. Runs exactly once. A script is only *played* after the user
+/// picks a story from the RouteSelect UI.
+fn ingest_scripts(
+    folder: Res<ScriptFolder>,
+    folders: Res<Assets<LoadedFolder>>,
+    scripts: Res<Assets<VnScriptAsset>>,
+    mut engine: ResMut<ScriptEngine>,
+    mut done: Local<bool>,
+) {
+    if *done { return; }
+    let Some(folder_asset) = folders.get(&folder.0) else { return; };
 
     let mut loaded = 0usize;
-    for entry in entries {
-        let path = entry.path();
-        let fname = entry.file_name().to_string_lossy().into_owned();
-        if !fname.ends_with(".vnscript.ron") {
+    for handle in &folder_asset.handles {
+        let Some(script) = scripts.get(&handle.clone().typed::<VnScriptAsset>()) else {
             continue;
-        }
-        let stem = fname.trim_end_matches(".vnscript.ron").to_string();
-        if stem == "pack" {
+        };
+        let Some(name) = script.script.meta.name.clone() else {
+            continue;
+        };
+        if name == "pack" {
             // 宣传脚本：引用的资源几乎全部缺失，跳过
             continue;
         }
-        let text = match std::fs::read_to_string(&path) {
-            Ok(t) => t,
-            Err(e) => {
-                warn!("skip {fname}: read error {e}");
-                continue;
-            }
-        };
-        let script: VnScript = match ron::de::from_str(&text) {
-            Ok(s) => s,
-            Err(e) => {
-                warn!("skip {fname}: parse error {e}");
-                continue;
-            }
-        };
-        let key = script.meta.name.clone().unwrap_or(stem);
-        engine.load_script(key, script);
+        engine.load_script(name, script.script.clone());
         loaded += 1;
     }
-    info!("Loaded {loaded} scripts from {SCRIPT_DIR}");
+    info!("Loaded {loaded} scripts via AssetServer");
+    *done = true;
 }
 
 /// Bevy's default font has no CJK glyphs — force every UI TextFont to

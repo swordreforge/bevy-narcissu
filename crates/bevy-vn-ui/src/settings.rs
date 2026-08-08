@@ -17,6 +17,8 @@ use bevy_vn_core::theme::VnTheme;
 use crate::transition::{request_overlay, request_transition};
 
 use crate::settings_data::{load_settings, save_settings, GameSettings};
+use bevy_vn_core::storage::AppStorage;
+use bevy_vn_save::AppStorageResource;
 
 const BG_PATH: &str = "pa/conf/bg01.png";
 const BG2_PATH: &str = "pa/conf/bg02.png";
@@ -178,12 +180,13 @@ fn update_settings_overlay(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     config: Res<VnEngineConfig>,
+    storage: Res<AppStorageResource>,
 ) {
     if overlay.active && q_root.is_empty() {
-        spawn_settings_screen(&mut commands, &asset_server, &config);
+        spawn_settings_screen(&mut commands, &asset_server, &config, &*storage.0);
     } else if overlay.is_changed() && !overlay.active && !q_root.is_empty() {
         if let Some(s) = settings {
-            save_settings(&s, &config.save_dir);
+            save_settings(&s, &*storage.0, &config.save_dir);
         }
         for e in q_root.iter() {
             commands.entity(e).despawn();
@@ -195,8 +198,9 @@ fn spawn_settings_screen(
     commands: &mut Commands,
     asset_server: &AssetServer,
     config: &VnEngineConfig,
+    storage: &dyn AppStorage,
 ) {
-    let settings = load_settings(&config.save_dir);
+    let settings = load_settings(storage, &config.save_dir);
     commands
         .spawn((
             SettingsScreen,
@@ -231,8 +235,9 @@ fn setup_settings(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     config: Res<VnEngineConfig>,
+    storage: Res<AppStorageResource>,
 ) {
-    spawn_settings_screen(&mut commands, &asset_server, &config);
+    spawn_settings_screen(&mut commands, &asset_server, &config, &*storage.0);
 }
 
 fn spawn_canvas_content(
@@ -921,6 +926,7 @@ fn handle_value_clicks(
     mut config: ResMut<VnEngineConfig>,
     mut theme: ResMut<VnTheme>,
     mut writer: MessageWriter<SetVolumeEvent>,
+    storage: Res<AppStorageResource>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
 
@@ -936,7 +942,7 @@ fn handle_value_clicks(
     }
     if changed {
         sync_to_engine(&settings, &mut config, &mut theme, &mut writer);
-        save_settings(&settings, &config.save_dir);
+        save_settings(&settings, &*storage.0, &config.save_dir);
     }
 }
 
@@ -1137,8 +1143,9 @@ fn teardown_settings(
     q: Query<Entity, With<SettingsScreen>>,
     settings: Res<GameSettings>,
     config: Res<VnEngineConfig>,
+    storage: Res<AppStorageResource>,
 ) {
-    save_settings(&settings, &config.save_dir);
+    save_settings(&settings, &*storage.0, &config.save_dir);
     for e in q.iter() {
         commands.entity(e).despawn();
     }

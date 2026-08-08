@@ -1,13 +1,13 @@
 //! Persistent game settings — the complete set of options exposed by the
 //! original Narcissu 10th Anniversary settings screens.
 //!
-//! Stored as `saves/settings.json` (serde_json). All volume/speed fields are
-//! 0-100 f32; `effect`/`messkip`/`rclick` are small ints; the rest are bools.
-
-use std::fs;
-use std::path::{Path, PathBuf};
+//! Stored as `saves/settings.json` (serde_json) through the [`AppStorage`]
+//! abstraction (native: FsStorage; wasm: injected localStorage impl).
+//! All volume/speed fields are 0-100 f32; `effect`/`messkip`/`rclick` are
+//! small ints; the rest are bools.
 
 use bevy::prelude::Resource;
+use bevy_vn_core::storage::AppStorage;
 use serde::{Deserialize, Serialize};
 
 /// Every user-tunable option from the original two-page settings UI plus the
@@ -120,36 +120,37 @@ impl Default for GameSettings {
 }
 
 /// Resolve the settings file path under `save_dir` (same convention as
-/// bevy-vn-save: relative paths resolve against the process CWD).
-pub fn settings_path(save_dir: &str) -> PathBuf {
-    Path::new(save_dir).join("settings.json")
+/// bevy-vn-save).
+pub fn settings_path(save_dir: &str) -> String {
+    format!("{}/settings.json", save_dir.trim_end_matches('/'))
 }
 
 /// Load settings from `saves/settings.json`. Missing or unparsable file
 /// falls back to [`GameSettings::default`] with a warning.
-pub fn load_settings(save_dir: &str) -> GameSettings {
+pub fn load_settings(storage: &dyn AppStorage, save_dir: &str) -> GameSettings {
     let path = settings_path(save_dir);
-    match fs::read_to_string(&path) {
-        Ok(text) => match serde_json::from_str(&text) {
+    match storage.read(&path) {
+        Ok(Some(text)) => match serde_json::from_str(&text) {
             Ok(s) => s,
             Err(e) => {
                 bevy::log::warn!("settings.json parse error ({e}); using defaults");
                 GameSettings::default()
             }
         },
-        Err(_) => GameSettings::default(),
+        Ok(None) => GameSettings::default(),
+        Err(e) => {
+            bevy::log::warn!("settings.json read error ({e}); using defaults");
+            GameSettings::default()
+        }
     }
 }
 
 /// Persist settings to `saves/settings.json` (creates the directory).
-pub fn save_settings(settings: &GameSettings, save_dir: &str) {
+pub fn save_settings(settings: &GameSettings, storage: &dyn AppStorage, save_dir: &str) {
     let path = settings_path(save_dir);
-    if let Some(dir) = path.parent() {
-        let _ = fs::create_dir_all(dir);
-    }
     match serde_json::to_string_pretty(settings) {
         Ok(json) => {
-            if let Err(e) = fs::write(&path, json) {
+            if let Err(e) = storage.write(&path, &json) {
                 bevy::log::warn!("failed to write settings.json: {e}");
             }
         }
