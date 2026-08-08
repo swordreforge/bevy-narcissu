@@ -169,14 +169,21 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
 
 /// Slides the background band from the top (y=0) down to the bottom band
 /// (y=423) over BG_SLIDE_DURATION seconds — mirrors title.lua `title_anime`.
-/// Linear ease matches the original (`ease="none"`). The slide stops on
-/// leaving the title state (the entity is despawned by `despawn_title`).
+/// Linear ease matches the original (`ease="none"`). Any mouse click skips
+/// the remaining animation and jumps straight to the final bottom band,
+/// matching the original's interruptible `title_skipset` behavior. The slide
+/// stops on leaving the title state (the entity is despawned by `despawn_title`).
 fn animate_bg_slide(
     time: Res<Time>,
+    mouse: Res<ButtonInput<MouseButton>>,
     mut q: Query<(&mut BgSlideAnim, &mut ImageNode)>,
 ) {
     for (mut anim, mut image) in &mut q {
-        anim.elapsed += time.delta_secs();
+        if mouse.just_pressed(MouseButton::Left) {
+            anim.elapsed = BG_SLIDE_DURATION; // skip to the end
+        } else {
+            anim.elapsed += time.delta_secs();
+        }
         let t = (anim.elapsed / BG_SLIDE_DURATION).clamp(0.0, 1.0);
         let y = BG_OFFSET_MAX * t;
         image.rect = Some(Rect::new(0.0, y, BG_SRC_W, y + BG_BAND_H));
