@@ -17,4 +17,5 @@ bevy-vn-render = { path = "../bevy-vn-render" }
 bevy-vn-save = { path = "../bevy-vn-save" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+web-time = "1"
 ron = "0.8"
