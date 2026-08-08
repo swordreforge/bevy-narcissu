@@ -119,11 +119,14 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
 
             canvas.spawn((
                 ImageNode { image: logo, ..default() },
+                // Engine renders no-clip obj at native PNG size (511x152), not
+                // the tbl layout-box w=336 — see logo03/TYPEMOON (tbl 336x152,
+                // PNG 105x30). 336 would squash the title and misalign buttons.
                 Node {
                     position_type: PositionType::Absolute,
                     left: Val::Px(50.0),
                     top: Val::Px(49.0),
-                    width: Val::Px(336.0),
+                    width: Val::Px(511.0),
                     height: Val::Px(152.0),
                     ..default()
                 },
