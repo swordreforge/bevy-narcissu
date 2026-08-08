@@ -4,6 +4,42 @@
   <meta charset="utf-8">
   <title>水仙10周年</title>
   <link data-trunk rel="copy-dir" href="assets">
+  <script>
+    // Unlock WebAudio autoplay policy: bevy/cpal creates its AudioContext at
+    // startup (no user gesture) so the browser starts it suspended and it never
+    // gets resumed. Track every AudioContext created through the constructor
+    // (including the one bevy creates) and resume them on the first gesture.
+    (function () {
+      var NativeAudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!NativeAudioContext) return;
+      var contexts = new Set();
+      function WrappedAudioContext(...args) {
+        const ctx = new NativeAudioContext(...args);
+        contexts.add(ctx);
+        return ctx;
+      }
+      WrappedAudioContext.prototype = NativeAudioContext.prototype;
+      Object.getOwnPropertyNames(NativeAudioContext).forEach(function (key) {
+        if (!(key in WrappedAudioContext)) {
+          try { WrappedAudioContext[key] = NativeAudioContext[key]; } catch (e) {}
+        }
+      });
+      Object.defineProperty(WrappedAudioContext, 'name', { value: 'AudioContext' });
+      window.AudioContext = WrappedAudioContext;
+      if (window.webkitAudioContext) window.webkitAudioContext = WrappedAudioContext;
+      window.__audioContexts = contexts; // diagnostic handle
+      function unlock() {
+        var resumed = 0;
+        contexts.forEach(function (ctx) {
+          if (ctx.state === 'suspended') { ctx.resume(); resumed++; }
+        });
+        console.log('[audio-unlock] resumed ' + resumed + '/' + contexts.size + ' AudioContext(s)');
+      }
+      window.addEventListener('pointerdown', unlock, { once: true, capture: true });
+      window.addEventListener('keydown', unlock, { once: true, capture: true });
+      window.addEventListener('touchend', unlock, { once: true, capture: true });
+    })();
+  </script>
 </head>
 <body>
   <canvas id="bevy"></canvas>
