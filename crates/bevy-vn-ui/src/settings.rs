@@ -9,9 +9,11 @@ use bevy::text::FontSize;
 use bevy_vn_core::engine_config::VnEngineConfig;
 use bevy_vn_core::messages::SetVolumeEvent;
 use bevy_vn_core::state::{
-    SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, VnAppState, VnMenuState,
+    SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, VnAppState, VnMenuState, VnTransition,
 };
 use bevy_vn_core::theme::VnTheme;
+
+use crate::transition::request_transition;
 
 use crate::settings_data::{load_settings, save_settings, GameSettings};
 
@@ -835,8 +837,7 @@ fn handle_settings_clicks(
     q_sub: Query<Entity, With<SubScreenRoot>>,
     settings: Res<GameSettings>,
     mut commands: Commands,
-    mut next_menu: ResMut<NextState<VnMenuState>>,
-    mut next_app: ResMut<NextState<VnAppState>>,
+    mut transition: ResMut<VnTransition>,
     mut mode: ResMut<SaveLoadMode>,
     mut settings_overlay: ResMut<SettingsOverlayMode>,
 ) {
@@ -854,7 +855,7 @@ fn handle_settings_clicks(
                     return_to: if in_overlay { SaveLoadReturn::Gameplay } else { SaveLoadReturn::Settings },
                 };
                 if !in_overlay {
-                    next_menu.set(VnMenuState::SaveLoad);
+                    request_transition(&mut transition, None, Some(VnMenuState::SaveLoad));
                 }
                 return;
             }
@@ -862,8 +863,7 @@ fn handle_settings_clicks(
                 if settings_overlay.active {
                     settings_overlay.active = false;
                 } else {
-                    next_menu.set(VnMenuState::Main);
-                    next_app.set(VnAppState::Title);
+                    request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
                 }
                 return;
             }

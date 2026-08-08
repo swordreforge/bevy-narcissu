@@ -12,10 +12,11 @@ use bevy::prelude::*;
 use bevy_vn_core::messages::PlaySeEvent;
 use bevy_vn_core::state::{
     GameplayMenuMode, SaveLoadKind, SaveLoadMode, SaveLoadReturn, SettingsOverlayMode, SkipMode,
-    VnAppState,
+    VnAppState, VnTransition,
 };
 
 use crate::backlog::BacklogState;
+use crate::transition::request_transition;
 
 const BG_PATH: &str = "pa/ja/mw/bg-mean.png";
 const BTN_PATH: &str = "pa/ja/mw/btn-mean.png";
@@ -239,7 +240,7 @@ fn handle_menu_clicks(
     mut settings_overlay: ResMut<SettingsOverlayMode>,
     mut skip: ResMut<SkipMode>,
     mut backlog: ResMut<BacklogState>,
-    mut next_app: ResMut<NextState<VnAppState>>,
+    mut transition: ResMut<VnTransition>,
     mut se: MessageWriter<PlaySeEvent>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) {
@@ -284,7 +285,7 @@ fn handle_menu_clicks(
             }
             MenuAction::Title => {
                 menu.active = false;
-                next_app.set(VnAppState::Title);
+                request_transition(&mut transition, Some(VnAppState::Title), None);
             }
             MenuAction::Close => {
                 menu.active = false;

@@ -4,8 +4,9 @@
 //! Picking a story opens its summary screen (story_detail).
 
 use bevy::prelude::*;
-use bevy_vn_core::state::{VnAppState, VnMenuState};
+use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
 use crate::story_detail::CurrentStory;
+use crate::transition::request_transition;
 
 const BG_PATH: &str = "pa/chapter/main-bg.png";
 const BTN_PATH: &str = "pa/chapter/btn-分支2.png";
@@ -133,8 +134,7 @@ fn handle_chapter_click(
     q_exit: Query<&Interaction, With<ExitButton>>,
     mouse: Res<ButtonInput<MouseButton>>,
     mut cur: ResMut<CurrentStory>,
-    mut next: ResMut<NextState<VnMenuState>>,
-    mut next_app: ResMut<NextState<VnAppState>>,
+    mut transition: ResMut<VnTransition>,
 ) {
     let Some(state) = state else { return };
     if *state.get() != VnMenuState::ChapterSelect { return; }
@@ -143,13 +143,12 @@ fn handle_chapter_click(
     for (entry, inter) in q.iter() {
         if *inter != Interaction::Pressed { continue; }
         cur.0 = entry.story_idx;
-        next.set(VnMenuState::StoryDetail);
+        request_transition(&mut transition, None, Some(VnMenuState::StoryDetail));
         return;
     }
     for inter in q_exit.iter() {
         if *inter == Interaction::Pressed {
-            next.set(VnMenuState::Main);
-            next_app.set(VnAppState::Title);
+            request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
             return;
         }
     }

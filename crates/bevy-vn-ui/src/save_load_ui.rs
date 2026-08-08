@@ -8,13 +8,14 @@ use bevy::prelude::*;
 use bevy::text::FontSize;
 use bevy_vn_core::messages::SetBgEvent;
 use bevy_vn_core::script::ScriptEngine;
-use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState};
+use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState, VnTransition};
 use bevy_vn_render::bg::BgState;
 use bevy_vn_render::AssetPathProvider;
 use bevy_vn_save::{SaveManager, SlotMeta};
 
 use crate::backlog::BacklogState;
 use crate::chapter_names::chapter_title;
+use crate::transition::request_transition;
 
 const Z_BG: i32 = 0;
 const Z_SLOT: i32 = 1;
@@ -131,8 +132,7 @@ fn handle_save_load_clicks(
     backlog: Res<BacklogState>,
     mut mode: ResMut<SaveLoadMode>,
     mut ui_state: ResMut<SaveLoadUiState>,
-    mut next_app: ResMut<NextState<VnAppState>>,
-    mut next_menu: ResMut<NextState<VnMenuState>>,
+    mut transition: ResMut<VnTransition>,
     mut wbg: MessageWriter<SetBgEvent>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) {
@@ -206,7 +206,7 @@ fn handle_save_load_clicks(
                     });
                 }
                 *mode = SaveLoadMode::default();
-                next_app.set(VnAppState::Gameplay);
+                request_transition(&mut transition, Some(VnAppState::Gameplay), None);
                 return;
             }
         }
@@ -237,11 +237,10 @@ fn handle_save_load_clicks(
         *mode = SaveLoadMode::default();
         match return_to {
             SaveLoadReturn::Title => {
-                next_menu.set(VnMenuState::Main);
-                next_app.set(VnAppState::Title);
+                request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
             }
             SaveLoadReturn::Settings => {
-                next_menu.set(VnMenuState::Settings);
+                request_transition(&mut transition, None, Some(VnMenuState::Settings));
             }
             SaveLoadReturn::Gameplay => {}
         }

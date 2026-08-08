@@ -4,7 +4,9 @@
 
 use bevy::prelude::*;
 use bevy_vn_core::messages::StorySelectEvent;
-use bevy_vn_core::state::{VnAppState, VnMenuState};
+use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
+
+use crate::transition::request_transition;
 
 const BTN_CIRCLE: &str = "pa/conf/button-circle.png";
 const BTN_RECT: &str = "pa/chapter/ch-btn.png";
@@ -240,8 +242,7 @@ fn handle_chapter_click(
     q_back: Query<&Interaction, With<BackButton>>,
     mouse: Res<ButtonInput<MouseButton>>,
     mut writer: MessageWriter<StorySelectEvent>,
-    mut next: ResMut<NextState<VnMenuState>>,
-    mut next_app: ResMut<NextState<VnAppState>>,
+    mut transition: ResMut<VnTransition>,
 ) {
     let Some(state) = state else { return };
     if *state.get() != VnMenuState::StoryDetail { return; }
@@ -250,12 +251,12 @@ fn handle_chapter_click(
     for (ch, inter) in q.iter() {
         if *inter != Interaction::Pressed { continue; }
         writer.write(StorySelectEvent { script: ch.script.clone(), label: "top".into() });
-        next_app.set(VnAppState::Gameplay);
+        request_transition(&mut transition, Some(VnAppState::Gameplay), None);
         return;
     }
     for inter in q_back.iter() {
         if *inter == Interaction::Pressed {
-            next.set(VnMenuState::ChapterSelect);
+            request_transition(&mut transition, None, Some(VnMenuState::ChapterSelect));
             return;
         }
     }

@@ -9,7 +9,9 @@ use bevy::prelude::*;
 use bevy::ui::RelativeCursorPosition;
 use bevy_vn_audio::bgm::BgmManager;
 use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
-use bevy_vn_core::state::{VnAppState, VnMenuState};
+use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
+
+use crate::transition::request_transition;
 
 const BG_CG: &str = "ui/extra/gallery-bg.png";
 const BG_BGM: &str = "ui/extra/music-bg.png";
@@ -482,15 +484,13 @@ fn handle_volume(
 fn handle_back(
     q_back: Query<&Interaction, (With<BackButton>, Changed<Interaction>)>,
     mouse: Res<ButtonInput<MouseButton>>,    mut stop: MessageWriter<StopBgmEvent>,
-    mut next_menu: ResMut<NextState<VnMenuState>>,
-    mut next: ResMut<NextState<VnAppState>>,
+    mut transition: ResMut<VnTransition>,
 ) {
     if !mouse.just_pressed(MouseButton::Left) { return; }
     for inter in &q_back {
         if *inter == Interaction::Pressed {
             let _ = stop.write(StopBgmEvent { fade_ms: None });
-            next_menu.set(VnMenuState::Main);
-            next.set(VnAppState::Title);
+            request_transition(&mut transition, Some(VnAppState::Title), Some(VnMenuState::Main));
         }
     }
 }

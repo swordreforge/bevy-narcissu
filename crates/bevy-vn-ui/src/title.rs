@@ -7,7 +7,9 @@
 //! animates it from the top band down over 7s (title.lua `title_anime`).
 
 use bevy::prelude::*;
-use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState};
+use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState, VnTransition};
+
+use crate::transition::request_transition;
 
 const BG_PATH: &str = "pa/title/bg.png";
 const LOGO_PATH: &str = "pa/title/logo.png";
@@ -197,8 +199,7 @@ fn handle_title_click(
     state: Res<State<VnAppState>>,
     q: Query<(&TitleButton, &Interaction)>,
     mouse: Res<ButtonInput<MouseButton>>,
-    mut next: ResMut<NextState<VnAppState>>,
-    mut next_menu: ResMut<NextState<VnMenuState>>,
+    mut transition: ResMut<VnTransition>,
     mut mode: ResMut<SaveLoadMode>,
     mut exit: MessageWriter<AppExit>,
 ) {
@@ -209,12 +210,10 @@ fn handle_title_click(
         if *inter != Interaction::Pressed { continue; }
         match btn.0 {
             TitleAction::Start => {
-                next_menu.set(VnMenuState::RouteSelect);
-                next.set(VnAppState::Menu);
+                request_transition(&mut transition, Some(VnAppState::Menu), Some(VnMenuState::RouteSelect));
             }
             TitleAction::Chapter => {
-                next_menu.set(VnMenuState::ChapterSelect);
-                next.set(VnAppState::Menu);
+                request_transition(&mut transition, Some(VnAppState::Menu), Some(VnMenuState::ChapterSelect));
             }
             TitleAction::Load => {
                 *mode = SaveLoadMode {
@@ -222,16 +221,13 @@ fn handle_title_click(
                     kind: SaveLoadKind::Load,
                     return_to: SaveLoadReturn::Title,
                 };
-                next_menu.set(VnMenuState::SaveLoad);
-                next.set(VnAppState::Menu);
+                request_transition(&mut transition, Some(VnAppState::Menu), Some(VnMenuState::SaveLoad));
             }
             TitleAction::Settings => {
-                next_menu.set(VnMenuState::Settings);
-                next.set(VnAppState::Menu);
+                request_transition(&mut transition, Some(VnAppState::Menu), Some(VnMenuState::Settings));
             }
             TitleAction::Extra => {
-                next_menu.set(VnMenuState::Gallery);
-                next.set(VnAppState::Menu);
+                request_transition(&mut transition, Some(VnAppState::Menu), Some(VnMenuState::Gallery));
             }
             TitleAction::Quit => {
                 exit.write(AppExit::Success);

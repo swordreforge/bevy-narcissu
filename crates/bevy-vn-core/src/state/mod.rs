@@ -42,12 +42,20 @@ pub enum TransitionPhase {
     FadingIn,
 }
 
-/// Centralized transition state.
+/// Centralized transition state. The UI layer drives it with a fullscreen
+/// overlay: `FadingOut` covers the old screen, then the pending states are
+/// committed, then `FadingIn` reveals the new screen.
 #[derive(Resource, Default)]
 pub struct VnTransition {
     pub phase: TransitionPhase,
+    /// Pending top-level state committed when the fade-out finishes.
     pub pending: Option<VnAppState>,
+    /// Pending menu sub-state committed together with `pending`.
+    pub pending_menu: Option<VnMenuState>,
+    /// Per-phase duration in seconds (e.g. 0.15 for the cover, 0.25 for reveal).
     pub duration: f32,
+    /// Seconds elapsed in the current phase.
+    pub elapsed: f32,
 }
 
 /// Which operation the save/load screen performs.
