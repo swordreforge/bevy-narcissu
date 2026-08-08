@@ -622,10 +622,10 @@ fn spawn_back_button(root: &mut ChildSpawnerCommands, btnsys: &Handle<Image>) {
 
 fn truncate_preview(s: &str) -> String {
     s.lines()
-        .take(3)
+        .take(2)
         .map(|l| {
-            if l.chars().count() > 12 {
-                let t: String = l.chars().take(12).collect();
+            if l.chars().count() > 10 {
+                let t: String = l.chars().take(10).collect();
                 format!("{t}…")
             } else {
                 l.to_string()
