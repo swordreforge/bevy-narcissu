@@ -143,8 +143,8 @@ impl SaveManager {
         }
         let slot = SaveSlot {
             version: SAVE_VERSION,
-            timestamp: std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
+            timestamp: web_time::SystemTime::now()
+                .duration_since(web_time::UNIX_EPOCH)
                 .map_err(|e| e.to_string())?
                 .as_secs(),
             description: description.to_string(),
@@ -229,8 +229,8 @@ fn handle_save_point(
 }
 
 fn chrono_now() -> String {
-    std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
+    web_time::SystemTime::now()
+        .duration_since(web_time::UNIX_EPOCH)
         .map(|d| format!("{}", d.as_secs()))
         .unwrap_or_default()
 }
