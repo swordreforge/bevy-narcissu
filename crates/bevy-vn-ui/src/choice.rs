@@ -38,8 +38,9 @@ fn handle_choice_state(
             Node {
                 position_type: PositionType::Absolute,
                 bottom: Val::Px(200.0),
-                left: Val::Px(80.0),
-                width: Val::Px(1120.0),
+                left: Val::Px(0.0),
+                right: Val::Px(0.0),
+                align_items: AlignItems::Center,
                 flex_direction: FlexDirection::Column,
                 row_gap: Val::Px(8.0),
                 ..default()
@@ -52,7 +53,7 @@ fn handle_choice_state(
                     ChoiceButton(i),
                     Button,
                     Node {
-                        width: Val::Px(1100.0),
+                        width: Val::Percent(60.0),
                         height: Val::Px(ct.item_height),
                         padding: UiRect {
                             left: Val::Px(ct.padding[0]), right: Val::Px(ct.padding[1]),

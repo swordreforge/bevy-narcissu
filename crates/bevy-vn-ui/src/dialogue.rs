@@ -43,8 +43,8 @@ fn spawn_dialogue_ui(
         Node {
             position_type: PositionType::Absolute,
             bottom: Val::Px(dt.margin_bottom),
-            left: Val::Px(20.0),
-            width: Val::Px(1240.0),
+            left: Val::Px(0.0),
+            right: Val::Px(0.0),
             height: Val::Px(dt.height),
             padding: UiRect::all(Val::Px(dt.padding[0])),
             flex_direction: FlexDirection::Column,
