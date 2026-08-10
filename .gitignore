@@ -4,3 +4,16 @@ saves/
 backups/
 bevy-vn-example-linux-amd64_86-*.tar.xz
 examples/minimal/dist/
+
+# example 部署/构建产物(不入库)
+examples/minimal/experiments/
+examples/minimal/dist.tar.xz
+examples/minimal/universal-bevy-build-wasm32-1.1/
+examples/minimal/universal-bevy-build-wasm32-1.1.tar.xz
+examples/minimal/icon-192.png
+examples/minimal/icon-512.png
+examples/minimal/manifest.webmanifest
+examples/minimal/sw.js
+examples/minimal/.edgeone/
+examples/minimal/assets/scripts/*.br
+examples/minimal/assets/scripts/*.gz

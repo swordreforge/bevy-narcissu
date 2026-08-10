@@ -21,6 +21,16 @@
 cargo run -p minimal --release
 ```
 
+### WASM 构建
+
+```bash
+source /etc/profile.d/emscripten.sh   # 必需: basisu_c_sys 依赖 emcc 编译 C 代码
+cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example \
+  --target-dir /path/to/wasm-target
+```
+
+完整发布流水线(wasm-bindgen → wasm-opt → SRI 更新 → 预压缩)见 [`docs/WASM_PUBLISH_PLAN.md` §2.5](docs/WASM_PUBLISH_PLAN.md)。注意：wasm 发布版日志已降级为仅 ERROR，且 `.cargo/config.toml` 通过 `--remap-path-prefix` 隐藏本地构建路径（D7/D8）。
+
 ## 工作区结构
 
 | 路径 | 说明 |
@@ -84,3 +94,4 @@ git sparse-checkout set src crates tools  # 只拉取代码文件夹
 
 - [架构设计](docs/ARCHITECTURE.md)
 - [Bevy 0.19 API 参考](docs/BEVY_0_19_API_REFERENCE.md)
+- [WASM 发布计划](docs/WASM_PUBLISH_PLAN.md)（含构建流水线、日志降级、路径隐藏、SRI 维护）
