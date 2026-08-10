@@ -91,13 +91,17 @@ fn handle_show_fg(
 fn handle_hide_fg(
     mut reader: MessageReader<HideFgEvent>,
     mut state: ResMut<FgSlotState>,
-    mut q: Query<(&FgSlotMarker, &mut Node)>,
+    mut q: Query<(&FgSlotMarker, &mut ImageNode, &mut Node)>,
 ) {
     for event in reader.read() {
         if let Some(idx) = slot_for_char(&state, &event.char_id) {
             state.occupied[idx] = None;
-            for (marker, mut node) in q.iter_mut() {
-                if marker.0 == idx { node.display = Display::None; break; }
+            for (marker, mut img, mut node) in q.iter_mut() {
+                if marker.0 == idx {
+                    node.display = Display::None;
+                    img.image = Handle::default();
+                    break;
+                }
             }
         }
     }
