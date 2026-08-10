@@ -47,11 +47,14 @@ fn handle_show_cg(
 fn handle_hide_cg(
     mut reader: MessageReader<HideCgEvent>,
     state: Res<CgState>,
-    mut q: Query<&mut Node, With<CgMarker>>,
+    mut q: Query<(&mut ImageNode, &mut Node), With<CgMarker>>,
 ) {
     if reader.is_empty() { return; }
     reader.clear();
     if let Some(e) = state.entity {
-        if let Ok(mut node) = q.get_mut(e) { node.display = Display::None; }
+        if let Ok((mut img, mut node)) = q.get_mut(e) {
+            img.image = Handle::default();
+            node.display = Display::None;
+        }
     }
 }
