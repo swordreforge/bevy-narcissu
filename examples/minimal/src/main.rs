@@ -30,8 +30,16 @@ struct GameFont(Handle<Font>);
 #[derive(Resource)]
 struct ScriptManifestHandle(Handle<ScriptManifest>);
 
-#[derive(Resource)]
-struct PendingScripts(Vec<Handle<VnScriptAsset>>);
+/// Scripts listed in the manifest, loaded in small per-frame batches so
+/// wasm never fires hundreds of HTTP requests in a single frame (browser
+/// connection pool / `ERR_INSUFFICIENT_RESOURCES`).
+#[derive(Resource, Default)]
+struct ScriptLoadQueue {
+    pending: Vec<String>,
+    handles: Vec<Handle<VnScriptAsset>>,
+}
+
+const SCRIPT_LOADS_PER_FRAME: usize = 16;
 
 fn main() {
     let mut app = App::new();
@@ -39,9 +47,14 @@ fn main() {
     #[cfg(target_arch = "wasm32")]
     {
         use bevy::asset::AssetMetaCheck;
+        use bevy::log::LogPlugin;
         use bevy::render::settings::{Backends, RenderCreation, WgpuSettings};
         use bevy::render::RenderPlugin;
         app.add_plugins(DefaultPlugins
+            .set(LogPlugin {
+                level: bevy::log::Level::ERROR,
+                ..default()
+            })
             .set(AssetPlugin {
                 // wasm 上跳过 .meta 查找:避免每个资产产生 404 请求;
                 // 且 itch.io 等平台缺失文件返回 403 会被 Bevy 视为致命错误,
@@ -100,7 +113,7 @@ fn main() {
         .add_systems(Startup, (spawn_camera, load_font, load_scripts, start_at_splash))
         .add_systems(OnEnter(VnAppState::Title), play_title_bgm)
         .add_systems(OnExit(VnAppState::Title), stop_title_bgm)
-        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end, request_scripts_from_manifest, ingest_scripts))
+        .add_systems(Update, (user_input, apply_font, handle_story_select, handle_custom_tag, return_to_title_on_story_end, request_scripts_from_manifest, drive_script_loads, ingest_scripts))
         .run();
 }
 
@@ -134,41 +147,56 @@ fn load_scripts(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.insert_resource(ScriptManifestHandle(asset_server.load(SCRIPT_MANIFEST)));
 }
 
-/// Once the manifest is loaded, issue an individual load per listed script.
+/// Once the manifest is loaded, seed the load queue with every listed script.
 fn request_scripts_from_manifest(
     manifest: Res<ScriptManifestHandle>,
     manifests: Res<Assets<ScriptManifest>>,
     mut commands: Commands,
-    asset_server: Res<AssetServer>,
     mut started: Local<bool>,
 ) {
     if *started { return; }
     let Some(manifest_asset) = manifests.get(&manifest.0) else { return; };
-    let handles = manifest_asset
-        .files
-        .iter()
-        .map(|f| asset_server.load::<VnScriptAsset>(format!("scripts/{f}")))
-        .collect();
-    commands.insert_resource(PendingScripts(handles));
+    commands.insert_resource(ScriptLoadQueue {
+        pending: manifest_asset.files.clone(),
+        handles: Vec::new(),
+    });
     info!("Script manifest loaded: {} files", manifest_asset.files.len());
     *started = true;
+}
+
+/// Issue script loads in small batches; `ingest_scripts` waits until every
+/// batch has been requested and loaded.
+fn drive_script_loads(
+    queue: Option<ResMut<ScriptLoadQueue>>,
+    asset_server: Res<AssetServer>,
+) {
+    let Some(mut queue) = queue else { return };
+    let mut issued = 0;
+    while issued < SCRIPT_LOADS_PER_FRAME {
+        let Some(file) = queue.pending.pop() else { break };
+        queue
+            .handles
+            .push(asset_server.load::<VnScriptAsset>(format!("scripts/{file}")));
+        issued += 1;
+    }
 }
 
 /// Once every listed script has finished loading, ingest them into the
 /// ScriptEngine. Runs exactly once. A script is only *played* after the user
 /// picks a story from the RouteSelect UI.
 fn ingest_scripts(
-    pending: Option<Res<PendingScripts>>,
+    queue: Option<Res<ScriptLoadQueue>>,
     scripts: Res<Assets<VnScriptAsset>>,
     mut engine: ResMut<ScriptEngine>,
     mut done: Local<bool>,
 ) {
     if *done { return; }
-    let Some(pending) = pending else { return; };
-    if pending.0.iter().any(|h| scripts.get(h).is_none()) { return; }
+    let Some(queue) = queue else { return; };
+    if !queue.pending.is_empty() { return; }
+    if queue.handles.iter().any(|h| scripts.get(h).is_none()) { return; }
 
     let mut loaded = 0usize;
-    for handle in &pending.0 {
+    for handle in &queue.handles {
         let Some(asset) = scripts.get(handle) else { continue; };
         let Some(name) = asset.script.meta.name.clone() else {
             continue;

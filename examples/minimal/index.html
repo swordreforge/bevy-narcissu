@@ -3,7 +3,33 @@
 <head>
   <meta charset="utf-8">
   <title>水仙10周年</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link data-trunk rel="copy-dir" href="assets">
+    <style>
+    /* 全屏铺满视口 + 居中：
+       - 真正渲染用的 canvas 是 winit 在 wasm 启动时自建的（无 id，带内联 width/height 与 min-width/min-height），
+         故用通用 canvas 选择器 + !important 覆盖其内联样式，铺满视口；
+       - object-fit: contain 兜底：即使 Bevy 分辨率未及时跟随窗口变化，也会保持原始比例、
+         黑边居中显示，而不是拉伸变形。
+       - 原 HTML 里的 <canvas id="bevy"> 从未被使用，已删除（见 body）。 */
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+    canvas {
+      width: 100vw !important;
+      height: 100vh !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      /* 触屏:阻止浏览器手势(双击缩放/滚动)拦截画布输入,事件全部交给 wasm */
+      touch-action: none;
+    }
+  </style>
   <script>
     // Unlock WebAudio autoplay policy: bevy/cpal creates its AudioContext at
     // startup (no user gesture) so the browser starts it suspended and it never
@@ -40,8 +66,123 @@
       window.addEventListener('touchend', unlock, { once: true, capture: true });
     })();
   </script>
+  <script>
+    // 触摸事件转换:winit web 后端只监听 Pointer Events,按 pointerType 分流,
+    // "touch" 走 touch_handler(生成 Bevy TouchInput),在设备仿真(Chrome DevTools
+    // 触摸仿真/Playwright)下该链路不可靠。此脚本把所有非 mouse 的指针事件
+    // 在 window 捕获阶段拦截并重派发为 pointerType="mouse" 的合成事件,
+    // 让游戏走已验证可靠的鼠标输入路径(真实触摸屏/仿真均生效)。
+    // 双指规则:第一根手指 = 鼠标左键,第二根手指按下 = 鼠标右键(游戏内打开菜单)。
+    (function () {
+      var canvas = null;
+      var activeTouches = new Map(); // pointerId -> wasSecondFinger(right)
+      function getCanvas() {
+        if (!canvas) canvas = document.querySelector('canvas');
+        return canvas || null;
+      }
+      function asMousePointer(type, e, overrides) {
+        var target = getCanvas() || e.target;
+        if (!target) return;
+        var opts = {
+          bubbles: true, cancelable: true, composed: true,
+          pointerId: e.pointerId, pointerType: 'mouse', isPrimary: true,
+          button: e.button, buttons: e.buttons,
+          clientX: e.clientX, clientY: e.clientY,
+          screenX: e.screenX, screenY: e.screenY,
+          width: e.width, height: e.height, pressure: e.pressure || 0.5,
+          tiltX: e.tiltX, tiltY: e.tiltY, tangentialPressure: e.tangentialPressure,
+          twist: e.twist, ctrlKey: e.ctrlKey, shiftKey: e.shiftKey,
+          altKey: e.altKey, metaKey: e.metaKey
+        };
+        if (overrides) {
+          for (var k in overrides) opts[k] = overrides[k];
+        }
+        target.dispatchEvent(new PointerEvent(type, opts));
+      }
+      window.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'mouse') return;
+        e.preventDefault();
+        e.stopPropagation();
+        var isSecond = activeTouches.size >= 1;
+        activeTouches.set(e.pointerId, isSecond);
+        asMousePointer('pointerdown', e, isSecond ? { button: 2, buttons: 2 } : null);
+      }, true);
+      window.addEventListener('pointerup', function (e) {
+        if (e.pointerType === 'mouse') return;
+        e.preventDefault();
+        e.stopPropagation();
+        var wasSecond = activeTouches.get(e.pointerId);
+        activeTouches.delete(e.pointerId);
+        asMousePointer('pointerup', e, wasSecond ? { button: 2, buttons: 0 } : null);
+      }, true);
+      window.addEventListener('pointermove', function (e) {
+        if (e.pointerType === 'mouse') return;
+        e.preventDefault();
+        e.stopPropagation();
+        asMousePointer('pointermove', e, null);
+      }, true);
+      window.addEventListener('pointercancel', function (e) {
+        if (e.pointerType === 'mouse') return;
+        e.preventDefault();
+        e.stopPropagation();
+        var wasSecond = activeTouches.get(e.pointerId);
+        activeTouches.delete(e.pointerId);
+        asMousePointer('pointerup', e, wasSecond ? { button: 2, buttons: 0 } : null);
+      }, true);
+    })();
+  </script>
+  <script>
+    // 移动端沉浸:首次手势尝试全屏(PWA standalone 时浏览器自动隐藏导航栏;
+    // 非 standalone 的 Android Chrome 用 Fullscreen API,iOS Safari 不支持则静默跳过)。
+    (function () {
+      function isStandalone() {
+        return window.matchMedia('(display-mode: standalone)').matches ||
+          window.matchMedia('(display-mode: fullscreen)').matches ||
+          navigator.standalone === true;
+      }
+      var tried = false;
+      function goFullscreen() {
+        if (tried) return;
+        tried = true;
+        if (isStandalone()) return;
+        var el = document.documentElement;
+        var opts = {};
+        // Chrome Android 支持 navigationUI:"hide" 主动隐藏导航控件
+        try { opts.navigationUI = 'hide'; } catch (e) {}
+        function doFullscreen() {
+          var p = el.requestFullscreen(opts);
+          if (p && p.catch) {
+            p.catch(function (err) {
+              console.warn('[fullscreen] requestFullscreen rejected:', err && err.name, err && err.message);
+            });
+          }
+        }
+        if (el.requestFullscreen) {
+          doFullscreen();
+        } else if (el.webkitRequestFullscreen) {
+          el.webkitRequestFullscreen();
+        } else {
+          console.warn('[fullscreen] Fullscreen API 不可用');
+        }
+      }
+      // 捕获阶段注册:必须在触摸转换脚本(同阶段 stopPropagation)之前拿到真实事件。
+      // 若注册在冒泡阶段,触摸 pointerdown 会被转换脚本在捕获阶段终止,全屏永远不触发。
+      window.addEventListener('pointerdown', goFullscreen, { once: true, capture: true });
+      window.addEventListener('touchend', goFullscreen, { once: true, capture: true });
+    })();
+  </script>
 </head>
 <body>
-  <canvas id="bevy"></canvas>
+<script>
+// 注册 Service Worker:二次访问资源从 Cache Storage 命中(秒开 + 离线可用)。
+// 立即注册(不挂 load 事件):wasm 下载可能很慢,load 会延迟数分钟,
+// 而 SW 注册是异步的,尽早注册让缓存尽快建立。
+// 仅 https 或 localhost 下生效(GitHub Pages 满足);注册失败不影响游戏运行。
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js').catch(function (err) {
+    console.warn('[sw] register failed:', err && err.message);
+  });
+}
+</script>
 </body>
 </html>
