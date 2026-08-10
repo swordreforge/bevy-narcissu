@@ -1,0 +1,5 @@
+[target.wasm32-unknown-unknown]
+rustflags = [
+  "--remap-path-prefix=/home/swordreforge/.cargo/registry/src/rsproxy.cn-e3de039b2554c837=/registry",
+  "--remap-path-prefix=/home/swordreforge/下载/水仙10周年版本_1.2.0/bevy-vn-engine=/src",
+]

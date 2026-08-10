@@ -16,6 +16,8 @@
 | D4 | 脚本加载 | **AssetServer 懒加载 + ScriptManifest 清单**(统一原生/wasm,顺带修 theme CWD bug;**wasm 上 `load_folder` 不可用**——Bevy 0.19 `HttpWasmAssetReader::read_directory` 返回空流,见 §2 手段 C) |
 | D5 | 体积优化 | **后续再做**(本期直接静态托管 440M,AssetServer 天然按需加载) |
 | D6 | 部署 | **GitHub Pages**(静态托管 + MIME 配置) |
+| D7 | 日志级别 | **wasm 发布段 `LogPlugin { level: Level::ERROR }`**(浏览器控制台只输出 ERROR,屏蔽 INFO/WARN 刷屏;注意 Bevy 0.19 `Level` 无 `OFF`,`Level::ERROR` 即最低)。浏览器自身警告(`WEBGL_debug_renderer_info deprecated`、AudioContext autoplay、WebGL lazy init)由浏览器内核发出,**无法从 Rust 侧关闭**,只能忽略 |
+| D8 | 路径隐藏 | **`.cargo/config.toml` 的 `--remap-path-prefix`**(wasm target 专属),把 `/home/.../.cargo/registry/...` → `/registry`、项目路径 → `/src`。⚠️ **`strip = "symbols"` 不足以隐藏路径**:日志中的 `file!()` 路径是编译期嵌入的**静态字符串**(非调试符号),strip 只删 DWARF 段碰不到它们(实测 1241 处残留→remap 后仅 57 处,且残留全部为 std 库/emscripten C 代码路径,仅在**内核 panic**时可见,常规日志已 100% 清洗) |
 
 ---
 
@@ -172,6 +174,48 @@ AssetServer ─→ OpfsAssetReader（自定义）
 - **加载进度**：`AssetReader` 层可暴露总字节进度（经 `AssetServer` 的加载事件或自建事件），Phase 3 做加载进度 UI 用。
 - 注意：`WebAssetReader` 是 Bevy 内置（`bevy::asset::io::web`），包装器需在 wasm 段条件编译，原生段用 `FileAssetReader` 即可。
 
+### 手段 E：发布构建流水线（实机验证 2026-08-08）
+
+> 完整手动发布流程。**每步顺序不可颠倒**,改 Rust 代码后必须整条重跑。
+
+```bash
+cd examples/minimal
+
+# 0. 前置:emscripten 环境(必须 source——basisu_c_sys 的 C 编译依赖 emcc,
+#    不 source 则 cmake 相关 build script 失败;RUSTFLAGS remap 生效后
+#    首次构建触发全量重编,约 7 分钟)
+source /etc/profile.d/emscripten.sh
+
+# 1. 编译(cargo 读 .cargo/config.toml 自动注入 remap rustflags)
+CARGO_TARGET_DIR=/home/swordreforge/下载/水仙10周年版本_1.2.0/wasm-target \
+  cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example
+
+# 2. wasm-bindgen(CLI 版本与 Cargo.lock 一致:0.2.126)
+wasm-bindgen /home/swordreforge/下载/水仙10周年版本_1.2.0/wasm-target/wasm32-unknown-unknown/release/bevy-vn-example.wasm \
+  --target web --out-dir /tmp/wbgen-out --no-typescript
+
+# 3. wasm-opt O4(必须带 feature flags,否则 "error validating input")
+wasm-opt /tmp/wbgen-out/bevy-vn-example_bg.wasm -O4 -o /tmp/wbgen-out/opt.wasm \
+  --enable-bulk-memory --enable-mutable-globals --enable-nontrapping-float-to-int \
+  --enable-sign-ext --enable-reference-types
+
+# 4. 部署到 dist(文件名带 hash,保持与 index.html 引用一致)
+cp /tmp/wbgen-out/bevy-vn-example.js          dist/bevy-vn-example-c2dfd4e4200a6e9b.js
+cp /tmp/wbgen-out/opt.wasm                    dist/bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm
+# snippets/ 内 inline0.js 通常不变,可跳过;若变了同样复制
+
+# 5. ⚠️ 重新计算 SRI integrity 并更新 dist/index.html(必做!hash 随内容变,
+#    不更新则浏览器报 "Failed to fetch ... integrity" 拒绝加载)
+python3 -c "import hashlib,base64;d=open('dist/bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm','rb').read();print('sha384-'+base64.b64encode(hashlib.sha384(d).digest()).decode())"
+# (js 同理)→ 手工替换 index.html 中对应 integrity="sha384-..."
+
+# 6. 重新生成预压缩(旧 .br/.gz 内容过期,必须先删再跑 prep.sh)
+rm -f dist/*.js.br dist/*.js.gz dist/*.wasm.br dist/*.wasm.gz
+cd ../../ && ./prep.sh
+```
+
+**SRI 维护规则**：`index.html` 的 `integrity` 必须与 wasm/js 文件内容实时匹配。任何一次重编译后 hash 都变,漏更新会导致资源被浏览器整包拒绝(SRI 校验失败),症状是 `Failed to fetch ... integrity` + 白屏。snippets/inline0.js 内容未变时其 hash 不需更新(实测保持一致)。
+
 ### 推荐组合
 
 > **B（存储 trait）为主 + C（cfg 兜底 + AssetServer 化）+ D（IndexedDB 资产缓存，wasm 专属）+ A（target 条件 features）**
@@ -218,6 +262,7 @@ AssetServer ─→ OpfsAssetReader（自定义）
 - [x] **AssetPlugin 设 `meta_check: AssetMetaCheck::Never`**(wasm 段):跳过 `.meta` 查找,避免每个资产一次 404 请求。
 - [x] **脚本加载 wasm 缺陷修复（D4 关键发现）**：wasm 上 `load_folder` 返回空流（见 §2 手段 C）→ 定案 ScriptManifest 清单方案，core 新增 `ScriptManifest` + `ScriptManifestLoader`，main.rs 改 manifest 驱动。
 - **验证**：`trunk build --release` 成功；浏览器实测标题画面出现、可进 RouteSelect、82 脚本加载、交互正常。
+- **发布加固(2026-08-08 追加)**：① **D7** 日志降级 `LogPlugin { level: Level::ERROR }`(wasm 段,浏览器控制台不再刷 INFO/WARN);② **D8** `.cargo/config.toml` 加 wasm 专属 `--remap-path-prefix` 隐藏本地路径(实测 1241→57 处,残留仅为 std/emscripten C 代码路径,内核 panic 才可见;顺带 wasm 体积 36.7M→32.7M);③ **构建全流程见 §2.5**,含 SRI 更新与预压缩重生成(踩坑:改完代码不更新 index.html 的 integrity → 浏览器整包拒绝,白屏)。
 - **实现差异 vs 计划**：① **D4 方案变更**：`load_folder` → ScriptManifest 清单（wasm `read_directory` 空流，原生/wasm 统一为清单驱动，manifest.list 83 行随 assets 发布）；② wasm-bindgen CLI 版本必须与 Cargo.lock 完全一致（0.2.126），否则 wasm-bindgen 后处理产物不匹配；③ 原生回归时直接跑二进制会因 `current_exe()` 基路径解析到 `target/release/assets` 而全 404——Bevy 0.19 `FileAssetReader::get_base_path` 优先级为 `BEVY_ASSET_ROOT` → `CARGO_MANIFEST_DIR` → `current_exe()` 目录，用 `cargo run`（设 CARGO_MANIFEST_DIR）即正确；④ 已知 13 个语音文件在资源包中缺失（`aka_0409b`、`mom_a0{12,22,32,42,52,62}`、`npetcm36_010/011/012`、`npetcw2_146`、`0snyuka_0125/0128`，引用 6955 个中 0.2%），**预先存在的问题**（原生同样 404，用户资源包本身无此文件），引擎对缺失音频不阻塞剧情（`AudioPlayer` 直接 spawn 静默跳过），决定忽略；⑤ 构建产物 `dist/`（478M）加入 `.gitignore` 不入库，GitHub Pages 部署时单独处理（见 Phase 4）；⑥ **wasm 无声（autoplay policy）**：bevy_audio 0.19 的 `AudioOutput` 在 App 启动时初始化（`init_resource` 首次 update，无用户手势）→ rodio `MixerDeviceSink::open` 创建 cpal 流后立即 `stream.play()` → cpal 0.17 wasm `StreamTrait::play()` 调 `AudioContext.resume()`（`cpal-0.17.3/src/host/webaudio/mod.rs`）→ **浏览器 autoplay policy 拒绝（无手势）**，且 bevy_audio 源码无任何手势解锁处理（已 grep 确认），AudioContext 永久 suspended → 无声。**修复**：`index.html` monkey-patch `AudioContext` 构造函数捕获 cpal 创建的实例（wasm-bindgen 的 `new AudioContext()` 按全局作用域解析命中替换），首次 `pointerdown/keydown/touchend` 时对捕获的 ctx 调 `resume()`（Phaser/Unity 同款方案）。**CDP 验证（headless chromium + `--autoplay-policy=user-gesture-required` + 可信点击）**：patch 捕获 cpal ctx（`[audio-unlock] resumed 0/1`，headless 无真实手势故 ctx 非 suspended；真实浏览器 console 已证实现象为 suspended），unlock 逻辑在手势时正常触发。**待用户真实浏览器确认**（硬刷新听 BGM）。
 
 ### Phase 3 — 运行时验证 + OPFS 缓存（1-2 天）

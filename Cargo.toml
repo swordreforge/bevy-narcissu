@@ -6,7 +6,7 @@ members = ["crates/bevy-vn-core", "crates/bevy-vn-render", "crates/bevy-vn-audio
 # bevy 0.19's multi_threaded executor relies on catch_unwind for system-level
 # error handling; abort would bypass ErrorHandler and change behavior.
 [profile.release]
-lto = "thin"
+lto = "fat"
 codegen-units = 1
 strip = "symbols"
 
