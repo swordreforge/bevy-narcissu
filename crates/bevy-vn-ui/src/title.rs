@@ -10,6 +10,7 @@ use bevy::prelude::*;
 use bevy_vn_core::state::{SaveLoadKind, SaveLoadMode, SaveLoadReturn, VnAppState, VnMenuState, VnTransition};
 
 use crate::transition::request_transition;
+use crate::responsive::ResponsiveCanvas;
 
 const BG_PATH: &str = "pa/title/bg.png";
 const LOGO_PATH: &str = "pa/title/logo.png";
@@ -87,8 +88,11 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
         },
     ))
     .with_children(|parent| {
-        // Fixed 960x540 canvas, centered in whatever window size.
+        // Fixed 960x540 canvas, centered in whatever window size. Scaling is
+        // handled by ResponsivePlugin (see responsive.rs): the canvas scales
+        // uniformly to fit the window while the layout stays 960x540.
         parent.spawn((
+            ResponsiveCanvas,
             Node {
                 width: Val::Px(960.0),
                 height: Val::Px(540.0),

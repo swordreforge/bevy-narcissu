@@ -9,6 +9,8 @@ use bevy::prelude::*;
 use bevy_vn_core::messages::{AdvanceEvent, AdvanceSource, HotspotClearEvent, HotspotEvent};
 use bevy_vn_core::state::SaveLoadMode;
 
+use crate::responsive::{UiCanvasScale, LOGICAL_HEIGHT, LOGICAL_WIDTH};
+
 #[derive(Debug, Clone)]
 pub struct HotspotRect {
     pub id: String,
@@ -59,6 +61,7 @@ fn apply_hotspot_events(
 fn hotspot_click_input(
     windows: Query<&Window>,
     mouse: Res<ButtonInput<MouseButton>>,
+    scale: Res<UiCanvasScale>,
     active: Res<ActiveHotspots>,
     mode: Res<SaveLoadMode>,
     mut writer: MessageWriter<AdvanceEvent>,
@@ -75,6 +78,17 @@ fn hotspot_click_input(
     let Some(cursor) = window.cursor_position() else {
         return;
     };
+    // Hotspots are declared in script pixel coords (960x540 logical space,
+    // origin top-left); cursor positions are window logical pixels.
+    // Convert window coords -> canvas coords via the responsive canvas scale
+    // (and account for the centered letterbox offset when aspect differs).
+    let s = scale.0.max(f32::EPSILON);
+    let (win_w, win_h) = (window.width(), window.height());
+    let canvas_w = LOGICAL_WIDTH * s;
+    let canvas_h = LOGICAL_HEIGHT * s;
+    let off_x = (win_w - canvas_w) / 2.0;
+    let off_y = (win_h - canvas_h) / 2.0;
+    let pos = Vec2::new((cursor.x - off_x) / s, (cursor.y - off_y) / s);
 
     if active.0.is_empty() {
         // No hotspots declared — whole screen advances (default VN behavior).
@@ -82,7 +96,7 @@ fn hotspot_click_input(
         return;
     }
     let hit = active.0.iter().any(|h| {
-        cursor.x >= h.x && cursor.x <= h.x + h.width && cursor.y >= h.y && cursor.y <= h.y + h.height
+        pos.x >= h.x && pos.x <= h.x + h.width && pos.y >= h.y && pos.y <= h.y + h.height
     });
     if hit {
         let _ = writer.write(AdvanceEvent { source: AdvanceSource::UserInput });
@@ -92,6 +106,7 @@ fn hotspot_click_input(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use bevy::window::WindowResolution;
 
     #[derive(Resource, Default)]
     struct AdvanceCount(usize);
@@ -106,6 +121,7 @@ mod tests {
         let mut app = App::new();
         app.init_resource::<ActiveHotspots>();
         app.init_resource::<ButtonInput<MouseButton>>();
+        app.init_resource::<UiCanvasScale>();
         app.init_resource::<SaveLoadMode>();
         app.init_resource::<AdvanceCount>();
         app.add_message::<AdvanceEvent>();
@@ -115,11 +131,12 @@ mod tests {
         app
     }
 
-    fn add_window(app: &mut App, x: f32, y: f32) {
+    fn add_window(app: &mut App, x: f32, y: f32) -> Entity {
         let mut window = Window::default();
         window.focused = true;
+        window.resolution = WindowResolution::new(LOGICAL_WIDTH as u32, LOGICAL_HEIGHT as u32);
         window.set_cursor_position(Some(Vec2::new(x, y)));
-        app.world_mut().spawn(window);
+        app.world_mut().spawn(window).id()
     }
 
     fn click(app: &mut App) {
@@ -172,6 +189,22 @@ mod tests {
         app.update(); // apply_hotspot_events consumes HotspotEvent
         app.world_mut().resource_mut::<Messages<HotspotClearEvent>>().write(HotspotClearEvent);
         app.update(); // applies clear, then click should advance
+        click(&mut app);
+        app.update();
+        assert_eq!(advance_count(&app), 1);
+    }
+
+    #[test]
+    fn scaled_window_converts_coords() {
+        let mut app = make_app();
+        app.world_mut().resource_mut::<UiCanvasScale>().0 = 2.0;
+        let mut window = Window::default();
+        window.focused = true;
+        window.resolution = WindowResolution::new(1920, 1080);
+        window.set_cursor_position(Some(Vec2::new(300.0, 300.0)));
+        app.world_mut().spawn(window);
+        add_hotspot(&mut app, 0.0, 0.0, 200.0, 200.0);
+        app.update(); // apply_hotspot_events consumes HotspotEvent
         click(&mut app);
         app.update();
         assert_eq!(advance_count(&app), 1);

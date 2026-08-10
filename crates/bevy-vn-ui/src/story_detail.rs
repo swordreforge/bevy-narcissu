@@ -7,6 +7,7 @@ use bevy_vn_core::messages::StorySelectEvent;
 use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
 
 use crate::transition::request_transition;
+use crate::responsive::ResponsiveCanvas;
 
 const BTN_CIRCLE: &str = "pa/conf/button-circle.png";
 const BTN_RECT: &str = "pa/chapter/ch-btn.png";
@@ -167,6 +168,7 @@ fn spawn_story_detail(
     ))
     .with_children(|parent| {
         parent.spawn((
+            ResponsiveCanvas,
             Node {
                 width: Val::Px(960.0),
                 height: Val::Px(540.0),

@@ -17,15 +17,19 @@ use bevy_vn_core::state::{
 
 use crate::backlog::BacklogState;
 use crate::transition::{request_overlay, request_transition_with_overlay};
+use crate::responsive::ResponsiveCanvas;
 
 const BG_PATH: &str = "pa/ja/mw/bg-mean.png";
 const BTN_PATH: &str = "pa/ja/mw/btn-mean.png";
 const BTNSYS_PATH: &str = "pa/ja/save/btnsys.png";
 const BLACK_PATH: &str = "image/bg/black.basisu.ktx2";
 
-const Z_FIL: i32 = 5;
-const Z_BG: i32 = 6;
-const Z_BTN: i32 = 7;
+// 层级:必须高于对话框(ZIndex 10,dialogue.rs),否则对话框盖住快捷菜单;
+// 但低于选择支(20)/backlog(30)。菜单打开时脚本被阻塞,choice/backlog
+// 不会同时出现,15-17 与二者无冲突。
+const Z_FIL: i32 = 15;
+const Z_BG: i32 = 16;
+const Z_BTN: i32 = 17;
 
 const BTN_W: f32 = 129.0;
 const BTN_H: f32 = 32.0;
@@ -147,6 +151,7 @@ fn spawn_menu(commands: &mut Commands, server: &AssetServer) {
             // 半透明黑遮罩 — 原作 init.black (bg/black.png) alpha=128
             container
                 .spawn((
+                    ResponsiveCanvas,
                     Node {
                         width: Val::Px(960.0),
                         height: Val::Px(540.0),

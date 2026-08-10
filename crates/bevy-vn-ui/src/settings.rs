@@ -13,6 +13,7 @@ use bevy_vn_core::state::{
     VnMenuState, VnTransition,
 };
 use bevy_vn_core::theme::VnTheme;
+use crate::responsive::ResponsiveCanvas;
 
 use crate::transition::{request_overlay, request_transition};
 
@@ -48,6 +49,7 @@ struct SettingsScreen;
 /// The 960×540 content canvas under `SettingsScreen`. Replaced as a whole
 /// when switching pages so children are never left orphaned.
 #[derive(Component)]
+#[require(ResponsiveCanvas)]
 struct SettingsCanvas;
 
 #[derive(Component)]
@@ -212,6 +214,7 @@ fn spawn_settings_screen(
                 justify_content: JustifyContent::Center,
                 ..default()
             },
+            ZIndex(15),
         ))
         .with_children(|parent| {
             parent
