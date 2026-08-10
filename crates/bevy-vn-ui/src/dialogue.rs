@@ -5,6 +5,12 @@ use bevy_vn_core::messages::{ClearDialogueEvent, DialogueStateEvent};
 use bevy_vn_core::state::VnAppState;
 use bevy_vn_core::theme::VnTheme;
 
+use crate::responsive::{LOGICAL_HEIGHT, LOGICAL_WIDTH};
+
+/// 对话框整体紧凑系数:所有尺寸(框高/留白/字号/内边距)统一乘以该值。
+/// 只压缩高度会导致文字放不下,必须整体等比缩小,比例不变。
+const DIALOGUE_COMPACT: f32 = 0.5;
+
 #[derive(Component)]
 struct SpeakerText;
 
@@ -38,15 +44,24 @@ fn spawn_dialogue_ui(
     let t = theme.map(|t| t.clone()).unwrap_or_default();
     let dt = &t.dialogue;
 
+    // 视口相对单位:对话框不再锁死在 960x540 逻辑像素,而是按窗口实际
+    // 尺寸缩放。垂直方向(高度/底部留白/字号)随 Vh,水平方向(内边距/
+    // 说话人框宽)随 Vw,非等比窗口下自动拉伸。所有设计值先乘 DIALOGUE_COMPACT。
     let root = commands.spawn((
         DialogueRoot,
         Node {
             position_type: PositionType::Absolute,
-            bottom: Val::Px(dt.margin_bottom),
+            bottom: Val::Vh(dt.margin_bottom * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
             left: Val::Px(0.0),
             right: Val::Px(0.0),
-            height: Val::Px(dt.height),
-            padding: UiRect::all(Val::Px(dt.padding[0])),
+            height: Val::Vh(dt.height * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
+            // 主题 padding 语义为 [left, right, top, bottom]
+            padding: UiRect {
+                left: Val::Vw(dt.padding[0] * DIALOGUE_COMPACT / LOGICAL_WIDTH * 100.0),
+                right: Val::Vw(dt.padding[1] * DIALOGUE_COMPACT / LOGICAL_WIDTH * 100.0),
+                top: Val::Vh(dt.padding[2] * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
+                bottom: Val::Vh(dt.padding[3] * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
+            },
             flex_direction: FlexDirection::Column,
             align_items: AlignItems::FlexStart,
             display: Display::None,
@@ -62,14 +77,24 @@ fn spawn_dialogue_ui(
         parent.spawn((
             SpeakerText,
             Text::new(""),
-            TextFont { font_size: FontSize::Px(dt.speaker_font_size), ..default() },
+            TextFont {
+                font_size: FontSize::Vh(dt.speaker_font_size * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
+                ..default()
+            },
             TextColor(Color::srgba(dt.speaker_color[0], dt.speaker_color[1], dt.speaker_color[2], dt.speaker_color[3])),
-            Node { width: Val::Px(dt.speaker_box_width), height: Val::Px(dt.speaker_font_size + 4.0), ..default() },
+            Node {
+                width: Val::Vw(dt.speaker_box_width * DIALOGUE_COMPACT / LOGICAL_WIDTH * 100.0),
+                height: Val::Vh((dt.speaker_font_size + 4.0) * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
+                ..default()
+            },
         ));
         parent.spawn((
             DialogueText,
             Text::new(""),
-            TextFont { font_size: FontSize::Px(dt.font_size), ..default() },
+            TextFont {
+                font_size: FontSize::Vh(dt.font_size * DIALOGUE_COMPACT / LOGICAL_HEIGHT * 100.0),
+                ..default()
+            },
             TextColor(Color::srgba(dt.text_color[0], dt.text_color[1], dt.text_color[2], dt.text_color[3])),
             Node { width: percent(100), flex_grow: 1.0, ..default() },
         ));

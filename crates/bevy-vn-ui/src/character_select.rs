@@ -7,6 +7,7 @@ use bevy_vn_core::messages::StorySelectEvent;
 use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
 
 use crate::transition::request_transition;
+use crate::responsive::ResponsiveCanvas;
 
 const BG_PATH: &str = "pa/charters/bg.png";
 const BTN_PATH: &str = "pa/charters/btn-分支.png";
@@ -66,6 +67,7 @@ fn spawn_character(mut commands: Commands, asset_server: Res<AssetServer>) {
     ))
     .with_children(|parent| {
         parent.spawn((
+            ResponsiveCanvas,
             Node {
                 width: Val::Px(960.0),
                 height: Val::Px(540.0),

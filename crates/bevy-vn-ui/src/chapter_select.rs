@@ -7,6 +7,7 @@ use bevy::prelude::*;
 use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
 use crate::story_detail::CurrentStory;
 use crate::transition::request_transition;
+use crate::responsive::ResponsiveCanvas;
 
 const BG_PATH: &str = "pa/chapter/main-bg.png";
 const BTN_PATH: &str = "pa/chapter/btn-分支2.png";
@@ -64,6 +65,7 @@ fn spawn_chapter(mut commands: Commands, asset_server: Res<AssetServer>) {
     ))
     .with_children(|parent| {
         parent.spawn((
+            ResponsiveCanvas,
             Node {
                 width: Val::Px(960.0),
                 height: Val::Px(540.0),

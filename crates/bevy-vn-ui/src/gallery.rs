@@ -12,6 +12,7 @@ use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
 use bevy_vn_core::state::{VnAppState, VnMenuState, VnTransition};
 
 use crate::transition::request_transition;
+use crate::responsive::ResponsiveCanvas;
 
 const BG_CG: &str = "ui/extra/gallery-bg.png";
 const BG_BGM: &str = "ui/extra/music-bg.png";
@@ -132,6 +133,7 @@ fn spawn_gallery(mut commands: Commands, asset_server: Res<AssetServer>) {
     ))
     .with_children(|root| {
         root.spawn((
+            ResponsiveCanvas,
             Node {
                 width: Val::Px(960.0), height: Val::Px(540.0),
                 flex_shrink: 0.0, ..default()

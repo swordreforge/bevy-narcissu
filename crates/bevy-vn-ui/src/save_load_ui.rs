@@ -13,6 +13,7 @@ use bevy_vn_core::state::{
 };
 use bevy_vn_render::bg::BgState;
 use bevy_vn_render::AssetPathProvider;
+use crate::responsive::ResponsiveCanvas;
 use bevy_vn_save::{SaveManager, SlotMeta};
 
 use crate::backlog::BacklogState;
@@ -312,11 +313,12 @@ fn spawn_save_load_screen(
                 justify_content: JustifyContent::Center,
                 ..default()
             },
+            ZIndex(15),
         ))
         .with_children(|container| {
             // Fixed 960x540 canvas, centered in whatever window size.
             container
-                .spawn((Node {
+                .spawn((ResponsiveCanvas, Node {
                     width: Val::Px(960.0),
                     height: Val::Px(540.0),
                     flex_shrink: 0.0,

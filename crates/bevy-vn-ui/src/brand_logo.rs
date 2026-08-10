@@ -4,6 +4,7 @@
 
 use bevy::prelude::*;
 use bevy_vn_core::state::VnAppState;
+use crate::responsive::ResponsiveCanvas;
 
 const FRAMES: [&str; 4] = ["pa/logo/logo-0.png", "pa/logo/logo-1.png", "pa/logo/logo-2.png", "pa/logo/logo-3.png"];
 const FRAME_MS: [u64; 4] = [1500, 1500, 1500, 1500];
@@ -53,6 +54,7 @@ fn spawn_brand_logo(mut commands: Commands, asset_server: Res<AssetServer>, mut 
     ))
     .with_children(|parent| {
         parent.spawn((
+            ResponsiveCanvas,
             Node {
                 width: Val::Px(960.0),
                 height: Val::Px(540.0),

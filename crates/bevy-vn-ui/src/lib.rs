@@ -7,6 +7,7 @@
 
 pub mod screen;
 pub mod theme;
+pub mod responsive;
 pub mod dialogue;
 pub mod choice;
 pub mod backlog;
@@ -37,6 +38,7 @@ impl Plugin for VnUiPlugin {
     fn build(&self, app: &mut App) {
         app.add_plugins((
             theme::VnThemePlugin,
+            responsive::ResponsivePlugin,
             DialoguePlugin,
             ChoicePlugin,
             backlog::BacklogPlugin,
@@ -45,6 +47,8 @@ impl Plugin for VnUiPlugin {
             save_load_ui::SaveLoadUiPlugin,
             gallery::GalleryPlugin,
             hotspot::HotspotPlugin,
+        ))
+        .add_plugins((
             character_select::CharacterSelectPlugin,
             chapter_select::ChapterSelectPlugin,
             story_detail::StoryDetailPlugin,
