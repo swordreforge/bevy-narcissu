@@ -46,6 +46,38 @@ fn lookup_flag(key: &str, flags: &HashMap<String, i32>) -> Result<i32, Expressio
     Err(ExpressionError::FlagNotFound(key.to_string()))
 }
 
+/// Parse the left and right operands of a binary expression once the operator
+/// position (`op_idx`) and length (`op_len`) are known.
+///
+/// The `op` parameter (whose `Debug` fmt must match the original operator's
+/// `{:?}` output) is used only in error messages.
+fn parse_binary_operands<Op: std::fmt::Debug>(
+    expression: &str,
+    expr: &str,
+    flags: &HashMap<String, i32>,
+    op_idx: usize,
+    op_len: usize,
+    op: &Op,
+) -> Result<(i32, i32), ExpressionError> {
+    let left = expr[..op_idx].trim();
+    let right = expr[op_idx + op_len..].trim();
+
+    if left.is_empty() {
+        return Err(ExpressionError::ParseError(format!(
+            "missing flag name before {op:?} in {expression:?}"
+        )));
+    }
+
+    let flag_value = lookup_flag(left, flags)?;
+    let operand: i32 = right.parse().map_err(|_| {
+        ExpressionError::ParseError(format!(
+            "expected integer on right side of {op:?}, got {right:?}"
+        ))
+    })?;
+
+    Ok((flag_value, operand))
+}
+
 // ── Public API ──
 
 /// Evaluate a condition expression against the given flag map.
@@ -81,21 +113,8 @@ pub fn evaluate_condition(
         return Ok(value != 0);
     };
 
-    let left = expr[..idx].trim();
-    let right = expr[idx + op.len()..].trim();
-
-    if left.is_empty() {
-        return Err(ExpressionError::ParseError(format!(
-            "missing flag name before {op:?} in {expression:?}"
-        )));
-    }
-
-    let flag_value = lookup_flag(left, flags)?;
-    let operand: i32 = right.parse().map_err(|_| {
-        ExpressionError::ParseError(format!(
-            "expected integer on right side of {op:?}, got {right:?}"
-        ))
-    })?;
+    let (flag_value, operand) =
+        parse_binary_operands(expression, expr, flags, idx, op.len(), &op)?;
 
     match op {
         "==" => Ok(flag_value == operand),
@@ -136,21 +155,8 @@ pub fn evaluate_work_expression(
         return lookup_flag(expr, flags);
     };
 
-    let left = expr[..idx].trim();
-    let right = expr[idx + 1..].trim();
-
-    if left.is_empty() {
-        return Err(ExpressionError::ParseError(format!(
-            "missing flag name before {op:?} in {expression:?}"
-        )));
-    }
-
-    let flag_value = lookup_flag(left, flags)?;
-    let operand: i32 = right.parse().map_err(|_| {
-        ExpressionError::ParseError(format!(
-            "expected integer on right side of {op:?}, got {right:?}"
-        ))
-    })?;
+    let (flag_value, operand) =
+        parse_binary_operands(expression, expr, flags, idx, 1, &op)?;
 
     match op {
         '+' => Ok(flag_value + operand),

@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy::ecs::system::SystemParam;
 use crate::messages::*;
 use crate::script::{ScriptCmd, ScriptEngine};
 use crate::state::{GameplayMenuMode, SaveLoadMode, SettingsOverlayMode, SkipMode, VnAppState};
@@ -303,84 +304,105 @@ fn dispatch(
 
 // ── Flush systems (split to avoid Bevy param count limit) ──
 
-fn flush_other(mut q: ResMut<EventQueue>, mut wuc: MessageWriter<UnlockCgEvent>, mut wub: MessageWriter<UnlockBgmEvent>, mut wsv: MessageWriter<SavePointEvent>) {
-    for evt in q.take_where(|e| matches!(e, EventItem::Other(_))) {
-        match evt {
-            EventItem::Other(OtherEvent::UnlockCg(e)) => { let _ = wuc.write(e); }
-            EventItem::Other(OtherEvent::UnlockBgm(e)) => { let _ = wub.write(e); }
-            EventItem::Other(OtherEvent::SavePoint(e)) => { let _ = wsv.write(e); }
-            _ => {}
+/// Bundles all MessageWriters used by `flush_render` so it fits within
+/// Bevy's system-parameter count limit.
+#[derive(SystemParam)]
+struct FlushWriters<'w> {
+    dialogue:       MessageWriter<'w, DialogueStateEvent>,
+    clear_dialogue: MessageWriter<'w, ClearDialogueEvent>,
+    choice:         MessageWriter<'w, ChoiceStateEvent>,
+    backlog:        MessageWriter<'w, BacklogPushEvent>,
+    set_bg:         MessageWriter<'w, SetBgEvent>,
+    show_fg:        MessageWriter<'w, ShowFgEvent>,
+    hide_fg:        MessageWriter<'w, HideFgEvent>,
+    show_face:      MessageWriter<'w, ShowFaceEvent>,
+    show_cg:        MessageWriter<'w, ShowCgEvent>,
+    hide_cg:        MessageWriter<'w, HideCgEvent>,
+    scroll_bg:      MessageWriter<'w, ScrollBgEvent>,
+    sprite:         MessageWriter<'w, SpriteEvent>,
+    sprite_effect:  MessageWriter<'w, SpriteEffectEvent>,
+    screen_effect:  MessageWriter<'w, ScreenEffectEvent>,
+}
+
+/// Generate a flush system.  `mut $q:ident: ResMut<EventQueue>` captures the
+/// queue hygienically; each writer is `mut $w:ident: $wtype:ty`.  The filter
+/// follows `=>`.  Each arm `$variant => ($writer, $expr)` writes `$expr`
+/// to `$writer`.
+macro_rules! flush_events {
+    ($vis:vis $name:ident, mut $q:ident: ResMut<EventQueue>, $(mut $w:ident: $wtype:ty),+ $(,)? => $filter:pat, $( $variant:pat => ($writer:ident, $write_expr:expr) ),+ $(,)?) => {
+        $vis fn $name(mut $q: ResMut<EventQueue>, $(mut $w: $wtype),+) {
+            for evt in $q.take_where(|e| matches!(e, $filter)) {
+                match evt {
+                    $( $variant => { let _ = $writer.write($write_expr); } )+
+                    _ => {}
+                }
+            }
         }
     }
 }
 
-fn flush_video(mut q: ResMut<EventQueue>, mut wmv: MessageWriter<PlayMovieEvent>, mut wms: MessageWriter<StopMovieEvent>, mut wsvid: MessageWriter<SpriteVideoEvent>, mut wsvs: MessageWriter<StopSpriteVideoEvent>) {
-    for evt in q.take_where(|e| matches!(e, EventItem::Video(_))) {
-        match evt {
-            EventItem::Video(VideoEvent::PlayMovie(e)) => { let _ = wmv.write(e); }
-            EventItem::Video(VideoEvent::StopMovie) => { let _ = wms.write(StopMovieEvent); }
-            EventItem::Video(VideoEvent::SpriteVideo(e)) => { let _ = wsvid.write(e); }
-            EventItem::Video(VideoEvent::StopSpriteVideo(e)) => { let _ = wsvs.write(e); }
-            _ => {}
-        }
-    }
-}
+flush_events!(flush_other,
+    mut q: ResMut<EventQueue>, mut wuc: MessageWriter<UnlockCgEvent>, mut wub: MessageWriter<UnlockBgmEvent>, mut wsv: MessageWriter<SavePointEvent> =>
+    EventItem::Other(_),
+    EventItem::Other(OtherEvent::UnlockCg(e))  => (wuc, e),
+    EventItem::Other(OtherEvent::UnlockBgm(e)) => (wub, e),
+    EventItem::Other(OtherEvent::SavePoint(e)) => (wsv, e),
+);
 
-fn flush_hotspot(mut q: ResMut<EventQueue>, mut wh: MessageWriter<HotspotEvent>, mut wc: MessageWriter<HotspotClearEvent>) {
-    for evt in q.take_where(|e| matches!(e, EventItem::Hotspot(_) | EventItem::HotspotClear)) {
-        match evt {
-            EventItem::Hotspot(e) => { let _ = wh.write(e); }
-            EventItem::HotspotClear => { let _ = wc.write(HotspotClearEvent); }
-            _ => {}
-        }
-    }
-}
+flush_events!(flush_video,
+    mut q: ResMut<EventQueue>, mut wmv: MessageWriter<PlayMovieEvent>, mut wms: MessageWriter<StopMovieEvent>, mut wsvid: MessageWriter<SpriteVideoEvent>, mut wsvs: MessageWriter<StopSpriteVideoEvent> =>
+    EventItem::Video(_),
+    EventItem::Video(VideoEvent::PlayMovie(e))       => (wmv, e),
+    EventItem::Video(VideoEvent::StopMovie)           => (wms, StopMovieEvent),
+    EventItem::Video(VideoEvent::SpriteVideo(e))      => (wsvid, e),
+    EventItem::Video(VideoEvent::StopSpriteVideo(e))  => (wsvs, e),
+);
 
-fn flush_custom(mut q: ResMut<EventQueue>, mut wc: MessageWriter<CustomTagEvent>) {
-    for evt in q.take_where(|e| matches!(e, EventItem::Custom(_))) {
-        if let EventItem::Custom(e) = evt { let _ = wc.write(e); }
-    }
-}
+flush_events!(flush_hotspot,
+    mut q: ResMut<EventQueue>, mut wh: MessageWriter<HotspotEvent>, mut wc: MessageWriter<HotspotClearEvent> =>
+    EventItem::Hotspot(_) | EventItem::HotspotClear,
+    EventItem::Hotspot(e)    => (wh, e),
+    EventItem::HotspotClear  => (wc, HotspotClearEvent),
+);
 
-pub fn flush_audio(mut q: ResMut<EventQueue>, mut wbm: MessageWriter<PlayBgmEvent>, mut wbs: MessageWriter<StopBgmEvent>, mut wse: MessageWriter<PlaySeEvent>, mut wss: MessageWriter<StopSeEvent>, mut wvo: MessageWriter<PlayVoiceEvent>, mut wvl: MessageWriter<SetVolumeEvent>) {
-    for evt in q.take_where(|e| matches!(e, EventItem::Audio(_))) {
-        match evt {
-            EventItem::Audio(AudioEvent::PlayBgm(e)) => { let _ = wbm.write(e); }
-            EventItem::Audio(AudioEvent::StopBgm(e)) => { let _ = wbs.write(e); }
-            EventItem::Audio(AudioEvent::PlaySe(e)) => { let _ = wse.write(e); }
-            EventItem::Audio(AudioEvent::StopSe(e)) => { let _ = wss.write(e); }
-            EventItem::Audio(AudioEvent::PlayVoice(e)) => { let _ = wvo.write(e); }
-            EventItem::Audio(AudioEvent::SetVolume(e)) => { let _ = wvl.write(e); }
-            _ => {}
-        }
-    }
-}
+flush_events!(flush_custom,
+    mut q: ResMut<EventQueue>, mut wc: MessageWriter<CustomTagEvent> =>
+    EventItem::Custom(_),
+    EventItem::Custom(e) => (wc, e),
+);
 
-fn flush_render(mut q: ResMut<EventQueue>, mut wd: MessageWriter<DialogueStateEvent>, mut wc: MessageWriter<ClearDialogueEvent>, mut wch: MessageWriter<ChoiceStateEvent>, mut wbl: MessageWriter<BacklogPushEvent>,
-    mut wbg: MessageWriter<SetBgEvent>, mut wfg_s: MessageWriter<ShowFgEvent>, mut wfg_h: MessageWriter<HideFgEvent>, mut wfa: MessageWriter<ShowFaceEvent>,
-    mut wcg_s: MessageWriter<ShowCgEvent>, mut wcg_h: MessageWriter<HideCgEvent>, mut wsc: MessageWriter<ScrollBgEvent>,
-    mut wsp: MessageWriter<SpriteEvent>, mut wspf: MessageWriter<SpriteEffectEvent>, mut wov: MessageWriter<ScreenEffectEvent>,
-) {
+flush_events!(pub flush_audio,
+    mut q: ResMut<EventQueue>, mut wbm: MessageWriter<PlayBgmEvent>, mut wbs: MessageWriter<StopBgmEvent>, mut wse: MessageWriter<PlaySeEvent>, mut wss: MessageWriter<StopSeEvent>, mut wvo: MessageWriter<PlayVoiceEvent>, mut wvl: MessageWriter<SetVolumeEvent> =>
+    EventItem::Audio(_),
+    EventItem::Audio(AudioEvent::PlayBgm(e))   => (wbm, e),
+    EventItem::Audio(AudioEvent::StopBgm(e))   => (wbs, e),
+    EventItem::Audio(AudioEvent::PlaySe(e))    => (wse, e),
+    EventItem::Audio(AudioEvent::StopSe(e))    => (wss, e),
+    EventItem::Audio(AudioEvent::PlayVoice(e)) => (wvo, e),
+    EventItem::Audio(AudioEvent::SetVolume(e)) => (wvl, e),
+);
+
+fn flush_render(mut q: ResMut<EventQueue>, mut w: FlushWriters) {
     for evt in q.take_where(|e| {
         matches!(e,
             EventItem::Dialogue(_) | EventItem::ClearDialogue | EventItem::Choice(_) |
             EventItem::Backlog(_) | EventItem::Render(_))
     }) {
         match evt {
-            EventItem::Dialogue(e) => { let _ = wd.write(e); }
-            EventItem::ClearDialogue => { let _ = wc.write(ClearDialogueEvent); }
-            EventItem::Choice(e) => { let _ = wch.write(e); }
-            EventItem::Backlog(e) => { let _ = wbl.write(e); }
-            EventItem::Render(RenderEvent::SetBg(e)) => { let _ = wbg.write(e); }
-            EventItem::Render(RenderEvent::ShowFg(e)) => { let _ = wfg_s.write(e); }
-            EventItem::Render(RenderEvent::HideFg(e)) => { let _ = wfg_h.write(e); }
-            EventItem::Render(RenderEvent::ShowFace(e)) => { let _ = wfa.write(e); }
-            EventItem::Render(RenderEvent::ShowCg(e)) => { let _ = wcg_s.write(e); }
-            EventItem::Render(RenderEvent::HideCg(e)) => { let _ = wcg_h.write(e); }
-            EventItem::Render(RenderEvent::ScrollBg(e)) => { let _ = wsc.write(e); }
-            EventItem::Render(RenderEvent::Sprite(e)) => { let _ = wsp.write(e); }
-            EventItem::Render(RenderEvent::SpriteEffect(e)) => { let _ = wspf.write(e); }
-            EventItem::Render(RenderEvent::ScreenEffect(e)) => { let _ = wov.write(e); }
+            EventItem::Dialogue(e) => { let _ = w.dialogue.write(e); }
+            EventItem::ClearDialogue => { let _ = w.clear_dialogue.write(ClearDialogueEvent); }
+            EventItem::Choice(e) => { let _ = w.choice.write(e); }
+            EventItem::Backlog(e) => { let _ = w.backlog.write(e); }
+            EventItem::Render(RenderEvent::SetBg(e)) => { let _ = w.set_bg.write(e); }
+            EventItem::Render(RenderEvent::ShowFg(e)) => { let _ = w.show_fg.write(e); }
+            EventItem::Render(RenderEvent::HideFg(e)) => { let _ = w.hide_fg.write(e); }
+            EventItem::Render(RenderEvent::ShowFace(e)) => { let _ = w.show_face.write(e); }
+            EventItem::Render(RenderEvent::ShowCg(e)) => { let _ = w.show_cg.write(e); }
+            EventItem::Render(RenderEvent::HideCg(e)) => { let _ = w.hide_cg.write(e); }
+            EventItem::Render(RenderEvent::ScrollBg(e)) => { let _ = w.scroll_bg.write(e); }
+            EventItem::Render(RenderEvent::Sprite(e)) => { let _ = w.sprite.write(e); }
+            EventItem::Render(RenderEvent::SpriteEffect(e)) => { let _ = w.sprite_effect.write(e); }
+            EventItem::Render(RenderEvent::ScreenEffect(e)) => { let _ = w.screen_effect.write(e); }
             _ => {}
         }
     }
