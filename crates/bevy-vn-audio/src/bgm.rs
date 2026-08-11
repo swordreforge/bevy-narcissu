@@ -1,70 +1,32 @@
 use bevy::prelude::*;
 use bevy::audio::{PlaybackMode, PlaybackSettings, Volume};
 
-use bevy_vn_core::messages::{PlayBgmEvent, StopBgmEvent, SetVolumeEvent};
+use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
 use bevy_vn_core::runner::flush_audio;
 
-#[derive(Resource)]
-pub struct BgmManager {
-    pub entity: Option<Entity>,
-    pub current_id: Option<String>,
-    pub volume: f32,
-}
+use crate::channel::audio_channel_impl;
+use crate::voice::VoicePreloadQueue;
 
-impl Default for BgmManager {
-    fn default() -> Self {
-        Self { entity: None, current_id: None, volume: 1.0 }
-    }
+audio_channel_impl! {
+    pub struct BgmManager;
+    channels: 1,
+    path: "audio/bgm/",
+    mode: PlaybackMode::Loop,
+    play: PlayBgmEvent,
+    file: |event: &PlayBgmEvent| event.id.clone(),
+    slot: |_: &PlayBgmEvent| 0,
+    volume: |event: &SetVolumeEvent| event.bgm,
+    track: |event: &PlayBgmEvent| Some(event.id.clone()),
+    stop: StopBgmEvent, stop_slot: |_: &StopBgmEvent| -> Option<usize> { None },
+    handle: |_: &PlayBgmEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<AudioSource> {
+        server.load::<AudioSource>(path)
+    },
 }
 
 pub struct BgmPlugin;
 impl Plugin for BgmPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<BgmManager>()
-            .add_systems(Update, (handle_play_bgm, handle_stop_bgm, handle_bgm_volume).after(flush_audio));
-    }
-}
-
-fn handle_play_bgm(
-    mut reader: MessageReader<PlayBgmEvent>,
-    mut commands: Commands,
-    asset_server: Res<AssetServer>,
-    mut mgr: ResMut<BgmManager>,
-) {
-    for event in reader.read() {
-        if let Some(e) = mgr.entity { commands.entity(e).try_despawn(); }
-        let path = format!("audio/bgm/{}.ogg", event.id);
-        let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
-        mgr.entity = Some(commands.spawn((
-            AudioPlayer(asset_server.load::<AudioSource>(&path)),
-            PlaybackSettings { mode: PlaybackMode::Loop, volume: Volume::Linear(vol), ..default() },
-        )).id());
-        mgr.current_id = Some(event.id.clone());
-    }
-}
-
-fn handle_stop_bgm(
-    mut reader: MessageReader<StopBgmEvent>,
-    mut commands: Commands,
-    mut mgr: ResMut<BgmManager>,
-) {
-    for _ in reader.read() {
-        if let Some(e) = mgr.entity.take() { commands.entity(e).try_despawn(); }
-        mgr.current_id = None;
-    }
-}
-
-fn handle_bgm_volume(
-    mut reader: MessageReader<SetVolumeEvent>,
-    mut mgr: ResMut<BgmManager>,
-    mut q_sink: Query<&mut AudioSink>,
-) {
-    for event in reader.read() {
-        if let Some(vol) = event.bgm {
-            mgr.volume = vol;
-            if let Some(e) = mgr.entity {
-                if let Ok(mut sink) = q_sink.get_mut(e) { sink.set_volume(Volume::Linear(vol)); }
-            }
-        }
+            .add_systems(Update, (handle_play, handle_stop, handle_volume).after(flush_audio));
     }
 }

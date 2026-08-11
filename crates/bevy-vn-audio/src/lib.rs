@@ -7,6 +7,7 @@
 //! - SetVolumeEvent               → Global volume
 
 pub mod bgm;
+mod channel;
 pub mod se;
 pub mod voice;
 pub mod volume;
