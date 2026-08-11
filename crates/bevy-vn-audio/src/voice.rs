@@ -8,17 +8,7 @@ use bevy_vn_core::runner::flush_audio;
 use bevy_vn_core::script::ScriptEngine;
 use bevy_vn_core::state::VnAppState;
 
-#[derive(Resource)]
-pub struct VoiceManager {
-    pub entity: Option<Entity>,
-    pub volume: f32,
-}
-
-impl Default for VoiceManager {
-    fn default() -> Self {
-        Self { entity: None, volume: 1.0 }
-    }
-}
+use crate::channel::audio_channel_impl;
 
 /// Bounded-concurrency voice preload queue.
 ///
@@ -55,6 +45,21 @@ impl VoicePreloadQueue {
     }
 }
 
+audio_channel_impl! {
+    pub struct VoiceManager;
+    channels: 1,
+    path: "audio/voice/",
+    mode: PlaybackMode::Despawn,
+    play: PlayVoiceEvent,
+    file: |event: &PlayVoiceEvent| event.file.clone(),
+    slot: |_: &PlayVoiceEvent| 0,
+    volume: |event: &SetVolumeEvent| event.voice,
+    handle: |event: &PlayVoiceEvent, queue: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<AudioSource> {
+        let queue = queue.as_ref().expect("VoicePreloadQueue not initialized");
+        queue.cached(&event.file).unwrap_or_else(|| server.load::<AudioSource>(path))
+    },
+}
+
 pub struct VoicePlugin;
 impl Plugin for VoicePlugin {
     fn build(&self, app: &mut App) {
@@ -63,8 +68,8 @@ impl Plugin for VoicePlugin {
             .add_systems(
                 Update,
                 (
-                    handle_play_voice,
-                    handle_voice_volume,
+                    handle_play,
+                    handle_volume,
                     queue_story_voices,
                     drive_voice_preload,
                 )
@@ -78,9 +83,9 @@ impl Plugin for VoicePlugin {
 }
 
 fn stop_voice_on_exit(mut mgr: ResMut<VoiceManager>, mut commands: Commands) {
-    if let Some(e) = mgr.entity {
+    if let Some(e) = mgr.entities[0] {
         commands.entity(e).try_despawn();
-        mgr.entity = None;
+        mgr.entities[0] = None;
     }
 }
 
@@ -129,41 +134,5 @@ fn drive_voice_preload(
         let handle = asset_server.load::<AudioSource>(&format!("audio/voice/{file}.ogg"));
         queue.loading.push((file, handle, now));
         issued += 1;
-    }
-}
-
-fn handle_play_voice(
-    mut reader: MessageReader<PlayVoiceEvent>,
-    mut commands: Commands,
-    asset_server: Res<AssetServer>,
-    queue: Res<VoicePreloadQueue>,
-    mut mgr: ResMut<VoiceManager>,
-) {
-    for event in reader.read() {
-        if let Some(e) = mgr.entity { commands.entity(e).try_despawn(); }
-        let path = format!("audio/voice/{}.ogg", event.file);
-        let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
-        let handle = queue
-            .cached(&event.file)
-            .unwrap_or_else(|| asset_server.load::<AudioSource>(&path));
-        mgr.entity = Some(commands.spawn((
-            AudioPlayer(handle),
-            PlaybackSettings { mode: PlaybackMode::Despawn, volume: Volume::Linear(vol), ..default() },
-        )).id());
-    }
-}
-
-fn handle_voice_volume(
-    mut reader: MessageReader<SetVolumeEvent>,
-    mut mgr: ResMut<VoiceManager>,
-    mut q_sink: Query<&mut AudioSink>,
-) {
-    for event in reader.read() {
-        if let Some(vol) = event.voice {
-            mgr.volume = vol;
-            if let Some(e) = mgr.entity {
-                if let Ok(mut sink) = q_sink.get_mut(e) { sink.set_volume(Volume::Linear(vol)); }
-            }
-        }
     }
 }
