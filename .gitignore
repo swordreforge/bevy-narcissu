@@ -17,3 +17,4 @@ examples/minimal/sw.js
 examples/minimal/.edgeone/
 examples/minimal/assets/scripts/*.br
 examples/minimal/assets/scripts/*.gz
+__pycache__/
