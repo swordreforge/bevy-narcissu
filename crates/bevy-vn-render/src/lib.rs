@@ -38,6 +38,14 @@ impl AssetPathProvider {
     pub fn bg(&self, image: &str) -> String { format!("{}/{}.basisu.ktx2", self.bg_dir, image) }
     pub fn cg(&self, image: &str) -> String { format!("{}/{}.basisu.ktx2", self.cg_dir, image) }
     pub fn sprite(&self, id: &str) -> String { format!("{}/{}.basisu.ktx2", self.anime_dir, id) }
+
+    /// Resolve an asset path using `provider` when available; otherwise fall
+    /// back to `AssetPathProvider::default()`.  This eliminates the duplicated
+    /// `.as_ref().map(|p| p.X(…)).unwrap_or_else(|| format!(…))` pattern at
+    /// every call site.
+    pub fn resolve(provider: Option<&AssetPathProvider>, f: impl Fn(&AssetPathProvider) -> String) -> String {
+        f(provider.unwrap_or(&Self::default()))
+    }
 }
 
 pub struct VnRenderPlugin { pub fg_slots: usize }

@@ -69,8 +69,7 @@ fn handle_show_fg(
     mut q: Query<(&FgSlotMarker, &mut ImageNode, &mut Node)>,
 ) {
     for event in reader.read() {
-        let path = provider.as_ref().map(|p| p.fg(&event.char_id, &event.expression))
-            .unwrap_or_else(|| format!("image/obj/{}/{}.basisu.ktx2", event.char_id, event.expression));
+        let path = AssetPathProvider::resolve(provider.as_deref(), |p| p.fg(&event.char_id, &event.expression));
         let handle = asset_server.load::<Image>(&path);
 
         let slot = slot_for_char(&state, &event.char_id).or_else(|| empty_slot(&state));
@@ -115,8 +114,7 @@ fn handle_show_face(
     mut q: Query<(&FgSlotMarker, &mut ImageNode, &mut Node)>,
 ) {
     for event in reader.read() {
-        let path = provider.as_ref().map(|p| p.fg(&event.char_id, &event.expression))
-            .unwrap_or_else(|| format!("image/obj/{}/{}.basisu.ktx2", event.char_id, event.expression));
+        let path = AssetPathProvider::resolve(provider.as_deref(), |p| p.fg(&event.char_id, &event.expression));
         let handle = asset_server.load::<Image>(&path);
 
         if let Some(idx) = slot_for_char(&state, &event.char_id) {
