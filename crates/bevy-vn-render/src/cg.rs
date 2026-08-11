@@ -26,8 +26,7 @@ fn handle_show_cg(
     mut q: Query<(&mut ImageNode, &mut Node), With<CgMarker>>,
 ) {
     for event in reader.read() {
-        let path = provider.as_ref().map(|p| p.cg(&event.image))
-            .unwrap_or_else(|| format!("image/ev/{}.basisu.ktx2", event.image));
+        let path = AssetPathProvider::resolve(provider.as_deref(), |p| p.cg(&event.image));
         let handle = asset_server.load::<Image>(&path);
         if let Some(e) = state.entity {
             if let Ok((mut img, mut node)) = q.get_mut(e) { img.image = handle; node.display = Display::Flex; }

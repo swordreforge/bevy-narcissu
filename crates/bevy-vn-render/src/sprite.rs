@@ -23,9 +23,7 @@ fn handle_sprite_spawn(
 ) {
     for event in reader.read() {
         for (e, m) in q_existing.iter() { if m.id == event.id { commands.entity(e).despawn(); } }
-        let path = provider.as_ref()
-            .map(|p| p.sprite(&event.image))
-            .unwrap_or_else(|| format!("image/anime/{}.basisu.ktx2", event.image));
+        let path = AssetPathProvider::resolve(provider.as_deref(), |p| p.sprite(&event.image));
         let handle = asset_server.load::<Image>(&path);
         let z = event.z.unwrap_or(5);
         commands.spawn((
