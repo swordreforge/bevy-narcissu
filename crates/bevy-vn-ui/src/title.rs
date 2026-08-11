@@ -38,7 +38,15 @@ struct BgSlideAnim {
 }
 
 #[derive(Component, Clone, Copy, PartialEq, Eq)]
-enum TitleAction { Start, Chapter, Load, Settings, Extra, Quit }
+enum TitleAction {
+    Start,
+    Chapter,
+    Load,
+    Settings,
+    Extra,
+    #[cfg(not(target_arch = "wasm32"))]
+    Quit,
+}
 
 #[derive(Component)]
 struct TitleButton(TitleAction);
@@ -73,6 +81,9 @@ fn spawn_title(mut commands: Commands, asset_server: Res<AssetServer>) {
         ButtonSpec { action: TitleAction::Load, x: 220.0, y: 306.0, w: 129.0, h: 32.0, clip_y: 63.0 },
         ButtonSpec { action: TitleAction::Settings, x: 220.0, y: 346.0, w: 129.0, h: 32.0, clip_y: 96.0 },
         ButtonSpec { action: TitleAction::Extra, x: 220.0, y: 386.0, w: 129.0, h: 32.0, clip_y: 128.0 },
+        // Quit only exists on native builds — a browser tab cannot quit,
+        // and an in-game exit button is meaningless on wasm.
+        #[cfg(not(target_arch = "wasm32"))]
         ButtonSpec { action: TitleAction::Quit, x: 220.0, y: 426.0, w: 129.0, h: 32.0, clip_y: 160.0 },
     ];
 
@@ -205,6 +216,7 @@ fn handle_title_click(
     mouse: Res<ButtonInput<MouseButton>>,
     mut transition: ResMut<VnTransition>,
     mut mode: ResMut<SaveLoadMode>,
+    #[cfg(not(target_arch = "wasm32"))]
     mut exit: MessageWriter<AppExit>,
 ) {
     if *state.get() != VnAppState::Title { return; }
@@ -233,6 +245,7 @@ fn handle_title_click(
             TitleAction::Extra => {
                 request_transition(&mut transition, Some(VnAppState::Menu), Some(VnMenuState::Gallery));
             }
+            #[cfg(not(target_arch = "wasm32"))]
             TitleAction::Quit => {
                 exit.write(AppExit::Success);
             }
