@@ -1,0 +1,4623 @@
+{
+  "generated_at": "2026-08-11T12:39:39+00:00",
+  "assets_root": "/home/swordreforge/下载/水仙10周年版本_1.2.0/bevy-vn-engine/examples/minimal/assets",
+  "skipped_scripts": [
+    "pack.vnscript.ron"
+  ],
+  "sentinel_skipped": {
+    "nobaby": {
+      "references": 821,
+      "note": "清除立绘图层哨兵(artemis 原版,非真实文件)"
+    }
+  },
+  "summary": {
+    "scripts_scanned": 82,
+    "references_total": 17911,
+    "missing_total": 314,
+    "by_type": {
+      "bg": {
+        "references": 4965,
+        "missing_names": 238,
+        "dir_exists": true
+      },
+      "sprite": {
+        "references": 2425,
+        "missing_names": 2,
+        "dir_exists": true
+      },
+      "cg": {
+        "references": 0,
+        "missing_names": 0,
+        "dir_exists": false
+      },
+      "fg": {
+        "references": 0,
+        "missing_names": 0,
+        "dir_exists": false
+      },
+      "bgm": {
+        "references": 337,
+        "missing_names": 0,
+        "dir_exists": true
+      },
+      "se": {
+        "references": 844,
+        "missing_names": 11,
+        "dir_exists": true
+      },
+      "voice": {
+        "references": 9340,
+        "missing_names": 63,
+        "dir_exists": true
+      }
+    }
+  },
+  "missing_dirs": [
+    {
+      "dir": "image/ev",
+      "type": "cg"
+    },
+    {
+      "dir": "image/obj",
+      "type": "fg"
+    }
+  ],
+  "missing": [
+    {
+      "type": "bg",
+      "name": "2b",
+      "expected_path": "image/bg/2b.basisu.ktx2",
+      "reference_count": 223,
+      "references": [
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 396,
+          "label": "block_00018",
+          "context_before": [
+            "「喂......谁、谁是笨女人啊，你才是笨女人呢」",
+            "「啊啊，真是的啦，这里到底是哪里啊」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 795,
+          "label": "block_00037",
+          "context_before": [
+            "「既不能前进，也不能回头......只能一直站在那里而已」",
+            "「嗯，只是在那里......站了10年了而已......」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 1108,
+          "label": "block_00046",
+          "context_before": [
+            "概括一下自己的性格的话，有点内向。不怎么活泼。",
+            "一句话形容的话，既朴素又普通。"
+          ],
+          "context_after": [
+            "「对，普通......虽然现在是这个样子，但是我马上就要成为中学生了......」",
+            "漠然地思考着这些。憧憬着即将到来的未来，至少当时是这样想的。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 1449,
+          "label": "block_00062",
+          "context_before": [
+            "也没有想太多，因为我觉得要不了多久我也能结交到朋友吧。",
+            "......我一边觉得某处有些违和感......\n一边瞥视着开心聊着天的她们，自己继续独自吃着饭。"
+          ],
+          "context_after": [
+            "又过去了2个月时。那是在第3次换座位的时候。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 1709,
+          "label": "block_00075",
+          "context_before": [
+            "还以为只要待在这里，就自然而然的会有朋友或是亲近的人。",
+            "至今为止也没想太多。只是漠然地这么想着。"
+          ],
+          "context_after": [
+            "（......原来如此。不自己主动搭话不行啊......）",
+            "脑袋里这么想着，但并没有在意。才开学2个月，没必要着急。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 2215,
+          "label": "block_00100",
+          "context_before": [
+            "「没必要去硬交朋友......总有一天会有跟自己合得来的朋友出现......」",
+            "依然没有任何明确的根据，只是拿这当作所谓的“借口”，在逃避而已吧。"
+          ],
+          "context_after": [
+            "渐渐地我变得经常不去学校了。",
+            "刚开始，是周二不去。因为第一节课是体育课。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 2419,
+          "label": "block_00109",
+          "context_before": [
+            "随意一瞥，看到了等红绿灯的同班女同学们。",
+            "情不自禁的，我躲进了大楼的阴影里。"
+          ],
+          "context_after": [
+            "不知为何，下意识地。",
+            "「我说，看昨天的电视了吗？很有意思的」"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 2693,
+          "label": "block_00123",
+          "context_before": [
+            "与那样她们形成对比，我转向右边，朝着家折返了回去。",
+            "这就是我对学校的，最后的回忆了。没有别的了。"
+          ],
+          "context_after": [
+            "―已经不再去学校的我。",
+            "一开始也没有做什么，只是待在房间里发呆。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 3118,
+          "label": "block_00145",
+          "context_before": [
+            "对我自己来说，只是打算做个普通人的。",
+            "可貌似好孩子是不会不去上学的，也不会变成家里蹲的，说不定我就是个坏孩子呢。"
+          ],
+          "context_after": [
+            "「我说，菫酱想要试试体育运动吗？」",
+            "开朗的笑着，向我投来这个问题的班主任老师。和其他人不同，他不到最后不肯罢休。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 3448,
+          "label": "block_00163",
+          "context_before": [
+            "老师因我的话语沉默了。",
+            "然后，不知道是终于理解了，还是放弃了......她离开了房间，"
+          ],
+          "context_after": [
+            "「......您，不太普通呢，有点奇怪？」",
+            "离开时，说了这样一句话。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 4149,
+          "label": "block_00193",
+          "context_before": [
+            "具体究竟是在等待什么我也搞不清楚，不知道什么时候脑海中渐渐确信了这件事。",
+            "......总有一天我也会......这样的。"
+          ],
+          "context_after": [
+            "现在的我，只是个替身。这样百害无利只玩游戏的，并不是真正的我。",
+            "所以，在光明的未来里......\n总有一天会出现真正的自己，这样没来由地想着。明明没有任何根据......"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 4473,
+          "label": "block_00205",
+          "context_before": [
+            "但我看见了爸爸很悲伤的表情，察觉到了应该是不太好的病。",
+            "然后告诉我，今后每周都要来一次医院。"
+          ],
+          "context_after": [
+            "从医院回来的路上。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 4663,
+          "label": "block_00213",
+          "context_before": [
+            "二人一齐向我投来了笑容。平时有点烦人的妈妈尤其的温柔。",
+            "感觉非常地对不起。"
+          ],
+          "context_after": [
+            "不过，和那差不多一样，在我的心里的......某处松了口气，安心了。",
+            "从很早以前开始， 我就常常会胸口难受，但过一会儿就好了。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 4867,
+          "label": "block_00222",
+          "context_before": [
+            "......而且那时的我......也多少把自身上的事，当作其他人的事情了。",
+            "现在这样子并不是真正的我。"
+          ],
+          "context_after": [
+            "「我自己真正的“人生”还没有开始。这之后才会展开......」",
+            "17岁的春天。含糊地这样想着，什么根据都没有，就这样想着......"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 5085,
+          "label": "block_00232",
+          "context_before": [
+            "晚上在走廊碰到了，也不会来说话。\n以前的话，在擦身而过时，明明还会敲下我的头的。",
+            "也不会在玩对战游戏时，来把我打得落花流水了......"
+          ],
+          "context_after": [
+            "虽然只有一张内存卡但也没觉得不够用，因为每个通关一个游戏后就会删除掉。",
+            "再想玩那个游戏的时候，就从头开始。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 5250,
+          "label": "block_00241",
+          "context_before": [
+            "以前总是唠叨的母亲也好，一张嘴就吵架的哥哥也好......",
+            "都来温柔的关照我，真是待不下去了。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 5501,
+          "label": "block_00250",
+          "context_before": [
+            "坐在了一直坐的长椅上，开始啪嗒啪嗒翻着自己带来的小说。",
+            "因为已经读过很多遍了，实际上与其说是在读书，不如说只是呆呆地盯着书看而已。"
+          ],
+          "context_after": [
+            "「......喷泉哥今天好像没来的样子」",
+            "我看着没有人坐着的长椅说到。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 5859,
+          "label": "block_00270",
+          "context_before": [
+            "因为没有其他可以去的地方，只是在这里打发时间吗......",
+            "自然而然地，因为有这样的疑问所以就试着去搭搭话了。应该也没有什么深意吧。"
+          ],
+          "context_after": [
+            "「你好......」"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 6225,
+          "label": "block_00290",
+          "context_before": [
+            "现在有一个，她的话中我无法理解的点。",
+            "虽然我的确是从往来这里开始，已经过去了那么久了，这期间也没和任何人搭过话......"
+          ],
+          "context_after": [
+            "这么想着的时候，向远处的花坛婆婆挥手的白石小姐。",
+            "然后花坛婆婆也点头示意了下。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 6877,
+          "label": "block_00331",
+          "context_before": [
+            "虽然的确是长年没去学校，也没去考高中，基本上时间都用来一直在房间里玩游戏了。",
+            "当然也没有在工作。但是......"
+          ],
+          "context_after": [
+            "「我......是病人哦」",
+            "对，这是事实。哪怕只是每周去一次医院，我还没有病人的自觉也改变不了。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 7652,
+          "label": "block_00378",
+          "context_before": [
+            "「我说白石小姐，那是什么意思啊？」",
+            "「别在意。和宝矿力酱没什么关系的。再见啦」"
+          ],
+          "context_after": [
+            "「欸，啊，等下......」",
+            "像是没听到我的声音一样，精神满满地跑了出去的白石小姐。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 7761,
+          "label": "block_00383",
+          "context_before": [
+            "......但像这样跟人说这么久话，应该是第一次吧......",
+            "随着这样的嘟囔，我也从长椅上站起身来，离开了公园。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 8105,
+          "label": "block_00397",
+          "context_before": [
+            "「啊，而且那还是装病哦。我是不是很厉害？」",
+            "「......那是，真的吗？」"
+          ],
+          "context_after": [
+            "「或者说是......得了会死的病，时日无多的重病人......」",
+            "「......你觉得哪个更好？」"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 8407,
+          "label": "block_00413",
+          "context_before": [
+            "「嘛，就算如此，现在的我所拥有的也只有后悔了......」",
+            "「就算是比你活的更久，也已经不能称之为活着了......现在也是，未来也是」"
+          ],
+          "context_after": [
+            "说话的同时，从长椅上唰地站了起来的白石小姐。",
+            "微微挥了挥手表示拜拜，就快步走掉了。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 8734,
+          "label": "block_00428",
+          "context_before": [
+            "其他玩家无论如何也达不到的，高等级战斗牧师。",
+            "回复系的专家。不那么多的敌人还是没问题的......"
+          ],
+          "context_after": [
+            "「明明是个病人，真是讽刺啊......」",
+            "下意识地，发出了这样的嘟囔。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 9218,
+          "label": "block_00451",
+          "context_before": [
+            "「明明是自己的事却当做的别人的事。还完全没有认清这些现实呢」",
+            "「宝矿力酱用不了多久就要死了。\n在那个瞬间之前，就一直想着那个“总有一天”......吧」"
+          ],
+          "context_after": [
+            "......面对单方面的继续说着的她，我无话可说......",
+            "正确的说是，该反驳些什么才好，找不到能说的点。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 9559,
+          "label": "block_00467",
+          "context_before": [
+            "「嗯...那个，白石小姐......」",
+            "「好了，stop。你什么都别说就好。\n毕竟就算你说了什么，都没有需要你帮忙的，也不打算听哦」"
+          ],
+          "context_after": [
+            "将这句话作为最后一句，从长椅上站起来了的她。再也没有回过头。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 9707,
+          "label": "block_00472",
+          "context_before": [
+            "「而我，则被指出从最开始就没有面对现实。被说是从一开始，就没有活着......」",
+            "「然后......还说我总有一天会后悔的......」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 326,
+          "label": "block_00008",
+          "context_before": [
+            "几年前，从朋友……不对，\n从“挚友”那里接受的，直到现在也非常小心的开着的古董级车。",
+            "「啊，都过10点了……又要被批评了」"
+          ],
+          "context_after": [
+            "我挎上包，急急忙忙跑向了电梯。",
+            "现在已经不是倒茶泡咖啡的角色了，要是迟到的话课长就会来烦我。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 891,
+          "label": "block_00040",
+          "context_before": [
+            "「嗯……总之能先详细的说明一下吗？」",
+            "「那请到这个会议室里谈吧……啊，昭岛小姐，我对你很期待哟」"
+          ],
+          "context_after": [
+            "把不知为何莫名干劲十足的科长撂在一边，我认真听取着说明。",
+            "虽然不是很清楚那个流程，但似乎没有拒绝的选项。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 1255,
+          "label": "block_00056",
+          "context_before": [
+            "但是至今为止，就算是律师或亲人去她那里拜访的时候，一来就是睡着的。",
+            "虽然偶尔有醒来的时候，但那时好像谁也不在。可以无视。"
+          ],
+          "context_after": [
+            "……大人还好说，但对方是小孩子。而且还是长期住院的病人。",
+            "进一步说，是大人物的女儿，虽说是名义上的，\n但今后说不定会成为我们公司代表的人物。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 1526,
+          "label": "block_00067",
+          "context_before": [
+            "「怎么说呢，太夸张了……为了一个孩子」",
+            "电梯里最上层的按钮，取下了上面覆盖着的塑料壳，按下了7F。"
+          ],
+          "context_after": [
+            "咚咚，在狭长走廊的尽头，在一个突兀的大门前敲着门。",
+            "「进去了哦……」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 1688,
+          "label": "block_00073",
+          "context_before": [
+            "电脑和电视，看起来很豪华的全套沙发，还有很大的书架。\n仔细观察的话室内连厕所和洗浴间都有配备。",
+            "如果没有病床和床帘，根本看不出来是个病房吧。"
+          ],
+          "context_after": [
+            "「咦，诶呀？果然是睡着的样子呢」",
+            "靠近床之后，看到了静静发出睡息声的年轻女性的身影。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 1900,
+          "label": "block_00082",
+          "context_before": [
+            "……现在还在睡觉？瞬间，反应过来了。",
+            "说起来……听说每次律师或亲人来的时候，一来就是睡着的。"
+          ],
+          "context_after": [
+            "（……难道是，装睡？）",
+            "当然就算不是一直装睡，但某种程度上有故意装睡的成分在？"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 2434,
+          "label": "block_00109",
+          "context_before": [
+            "「……难道是生气啦？」",
+            "「没。还挺能干的嘛」"
+          ],
+          "context_after": [
+            "说完之后，伸了个大大的懒腰从床上下来了的她。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 2722,
+          "label": "block_00124",
+          "context_before": [
+            "「……没什么，别在意」",
+            "似乎有点寂寞似的，向窗户看去的明。"
+          ],
+          "context_after": [
+            "虽然我不清楚详细情况，但总感觉她的装睡，不是演技的如何。\n而是其他层面的问题。",
+            "以她的立场来考虑，应该很难有人对她说些失礼的话吧。大人就更不用说了。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 3136,
+          "label": "block_00148",
+          "context_before": [
+            "「对……既然选择了闭上眼的世界，那这就是义务……」",
+            "说到这里，开始在文件上签字的明。和刚才给人的感觉不一样了。"
+          ],
+          "context_after": [
+            "「呼-，比想象中要轻松许多呢……」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 3494,
+          "label": "block_00163",
+          "context_before": [
+            "虽然不懂她所说的“闭上眼的世界”是指什么，但至少她现在，不能说是在好好地活着。",
+            "也感受不到对生活有什么留恋之类的。"
+          ],
+          "context_after": [
+            "「我就这样回去真的好吗……」",
+            "不禁如此小声念了一句。下一个十字路口左转就到公司了。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 3796,
+          "label": "block_00179",
+          "context_before": [
+            "至少，没有就这么结束掉。下次就有再去的理由了。",
+            "虽然不知道下次是什么时候再去拜访她，但应该不会太久吧……"
+          ],
+          "context_after": [
+            "「那个人，真是奇怪的人啊……」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 4284,
+          "label": "block_00196",
+          "context_before": [
+            "对。我不能跟任何人产生人情往来。",
+            "我认为这就是，选择了闭上眼的世界的我的……义务。"
+          ],
+          "context_after": [
+            "「……一样的17岁，也都有过很长时间家里蹲经历的我们」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 4513,
+          "label": "block_00204",
+          "context_before": [
+            "……不过……在这个时候的我，还是打算做个普通人的。",
+            "就算是在不认识的地方迷了路，我也认为眼前肯定会“飒”的一下出现道路的……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 4971,
+          "label": "block_00225",
+          "context_before": [
+            "「嗯，貌似是落在什么地方了，啊哈哈，抱歉」",
+            "说着，很夸张的合起双手。就是那个，抱歉的姿势。当然是边笑边做的。"
+          ],
+          "context_after": [
+            "……我尽力装出比较“轻松”的神情。",
+            "尽量说的不是很严重。但这某种程度上，也是在赌一把。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 5413,
+          "label": "block_00251",
+          "context_before": [
+            "「是因为之前说的，不想有任何人情往来吗？」",
+            "「算是吧，但如果是会比我先死掉……余命不多的人的话，倒是不会那么介意」"
+          ],
+          "context_after": [
+            "她开朗地回答，我静静地听着。",
+            "也就是说……像那样的人的话，就不会产生人情上的亏欠……"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 5701,
+          "label": "block_00266",
+          "context_before": [
+            "「……怎么了？」",
+            "「没事，没什么大不了的。那再见了」"
+          ],
+          "context_after": [
+            "我离开医院，行驶在高速上。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 5877,
+          "label": "block_00273",
+          "context_before": [
+            "「但她那时说的，早上别过来，是什么意思呢……」",
+            "因为她说话一直都很直接，很少见的说话这么不清不楚，让我有点在意。"
+          ],
+          "context_after": [
+            "-第二天。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 6069,
+          "label": "block_00280",
+          "context_before": [
+            "「虽然具体的不清楚，但肯定有什么」",
+            "我有种直觉……或者说是预感之类的东西。"
+          ],
+          "context_after": [
+            "咚咚，",
+            "「早上好……进来了哦……」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 6259,
+          "label": "block_00288",
+          "context_before": [
+            "自然而然地想着这些，当眼睛忽然瞟到床上时。",
+            "那里有一张便签。"
+          ],
+          "context_after": [
+            "“真不擅长说谎呢，再见了优花”上面只写了这些。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 6407,
+          "label": "block_00293",
+          "context_before": [
+            "如果只是早上去公园的话，肯定不会留下这样的便签。\n这气氛简直像……要说永别了一样。",
+            "我离开了病房，走向走廊。"
+          ],
+          "context_after": [
+            "然后寻找着去屋顶的紧急通道。当时几乎是条件反射式地那么做了。",
+            "……听说，她的父亲好像就是从这里的屋顶跳楼自杀的。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 7276,
+          "label": "block_00345",
+          "context_before": [
+            "「我明白了。优花，说说你的请求吧」",
+            "「那，到这边来。这就是请求」"
+          ],
+          "context_after": [
+            "听到这句话后开始攀爬栅栏的明。",
+            "随着金属网莎莎摇晃的声音，轻松地下到了这边来。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 7724,
+          "label": "block_00367",
+          "context_before": [
+            "……至少，她并不是从一开始就选择了闭上眼的世界。只是不知何时步入了歧途。",
+            "这样的话，我想应该还有希望。"
+          ],
+          "context_after": [
+            "行驶在清晨的高速上，不一会就开到了地方。看了下时间，是早上6点整。",
+            "差不多是大门开门的时间了。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 7961,
+          "label": "block_00375",
+          "context_before": [
+            "「喂，是要去哪儿啊？」",
+            "「7F哦。虽然和你的那个7F很不一样……」"
+          ],
+          "context_after": [
+            "-叮，"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 8271,
+          "label": "block_00391",
+          "context_before": [
+            "「是吗？我觉得你应该会感兴趣的说」",
+            "「没有。一点都不想」"
+          ],
+          "context_after": [
+            "说完这些，急忙返回了电梯的明。好像有些生气，脚步变得很快。",
+            "……这样就可以了。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 8556,
+          "label": "block_00403",
+          "context_before": [
+            "从那天起已经过去了差不多4天。",
+            "如果没在这里出现的话，就意味着她已经去世了。"
+          ],
+          "context_after": [
+            "「早上好啊，宝矿力酱」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 8774,
+          "label": "block_00413",
+          "context_before": [
+            "「不是。因为我找到了其他能去的地方，而且还欠了人情……」",
+            "「那再见了，宝矿力酱」"
+          ],
+          "context_after": [
+            "之后一段时间，依然独自往来公园的我。",
+            "但是，和那时说的一样，她再也没有在这里出现了。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 9168,
+          "label": "block_00430",
+          "context_before": [
+            "没有什么深意。只是因为想不到其他名字而已。",
+            "对。只是因为我想不到其他名字而已……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 9824,
+          "label": "block_00454",
+          "context_before": [
+            "……这人在做什么啊？",
+            "明明都被告知要死了，就没有其他要做的事吗？没有什么更重要的事了吗……"
+          ],
+          "context_after": [
+            "「……自己的人生还没有开始。总有一天我也会……」",
+            "……10年间，一直这样对自己述说着。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 10176,
+          "label": "block_00468",
+          "context_before": [
+            "「22岁的夏天。什么也没做成，什么回忆也没留下，我就要死了」",
+            "「……感觉真是可悲。感觉真是羞愧。而且……真的好傻……」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": [
+            "7F。第一次到来的最上层。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 433,
+          "label": "block_00014",
+          "context_before": [
+            "窗户很宽阔，让人感到一切都很干净漂亮。",
+            "床一定也是接近全新的吧。纯白的床单在耀眼的日光下十分晃眼。"
+          ],
+          "context_after": [
+            "……之后母亲跟两边病房中的病人、护士还有护工们都打了招呼。",
+            "在这所有人都声音和蔼的安稳氛围中，偷偷看我的人们都……"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 1157,
+          "label": "block_00049",
+          "context_before": [
+            "其他还有从高处跳楼之类的，也是一定能死的方法。",
+            "我一边这样想着，顺手想要打开窗户时才注意到。"
+          ],
+          "context_after": [
+            "……窗户打不开？",
+            "稍微打开一点点，就再也打不开了。只有大约15厘米。刚好是头过去不的大小。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 2037,
+          "label": "block_00083",
+          "context_before": [
+            "……说不定比想象中的还要简单呢。",
+            "而且在其他楼层住院的时候，想要跑出来还要更难一些。"
+          ],
+          "context_after": [
+            "「诶呀，你……」",
+            "「呃……」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 2353,
+          "label": "block_00100",
+          "context_before": [
+            "搞不好，会被就地抓住，还有被救护车送回医院的可能性。",
+            "我一边这么想着，一边回头返回医院。"
+          ],
+          "context_after": [
+            "我认识到了，在这个车站坐车会很不妙。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 2515,
+          "label": "block_00106",
+          "context_before": [
+            "难道只是单纯因为我的觉悟还不够吗？还是说，其实我还没有真的想死呢？",
+            "恐怕是两边都有吧。具体来说，可能是因为不知道“何时会死”，就更是如此了。"
+          ],
+          "context_after": [
+            "那是在我想着这种毫无意义的事情的时候。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 2920,
+          "label": "block_00126",
+          "context_before": [
+            "「你是怎么知道的？」",
+            "「没什么理由啦。开了的话，就送给你吧……」"
+          ],
+          "context_after": [
+            "说完这些，离开了花坛的女孩子。",
+            "和我一样身材小巧，长长的头发给人留下很深的印象。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 2987,
+          "label": "block_00128",
+          "context_before": [
+            "说完这些，离开了花坛的女孩子。",
+            "和我一样身材小巧，长长的头发给人留下很深的印象。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 3417,
+          "label": "block_00142",
+          "context_before": [
+            "……至少要装作是偶然意气相投的，不能被察觉到我的真面目。",
+            "虽然多少有点大费周章，自己也会很累，但我觉得这个方法是最好的。"
+          ],
+          "context_after": [
+            "……虽然也可能有更好的方法……",
+            "但现在的我，想不到其他的方法了……"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 3565,
+          "label": "block_00147",
+          "context_before": [
+            "不管怎么说，萌系游戏啊，休闲系啊，在故事发展到高潮前都很无聊。",
+            "……不过，这么短的时间里玩那么多游戏，想睡觉应该也是理所当然的吧。"
+          ],
+          "context_after": [
+            "「哟，看起来很精神呢」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 3763,
+          "label": "block_00155",
+          "context_before": [
+            "「不行哦。得多出去转转才行」",
+            "然后，就一个人叽叽喳喳说个不停。"
+          ],
+          "context_after": [
+            "……想来从最初的相识算起，已经3年多了。",
+            "现在也是，会在周末或快忘掉她的时候突然出现，说完想说的就直接回去的怪人。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 4239,
+          "label": "block_00183",
+          "context_before": [
+            "「呼-真拿你没办法……」",
+            "虽然不太情愿，但是我还是放弃了。然后拿出崭新的驾驶证，递到她手上。"
+          ],
+          "context_after": [
+            "「噗噗噗，这张有趣的脸是什么鬼？太紧张啦」",
+            "「吵死了，快还给我」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 4471,
+          "label": "block_00194",
+          "context_before": [
+            "既然选择了闭眼的世界……对于“这边”的事我什么也不打算去做。",
+            "我所选择的，不是这个世界……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 4510,
+          "label": "block_00194",
+          "context_before": [
+            "既然选择了闭眼的世界……对于“这边”的事我什么也不打算去做。",
+            "我所选择的，不是这个世界……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 4705,
+          "label": "block_00199",
+          "context_before": [
+            "就算成了现在这样的等死之人，也没有什么改变。\n没有什么能留下的，也没有什么有留下的意义的东西。",
+            "这样想着，突然想起来一件事。"
+          ],
+          "context_after": [
+            "我把游戏存了下档，走到窗边，把脸靠了上去。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 4853,
+          "label": "block_00204",
+          "context_before": [
+            "这就是有名的夏季大三角。这种程度的知识，稍微看点书就能知道。",
+            "当然我也不是一开始就清楚这些星座呀星星什么的，对此也没那么感兴趣。"
+          ],
+          "context_after": [
+            "……那是不再去学校，差不多正好过了1年的一个冬日……",
+            "夜晚，照旧待在房间里玩着游戏。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 5085,
+          "label": "block_00215",
+          "context_before": [
+            "在寒冷清澈的夜空下，透过呼出的白色哈气，能看到明亮闪耀的冬日星空。",
+            "我回到房间里，从书架里取出了百科全书。"
+          ],
+          "context_after": [
+            "总共有12册的厚重的书。打开了其中写着《地球·宇宙》的那本。",
+            "那是我小学入学的时候，从哥哥那里拿到的旧书。直到现在我都从没翻开看过。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 5194,
+          "label": "block_00220",
+          "context_before": [
+            "在昏暗的房间中，来回对照那一页的天体照片和窗外的景色的我。",
+            "仿佛开了灯的话，星星就会消失了一样，就这么保持着黑暗……"
+          ],
+          "context_after": [
+            "第二天早上。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 5604,
+          "label": "block_00232",
+          "context_before": [
+            "但是，那是一种预计病情会发展很快，症状会急剧恶化的疾病吧",
+            "毕竟不是装装样子来到7F的。也没忘记那句让我“做好觉悟”的话。"
+          ],
+          "context_after": [
+            "一边呆呆这样想着，一边去往谈话室的时候。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 5844,
+          "label": "block_00243",
+          "context_before": [
+            "面对满脸不可思议的我，阿姨擅自得出了结论的样子。",
+            "「那，稍等一下哈……」"
+          ],
+          "context_after": [
+            "……等一下？",
+            "虽然不知道是要干啥，但也按她说的，等在了原地。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 6062,
+          "label": "block_00253",
+          "context_before": [
+            "「啊，嗯？」",
+            "虽然不太明白是要说什么，总之先闭嘴听一听。"
+          ],
+          "context_after": [
+            "……第3次出院的时候，就是最后一次了。没有第4次。",
+            "要从医院逃跑的时候，不要去最近的A车站，要去B车站。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 6468,
+          "label": "block_00276",
+          "context_before": [
+            "将读着的2张笔记本纸张递给我后，阿姨向护士站走去。",
+            "临走的时候还告诉我，要告诉初次来到这里的人。"
+          ],
+          "context_after": [
+            "被独自留在了原地的我，将收到的笔记纸拿在手里，回到了病房。",
+            "然后打开笔记，看上面记载的所谓规则。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 6700,
+          "label": "block_00287",
+          "context_before": [
+            "一开始还以为只是些情报和建议，但又不止这些的感觉。",
+            "倒不如说，大概是类似讯息之类的东西……"
+          ],
+          "context_after": [
+            "又过了一会儿，太阳开始下山的时候。没什么特别要做的事情，下到了一楼的我。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 6915,
+          "label": "block_00294",
+          "context_before": [
+            "之后又来到了中庭。",
+            "就算出去到外面，也并没有能去的地方。即便如此，在7F的病房里待着也是不乐意的。"
+          ],
+          "context_after": [
+            "……啊，还在那里。眼前是早上说过话的那个女孩。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 7597,
+          "label": "block_00331",
+          "context_before": [
+            "从白日漫长的夏季开始，天空上开始换上大大的月亮时候。",
+            "晚饭和晚上的检查结束之后，在熄灯时间之前，什么能做的事情都没有。"
+          ],
+          "context_after": [
+            "咚咚",
+            "「给你带慰问品来咯……」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 7809,
+          "label": "block_00340",
+          "context_before": [
+            "「啊，嗯，正准备玩……」",
+            "「那就别在意我玩去吧」"
+          ],
+          "context_after": [
+            "说着，坐到了床旁边的椅子上的哥哥。",
+            "我拿出PSP，开始继续玩之前的游戏。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 8192,
+          "label": "block_00359",
+          "context_before": [
+            "虽然没挑明了说，但他其实在担心我也好……",
+            "因为说不出口，所以只是这样在旁边看着也好……"
+          ],
+          "context_after": [
+            "「我说，哥哥……」",
+            "「怎么了？」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 8472,
+          "label": "block_00373",
+          "context_before": [
+            "所以我也继续默默玩着游戏。旁边的哥哥也什么都不说，只是看着游戏画面……",
+            "彼此间都没再多说什么。害怕会变得……更加疏远。"
+          ],
+          "context_after": [
+            "晴朗的夏空今天也十分开阔。已经到了8月下旬，正好是最热的时期。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 9267,
+          "label": "block_00412",
+          "context_before": [
+            "微微点了点头。",
+            "「而且……我现在还不需要」"
+          ],
+          "context_after": [
+            "说完这些，迅速站起身来，不知道走哪去了。",
+            "「………………」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 9348,
+          "label": "block_00415",
+          "context_before": [
+            "「………………」",
+            "只留下了我一个人在原地。手中只拿着从她那里得到的地图册。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 9736,
+          "label": "block_00426",
+          "context_before": [
+            "滴滴滴……",
+            "咦？这么一大早的真难得。"
+          ],
+          "context_after": [
+            "「嗯，喂……欸，啊，嗯……好久不见了呢」",
+            "对方是认识的一个护士。负责那个医院7F的。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 9962,
+          "label": "block_00436",
+          "context_before": [
+            "虽然到现在为止，她貌似时不时会去7F玩，但稍不注意，就会突然不再露脸了。",
+            "因此，我会定期的强行带着她过去。"
+          ],
+          "context_after": [
+            "「哟，挺精神的嘛」",
+            "这么说着的同时，打开了门。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 10247,
+          "label": "block_00448",
+          "context_before": [
+            "总之，她这2年似乎一直沉迷于游戏和网络。",
+            "虽然不知道心境发生了什么变化，但看来她至少不再像从前一样，想着要自杀了。"
+          ],
+          "context_after": [
+            "「对了，最近这段时间，你没去7F吧？」",
+            "「嗯？毕竟太无聊了嘛，都是些老年人，也没什么话题可聊」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 10665,
+          "label": "block_00474",
+          "context_before": [
+            "「好啦好啦，别那么说嘛。我会载你去的」",
+            "说着，我单方面的把她赶出了房间。"
+          ],
+          "context_after": [
+            "「哇，等下，别拉我的手」",
+            "「啊，干脆，让明来开车试试看？」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 11084,
+          "label": "block_00495",
+          "context_before": [
+            "但似乎偶尔也会去观察这里的人们。",
+            "对于头脑很好的她来说，肯定仅凭此就能感觉到些什么了吧。"
+          ],
+          "context_after": [
+            "「说起来优花小姐…….」",
+            "熟人的护士小声的在耳边说着。"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 11965,
+          "label": "block_00549",
+          "context_before": [
+            "「………………」",
+            "面对这个问题我哽住了。"
+          ],
+          "context_after": [
+            "……难道想要让她变得和姬子一样吗？",
+            "是要像现在这样，制止她持续10年以上的装病和家里蹲，不和任何人接触的生活……"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 12295,
+          "label": "block_00567",
+          "context_before": [
+            "「我想要什么都不留下，什么也不做，从这个世界上消失」",
+            "「对。就好像从一开始就不曾存在过一样……」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": [
+            "「那，妈妈先回去了……明天还会再来的」",
+            "「啊，嗯……」"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 259,
+          "label": "block_00006",
+          "context_before": [
+            "……要不今天试着去下B车站？",
+            "在我一边这样想着，一边决定暂时先回病房时。"
+          ],
+          "context_after": [
+            "-叮",
+            "下了电梯，在走廊里正走向自己的病房……"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 784,
+          "label": "block_00034",
+          "context_before": [
+            "「可别误会了……」",
+            "「我没有朋友，以后也不会有」"
+          ],
+          "context_after": [
+            "说着，往着走廊走掉了。",
+            "……我依然还是搞不懂她。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 1133,
+          "label": "block_00050",
+          "context_before": [
+            "互相之间都不知道该说些什么好。至少我自己是这么想的。",
+            "耐不住这僵硬的气氛，我把PSP拿起来，开始玩起了游戏。"
+          ],
+          "context_after": [
+            "打开电源，立即就传出了，轻快雄壮的幻想风乐曲。",
+            "在PSP小小的屏幕中，作为我分身的高等级治疗师奶妈，宝矿力酱。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 1351,
+          "label": "block_00060",
+          "context_before": [
+            "我害怕要是说了些言不由衷的话，就会比现在变得还像外人……",
+            "所以我只是沉默地玩着游戏。所以哥哥只是沉默地看着……"
+          ],
+          "context_after": [
+            "「那，我差不多该回去了……」",
+            "「啊，嗯……」"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 2189,
+          "label": "block_00097",
+          "context_before": [
+            "到此为止，我终于能确信是自己胜利了。",
+            "「真是的，妈妈不管了」"
+          ],
+          "context_after": [
+            "随着这句话，母亲离开了房间。",
+            "我从被窝里蹦出来，竖起耳朵，进行最后的确认。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 2474,
+          "label": "block_00109",
+          "context_before": [
+            "但是，也常常会一起去便利店，给我买很多零食。",
+            "下雨的时候，也总是会到小学里来接我……"
+          ],
+          "context_after": [
+            "……然而，自从得知是得病了之后就不一样了。",
+            "「从那时起，就有点变了……」"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 2787,
+          "label": "block_00123",
+          "context_before": [
+            "可是……",
+            "「咦、等、等一下，我马上去叫医生」"
+          ],
+          "context_after": [
+            "慌慌张张地走出了房间。不再像开始那样用手测额头，质疑我在装病了。",
+            "也不像以前那样，对我使用手刀了……"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 2991,
+          "label": "block_00132",
+          "context_before": [
+            "……这样很寂寞，所以别再对我那么客气了。",
+            "如果能这样坦率地说清楚就好了……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 3265,
+          "label": "block_00140",
+          "context_before": [
+            "而且我也不是没有朋友。现在也有。现在也一直和我很要好。",
+            "对。只要闭上眼睛，不论何时都会在陪在我身边……"
+          ],
+          "context_after": [
+            "然后，今天也在黑暗的房间，面对着电脑的我。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 3539,
+          "label": "block_00154",
+          "context_before": [
+            "百无聊赖……倒也不是。",
+            "「非要说的话……“躁郁”是最合适的形容吧……」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 3950,
+          "label": "block_00170",
+          "context_before": [
+            "仿佛是我做错了什么一样的口气。不知道为何，有种焦躁不安的感觉。",
+            "「啊啊，真是看不下去了，别再玩游戏了」"
+          ],
+          "context_after": [
+            "「啊，等下，你干嘛啊……」",
+            "拿走了我的PSP，就这样直接关掉了电源。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 4196,
+          "label": "block_00182",
+          "context_before": [
+            "感觉之前的她更冷淡一些。但刚才看起来却非常的焦急。",
+            "对此有些在意的我，跟在她后面追了出去。说到底，我对白石小姐一点也不了解。"
+          ],
+          "context_after": [
+            "「等等，在吵什么啊？」"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 4652,
+          "label": "block_00209",
+          "context_before": [
+            "「啊，等下，我开车送你啦」",
+            "「不用了。你别再多管闲事了」"
+          ],
+          "context_after": [
+            "就像是分手吵架一样，一个人急匆匆地走了的白石小姐。",
+            "……我好像，看到了她的另一面。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 5326,
+          "label": "block_00246",
+          "context_before": [
+            "「………………」",
+            "她对着什么也没回答的我……不，是对着什么也回答不了的我，开朗地笑着。"
+          ],
+          "context_after": [
+            "「那再见了，宝矿力酱」",
+            "然后从椅子上站了起来，不知道到哪去了。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 5773,
+          "label": "block_00269",
+          "context_before": [
+            "但她的手腕上的塑料手环是绿色的。那就表示她是3F或4F的患者。",
+            "「嘛，怎么选是你的事……」"
+          ],
+          "context_after": [
+            "―第二天。今天也是个晴朗的夏天。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 5958,
+          "label": "block_00275",
+          "context_before": [
+            "目送着早上就来看望我的妈妈到走廊里。今天到夜晚的检查前又没事做了。",
+            "我呆呆地从护士站走向谈话室的时候，忽然，目光停留在了某个地方。"
+          ],
+          "context_after": [
+            "那是在走廊尽头的，一扇铁门。",
+            "估计那后面应该就是去上面的楼梯吧。也就是去屋顶的出入口吧。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 6212,
+          "label": "block_00287",
+          "context_before": [
+            "……难道是打算带我到屋顶上去吗……",
+            "如果是那样的话，我去那里真的好吗？\n除此之外，脑中还浮现出了“是为了什么”这样的疑问。"
+          ],
+          "context_after": [
+            "「久等了。虽然应该是患者不可以去的地方……」",
+            "不一会儿就回来了，手里拿着一把钥匙。她毫不犹豫地打开了铁门。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 6458,
+          "label": "block_00299",
+          "context_before": [
+            "「那，加油啦，拜拜♪」",
+            "然后用力的挥了挥手。就像在珍惜的和朋友道别一样，精神的一次又一次挥着手……"
+          ],
+          "context_after": [
+            "……在7F死，还是在家里死……",
+            "决定好在哪边死吧。给我做好觉悟。这两个地方，没人能够逃脱。"
+          ]
+        },
+        {
+          "script": "narsumi04.vnscript.ron",
+          "line": 6676,
+          "label": "block_00309",
+          "context_before": [
+            "「嗯，也是。自己死亡的舞台，还是得自己来决定」",
+            "「这样也好，毕竟是你自己的人生嘛」"
+          ],
+          "context_after": [
+            "说完这些就快步走向了出入口的白石小姐。再也没有往我这边回过头。",
+            "……难道从一开始就不是认真的吗？"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 284,
+          "label": "block_00005",
+          "context_before": [
+            "虽然有点不好意思，之前借给我的地图也并不想去看。",
+            "……就这样死在7F？又或者在某次暂时出院的时候，死在家里？"
+          ],
+          "context_after": [
+            "……不论是哪边，感觉都没太大的差别。",
+            "会在变得生疏的家人的照看之下，干脆的死掉吧……"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 566,
+          "label": "block_00019",
+          "context_before": [
+            "「你等级那么高，稍微帮帮我吧。好不好？」",
+            "「呃，啊，嗯……」"
+          ],
+          "context_after": [
+            "勉强地回复了一句，我也拿出了游戏机。事发突然，让我稍微有些吃惊。",
+            "相比这么晚才来，更让我惊讶的是……"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 1019,
+          "label": "block_00043",
+          "context_before": [
+            "「笨、笨蛋，那不是当然的吗。你是我妹妹啊」",
+            "「啊，比起那个，又被吃掉了，帮我回血，快回血」"
+          ],
+          "context_after": [
+            "……怜悯……",
+            "是因为这个吗？"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 1806,
+          "label": "block_00084",
+          "context_before": [
+            "只有月光洒进来的，这间昏暗的病房。在这寂静之中，回响着节奏欢快的乐曲。",
+            "在游戏途中被放在一边的，哥哥的角色正在被怪物拳打脚踢……"
+          ],
+          "context_after": [
+            "又变成了只有我一个人的病房。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 2253,
+          "label": "block_00102",
+          "context_before": [
+            "说着，视线中出现了那张地图。",
+            "虽然是那个女孩借给我的东西，但我并不打算看，所以就这么放在那边了。"
+          ],
+          "context_after": [
+            "我慢慢地，打开了那本地图。",
+            "里面画着，能通往任何地方的宽阔国道。连接都道府县的干线道路。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 2382,
+          "label": "block_00108",
+          "context_before": [
+            "何况对于现在的我来说，地图并没有什么用。但是她说",
+            "……这个是魔法……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 3047,
+          "label": "block_00141",
+          "context_before": [
+            "老实说，我自己也不知道原因所以无言以对。",
+            "于是……"
+          ],
+          "context_after": [
+            "「我肚子饿了……」",
+            "白石小姐突然说了这么一句。不是自言自语，明显是对着我说的。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 3293,
+          "label": "block_00153",
+          "context_before": [
+            "「我知道了……」",
+            "我轻轻点了点头，走向了眼前的快餐店。"
+          ],
+          "context_after": [
+            "然后按她说的，买了一个最便宜的120日元的汉堡。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 3483,
+          "label": "block_00161",
+          "context_before": [
+            "「呃、啊、嗯……」",
+            "虽然没搞清楚状况，我还是收下了只有一半的汉堡"
+          ],
+          "context_after": [
+            "……在大热天里，一边多少流着汗，一边在路边吃着汉堡的我们。",
+            "虽然不知道这个行为有什么意义，2个人还是在旁边的椅子上并坐着吃了起来。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 3891,
+          "label": "block_00178",
+          "context_before": [
+            "她…",
+            "…成为了我的证人。"
+          ],
+          "context_after": [
+            "―2人一起来到了食堂。因为正好是午餐时间，人很多很热闹。",
+            "在此之中，面对面坐在餐桌上的我们。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 4901,
+          "label": "block_00244",
+          "context_before": [
+            "说到底，买汉堡的钱也算是借的话，那现在面前放着的冰淇淋的钱又怎么算？",
+            "虽然她是理所当然地帮我买了，但是光从价格上看就高出太多了……"
+          ],
+          "context_after": [
+            "―叮"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 5650,
+          "label": "block_00288",
+          "context_before": [
+            "「明……很懂游戏吗？」",
+            "「还行吧，虽然比起你的话，完全就是个新手」"
+          ],
+          "context_after": [
+            "打开PSP的电源，启动了游戏，读取了最新的存档。",
+            "正好是上次刚完成任务的地方，才整理好装备。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 5882,
+          "label": "block_00299",
+          "context_before": [
+            "因为这个游戏是主打组队游戏的，不建议单人。\n当然，也不是不能单人，只是难度会噌的往上涨。",
+            "看到她连这种地方都有所疑问，明应该对这个游戏没那么了解吧。"
+          ],
+          "context_after": [
+            "「咦，你看，你惨了，被包围了啊」",
+            "「这种程度没事的」"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 6158,
+          "label": "block_00312",
+          "context_before": [
+            "总之，就是一边说着奇怪的话，一边一直闹腾着。",
+            "……这样的经历，或许是有生以来头一次。"
+          ],
+          "context_after": [
+            "几个小时后。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 6639,
+          "label": "block_00338",
+          "context_before": [
+            "「啊，嗯……」",
+            "「总而言之量还是完全不够，我去下便利店」"
+          ],
+          "context_after": [
+            "然后又慌慌忙忙地出去了。",
+            "虽然按她本人所说，她是在长期住院中，但怎么看都不像个病人。"
+          ]
+        },
+        {
+          "script": "narsumi05.vnscript.ron",
+          "line": 6734,
+          "label": "block_00342",
+          "context_before": [
+            "在我的认知中，对她的认识……从“搞不懂的人”……",
+            "渐渐变成了“不可思议的人”。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 326,
+          "label": "block_00008",
+          "context_before": [
+            "……说不定已经来了？",
+            "我手里拿着借来的地图，向着中庭走去。"
+          ],
+          "context_after": [
+            "―叮"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 440,
+          "label": "block_00010",
+          "context_before": [
+            "―叮",
+            "经过等候区，径直走向中庭的花坛。"
+          ],
+          "context_after": [
+            "「又在浇水吗？」"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 686,
+          "label": "block_00022",
+          "context_before": [
+            "不知是真是假，还说过把地图全部都记住了。想必她对花也很了解吧。",
+            "虽然我不知道，但说不定相当的博学。"
+          ],
+          "context_after": [
+            "再次回到了7F。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 926,
+          "label": "block_00033",
+          "context_before": [
+            "「你不也差不多么？」",
+            "「嘛，也是啦……不过网络游戏的话，或许我更厉害些呢」"
+          ],
+          "context_after": [
+            "明说到这里，从带来的包里取出了什么东西。",
+            "……笔记本电脑？而且是2台？"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 1834,
+          "label": "block_00060",
+          "context_before": [
+            "估计是喜欢游戏的人聚集起来，相互交流的场所吧。",
+            "虽然我既不知道原型的出处，也没和谁聊过天，不是很懂那种感觉……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 2088,
+          "label": "block_00072",
+          "context_before": [
+            "在我要提出问题之前，明急忙地出去了。",
+            "还是一样搞不懂她，而且越来越让人觉得不可思议了。"
+          ],
+          "context_after": [
+            "吃过晚饭，夜幕降临之际。我呆呆地等待着之前去了便利店的明。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 2421,
+          "label": "block_00088",
+          "context_before": [
+            "「是吗？有什么想要的东西尽管说哦」",
+            "说着，摆出了平静……并且有所顾虑的表情。"
+          ],
+          "context_after": [
+            "……以前，总是唠唠叨叨的妈妈。\n每次有什么事的时候，就会说女孩子该怎么怎么样的责备我。",
+            "但是，自从生病之后就变了。不知从什么时候起不再责备我了。也逐渐变得疏远了。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 2835,
+          "label": "block_00112",
+          "context_before": [
+            "回答我的，还是如往常一样温柔稳重的声音。但是，那目光却显得非常寂寞。",
+            "「那，明天见……」"
+          ],
+          "context_after": [
+            "妈妈说完这句话，离开了病房。我大大地叹了口气，倒在了床上。",
+            "……我究竟想说什么呢？"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 3283,
+          "label": "block_00138",
+          "context_before": [
+            "比起说“对不起”要好太多了。说声“谢谢”，也算是对家人的回报了。",
+            "然而，我却不觉得那是很“简单”的事情。至少对我来说，是说不出口的……"
+          ],
+          "context_after": [
+            "到了熄灯时间，又变成只有一人的病房。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 3467,
+          "label": "block_00145",
+          "context_before": [
+            "……这样的我，说不出谢谢这种话……",
+            "不管怎么做都感觉很抱歉，很对不起。抑制住这股心情，用什么表情才能说出口呢……"
+          ],
+          "context_after": [
+            "没心情继续玩游戏了，中途存档之后就放到了床边。",
+            "……说起来，平常在此时的话我总会去看星星。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 3889,
+          "label": "block_00164",
+          "context_before": [
+            "当然，那是不可能的。我也不再是会相信这个的小孩了。",
+            "然而……"
+          ],
+          "context_after": [
+            "「因为是摸不到的东西，所以才会去憧憬……」",
+            "然后，正因为确实是手触碰不到东西……"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 4353,
+          "label": "block_00186",
+          "context_before": [
+            "……不只是我，大概明也是如此。",
+            "原本就没有什么经验的我们，该做的，想做的，能选的选项太少了。"
+          ],
+          "context_after": [
+            "―优花―"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 4561,
+          "label": "block_00192",
+          "context_before": [
+            "最近好像一直在来往那个7F的样子。肯定是因为以前提到的那个认识的女孩吧。",
+            "看了下时间，已经是晚上11点了。这个时间的话，差不多是回来了的时间吧。"
+          ],
+          "context_after": [
+            "「哟，明。好久不见」"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 5073,
+          "label": "block_00223",
+          "context_before": [
+            "「等下，我真的，不会去开的哦」",
+            "「无所谓啦。我去把车停到医院的停车场里」"
+          ],
+          "context_after": [
+            "「我说优花，等下啊」",
+            "我无视了背后传来的声音，快步离开了。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 5353,
+          "label": "block_00233",
+          "context_before": [
+            "变成了有点任性，又爱多管闲事的人呢。",
+            "「会不会稍微表扬下我呢……」"
+          ],
+          "context_after": [
+            "―第二天。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 5870,
+          "label": "block_00261",
+          "context_before": [
+            "「哈？」",
+            "「好啦好啦，先跟我来吧」"
+          ],
+          "context_after": [
+            "像是推着我一样，把我从病房带了出去。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 6197,
+          "label": "block_00276",
+          "context_before": [
+            "所以这样就没问题了？虽然对她所说的开开试试也有点在意。",
+            "但是从这里到车站前，步行也就是10分钟的距离，如果很快能回来的话……"
+          ],
+          "context_after": [
+            "「哦，引擎好好点着了。接下来踩离合，把手刹……」",
+            "「咦，奇怪？和驾校的车不一样呢。在那里呢？」"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 6762,
+          "label": "block_00303",
+          "context_before": [
+            "根本不是这个问题。更何况，那种事在坐上车的时候就该知道了。",
+            "「嘛，没事的啦。一会就到了」"
+          ],
+          "context_after": [
+            "虽然并没有信这句鬼话……",
+            "结果，花了3个小时才到了车站前。"
+          ]
+        },
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 6980,
+          "label": "block_00313",
+          "context_before": [
+            "染上橘色的天空之下，明这样对我说到。",
+            "我自己，还没有想到任何具体的要做的事。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 256,
+          "label": "block_00003",
+          "context_before": [
+            "早上。正好在打开大门的上午8点。",
+            "我坐电梯下到1F，走向了中庭。准确地说是在中庭里的花坛。"
+          ],
+          "context_after": [
+            "……已经来了吧？",
+            "我一边这样想着，一边左顾右盼……"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 1539,
+          "label": "block_00063",
+          "context_before": [
+            "神情非常开心地回答道。声音不像平时那样疏远，而是真的很开心的样子。",
+            "「那，明天还会来的，要做个好孩子哦」"
+          ],
+          "context_after": [
+            "母亲把带来的毯子放到了备用的床铺上面，踏着轻快的步伐离开了病房。",
+            "……好好地说出来了。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 1785,
+          "label": "block_00075",
+          "context_before": [
+            "「但是啊……能好好说出来就很好啦」\n（校注：原文算是反问句，直译会偏离意思）",
+            "「嗯……」"
+          ],
+          "context_after": [
+            "……那是进入9月后的第一个周末。我来到这个7F，过去10天左右的时候。",
+            "和母亲两个人一起，被医生叫去面谈时的事情。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 2033,
+          "label": "block_00086",
+          "context_before": [
+            "「那么，后天就能办好出院手续了」",
+            "「非常感谢」"
+          ],
+          "context_after": [
+            "「那，得赶紧通知下爸爸才行」",
+            "母亲向医生深深低了下头，然后小跑着走向了电梯。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 2374,
+          "label": "block_00102",
+          "context_before": [
+            "明明工作到这么晚很疲惫了，但我想他还是一听到这消息就跑来了吧。",
+            "「得了，不说这个了，一起去狩猎吧」"
+          ],
+          "context_after": [
+            "我们又一起玩起了游戏。",
+            "和平时一样，高等级的牧师宝矿力酱，带着等级不高的哥哥向前推进着。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 2796,
+          "label": "block_00121",
+          "context_before": [
+            "「在其他什么地方离世吗？」",
+            "「………………」"
+          ],
+          "context_after": [
+            "哥哥面对这个问题沉默了。",
+            "我不希望在自己死的时候，有谁在我身边。不想让别人为了我，而有悲伤的回忆。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 3380,
+          "label": "block_00146",
+          "context_before": [
+            "就算不是像天狼星、织女星那么明亮的星星也好……",
+            "这样的我……也能成为夜空中闪耀的，小小的一颗星星吗……"
+          ],
+          "context_after": [
+            "-第二天早上。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 4589,
+          "label": "block_00208",
+          "context_before": [
+            "对。她必须见证这一切。",
+            "然后，必须作出最后的审判……"
+          ],
+          "context_after": [
+            "第二天。因为今天要暂时出院了，从早上起就有些忙乱。",
+            "当然，正如暂时出院中的“暂时”和所表达的，说到底也只是一时的东西。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 4875,
+          "label": "block_00219",
+          "context_before": [
+            "这是医院出口前的对话。面前停了几辆空出租车。旁边就是公交车站台。",
+            "就这样坐公交车回去的话大概要15分钟。\n坐出租车的话只要5分钟左右就能到家的距离。"
+          ],
+          "context_after": [
+            "……必须要在这里说了。",
+            "一旦回到了家里，我害怕自己现在的决心会有所动摇。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 5163,
+          "label": "block_00234",
+          "context_before": [
+            "「嗯，想和她两个人一起去」",
+            "「………………」"
+          ],
+          "context_after": [
+            "母亲沉默了下来。以惊讶的表情盯着我。",
+            "……不用再拐弯抹角了，我已经是7F的患者了。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 5434,
+          "label": "block_00245",
+          "context_before": [
+            "「但是呀，如果这是你自己好好想过了……」",
+            "「最后，你还是如此希望的话……」"
+          ],
+          "context_after": [
+            "「敲」",
+            "「好痛」"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 5702,
+          "label": "block_00253",
+          "context_before": [
+            "「不早点回来的话，我还会敲你的哦」",
+            "「嗯，嗯」"
+          ],
+          "context_after": [
+            "「久等了……」"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 5886,
+          "label": "block_00260",
+          "context_before": [
+            "「是吗。真是个温柔的母亲呢」",
+            "「嗯，是个温柔的母亲……」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 6400,
+          "label": "block_00280",
+          "context_before": [
+            "刚拿到驾照的她，和靠不住的向导二人，目标是最接近“死”的地方。",
+            "和游戏里相反，辅助着白石小姐的宝矿力酱……"
+          ],
+          "context_after": [
+            "那之后经过了2小时左右，太阳升到正中的时候。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 6415,
+          "label": "block_00280",
+          "context_before": [
+            "刚拿到驾照的她，和靠不住的向导二人，目标是最接近“死”的地方。",
+            "和游戏里相反，辅助着白石小姐的宝矿力酱……"
+          ],
+          "context_after": [
+            "那之后经过了2小时左右，太阳升到正中的时候。",
+            "我们还在埼玉县附近徘徊着。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 6607,
+          "label": "block_00287",
+          "context_before": [
+            "「啊，嗯」",
+            "路旁某处的家庭餐厅。按照明的提案，我们在此吃个饭稍事休息"
+          ],
+          "context_after": [
+            "正好是正午时分，店内非常繁忙。",
+            "有很多来吃午饭的像是上班族的人，很热闹。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 6853,
+          "label": "block_00299",
+          "context_before": [
+            "「不是，嘛，也没什么啦……」",
+            "不懂。为什么点一样的会感觉害羞呢？"
+          ],
+          "context_after": [
+            "没多久，就送上来了的汉堡套餐。",
+            "以前也听她总提起汉堡，大概明喜欢这个吧。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 7170,
+          "label": "block_00315",
+          "context_before": [
+            "「呃，没啊，也不算喜欢……」",
+            "对着奇怪的地方上心。"
+          ],
+          "context_after": [
+            "吃完后，我们走向了收银台。",
+            "明好像又发现了什么一样，停下了脚步，盯着一动不动。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 7444,
+          "label": "block_00329",
+          "context_before": [
+            "而且照她说的，好像还是送我的礼物。",
+            "没想到会在这种地方，得到小孩子玩的魔法杖。"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 7656,
+          "label": "block_00338",
+          "context_before": [
+            "「顺便一说，汉堡的那个“借”，可是大到用这种东西是还不了的」",
+            "「那就，出发咯」"
+          ],
+          "context_after": [
+            "我们再次动身上路。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 8290,
+          "label": "block_00366",
+          "context_before": [
+            "更重要的是，我们就算迷路了，也没有去“找谁问下路”。",
+            "虽然归根结底，就没有想到那一点……"
+          ],
+          "context_after": [
+            "太阳也开始慢慢落山了，夕阳的橘色染上了四周。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 8685,
+          "label": "block_00387",
+          "context_before": [
+            "「嗯……」",
+            "「但是，嘛，虽说我也是迷路的傻女人呢……」"
+          ],
+          "context_after": [
+            "如此聊着，明再次启动了引擎。",
+            "然后，开始往眼前的乡间小路驶去。不再打算回头。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 9020,
+          "label": "block_00402",
+          "context_before": [
+            "「只是方向的话，很简单」",
+            "「怎么做？」"
+          ],
+          "context_after": [
+            "我指示她关掉了车灯，然后抬头看向天空。"
+          ]
+        },
+        {
+          "script": "narsumi07.vnscript.ron",
+          "line": 9252,
+          "label": "block_00413",
+          "context_before": [
+            "对。并不是那么了不起的事情。",
+            "只是在打游戏的间隙，望向夜晚的天空而已。“只是10年”左右，眺望着星空而已……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": [
+            "「从哪里开始改才好呢……」",
+            "「如果，能回到最初的转角的话……」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 565,
+          "label": "block_00024",
+          "context_before": [
+            "「是吗。下次要看喔，很有趣的」",
+            "说着，就跑到其他同学那里了。\n对那开朗交谈着的身影视而不见，我坐到了自己的座位上。"
+          ],
+          "context_after": [
+            "……一直都是这个样子。",
+            "不知道什么时候起，连招呼都不打了。回过神来，我在班上已经被完全孤立了。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 1373,
+          "label": "block_00055",
+          "context_before": [
+            "「其实，我也是有很多遗憾的……」",
+            "「还对你说些很了不起的话，逊死了……」"
+          ],
+          "context_after": [
+            "之后又行驶了一会儿，明在一个比较空旷的地方把车停了下来。\n看了下时间，已经过了深夜1点了。",
+            "为了等到天亮继续出发，我们决定今晚就在这里过夜。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 1661,
+          "label": "block_00070",
+          "context_before": [
+            "和妈妈已经联系过一次了。白天从家庭餐厅出来的时候借用了下明的手机。",
+            "那之后就没再联系过。妈妈也没有联系过这边。"
+          ],
+          "context_after": [
+            "……是不是在担心呢？",
+            "都不用想。肯定是在担心。爸爸和哥哥肯定也一样吧。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 1938,
+          "label": "block_00087",
+          "context_before": [
+            "……然后现在，证人也带来了。",
+            "我应该也能使用魔法了。\n赌上这人生，应该就能使用最初也是最后的魔法了……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 2332,
+          "label": "block_00099",
+          "context_before": [
+            "「啊，有个牌子……」",
+            "在菫指着的窗外，是写着“青木原树海”的牌子。似乎就是这里没错了。"
+          ],
+          "context_after": [
+            "总之我先把车停到了路边。应该是因为时间还早，路上完全没车。",
+            "道路周围也没有特别设置栅栏，\n好像只要想去的话，从哪里都可以进入青木原树海。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 2608,
+          "label": "block_00112",
+          "context_before": [
+            "「是吗，我知道了」",
+            "简短的回答后，打开车门走了出去。"
+          ],
+          "context_after": [
+            "我们从路旁踏入了树海。避开陡峭的坡面，往平坦的地方前进着。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 2840,
+          "label": "block_00123",
+          "context_before": [
+            "不能因为现在看起来精神，就安下心来。更别说这里，是最接近死的地方。",
+            "在变成自杀圣地之前……就连健全的，不想死的人都死掉过的地方。"
+          ],
+          "context_after": [
+            "「哈——呼——……」",
+            "是有点喘不上气了吧，菫看起来有点痛苦。\n看了下时间，已经在树林里连续走了差不多20分钟了。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 3218,
+          "label": "block_00144",
+          "context_before": [
+            "还是说，既然选择了当“证人”，就有着从始至终见证她的义务呢……",
+            "不一会儿……"
+          ],
+          "context_after": [
+            "「谢谢。已经可以了……」",
+            "随着这番话，菫回过了头来。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 3497,
+          "label": "block_00155",
+          "context_before": [
+            "不走错路的话，大概中午就能回到东京都内了吧。\n虽然发生了很多事，但应该能把她安全的送回家中。",
+            "正当我这样想着的时候……"
+          ],
+          "context_after": [
+            "「我想去那个叫风穴洞的地方……」",
+            "「欸……」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 3723,
+          "label": "block_00165",
+          "context_before": [
+            "看了下时间，凌晨4点半。理所当然的周围空无一人。",
+            "然后她翻过一个像是入口的小栅栏，接着向前走去。"
+          ],
+          "context_after": [
+            "前进了没多久，出现了一个空了个洞的岩壁。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 3910,
+          "label": "block_00170",
+          "context_before": [
+            "她毫不犹豫地进入了漆黑的洞穴。我也踌躇了一下才为能了跟上她而进去了。",
+            "……究竟是什么驱动她来到这里的呢……"
+          ],
+          "context_after": [
+            "在一片黑暗之中，仅靠着手电筒的光亮前进着。",
+            "「别走那么快，很危险的」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 4346,
+          "label": "block_00190",
+          "context_before": [
+            "说着，菫准备从口袋里拿出什么东西来。",
+            "正要看她拿的究竟是什么时……"
+          ],
+          "context_after": [
+            "……玩具手杖？",
+            "那是昨天我在家庭餐厅买下的。然后献给了她的，小孩子玩的魔法手杖。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 5087,
+          "label": "block_00213",
+          "context_before": [
+            "10年的岁月，和耗费至今为止的人生累积下来的经验值。",
+            "就算技能已经掌握了，也任性过了，证人也带来了，还是无法使用魔法……"
+          ],
+          "context_after": [
+            "「……舒心了吗？」",
+            "「嗯，嗯……」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 5305,
+          "label": "block_00223",
+          "context_before": [
+            "「是呢……」",
+            "「但是，这样我也舒畅了……」"
+          ],
+          "context_after": [
+            "说着，菫从开口袋里拿出了某样小小的东西。",
+            "「……那是，什么东西？」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 5529,
+          "label": "block_00233",
+          "context_before": [
+            "「但我想，肯定比起至今为止的21年间……」",
+            "「……剩下的时间更重要吧……」"
+          ],
+          "context_after": [
+            "菫平静地如此说到。",
+            "黑暗中，我似乎能看到她脸上的笑容……"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 5926,
+          "label": "block_00252",
+          "context_before": [
+            "「呜。这嚣张的表情，真让人火大……敲」",
+            "「哇，连哥哥也这样」"
+          ],
+          "context_after": [
+            "「……现在的我……」",
+            "「……是明朗地、高兴地笑着的吧……」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 6075,
+          "label": "block_00256",
+          "context_before": [
+            "「……没有让妈妈，哥哥，为我担心……」",
+            "「……不知道有没有做到……让他们安心呢……」"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 8776,
+          "label": "block_00377",
+          "context_before": [
+            "但是，那孩子为什么要把这花给菫呢？",
+            "把这个花送来，是有什么含义的吧……"
+          ],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 8854,
+          "label": "block_00377",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 8908,
+          "label": "block_00377",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 8962,
+          "label": "block_00377",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 9016,
+          "label": "block_00377",
+          "context_before": [],
+          "context_after": []
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 9306,
+          "label": "block_00386",
+          "context_before": [
+            "和平时不同的是，这应该是最后的对话了吧。",
+            "这几天，我已经做好她随时可能会离去的觉悟了。"
+          ],
+          "context_after": [
+            "我对着敞开着的门，象征性的敲了一下。然后做了一个深呼吸，走向了她的身旁。"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 10114,
+          "label": "block_00420",
+          "context_before": [
+            "只是因为之前欠了你的，才做证人的而已。现在也只是因为那时候欠了你的而已……",
+            "这样的话……"
+          ],
+          "context_after": [
+            "「……现在，我要还清欠你的……」",
+            "「欠我的？」"
+          ]
+        },
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 10564,
+          "label": "block_00440",
+          "context_before": [
+            "已经来不及了。已经刻在我的心中了。",
+            "那些打算完全消除掉的回忆。在我心中已经占据大半了……"
+          ],
+          "context_after": [
+            "「那就，再见了……谢谢」"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 89,
+          "label": "z01",
+          "context_before": [],
+          "context_after": [
+            "角色介绍"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 221,
+          "label": "block_00005",
+          "context_before": [
+            "相比起初期，濑津美老师显得更幼齿，\n更漂亮，这个时期的濑津美因此有很多不同的地方。",
+            "……仔细想一下，同样的角色画了10年的话，这也是理所当然的事吧。"
+          ],
+          "context_after": [
+            "・濑津美：CV 綾川りの",
+            "Narcissu系列女主角一样的角色。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 345,
+          "label": "block_00010",
+          "context_before": [
+            "但在系列后期确实是，变得很能说了。\n在四格漫画中登场时，被称为濑津美老师。",
+            "喜欢的食物是炸薯条。喜欢的人是母亲。"
+          ],
+          "context_after": [
+            "・姬子：CV やなせなつみ",
+            "N2的女主角，给了濑津美很大的影响。\n可以说是全系列关键人物般的存在。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 455,
+          "label": "block_00014",
+          "context_before": [
+            "虔诚的天主教徒。医院的护工。\n性格开朗，十分的聪明。",
+            "持有国内A级执照的汽车迷。\n爱车是Eunos Roadster，马自达信徒。"
+          ],
+          "context_after": [
+            "・优花：CV 岩居由希子",
+            "姬子的挚友。小小只的可爱女性。\n东京都内工作的OL。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 565,
+          "label": "block_00018",
+          "context_before": [
+            "曾经性格腼腆，在与姬子共同度过最后的时间之后，\n有了一点点改变。",
+            "爱车是从姬子那里继承的Roadster（马自达 MX-5）。\n某种意义上，是于全系列都有登场的说书人一样的存在。"
+          ],
+          "context_after": [
+            "・千寻：CV 後藤邑子",
+            "姬子的妹妹。有经验的天主教徒。\n大学毕业后作为护工活动着。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 675,
+          "label": "block_00022",
+          "context_before": [
+            "恬静的，为姐姐着想的温柔性格。\n对待任何人都真诚相待。",
+            "唯一被托付了这些规则的7F居民以外的人。"
+          ],
+          "context_after": [
+            "・莳绘：CV 原口馨",
+            "创造出作为故事舞台的医院7F的人。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 799,
+          "label": "block_00027",
+          "context_before": [
+            "当年的爱车是Savanna RX-7。\n他也是马自达信徒。现在担任医院的执行董事。",
+            "也是从濑津美处接受书本捐赠的人物。"
+          ],
+          "context_after": [
+            "・蒔絵女儿：CV 森村なみ",
+            "莳绘的女儿。24岁。\n担任医院的综合接待。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 923,
+          "label": "block_00032",
+          "context_before": [
+            "在小说版的Narcissu中，\n二人从医院消失时，曾与优花一起追在二人身后。",
+            "与濑津美的母亲关系很好，工作结束之后经常碰面。"
+          ],
+          "context_after": [
+            "・阿东：CV 中村圭佑",
+            "N1的主人公。\n与濑津美一起，向着淡路岛进发。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1033,
+          "label": "block_00036",
+          "context_before": [
+            "性格是十分普通的20岁青年。\n大学生。取得驾照后，马上入院并在半年之后转到了7F。",
+            "爱车是父亲的Integra Type-R 双座轿跑。\n在故事后半，有着喜欢上了濑津美的描写。"
+          ],
+          "context_after": [
+            "・阳子：CV 友永朱音",
+            "N0的女主角，7F最初的入院患者。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1143,
+          "label": "block_00040",
+          "context_before": [
+            "学生时代，曾与莳绘一同活动。\n同样有着在老人院工作的经验，想要成为医生。",
+            "由她手中诞生了7F的规则。"
+          ],
+          "context_after": [
+            "・濑津美母亲：CV 田中涼子",
+            "濑津美的母亲。\n在任职的便当店负责油炸食品的工作。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1253,
+          "label": "block_00044",
+          "context_before": [
+            "很担心女儿，同时又很善解人意的温柔母亲。",
+            "在濑津美去世之后，\n也时常与莳绘女儿一起去吃晚饭。"
+          ],
+          "context_after": [
+            "・女孩子：CV 能登麻美子",
+            "姬子曾经负责的7F住院患者。8岁。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1363,
+          "label": "block_00048",
+          "context_before": [
+            "双亲也已去世，完全无依无靠的孩子。\n跟其他孩子一样纯真无邪。",
+            "因此姬子才会被什么也做不到的无力感所囚禁。"
+          ],
+          "context_after": [
+            "・紫阳花（堇）：CV もな",
+            "新Narcissu的女主角。22岁。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1487,
+          "label": "block_00053",
+          "context_before": [
+            "这中间，除了打游戏之外什么事都没做过。\n外表娇小可爱，性格有些内向。",
+            "与岁数相差很大的双亲，\n以及同样岁数相差很大的哥哥组成了4人家庭。"
+          ],
+          "context_after": [
+            "・明里：CV やなせなつみ",
+            "并非现实，而是选择了闭上眼的世界的女主角。22岁。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1597,
+          "label": "block_00057",
+          "context_before": [
+            "8岁开始为装病而持续装睡，现在也在住院中。\n因为父亲是有名的资产家，所以无人因此责备她。",
+            "16岁时，偶然间与优花和堇相遇了。"
+          ],
+          "context_after": [
+            "・堇母亲：CV 田口宏子",
+            "堇的母亲。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1707,
+          "label": "block_00061",
+          "context_before": [
+            "本来是很开朗乐天的性格，\n在女儿生病之后变得有些消极。",
+            "虽然觉得很寂寞，但无法说出口。"
+          ],
+          "context_after": [
+            "・健酱",
+            "曾经，明里唯一的朋友。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1803,
+          "label": "block_00064",
+          "context_before": [
+            "曾经，明里唯一的朋友。",
+            "虽然是开朗，无忧无虑的笨蛋小孩性格，但也有着自然不做作的温柔。"
+          ],
+          "context_after": [
+            "◎番外角色"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 1937,
+          "label": "block_00068",
+          "context_before": [
+            "明里偶然间，在巴士站遇到的女孩子。\n非常内向，孤孤单单的。",
+            "接受了明里的忠告，稍微变得开朗了一些。"
+          ],
+          "context_after": [
+            "・伊莉丝：CV 平井理子",
+            "以中世纪为舞台的Narcissu3的女主角。\n通称公主殿下。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 2047,
+          "label": "block_00072",
+          "context_before": [
+            "有着十分残酷的过去，虽然以自我为中心，\n但本来是很老实的普通女孩子。",
+            "因为与约翰的相遇，开始谨慎的考虑起了平稳的生活。"
+          ],
+          "context_after": [
+            "・希未老师",
+            "四格漫画中登场的濑津美老师的拍档。\n猫猫社的《SA·NA·RA·RA》中的女主角。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 2143,
+          "label": "block_00075",
+          "context_before": [
+            "四格漫画中登场的濑津美老师的拍档。\n猫猫社的《SA·NA·RA·RA》中的女主角。",
+            "看起来在这个世界里，二人似乎生活在一起。\n Stage-nana的书，貌似都是由二人亲手所做的。"
+          ],
+          "context_after": [
+            "■Narcissu时间序列",
+            "并非按照发售顺序，而是按照游戏内的时间轴排序，概括性的简单一览。"
+          ]
+        },
+        {
+          "script": "omake.vnscript.ron",
+          "line": 2669,
+          "label": "block_00092",
+          "context_before": [
+            "最有名的地方，分为立川水仙乡与滩黑岩水仙乡两处。\n无论哪边都盛开着大量的水仙花。",
+            "能确实地让人感到不愧为国立公园的一部分，如果想要去拜访的话，提前确认开花时间大概会比较稳妥吧？"
+          ],
+          "context_after": []
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "bg",
+      "name": "2bg_a0011",
+      "expected_path": "image/bg/2bg_a0011.basisu.ktx2",
+      "reference_count": 6,
+      "references": [
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 1607,
+          "label": "block_00070",
+          "context_before": [
+            "「进去了哦……」",
+            "小声的说着，进入了房间的我。"
+          ],
+          "context_after": [
+            "这里与其说是病房，更像是个很大的房间……有着让人感觉这是个客厅的宽阔空间。",
+            "电脑和电视，看起来很豪华的全套沙发，还有很大的书架。\n仔细观察的话室内连厕所和洗浴间都有配备。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 2817,
+          "label": "block_00128",
+          "context_before": [
+            "而且对方还患了名为嗜睡症的，尚未完全明了的疾病。",
+            "依靠这些条件装睡的吗？……不论怎样都没办法去指责她。就算已经看穿了也一样。"
+          ],
+          "context_after": [
+            "「那么优花，有事是什么事啊？」",
+            "「诶？啊……其实我是被公司派过来的，希望你能在这些文件上签字来着」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 4605,
+          "label": "block_00205",
+          "context_before": [
+            "-失去挚友之人"
+          ],
+          "context_after": [
+            "「你好……咦，诶呀，不在？」",
+            "再次来到的，明的病房。\n不知为何今天床上是空着的， 应该去是跑去了什么别的地方了吧。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 5066,
+          "label": "block_00229",
+          "context_before": [
+            "搞不好的话，会对我这样的态度而生气也说不定。\n甚至会进入冷淡的完全无视模式也说不定",
+            "但我觉得，对付她这样就好。"
+          ],
+          "context_after": [
+            "「真是的，拿你没办法啊……那给我新文件吧」",
+            "回复的反应中带着“罢了罢了……”这样的苦笑感。\n但至少当下这个时点，应该成功回避了被做当路人无视了的情况。"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 5508,
+          "label": "block_00255",
+          "context_before": [
+            "不如说是甚至不用去在意的意思吧。",
+            "不知怎的，说到这里，我好像有点理解她为什么避讳现实，\n为什么想要选择闭上眼的世界了。"
+          ],
+          "context_after": [
+            "「难道去公园也是因为这个原因吗？」",
+            "「算是吧。但那里的人们与其说是余命不多，倒不如说是已经死了……很微妙呢」"
+          ]
+        },
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 10262,
+          "label": "block_00448",
+          "context_before": [
+            "总之，她这2年似乎一直沉迷于游戏和网络。",
+            "虽然不知道心境发生了什么变化，但看来她至少不再像从前一样，想着要自杀了。"
+          ],
+          "context_after": [
+            "「对了，最近这段时间，你没去7F吧？」",
+            "「嗯？毕竟太无聊了嘛，都是些老年人，也没什么话题可聊」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "bg",
+      "name": "2fd_aka04",
+      "expected_path": "image/bg/2fd_aka04.basisu.ktx2",
+      "reference_count": 5,
+      "references": [
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 5912,
+          "label": "block_00271",
+          "context_before": [
+            "自然而然地，因为有这样的疑问所以就试着去搭搭话了。应该也没有什么深意吧。",
+            "「你好......」"
+          ],
+          "context_after": [
+            "第5个椅子上坐着的，年轻的长发女性......白石小姐的第一次发声。",
+            "顺便说下，“白石小姐”这个名字，\n是因为她一直坐的长椅上大大地写着“白石工务店”这几个字，所以才起的。"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 6986,
+          "label": "block_00336",
+          "context_before": [
+            "......虽然我现在是这样，但总有一天我会开始真正的人生的。\n和只是在这里打发时间的她们是不一样的。",
+            "我这样是普通的......明明我曾经是如此想的，"
+          ],
+          "context_after": [
+            "「我也生病了哦，宝矿力酱」",
+            "「欸......」"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 7940,
+          "label": "block_00388",
+          "context_before": [
+            "......以前都不会来得这么频繁的......",
+            "原因不用想也知道。因为和以前不同，有了能聊天的对象。"
+          ],
+          "context_after": [
+            "「早上好啊，宝矿力酱，今天也好早呢」",
+            "「嗯......因为游戏已经玩腻了」"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 8983,
+          "label": "block_00437",
+          "context_before": [
+            "虽然这么跟我说的是她，感觉也确实如此。",
+            "但是，那句话中也包含了我这一点实在让人觉得有被冒犯到。"
+          ],
+          "context_after": [
+            "「白石小姐......话先说在前头，我和你可不一样」",
+            "「不一样？」"
+          ]
+        },
+        {
+          "script": "narsumi01.vnscript.ron",
+          "line": 9422,
+          "label": "block_00460",
+          "context_before": [
+            "「那个人情往来到底是什么？」",
+            "「是我的规则哦。而且你也不抵触那个，所以可以轻松的交流」"
+          ],
+          "context_after": [
+            "「嘛不过......我差不多也到合适的时候了呢......」",
+            "「合适的时候？」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "se",
+      "name": "door_knock_open",
+      "expected_path": "audio/se/door_knock_open.ogg",
+      "reference_count": 4,
+      "references": [
+        {
+          "script": "4novel.vnscript.ron",
+          "line": 85746,
+          "label": "block_03257",
+          "context_before": [
+            "还有一个理由是，我好像无法忍受，看着现在那家伙的样子。"
+          ],
+          "context_after": [
+            "像往常一样敲门然后进入病房。准备做最后的寒暄然后回到东京。",
+            "主人公：「……不在？」"
+          ]
+        },
+        {
+          "script": "4novel.vnscript.ron",
+          "line": 101240,
+          "label": "block_03794",
+          "context_before": [
+            "到了衣领扣衬衫也差不多不能穿了的时候。"
+          ],
+          "context_after": [
+            "咚咚、咔嚓、",
+            "千寻：「进来了哦」"
+          ]
+        },
+        {
+          "script": "nar4_09.vnscript.ron",
+          "line": 5890,
+          "label": "block_00268",
+          "context_before": [
+            "理由之一，是我判断出，就这样陪着的话对她没有好处。",
+            "还有一个理由是，我好像无法忍受，看着现在那家伙的样子。"
+          ],
+          "context_after": [
+            "像往常一样敲门然后进入病房。准备做最后的寒暄然后回到东京。",
+            "「……不在？」"
+          ]
+        },
+        {
+          "script": "nar4_ep.vnscript.ron",
+          "line": 1203,
+          "label": "block_00044",
+          "context_before": [
+            "严酷的冬天结束了……",
+            "到了衣领扣衬衫也差不多不能穿了的时候。"
+          ],
+          "context_after": [
+            "咚咚、咔嚓、",
+            "「进来了哦」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0032",
+      "expected_path": "audio/voice/li/kanC_0032.ogg",
+      "reference_count": 3,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 10700,
+          "label": "block_00297",
+          "context_before": [
+            "转眼就跑了出去的她。我也全力地跟了上去。",
+            "……究竟发生了什么？"
+          ],
+          "context_after": [
+            "好像还有其他的女性也追了过来。",
+            "「呐，我说，喂，这是什么情况？」"
+          ]
+        },
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 3769,
+          "label": "block_00120",
+          "context_before": [
+            "然后，用手强行推开了断电了的自动门。",
+            "门重的要死，她连帮忙的精力都没有吗，只是呆呆的站在一旁。"
+          ],
+          "context_after": [
+            "无视身后传来的声音，我们从后门离开了这栋建筑。\n接下来只要跑到医院前的道路上就行了。",
+            "健：「好啦，已经没问题了」"
+          ]
+        },
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 15824,
+          "label": "block_00476",
+          "context_before": [],
+          "context_after": [
+            "「糟了，得快点逃掉」",
+            "终于到了医院大门前。之后，只要继续沿着道路跑，就能出去了。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "bg",
+      "name": "2bg_a0011c",
+      "expected_path": "image/bg/2bg_a0011c.basisu.ktx2",
+      "reference_count": 2,
+      "references": [
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 6136,
+          "label": "block_00282",
+          "context_before": [
+            "咚咚，",
+            "「早上好……进来了哦……」"
+          ],
+          "context_after": [
+            "因为还是早上，轻手轻脚地进了她的病房。\n因为一般来想，现在这个时间应该还在睡觉吧。",
+            "「咦……不在？去哪儿了……？」"
+          ]
+        },
+        {
+          "script": "narsumi02.vnscript.ron",
+          "line": 6312,
+          "label": "block_00289",
+          "context_before": [
+            "那里有一张便签。",
+            "“真不擅长说谎呢，再见了优花”上面只写了这些。"
+          ],
+          "context_after": [
+            "「……被发现了？　难道从最开始就？」",
+            "不对，现在那种事情，已经无所谓了。重要的是这段文字。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "se",
+      "name": "hasiri_room",
+      "expected_path": "audio/se/hasiri_room.ogg",
+      "reference_count": 2,
+      "references": [
+        {
+          "script": "4novel.vnscript.ron",
+          "line": 33432,
+          "label": "block_01295",
+          "context_before": [
+            "妹★：「啊，已经这个时间了，我先走了」"
+          ],
+          "context_after": [
+            "主人公★：「啧，喂！博美」",
+            "可恶，逃掉了。"
+          ]
+        },
+        {
+          "script": "nar4_04.vnscript.ron",
+          "line": 6288,
+          "label": "block_00316",
+          "context_before": [
+            "干脆地承认了。",
+            "「啊，已经这个时间了，我先走了」"
+          ],
+          "context_after": [
+            "「啧，喂！博美」",
+            "可恶，逃掉了。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "se",
+      "name": "hikido_2",
+      "expected_path": "audio/se/hikido_2.ogg",
+      "reference_count": 2,
+      "references": [
+        {
+          "script": "4novel.vnscript.ron",
+          "line": 46573,
+          "label": "block_01777",
+          "context_before": [
+            "……但是，日下却不同。如果她知道这件事的话，一定会伤心吧。",
+            "那么我……该怎么告诉她才好呢……"
+          ],
+          "context_after": [
+            "女主角★：「早安，莳绘君在么？」",
+            "刚好在思考这件事的时候日下来了。"
+          ]
+        },
+        {
+          "script": "nar4_05.vnscript.ron",
+          "line": 9186,
+          "label": "block_00427",
+          "context_before": [
+            "……但是，日下却不同。如果她知道这件事的话，一定会伤心吧。",
+            "那么我……该怎么告诉她才好呢……"
+          ],
+          "context_after": [
+            "「早安，莳绘君在么？」",
+            "刚好在思考这件事的时候日下来了。"
+          ]
+        }
+      ],
+      "similar": [
+        {
+          "path": "audio/se/doril2.ogg",
+          "name": "doril2",
+          "score": 0.486,
+          "match": "prefix"
+        },
+        {
+          "path": "audio/se/hirate2.ogg",
+          "name": "hirate2",
+          "score": 0.48,
+          "match": "prefix"
+        }
+      ]
+    },
+    {
+      "type": "voice",
+      "name": "li/npetcw2_146",
+      "expected_path": "audio/voice/li/npetcw2_146.ogg",
+      "reference_count": 2,
+      "references": [
+        {
+          "script": "himeko_ep01.vnscript.ron",
+          "line": 17050,
+          "label": "block_00796",
+          "context_before": [
+            "教会的神父和\n修女们也都聚集在这里。",
+            "我和平时一样走向了姬子的病房。"
+          ],
+          "context_after": [
+            "这么说着制止我的，\n并不是护士也不是医生，而是修女。",
+            "修女站在门前堵住了门。"
+          ]
+        },
+        {
+          "script": "himeko_ep02.vnscript.ron",
+          "line": 16436,
+          "label": "block_00793",
+          "context_before": [
+            "教会的神父和\n修女们也都聚集在这里。",
+            "我和平时一样走向了姬子的病房。"
+          ],
+          "context_after": [
+            "这么说着制止我的，\n并不是护士也不是医生，而是修女。",
+            "修女站在门前堵住了门。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "bg",
+      "name": "n_w",
+      "expected_path": "image/bg/n_w.basisu.ktx2",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "himeko_ep02.vnscript.ron",
+          "line": 20241,
+          "label": "block_00984",
+          "context_before": [
+            "水仙。\n学名narcissus。开花期是11月至3月。",
+            "开始结出了小小的，白黄相间的花蕾…"
+          ],
+          "context_after": []
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "bg",
+      "name": "nsora01bb",
+      "expected_path": "image/bg/nsora01bb.basisu.ktx2",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "himeko_ep02.vnscript.ron",
+          "line": 3543,
+          "label": "block_00167",
+          "context_before": [
+            "虽然这么想，但这样能让姬子开心。\n让她安心。",
+            "所以，我选择了“伪装”成平时的自己。"
+          ],
+          "context_after": [
+            "坐上快速电车，\n到达车站时已经是日暮时分。",
+            "我再次骑上自行车冲刺。\n所朝向的目的地，是路线全然熟悉的医院。"
+          ]
+        }
+      ],
+      "similar": [
+        {
+          "path": "image/bg/nsora01.basisu.ktx2",
+          "name": "nsora01",
+          "score": 0.672,
+          "match": "prefix"
+        },
+        {
+          "path": "image/bg/nsora01yb.basisu.ktx2",
+          "name": "nsora01yb",
+          "score": 0.544,
+          "match": "prefix"
+        },
+        {
+          "path": "image/bg/nsora01t.basisu.ktx2",
+          "name": "nsora01t",
+          "score": 0.533,
+          "match": "prefix"
+        }
+      ]
+    },
+    {
+      "type": "se",
+      "name": "a5_2045",
+      "expected_path": "audio/se/a5_2045.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar3_08.vnscript.ron",
+          "line": 3007,
+          "label": "block_00114",
+          "context_before": [
+            "约翰：「……认错人了吧，祭司」"
+          ],
+          "context_after": [
+            "一边回答，我一边把剑扔在地上。",
+            "……无论如何，他们都不可能空手而归……"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "se",
+      "name": "kawa",
+      "expected_path": "audio/se/kawa.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar3_06.vnscript.ron",
+          "line": 324,
+          "label": "block_00004",
+          "context_before": [
+            "那里的话，遭到伏击的可能性会低一点。",
+            "在这里，我们踏入了久违的河川。"
+          ],
+          "context_after": [
+            "我们一边听着潺潺的流水声，一边在河川中前进着。",
+            "她跟以前一样，战战兢兢地将手伸水里。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "se",
+      "name": "load",
+      "expected_path": "audio/se/load.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "narsumi06.vnscript.ron",
+          "line": 1035,
+          "label": "block_00038",
+          "context_before": [
+            "「那，就让我来带带你」",
+            "然后把一台笔记本电脑放在我面前，打开了电源。"
+          ],
+          "context_after": [
+            "屏幕上出现了某个类似游戏的东西。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "sprite",
+      "name": "shuj_53",
+      "expected_path": "image/anime/shuj_53.basisu.ktx2",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 5947,
+          "label": "block_00164",
+          "context_before": [
+            "小明：「然后，躲到那边去……」",
+            "健：「那边是……床的下面？」"
+          ],
+          "context_after": [
+            "小明：「直到我说没问题了，才可以出来哦」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "sprite",
+      "name": "shuj_b_c",
+      "expected_path": "image/anime/shuj_b_c.basisu.ktx2",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 5935,
+          "label": "block_00164",
+          "context_before": [
+            "小明：「然后，躲到那边去……」",
+            "健：「那边是……床的下面？」"
+          ],
+          "context_after": [
+            "小明：「直到我说没问题了，才可以出来哦」"
+          ]
+        }
+      ],
+      "similar": [
+        {
+          "path": "image/anime/shuj_a_c.basisu.ktx2",
+          "name": "shuj_a_c",
+          "score": 0.522,
+          "match": "prefix"
+        }
+      ]
+    },
+    {
+      "type": "voice",
+      "name": "li/0snyuka_0125",
+      "expected_path": "audio/voice/li/0snyuka_0125.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 11783,
+          "label": "block_00536",
+          "context_before": [
+            "所以我老实回答到。",
+            "「大概……是吧」"
+          ],
+          "context_after": [
+            "「果然。我就知道」",
+            "「还有，我是说大概……那个人已经去世了吧？」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/0snyuka_0128",
+      "expected_path": "audio/voice/li/0snyuka_0128.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "narsumi03.vnscript.ron",
+          "line": 11937,
+          "label": "block_00547",
+          "context_before": [
+            "「那，那是……」",
+            "「是？」"
+          ],
+          "context_after": [
+            "面对这个问题我哽住了。",
+            "……难道想要让她变得和姬子一样吗？"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/aka_0409b",
+      "expected_path": "audio/voice/li/aka_0409b.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "narsumi08.vnscript.ron",
+          "line": 3963,
+          "label": "block_00171",
+          "context_before": [
+            "……究竟是什么驱动她来到这里的呢……",
+            "在一片黑暗之中，仅靠着手电筒的光亮前进着。"
+          ],
+          "context_after": [
+            "「嗯，好，哈——哈——……」",
+            "脚下陡峭的岩石很狭窄。洞穴顶也很低。不留神站起来的话都会撞到头。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0001",
+      "expected_path": "audio/voice/li/kanC_0001.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 3339,
+          "label": "block_00094",
+          "context_before": [
+            "……是吗这个人，是这样的人啊。",
+            "倒也没有感到惊讶。问题，才刚刚开始。"
+          ],
+          "context_after": []
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0002",
+      "expected_path": "audio/voice/li/kanC_0002.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 3451,
+          "label": "block_00096",
+          "context_before": [
+            "「之前提到的哪个？」"
+          ],
+          "context_after": []
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0003",
+      "expected_path": "audio/voice/li/kanC_0003.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 3606,
+          "label": "block_00100",
+          "context_before": [
+            "听到了“有名的……”，“父亲是……”之类的词。不时发出惊讶的声音。",
+            "「啊，真的吗？ 岂不很厉害，难道是 VIP ？」"
+          ],
+          "context_after": [
+            "「笨蛋，我又不是你」",
+            "大概，是在说父亲的事情吧。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0004",
+      "expected_path": "audio/voice/li/kanC_0004.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 3891,
+          "label": "block_00109",
+          "context_before": [
+            "「嗯，名字是……明？明（me i）酱呢」"
+          ],
+          "context_after": [
+            "说完之后二人就离开了。",
+            "看不见二人的身影后，我下了床，朝着正门入口走了过去。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0005",
+      "expected_path": "audio/voice/li/kanC_0005.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 5379,
+          "label": "block_00142",
+          "context_before": [
+            "吃过午饭，打了一下瞌睡。虽然听说白天睡觉是不行的，但还是没能战胜睡意。"
+          ],
+          "context_after": [
+            "「放着别管了。叫起来被找茬的话反而麻烦」",
+            "听到这个声音我醒了过来。但依然保持着闭眼的状态。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0006",
+      "expected_path": "audio/voice/li/kanC_0006.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 5435,
+          "label": "block_00146",
+          "context_before": [
+            "听到这个声音我醒了过来。但依然保持着闭眼的状态。",
+            "因为长久以来的经历让我学会了，只要睡着就不用面对那些讨厌的人。"
+          ],
+          "context_after": [
+            "「没事的啦。反正，来这里的孩子，全都是装病的」",
+            "「呀，这样说有点过了吧？」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0007",
+      "expected_path": "audio/voice/li/kanC_0007.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 5463,
+          "label": "block_00148",
+          "context_before": [
+            "「但是医生说，这样晚上会睡不着的……」",
+            "「没事的啦。反正，来这里的孩子，全都是装病的」"
+          ],
+          "context_after": [
+            "……装病？听到了这样的词语。",
+            "「你今年才刚来，还不知道吧」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0008",
+      "expected_path": "audio/voice/li/kanC_0008.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 5519,
+          "label": "block_00152",
+          "context_before": [
+            "「你今年才刚来，还不知道吧」",
+            "「2年前，这里建成的时候，住院体检是在5月的时候做的」\n（校对注：五月病）"
+          ],
+          "context_after": [
+            "「然后啊，从去年开始，改成暑假期间之后……」",
+            "「来看病的人，还不到以前的一半了」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0009",
+      "expected_path": "audio/voice/li/kanC_0009.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 5575,
+          "label": "block_00156",
+          "context_before": [
+            "「来看病的人，还不到以前的一半了」",
+            "「这种就是，懒病哟，懒病。想睡觉什么的，不想动的那种」"
+          ],
+          "context_after": [
+            "「啊哈哈，没有的没有的，都是小孩子在撒娇而已」",
+            "随着这样的笑声离开的二人。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0010",
+      "expected_path": "audio/voice/li/kanC_0010.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 7050,
+          "label": "block_00201",
+          "context_before": [
+            "听到了这个声音。这个声音听起来，应该是讨厌的野口护士她们吧。",
+            "「嘛，也好。省了不少功夫」"
+          ],
+          "context_after": [
+            "「真是，好想早点结束检验期啊」",
+            "「嗯，我也不喜欢这里的临床工作，净是些小孩子」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0011",
+      "expected_path": "audio/voice/li/kanC_0011.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 7078,
+          "label": "block_00203",
+          "context_before": [
+            "「果然，要让小孩子睡着，绘本应该是最合适的」",
+            "「真是，好想早点结束检验期啊」"
+          ],
+          "context_after": [
+            "大致，说了这些话之后就离开了的二人。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0012",
+      "expected_path": "audio/voice/li/kanC_0012.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 14550,
+          "label": "block_00358",
+          "context_before": [
+            "记得明明说是检查完就能回家来着，可为什么我还在这里。"
+          ],
+          "context_after": [
+            "「嗯……这不好判断啊…」",
+            "二人在说着什么，内容听不太明白。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0013",
+      "expected_path": "audio/voice/li/kanC_0013.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 18140,
+          "label": "block_00460",
+          "context_before": [
+            "「是啊，万一有问题你负责吗？」"
+          ],
+          "context_after": [
+            "「是啊，因为是“结婚辞职”就得意洋洋的」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0014",
+      "expected_path": "audio/voice/li/kanC_0014.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 24054,
+          "label": "block_00626",
+          "context_before": [
+            "听到的是，是平时的那些坏心眼的护士们的声音。",
+            "我闭着眼睛，竖起耳朵听着。我知道要是起来的话，反而会变得更麻烦。"
+          ],
+          "context_after": [
+            "「就因为她，夜班都有了，真当自己是谁啊」",
+            "「我来这也是倒大霉了，好想转去其他地方」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0015",
+      "expected_path": "audio/voice/li/kanC_0015.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 24082,
+          "label": "block_00628",
+          "context_before": [
+            "「真的是，麻烦死了，就为了这一个小孩」",
+            "「就因为她，夜班都有了，真当自己是谁啊」"
+          ],
+          "context_after": [
+            "看起来，二人正在发着牢骚。不知道具体是在说什么。",
+            "但是，是在针对我的牢骚这件事还是懂的。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0016",
+      "expected_path": "audio/voice/li/kanC_0016.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 24124,
+          "label": "block_00631",
+          "context_before": [
+            "看起来，二人正在发着牢骚。不知道具体是在说什么。",
+            "但是，是在针对我的牢骚这件事还是懂的。"
+          ],
+          "context_after": [
+            "「哼哼，没事，我正好想到了个好办法」",
+            "……好办法？那是什么呢？"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0017",
+      "expected_path": "audio/voice/li/kanC_0017.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 25082,
+          "label": "block_00668",
+          "context_before": [
+            "「真是，很能睡呢……」",
+            "闭着眼睛听到的声音，当然，并没有真的在睡觉。"
+          ],
+          "context_after": [
+            "「怎么可能去得了啊，还有这玩意儿在」",
+            "「我说……说是这玩意儿实在有点过了吧」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0018",
+      "expected_path": "audio/voice/li/kanC_0018.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 25110,
+          "label": "block_00670",
+          "context_before": [
+            "「对了，野口，今晚的聚会怎么办？」",
+            "「怎么可能去得了啊，还有这玩意儿在」"
+          ],
+          "context_after": [
+            "「就算是那样也想要说，已经住院多少个月了？」",
+            "「话说，我都2周没见到他了」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0019",
+      "expected_path": "audio/voice/li/kanC_0019.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 25152,
+          "label": "block_00673",
+          "context_before": [
+            "「就算是那样也想要说，已经住院多少个月了？」",
+            "「话说，我都2周没见到他了」"
+          ],
+          "context_after": [
+            "「是吧……工资也涨了，说到入院的患者，也只有这个人」",
+            "「总觉得啊，某种意义上来说，也许一直这样也不错呢」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0020",
+      "expected_path": "audio/voice/li/kanC_0020.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 25180,
+          "label": "block_00675",
+          "context_before": [
+            "「不过，还没有辞职的意愿吧？」",
+            "「是吧……工资也涨了，说到入院的患者，也只有这个人」"
+          ],
+          "context_after": [
+            "「啊哈哈，您也会说过分的话呢」",
+            "伴随着这样的笑离开了的两人。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0021",
+      "expected_path": "audio/voice/li/kanC_0021.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり4.vnscript.ron",
+          "line": 25633,
+          "label": "block_00686",
+          "context_before": [
+            "灼热的阳光与蝉声。回过神来，好像夏天又要到来了。",
+            "「暑假啊……又会因为体检住院，有很多孩子要来了……」"
+          ],
+          "context_after": [
+            "这样有一搭没一搭地，走出房间的两人。",
+            "「是啊……已经到这个季节了啊……」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0022",
+      "expected_path": "audio/voice/li/kanC_0022.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 739,
+          "label": "block_00024",
+          "context_before": [
+            "我一边这么想着，一边漫无目的地走着……"
+          ],
+          "context_after": [
+            "在一个正好能看到电梯的地方，我被一个护士叫住了。",
+            "健：「为什么？」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0023",
+      "expected_path": "audio/voice/li/kanC_0023.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 781,
+          "label": "block_00027",
+          "context_before": [
+            "在一个正好能看到电梯的地方，我被一个护士叫住了。",
+            "健：「为什么？」"
+          ],
+          "context_after": [
+            "虽然没告诉我是什么理由，我还是老老实实地按她说的，回到了自己的病房。",
+            "那天晚上。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0024",
+      "expected_path": "audio/voice/li/kanC_0024.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 9208,
+          "label": "block_00233",
+          "context_before": [
+            "转到了我的房间的小健。",
+            "虽然在此之前，在这里的只有我一个人，\n但是拜托了一下大夫之后，简单的就得到了应允。"
+          ],
+          "context_after": [
+            "「睡不着的时候，就读读书。知道吗？」",
+            "说着，给了小健几本绘本。这里的书我已经都看过了。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0025",
+      "expected_path": "audio/voice/li/kanC_0025.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 10371,
+          "label": "block_00260",
+          "context_before": [
+            "小明：「不行的，对手可是大人」"
+          ],
+          "context_after": [
+            "不出所料，已经被发现了。毕竟就这么在大门口附近，也是当然的。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0026",
+      "expected_path": "audio/voice/li/kanC_0026.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 21469,
+          "label": "block_00613",
+          "context_before": [
+            "－离暑假结束只剩几天的一天。",
+            "护士来到我们跟前，通知了小健。"
+          ],
+          "context_after": [
+            "健：「欸……」",
+            "「太好了呢」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0027",
+      "expected_path": "audio/voice/li/kanC_0027.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり5.vnscript.ron",
+          "line": 21497,
+          "label": "block_00615",
+          "context_before": [
+            "「看样子，好像马上就出院了哦」",
+            "健：「欸……」"
+          ],
+          "context_after": [
+            "健：「……………」",
+            "就那样，看起来很寂寞的小健。我也是同样的心情。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0028",
+      "expected_path": "audio/voice/li/kanC_0028.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 1339,
+          "label": "block_00049",
+          "context_before": [
+            "我也不会去干涉任何人。跟任何人扯上关系。",
+            "小明：「只活在……这个闭上了眼的世界里……」"
+          ],
+          "context_after": [
+            "「是啊，没想到居然会自杀呢，而且还是从这里跳下去」",
+            "「看起来，是准备带这孩子一起去，没成功的样子啊」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0029",
+      "expected_path": "audio/voice/li/kanC_0029.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 1406,
+          "label": "block_00051",
+          "context_before": [
+            "「但是啊，真是吓了一跳啊」",
+            "「是啊，没想到居然会自杀呢，而且还是从这里跳下去」"
+          ],
+          "context_after": [
+            "「哼，有其父必有其子嘛」",
+            "「明明一起死了就好了，那个都很刻薄」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0030",
+      "expected_path": "audio/voice/li/kanC_0030.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 1462,
+          "label": "block_00055",
+          "context_before": [
+            "「明明一起死了就好了，那个都很刻薄」",
+            "……烦死了……闭嘴，坏心眼魔女。"
+          ],
+          "context_after": [
+            "「没什么，还是至今为止那样呗，有钱人家就是不一样」",
+            "「嚯，太好了，毕竟也没有这么轻松的地方了」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0031",
+      "expected_path": "audio/voice/li/kanC_0031.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 1490,
+          "label": "block_00057",
+          "context_before": [
+            "「话说回来，这孩子，之后怎么办？」",
+            "「没什么，还是至今为止那样呗，有钱人家就是不一样」"
+          ],
+          "context_after": [
+            "两个人的身影消失之后，我缓缓起了身。",
+            "虽然想这样继续永远睡下去……"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0033",
+      "expected_path": "audio/voice/li/kanC_0033.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 6041,
+          "label": "block_00186",
+          "context_before": [
+            "……就算醒着也只是在装睡的话，真的就这么睡着了也没差。",
+            "……生活在闭上了眼的世界里的话，都是一回事……"
+          ],
+          "context_after": [
+            "「本来就不是亲生母亲吧？老公死了当然要离啦」",
+            "「就说啊。似乎是名门来的，说不定是被赶出去了吧」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0034",
+      "expected_path": "audio/voice/li/kanC_0034.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 6069,
+          "label": "block_00188",
+          "context_before": [
+            "「呐听说了吗，这孩子的妈妈好像离婚了呢」",
+            "「本来就不是亲生母亲吧？老公死了当然要离啦」"
+          ],
+          "context_after": [
+            "「呵，就算是有钱人家的孩子，这个状态也没有任何意义呢」",
+            "一边睡着，一边听着。也没有特意想去听，就这么听到了。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0035",
+      "expected_path": "audio/voice/li/kanC_0035.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 6287,
+          "label": "block_00198",
+          "context_before": [
+            "但是，每到这个季节，总会想到各种各样的事。",
+            "「这孩子，准备在这里待到什么时候啊……」"
+          ],
+          "context_after": [
+            "「是吗？ 那为什么还在这里？」",
+            "「嗯，谁知道呢……」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0036",
+      "expected_path": "audio/voice/li/kanC_0036.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 6315,
+          "label": "block_00200",
+          "context_before": [
+            "「好像大夫他，已经给出出院许可了呢」",
+            "「是吗？ 那为什么还在这里？」"
+          ],
+          "context_after": [
+            "两个人走后，我缓缓地起了身。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0037",
+      "expected_path": "audio/voice/li/kanC_0037.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 7155,
+          "label": "block_00221",
+          "context_before": [
+            "已经变得连自己也不知道究竟睡没睡着了。一直迷迷糊糊的。",
+            "这样的某天，突然，听到了一段引人注意的对话。"
+          ],
+          "context_after": [
+            "「还有一个？ 这里一直就她一个啦」",
+            "「你看，就是很早之前那个，暑假期间待在这里的……」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0038",
+      "expected_path": "audio/voice/li/kanC_0038.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 7183,
+          "label": "block_00223",
+          "context_before": [
+            "「说起来，这里以前还有一个孩子来着，还记得吗？」",
+            "「还有一个？ 这里一直就她一个啦」"
+          ],
+          "context_after": [
+            "「啊，说起来，好像还有过一个小男孩来着」",
+            "……是那时的他的事情。下意识地，竖起耳朵听了起来。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0039",
+      "expected_path": "audio/voice/li/kanC_0039.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 7225,
+          "label": "block_00226",
+          "context_before": [
+            "「啊，说起来，好像还有过一个小男孩来着」",
+            "……是那时的他的事情。下意识地，竖起耳朵听了起来。"
+          ],
+          "context_after": [
+            "「嘿~，很精神吧」",
+            "「不是啦，听说非常的阴沉，预备学校也不怎么认真」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanC_0040",
+      "expected_path": "audio/voice/li/kanC_0040.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり6.vnscript.ron",
+          "line": 7253,
+          "label": "block_00228",
+          "context_before": [
+            "「在我表妹上的预备学校里，偶然发现了呢」",
+            "「嘿~，很精神吧」"
+          ],
+          "context_after": [
+            "「这样啊，真是说变就变啊……」",
+            "两个人离开后，我慢慢的起了身。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0001",
+      "expected_path": "audio/voice/li/kanD_0001.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 5216,
+          "label": "block_00145",
+          "context_before": [
+            "「嘛，眼下就装作失忆或者太累了好了……」"
+          ],
+          "context_after": [
+            "突然，不认识的女性向我搭话。当然我是不认识的，应该是个什么熟人吧。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0002",
+      "expected_path": "audio/voice/li/kanD_0002.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 5318,
+          "label": "block_00148",
+          "context_before": [
+            "「欸，啊……那个……」"
+          ],
+          "context_after": [
+            "「不好意思。感觉身体不太舒服的样子……」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0003",
+      "expected_path": "audio/voice/li/kanD_0003.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 5406,
+          "label": "block_00150",
+          "context_before": [
+            "「不好意思。感觉身体不太舒服的样子……」"
+          ],
+          "context_after": [
+            "「现在就这样糊弄过去……」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0004",
+      "expected_path": "audio/voice/li/kanD_0004.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 6823,
+          "label": "block_00187",
+          "context_before": [
+            "「……这里是？」",
+            "我不自觉的说出了这句话。不，正确来说不是我，而是这个身体本人说的。"
+          ],
+          "context_after": [
+            "「你好像是……武藤小姐？」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0005",
+      "expected_path": "audio/voice/li/kanD_0005.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 6911,
+          "label": "block_00189",
+          "context_before": [
+            "「你好像是……武藤小姐？」"
+          ],
+          "context_after": [
+            "我说着与自己的意识完全没关系的话。简直如同在梦中一般，旁观着2人的对话。",
+            "……难道说是，本体的意识在觉醒了吗？"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0006",
+      "expected_path": "audio/voice/li/kanD_0006.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 7027,
+          "label": "block_00193",
+          "context_before": [
+            "……难道说是，本体的意识在觉醒了吗？",
+            "我用力甩了甩头，将睡意赶走。不这样做的话就好像自己的意识要消失了。"
+          ],
+          "context_after": [
+            "「不好意思，没什么……请别在意」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/kanD_0007",
+      "expected_path": "audio/voice/li/kanD_0007.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "@あかり3.vnscript.ron",
+          "line": 7294,
+          "label": "block_00199",
+          "context_before": [
+            "我向眼前的正门玄关跑去。"
+          ],
+          "context_after": [
+            "无视她的声音，跑到了外面的路上。",
+            "然后经过了2个红绿灯，刚跑进了眼前的公园……"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/mom_a012",
+      "expected_path": "audio/voice/li/mom_a012.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar1_02.vnscript.ron",
+          "line": 737,
+          "label": "block_00025",
+          "context_before": [
+            "嗒嗒嗒，"
+          ],
+          "context_after": [
+            "此时闻声走过来的，是一位不认识的阿姨。",
+            "大概她就是濑津美的母亲吧。\n她也对坐在旁边的我轻轻地点了点头以示问候。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/mom_a022",
+      "expected_path": "audio/voice/li/mom_a022.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar1_02.vnscript.ron",
+          "line": 797,
+          "label": "block_00028",
+          "context_before": [
+            "此时闻声走过来的，是一位不认识的阿姨。",
+            "大概她就是濑津美的母亲吧。\n她也对坐在旁边的我轻轻地点了点头以示问候。"
+          ],
+          "context_after": [
+            "「…嗯。」",
+            "「那么，我们就告辞了。」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/mom_a032",
+      "expected_path": "audio/voice/li/mom_a032.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar1_02.vnscript.ron",
+          "line": 837,
+          "label": "block_00030",
+          "context_before": [
+            "「那、我们走吧，准备好了吗？」",
+            "「…嗯。」"
+          ],
+          "context_after": [
+            "她的母亲再次向我点头表示告辞，转过身去准备离开这里。",
+            "但是，当她向女儿伸出手时…"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/mom_a042",
+      "expected_path": "audio/voice/li/mom_a042.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar1_02.vnscript.ron",
+          "line": 957,
+          "label": "block_00036",
+          "context_before": [
+            "…她却依然纹丝不动。",
+            "尽管母亲拉住了她的手，\n但不知为何她却完全没有从折叠椅上站起来的意思。"
+          ],
+          "context_after": [
+            "「我有些…难受…」",
+            "「哎？是哪里难受？　是胸口？还是肚子？」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/mom_a052",
+      "expected_path": "audio/voice/li/mom_a052.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar1_02.vnscript.ron",
+          "line": 997,
+          "label": "block_00038",
+          "context_before": [
+            "「怎么了，濑津美？」",
+            "「我有些…难受…」"
+          ],
+          "context_after": [
+            "「…胸口…」",
+            "「坚、坚持一下，我这就叫医生来」"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/mom_a062",
+      "expected_path": "audio/voice/li/mom_a062.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar1_02.vnscript.ron",
+          "line": 1037,
+          "label": "block_00040",
+          "context_before": [
+            "「哎？是哪里难受？　是胸口？还是肚子？」",
+            "「…胸口…」"
+          ],
+          "context_after": [
+            "嗒嗒嗒，",
+            "这位母亲穿着来客用的拖鞋带着慌张脚步声，向护士站跑去。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/npetcm36_010",
+      "expected_path": "audio/voice/li/npetcm36_010.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar3_04.vnscript.ron",
+          "line": 5744,
+          "label": "block_00279",
+          "context_before": [
+            "「你们难道是为了这家伙来的吗？」",
+            "指着旁边的公主殿下说道。"
+          ],
+          "context_after": [
+            "说着，和我们对峙着的敌人把手放在剑上。",
+            "看来对方也不是突然就砍过来的傻瓜。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/npetcm36_011",
+      "expected_path": "audio/voice/li/npetcm36_011.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar3_04.vnscript.ron",
+          "line": 5881,
+          "label": "block_00286",
+          "context_before": [
+            "我从皮包里，拿出了1枚金币。是枚罕见的罗马金币。",
+            "「就这样，拿钱离开好吗？」"
+          ],
+          "context_after": [
+            "「对，不信的话也可以拿去看」",
+            "说着，把金币投到他们的脚下。"
+          ]
+        }
+      ],
+      "similar": []
+    },
+    {
+      "type": "voice",
+      "name": "li/npetcm36_012",
+      "expected_path": "audio/voice/li/npetcm36_012.ogg",
+      "reference_count": 1,
+      "references": [
+        {
+          "script": "nar3_04.vnscript.ron",
+          "line": 5923,
+          "label": "block_00289",
+          "context_before": [
+            "「对，不信的话也可以拿去看」",
+            "说着，把金币投到他们的脚下。"
+          ],
+          "context_after": [
+            "面对脚下的金币，佣兵们不禁你眼看我眼。",
+            "看样子，收买他们是有可能的。"
+          ]
+        }
+      ],
+      "similar": []
+    }
+  ]
+}
