@@ -364,15 +364,15 @@ fn spawn_page1(parent: &mut ChildSpawnerCommands, server: &AssetServer, s: &Game
             spawn_reset(p, server, SliderKind::MwAlpha, 720.0, 342.0);
             spawn_reset(p, server, SliderKind::Aspeed, 835.0, 342.0);
 
-            spawn_group_toggle(p, server, ToggleKind::Effect, 1, 175.0, 186.0, s.effect);
-            spawn_group_toggle(p, server, ToggleKind::Effect, 0, 380.0, 185.0, s.effect);
-            spawn_group_toggle(p, server, ToggleKind::Messkip, 0, 175.0, 258.0, s.messkip);
-            spawn_group_toggle(p, server, ToggleKind::Messkip, 1, 380.0, 258.0, s.messkip);
-            spawn_group_toggle(p, server, ToggleKind::Rclick, 0, 175.0, 332.0, s.rclick);
-            spawn_group_toggle(p, server, ToggleKind::Rclick, 1, 266.0, 332.0, s.rclick);
-            spawn_group_toggle(p, server, ToggleKind::Rclick, 2, 360.0, 332.0, s.rclick);
+            spawn_circle_toggle(p, server, ToggleKind::Effect, 1, s.effect == 1, 175.0, 186.0, Z_CTRL);
+            spawn_circle_toggle(p, server, ToggleKind::Effect, 0, s.effect == 0, 380.0, 185.0, Z_CTRL);
+            spawn_circle_toggle(p, server, ToggleKind::Messkip, 0, s.messkip == 0, 175.0, 258.0, Z_CTRL);
+            spawn_circle_toggle(p, server, ToggleKind::Messkip, 1, s.messkip == 1, 380.0, 258.0, Z_CTRL);
+            spawn_circle_toggle(p, server, ToggleKind::Rclick, 0, s.rclick == 0, 175.0, 332.0, Z_CTRL);
+            spawn_circle_toggle(p, server, ToggleKind::Rclick, 1, s.rclick == 1, 266.0, 332.0, Z_CTRL);
+            spawn_circle_toggle(p, server, ToggleKind::Rclick, 2, s.rclick == 2, 360.0, 332.0, Z_CTRL);
 
-            spawn_bool_toggle(p, server, ToggleKind::FlMspeed, s.fl_mspeed, 332.0, 458.0);
+            spawn_circle_toggle(p, server, ToggleKind::FlMspeed, s.fl_mspeed as i32, s.fl_mspeed, 332.0, 458.0, Z_CTRL);
             spawn_circle_button(p, server, NavTarget::SubOpen, 152.0, 458.0);
         });
 }
@@ -433,7 +433,7 @@ fn spawn_page2(parent: &mut ChildSpawnerCommands, server: &AssetServer, s: &Game
             let vols = [s.c001, s.c002, s.c003, s.c004, s.c005, s.man, s.fem];
             let fons = [s.fl_c001, s.fl_c002, s.fl_c003, s.fl_c004, s.fl_c005, s.fl_man, s.fl_fem];
             for i in 0..7 {
-                spawn_char_toggle(p, server, i as u8, fons[i], 660.0, char_y[i]);
+                spawn_circle_toggle(p, server, ToggleKind::FlChar(i as u8), fons[i] as i32, fons[i], 660.0, char_y[i], Z_CTRL);
                 spawn_vo_slider(p, server, i as u8, vols[i], 743.0, vo_y[i]);
             }
         });
@@ -441,7 +441,6 @@ fn spawn_page2(parent: &mut ChildSpawnerCommands, server: &AssetServer, s: &Game
 
 fn spawn_sub_screen(parent: &mut ChildSpawnerCommands, server: &AssetServer, s: &GameSettings) {
     let bg = server.load::<Image>(SUBBG_PATH);
-    let circle = server.load::<Image>(CIRCLE_PATH);
     parent
         .spawn((SubScreenRoot, Node::default()))
         .with_children(|p| {
@@ -457,8 +456,8 @@ fn spawn_sub_screen(parent: &mut ChildSpawnerCommands, server: &AssetServer, s: 
                 },
                 ZIndex(Z_SUB),
             ));
-            spawn_circle_bool(p, &circle, ToggleKind::Shadow, s.shadow, 510.0, 285.0, Z_SUB + 1);
-            spawn_circle_bool(p, &circle, ToggleKind::Outline, s.outline, 510.0, 365.0, Z_SUB + 1);
+            spawn_circle_toggle(p, server, ToggleKind::Shadow, s.shadow as i32, s.shadow, 510.0, 285.0, Z_SUB + 1);
+            spawn_circle_toggle(p, server, ToggleKind::Outline, s.outline as i32, s.outline, 510.0, 365.0, Z_SUB + 1);
             p.spawn((
                 ImageNode {
                     image: server.load::<Image>(TAB_PATH),
@@ -665,18 +664,21 @@ fn spawn_reset(parent: &mut ChildSpawnerCommands, server: &AssetServer, kind: Sl
     ));
 }
 
-fn spawn_group_toggle(
+/// Unified circle-toggle builder (button-circle.png). `selected` picks the
+/// yellow frame (x=20..40); group toggles pass `current == value`, bool
+/// toggles pass the bool directly.
+fn spawn_circle_toggle(
     parent: &mut ChildSpawnerCommands,
     server: &AssetServer,
     kind: ToggleKind,
     value: i32,
+    selected: bool,
     x: f32,
     y: f32,
-    current: i32,
+    z: i32,
 ) {
     let circle = server.load::<Image>(CIRCLE_PATH);
-    // button-circle.png: horizontal 20px frames, selected = yellow (x=20..40).
-    let cx = if current == value { 20.0 } else { 0.0 };
+    let cx = if selected { 20.0 } else { 0.0 };
     parent.spawn((
         Button,
         ToggleSetting { kind, value },
@@ -693,37 +695,7 @@ fn spawn_group_toggle(
             height: Val::Px(20.0),
             ..default()
         },
-        ZIndex(Z_CTRL),
-    ));
-}
-
-fn spawn_bool_toggle(
-    parent: &mut ChildSpawnerCommands,
-    server: &AssetServer,
-    kind: ToggleKind,
-    on: bool,
-    x: f32,
-    y: f32,
-) {
-    let circle = server.load::<Image>(CIRCLE_PATH);
-    let cx = if on { 20.0 } else { 0.0 };
-    parent.spawn((
-        Button,
-        ToggleSetting { kind, value: if on { 1 } else { 0 } },
-        ImageNode {
-            image: circle.clone(),
-            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
-            ..default()
-        },
-        Node {
-            position_type: PositionType::Absolute,
-            left: Val::Px(x),
-            top: Val::Px(y),
-            width: Val::Px(20.0),
-            height: Val::Px(20.0),
-            ..default()
-        },
-        ZIndex(Z_CTRL),
+        ZIndex(z),
     ));
 }
 
@@ -746,36 +718,6 @@ fn spawn_circle_button(parent: &mut ChildSpawnerCommands, server: &AssetServer, 
             ..default()
         },
         ZIndex(Z_CTRL),
-    ));
-}
-
-fn spawn_circle_bool(
-    parent: &mut ChildSpawnerCommands,
-    circle: &Handle<Image>,
-    kind: ToggleKind,
-    on: bool,
-    x: f32,
-    y: f32,
-    z: i32,
-) {
-    let cx = if on { 20.0 } else { 0.0 };
-    parent.spawn((
-        Button,
-        ToggleSetting { kind, value: if on { 1 } else { 0 } },
-        ImageNode {
-            image: circle.clone(),
-            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
-            ..default()
-        },
-        Node {
-            position_type: PositionType::Absolute,
-            left: Val::Px(x),
-            top: Val::Px(y),
-            width: Val::Px(20.0),
-            height: Val::Px(20.0),
-            ..default()
-        },
-        ZIndex(z),
     ));
 }
 
@@ -806,29 +748,6 @@ fn spawn_check_label(
             top: Val::Px(y),
             width: Val::Px(w),
             height: Val::Px(15.0),
-            ..default()
-        },
-        ZIndex(Z_CTRL),
-    ));
-}
-
-fn spawn_char_toggle(parent: &mut ChildSpawnerCommands, server: &AssetServer, idx: u8, on: bool, x: f32, y: f32) {
-    let circle = server.load::<Image>(CIRCLE_PATH);
-    let cx = if on { 20.0 } else { 0.0 };
-    parent.spawn((
-        Button,
-        ToggleSetting { kind: ToggleKind::FlChar(idx), value: if on { 1 } else { 0 } },
-        ImageNode {
-            image: circle.clone(),
-            rect: Some(Rect::new(cx, 0.0, cx + 20.0, 20.0)),
-            ..default()
-        },
-        Node {
-            position_type: PositionType::Absolute,
-            left: Val::Px(x),
-            top: Val::Px(y),
-            width: Val::Px(20.0),
-            height: Val::Px(20.0),
             ..default()
         },
         ZIndex(Z_CTRL),
@@ -949,61 +868,103 @@ fn handle_value_clicks(
     }
 }
 
-fn set_slider_value(s: &mut GameSettings, kind: SliderKind, val: f32) -> bool {
-    let v = val.round();
-    match kind {
-        SliderKind::MwAlpha if s.mw_alpha != v => { s.mw_alpha = v; true }
-        SliderKind::Aspeed if s.aspeed != v => { s.aspeed = v; true }
-        SliderKind::Mspeed if s.mspeed != v => { s.mspeed = v; true }
-        SliderKind::Master if s.master != v => { s.master = v; true }
-        SliderKind::Bgm if s.bgm != v => { s.bgm = v; true }
-        SliderKind::Bgmvo if s.bgmvo != v => { s.bgmvo = v; true }
-        SliderKind::Voice if s.voice != v => { s.voice = v; true }
-        SliderKind::Se if s.se != v => { s.se = v; true }
-        SliderKind::Sysse if s.sysse != v => { s.sysse = v; true }
-        SliderKind::Movie if s.movie != v => { s.movie = v; true }
-        SliderKind::VoChar(1) if s.c001 != v => { s.c001 = v; true }
-        SliderKind::VoChar(2) if s.c002 != v => { s.c002 = v; true }
-        SliderKind::VoChar(3) if s.c003 != v => { s.c003 = v; true }
-        SliderKind::VoChar(4) if s.c004 != v => { s.c004 = v; true }
-        SliderKind::VoChar(5) if s.c005 != v => { s.c005 = v; true }
-        SliderKind::VoChar(6) if s.man != v => { s.man = v; true }
-        SliderKind::VoChar(_) if s.fem != v => { s.fem = v; true }
-        _ => false,
-    }
+/// One-table definition of every settings field, generating the four
+/// settings accessors below so a new option needs exactly one row.
+macro_rules! settings_fields {
+    (
+        sliders: { $($s_var:ident => $s_field:ident),* $(,)? }
+        slider_chars: { $($s_idx:literal => $s_cfield:ident),* $(,)? }
+        slider_char_rest: $s_fb:pat => $s_ffield:ident $(,)?
+        toggles_int: { $($t_var:ident => $t_field:ident),* $(,)? }
+        toggles_bool: { $($b_var:ident => $b_field:ident),* $(,)? }
+        toggle_chars: { $($c_idx:literal => $c_field:ident),* $(,)? }
+        toggle_char_rest: $c_fb:pat => $c_ffield:ident $(,)?
+    ) => {
+        fn set_slider_value(s: &mut GameSettings, kind: SliderKind, val: f32) -> bool {
+            let v = val.round();
+            match kind {
+                $(SliderKind::$s_var if s.$s_field != v => { s.$s_field = v; true })*
+                $(SliderKind::VoChar($s_idx) if s.$s_cfield != v => { s.$s_cfield = v; true })*
+                SliderKind::VoChar($s_fb) if s.$s_ffield != v => { s.$s_ffield = v; true }
+                _ => false,
+            }
+        }
+
+        fn slider_value(s: &GameSettings, kind: SliderKind) -> f32 {
+            match kind {
+                $(SliderKind::$s_var => s.$s_field,)*
+                $(SliderKind::VoChar($s_idx) => s.$s_cfield,)*
+                SliderKind::VoChar($s_fb) => s.$s_ffield,
+            }
+        }
+
+        fn apply_toggle(s: &mut GameSettings, kind: ToggleKind, value: i32) -> bool {
+            let b = value != 0;
+            match kind {
+                $(ToggleKind::$t_var if s.$t_field != value => { s.$t_field = value; true })*
+                $(ToggleKind::$b_var if s.$b_field != b => { s.$b_field = b; true })*
+                $(ToggleKind::FlChar($c_idx) if s.$c_field != b => { s.$c_field = b; true })*
+                ToggleKind::FlChar($c_fb) if s.$c_ffield != b => { s.$c_ffield = b; true }
+                ToggleKind::Reset(k) => {
+                    let before = slider_value(s, k);
+                    let _ = set_slider_value(s, k, 100.0);
+                    slider_value(s, k) != before
+                }
+                _ => false,
+            }
+        }
+
+        fn toggle_value(s: &GameSettings, kind: ToggleKind) -> bool {
+            match kind {
+                $(ToggleKind::$t_var => s.$t_field != 0,)*
+                $(ToggleKind::$b_var => s.$b_field,)*
+                $(ToggleKind::FlChar($c_idx) => s.$c_field,)*
+                ToggleKind::FlChar($c_fb) => s.$c_ffield,
+                ToggleKind::Reset(_) => false,
+            }
+        }
+    };
 }
 
-fn apply_toggle(s: &mut GameSettings, kind: ToggleKind, value: i32) -> bool {
-    let b = value != 0;
-    match kind {
-        ToggleKind::Effect if s.effect != value => { s.effect = value; true }
-        ToggleKind::Messkip if s.messkip != value => { s.messkip = value; true }
-        ToggleKind::Rclick if s.rclick != value => { s.rclick = value; true }
-        ToggleKind::FlMspeed if s.fl_mspeed != b => { s.fl_mspeed = b; true }
-        ToggleKind::FlMaster if s.fl_master != b => { s.fl_master = b; true }
-        ToggleKind::FlBgm if s.fl_bgm != b => { s.fl_bgm = b; true }
-        ToggleKind::FlBgmvo if s.fl_bgmvo != b => { s.fl_bgmvo = b; true }
-        ToggleKind::FlVoice if s.fl_voice != b => { s.fl_voice = b; true }
-        ToggleKind::FlSe if s.fl_se != b => { s.fl_se = b; true }
-        ToggleKind::FlSysse if s.fl_sysse != b => { s.fl_sysse = b; true }
-        ToggleKind::FlMovie if s.fl_movie != b => { s.fl_movie = b; true }
-        ToggleKind::Voiceskip if s.voiceskip != b => { s.voiceskip = b; true }
-        ToggleKind::Shadow if s.shadow != b => { s.shadow = b; true }
-        ToggleKind::Outline if s.outline != b => { s.outline = b; true }
-        ToggleKind::FlChar(1) if s.fl_c001 != b => { s.fl_c001 = b; true }
-        ToggleKind::FlChar(2) if s.fl_c002 != b => { s.fl_c002 = b; true }
-        ToggleKind::FlChar(3) if s.fl_c003 != b => { s.fl_c003 = b; true }
-        ToggleKind::FlChar(4) if s.fl_c004 != b => { s.fl_c004 = b; true }
-        ToggleKind::FlChar(5) if s.fl_c005 != b => { s.fl_c005 = b; true }
-        ToggleKind::FlChar(6) if s.fl_man != b => { s.fl_man = b; true }
-        ToggleKind::FlChar(_) if s.fl_fem != b => { s.fl_fem = b; true }
-        ToggleKind::Reset(k) => {
-            let before = slider_value(s, k);
-            let _ = set_slider_value(s, k, 100.0);
-            slider_value(s, k) != before
-        }
-        _ => false,
+settings_fields! {
+    sliders: {
+        MwAlpha => mw_alpha,
+        Aspeed => aspeed,
+        Mspeed => mspeed,
+        Master => master,
+        Bgm => bgm,
+        Bgmvo => bgmvo,
+        Voice => voice,
+        Se => se,
+        Sysse => sysse,
+        Movie => movie,
     }
+    slider_chars: {
+        1 => c001, 2 => c002, 3 => c003, 4 => c004, 5 => c005, 6 => man,
+    }
+    slider_char_rest: _ => fem,
+    toggles_int: {
+        Effect => effect,
+        Messkip => messkip,
+        Rclick => rclick,
+    }
+    toggles_bool: {
+        FlMspeed => fl_mspeed,
+        FlMaster => fl_master,
+        FlBgm => fl_bgm,
+        FlBgmvo => fl_bgmvo,
+        FlVoice => fl_voice,
+        FlSe => fl_se,
+        FlSysse => fl_sysse,
+        FlMovie => fl_movie,
+        Voiceskip => voiceskip,
+        Shadow => shadow,
+        Outline => outline,
+    }
+    toggle_chars: {
+        1 => fl_c001, 2 => fl_c002, 3 => fl_c003, 4 => fl_c004, 5 => fl_c005, 6 => fl_man,
+    }
+    toggle_char_rest: _ => fl_fem,
 }
 
 fn sync_to_engine(
@@ -1092,54 +1053,7 @@ fn update_toggle_visuals(
     }
 }
 
-fn slider_value(s: &GameSettings, kind: SliderKind) -> f32 {
-    match kind {
-        SliderKind::MwAlpha => s.mw_alpha,
-        SliderKind::Aspeed => s.aspeed,
-        SliderKind::Mspeed => s.mspeed,
-        SliderKind::Master => s.master,
-        SliderKind::Bgm => s.bgm,
-        SliderKind::Bgmvo => s.bgmvo,
-        SliderKind::Voice => s.voice,
-        SliderKind::Se => s.se,
-        SliderKind::Sysse => s.sysse,
-        SliderKind::Movie => s.movie,
-        SliderKind::VoChar(1) => s.c001,
-        SliderKind::VoChar(2) => s.c002,
-        SliderKind::VoChar(3) => s.c003,
-        SliderKind::VoChar(4) => s.c004,
-        SliderKind::VoChar(5) => s.c005,
-        SliderKind::VoChar(6) => s.man,
-        SliderKind::VoChar(_) => s.fem,
-    }
-}
-
-fn toggle_value(s: &GameSettings, kind: ToggleKind) -> bool {
-    match kind {
-        ToggleKind::Effect => s.effect != 0,
-        ToggleKind::Messkip => s.messkip != 0,
-        ToggleKind::Rclick => s.rclick != 0,
-        ToggleKind::FlMspeed => s.fl_mspeed,
-        ToggleKind::FlMaster => s.fl_master,
-        ToggleKind::FlBgm => s.fl_bgm,
-        ToggleKind::FlBgmvo => s.fl_bgmvo,
-        ToggleKind::FlVoice => s.fl_voice,
-        ToggleKind::FlSe => s.fl_se,
-        ToggleKind::FlSysse => s.fl_sysse,
-        ToggleKind::FlMovie => s.fl_movie,
-        ToggleKind::Voiceskip => s.voiceskip,
-        ToggleKind::Shadow => s.shadow,
-        ToggleKind::Outline => s.outline,
-        ToggleKind::FlChar(1) => s.fl_c001,
-        ToggleKind::FlChar(2) => s.fl_c002,
-        ToggleKind::FlChar(3) => s.fl_c003,
-        ToggleKind::FlChar(4) => s.fl_c004,
-        ToggleKind::FlChar(5) => s.fl_c005,
-        ToggleKind::FlChar(6) => s.fl_man,
-        ToggleKind::FlChar(_) => s.fl_fem,
-        ToggleKind::Reset(_) => false,
-    }
-}
+// slider_value / toggle_value are generated by settings_fields! above.
 
 fn teardown_settings(
     mut commands: Commands,
