@@ -23,6 +23,12 @@ fn handle_sprite_spawn(
 ) {
     for event in reader.read() {
         for (e, m) in q_existing.iter() { if m.id == event.id { commands.entity(e).despawn(); } }
+        // "nobaby" 是 artemis 原版引擎的"清除立绘图层"哨兵值(原版脚本中紧随
+        // "立绘代码-消失"注释、path=":fg/"),并非真实资源。仅清除同 id 立绘,
+        // 不再加载不存在的 image/anime/nobaby.basisu.ktx2。
+        if event.image == "nobaby" {
+            continue;
+        }
         let path = AssetPathProvider::resolve(provider.as_deref(), |p| p.sprite(&event.image));
         let handle = asset_server.load::<Image>(&path);
         let z = event.z.unwrap_or(5);
