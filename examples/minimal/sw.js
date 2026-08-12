@@ -163,6 +163,13 @@ function ensureInit() {
         pathToIndex.set(urlForPath(f.path), i);
       });
       await persistNow();
+
+      // 有未缓存项 → 自动恢复预取(断点续传):
+      // SW 可能在上次预取中途被浏览器杀死,位图持久化记录了进度,
+      // 下次唤醒时从断点继续,无需页面重新发 START_PREFETCH。
+      if (doneCount < manifest.count) {
+        startPrefetch();
+      }
     }
     return manifest;
   })();
@@ -463,6 +470,10 @@ self.addEventListener('activate', (event) => {
 
       // 注意:不删除任何旧缓存 —— 除非用户主动清理,缓存永久有效
       await self.clients.claim();
+
+      // 绑定预取完成 Promise:ensureInit 中已自动启动(若有未缓存项),
+      // 此处 event.waitUntil 确保预取期间 SW 不被浏览器杀死。
+      event.waitUntil(startPrefetch() || Promise.resolve());
     })()
   );
 });
@@ -480,8 +491,6 @@ self.addEventListener('message', (event) => {
       );
       break;
     case 'QUERY_STATUS':
-      // 确保 manifest + 位图已加载后再回复(幂等);
-      // 修复 SW 冷启动时 activate 尚未完成 manifest 加载导致的 0/0 假象。
       event.waitUntil(
         ensureInit().then(() => {
           if (manifest && event.source && event.source.postMessage) {
@@ -495,6 +504,9 @@ self.addEventListener('message', (event) => {
               speed: 0,
             });
           }
+          // ensureInit 已自动恢复预取(若有未完成项),绑定其 Promise
+          // 保持 SW 存活直到预取结束(不依赖页面发 START_PREFETCH)
+          return startPrefetch() || Promise.resolve();
         })
       );
       break;
