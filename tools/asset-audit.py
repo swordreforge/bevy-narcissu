@@ -15,9 +15,9 @@
   sprite                 image          -> image/anime/{image}.basisu.ktx2
   show_cg / unlock_cg    image          -> image/ev/{image}.basisu.ktx2
   show_fg / show_face    char_id+expr   -> image/obj/{char_id}/{expression}.basisu.ktx2
-  play_bgm / unlock_bgm  id             -> audio/bgm/{id}.ogg
-  play_se                file           -> audio/se/{file}.ogg
-  play_voice / dialogue  voice(file)    -> audio/voice/{file}.ogg
+  play_bgm / unlock_bgm  id             -> audio/bgm/{id}.opus
+  play_se                file           -> audio/se/{file}.opus
+  play_voice / dialogue  voice(file)    -> audio/voice/{file}.opus
 音频 file 字段可含子目录(如 "extra/n001" / "li/4syuji_009")。
 
 与引擎行为保持一致:跳过 pack.vnscript.ron(引擎运行时也跳过,见
@@ -77,9 +77,9 @@ TYPE_DIRS: dict[str, tuple[str, str, bool]] = {
     "sprite": ("image/anime",  ".basisu.ktx2", False),
     "cg":     ("image/ev",     ".basisu.ktx2", False),
     "fg":     ("image/obj",    ".basisu.ktx2", False),
-    "bgm":    ("audio/bgm",    ".ogg",         False),
-    "se":     ("audio/se",     ".ogg",         True),
-    "voice":  ("audio/voice",  ".ogg",         True),
+    "bgm":    ("audio/bgm",    ".opus",        False),
+    "se":     ("audio/se",     ".opus",        True),
+    "voice":  ("audio/voice",  ".opus",        True),
 }
 
 # 相似候选的搜索范围:该类型的缺失名会到这些目录树里找近似文件。
@@ -320,7 +320,7 @@ def find_similar(index: DiskIndex, rtype: str, name: str, top_k: int, min_score:
     return [
         {
             "path": rel,
-            "name": re.sub(r"\.(?:basisu\.)?ktx2$|\.ogg$", "", Path(rel).name),
+            "name": re.sub(r"\.(?:basisu\.)?ktx2$|\.opus$", "", Path(rel).name),
             "score": round(score, 3),
             "match": kind,
         }
