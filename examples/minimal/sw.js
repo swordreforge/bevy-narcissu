@@ -308,12 +308,19 @@ async function prefetchOne(idx) {
     return;
   }
 
-  // 2. 运行时可能正在下载同一文件:复用 in-flight
+  // 2. 运行时可能正在下载同一文件:复用 in-flight;
+  //    仅当原下载成功(resp.ok)才标记位图,失败文件留给后续重试。
   const inFlight = self.__inFlight || (self.__inFlight = new Map());
   if (inFlight.has(url)) {
-    await inFlight.get(url).catch(() => {});
-    bitSet(idx);
-    bytesDone += item.size;
+    let ok = false;
+    try {
+      const resp = await inFlight.get(url);
+      ok = !!(resp && resp.ok);
+    } catch (_) {}
+    if (ok) {
+      bitSet(idx);
+      bytesDone += item.size;
+    }
     persistBitmap();
     broadcastProgress();
     return;
