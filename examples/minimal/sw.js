@@ -402,6 +402,21 @@ self.addEventListener('message', (event) => {
     case 'START_PREFETCH':
       startPrefetch();
       break;
+    case 'QUERY_STATUS':
+      // 立即回复当前进度(不走节流):刷新页面时预取可能已完成,
+      // panel 需要主动拿到真实状态而非停在初始 0%。
+      if (manifest && event.source && event.source.postMessage) {
+        event.source.postMessage({
+          type: 'CACHE_PROGRESS',
+          done: doneCount,
+          total: manifest.count,
+          bytesDone,
+          bytesTotal: manifest.total_bytes,
+          current: lastCurrent,
+          speed: 0,
+        });
+      }
+      break;
     case 'CLEAR_ALL':
       event.waitUntil(
         (async () => {

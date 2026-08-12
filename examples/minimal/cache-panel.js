@@ -187,6 +187,9 @@
     var dragging = false, startX = 0, startY = 0, origLeft = 0, origTop = 0;
     handle.addEventListener('pointerdown', function (e) {
       if (e.button !== 0) return;
+      // 按钮(最小化/关闭)按下时不启动拖动:setPointerCapture 会把
+      // pointerup/click 重定向到捕获元素,导致按钮 click 永远不触发。
+      if (e.target && e.target.closest && e.target.closest('button')) return;
       dragging = true;
       startX = e.clientX; startY = e.clientY;
       var rect = panel.getBoundingClientRect();
@@ -230,10 +233,17 @@
     render(ui, state);
   }
 
-  // ---- 启动预取 ----------------------------------------------------------
+  // ---- 启动预取 / 查询状态 --------------------------------------------------
   function requestStart() {
     if (navigator.serviceWorker && navigator.serviceWorker.controller) {
       navigator.serviceWorker.controller.postMessage({ type: 'START_PREFETCH' });
+    }
+  }
+  // 主动查询当前进度:刷新/重开页面时,预取可能早已完成,
+  // SW 不会再广播 CACHE_PROGRESS,panel 需要主动要一次状态。
+  function queryStatus() {
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({ type: 'QUERY_STATUS' });
     }
   }
 
@@ -292,9 +302,12 @@
       window.addEventListener(ev, tryStart, { once: true });
     });
 
-    // SW ready 后再次确保 controller 已接管
+    // SW ready 后:查询当前进度 + 确保 controller 已接管
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.ready.then(function () { tryStart(); });
+      navigator.serviceWorker.ready.then(function () {
+        queryStatus();
+        tryStart();
+      });
     }
   }
 
