@@ -25,7 +25,7 @@ const SW_VERSION = 'v3.0.0-20260812';
 
 // 缓存名固定(不带版本号):只有用户主动清理(CLEAR_ALL)才会删除,
 // 满足"除非主动清理否则缓存不失效"的持久性要求。
-const CORE_CACHE = 'core-v1';
+const CORE_CACHE = 'core-v2';
 const ASSET_CACHE = 'assets-v1';
 
 // 清单相对部署根目录的 URL(SW scope 内)
@@ -124,6 +124,50 @@ let bitmap = null;        // Uint8Array,bit[i] = files[i] 已缓存
 let doneCount = 0;        // 已缓存文件数(增量维护,持久化)
 let bytesDone = 0;        // 已缓存字节数(增量维护,持久化)
 let pathToIndex = null;   // Map<绝对URL, index>
+
+// 幂等初始化:加载 manifest + 恢复位图。activate 和消息 handler 均可调用,
+// 去重保证只执行一次,解决 SW 重启时 activate 不触发或 QUERY_STATUS 在
+// manifest 加载完成前就到达的竞态问题。
+let initPromise = null;
+function ensureInit() {
+  if (initPromise) return initPromise;
+  initPromise = (async () => {
+    // 1. 加载 manifest(若未在 install 中加载)
+    if (!manifest) {
+      try {
+        const resp = await fetchWithRetry(new Request(MANIFEST_URL));
+        if (resp && resp.ok) manifest = await resp.json();
+      } catch (e) {
+        console.warn('[sw] manifest fetch failed:', e);
+      }
+    }
+    // 2. 恢复/重建位图
+    if (manifest) {
+      const stored = await idbGet();
+      const fp = fingerprintOf(manifest);
+      if (stored && stored.fingerprint === fp && stored.bitmap &&
+          stored.bitmap.length === Math.ceil(manifest.count / 8)) {
+        bitmap = new Uint8Array(stored.bitmap);
+        doneCount = stored.done || 0;
+        bytesDone = stored.bytesDone || 0;
+        console.log(`[sw] 位图恢复: ${doneCount}/${manifest.count} 已缓存`);
+      } else {
+        bitmap = new Uint8Array(Math.ceil(manifest.count / 8));
+        doneCount = 0;
+        bytesDone = 0;
+        console.log(`[sw] 位图重建(fingerprint 变更或首次): ${manifest.count} 文件`);
+      }
+      // 构建 URL->index 映射
+      pathToIndex = new Map();
+      manifest.files.forEach((f, i) => {
+        pathToIndex.set(urlForPath(f.path), i);
+      });
+      await persistNow();
+    }
+    return manifest;
+  })();
+  return initPromise;
+}
 
 // 简单字符串哈希(FNV-1a),用于清单指纹
 function fingerprintOf(manifestObj) {
@@ -321,6 +365,28 @@ function startPrefetch() {
   pump();
 }
 
+// 预取 wasm 到 core 缓存(后台,失败静默;供离线游玩)
+// wasm 文件名带 hash,更新后文件名变化 → 重新下载;旧文件残留由 activate 保留策略容忍
+const WASM_URL = './bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm';
+function precacheWasm() {
+  if (!WASM_URL) return;
+  (async () => {
+    try {
+      const cache = await caches.open(CORE_CACHE);
+      const absURL = new URL(WASM_URL, self.location.href).href;
+      const hit = await cache.match(absURL);
+      if (hit && hit.ok) return;
+      const resp = await fetchWithRetry(new Request(absURL));
+      if (resp && resp.ok) {
+        await cache.put(absURL, resp.clone());
+        console.log('[sw] wasm 已预取到缓存(离线可玩)');
+      }
+    } catch (e) {
+      console.warn('[sw] wasm 预取失败(离线不可玩):', e && e.message);
+    }
+  })();
+}
+
 // --------------------------------------------------------------------------
 // 生命周期
 // --------------------------------------------------------------------------
@@ -352,39 +418,33 @@ self.addEventListener('activate', (event) => {
         navigator.storage.persist().catch(() => {});
       }
 
-      // 若 install 阶段未拿到清单,这里重试一次
-      if (!manifest) {
-        try {
-          const resp = await fetchWithRetry(new Request(MANIFEST_URL));
-          if (resp && resp.ok) manifest = await resp.json();
-        } catch (e) {
-          console.warn('[sw] manifest fetch failed (activate):', e);
+      // 加载 manifest + 恢复位图(幂等,install 已加载则复用)
+      await ensureInit();
+
+      // 清理旧缓存:core-v1 → core-v2 迁移时删除旧版本;
+      // 同时清掉 core 缓存中非 CORE_ASSETS 的运行时脚本(如 cache-panel.js),
+      // 它们会被 fetch handler 写进缓存,部署新版后若不清除永远命中旧版
+      const kept = new Set([CORE_CACHE, ASSET_CACHE]);
+      const keys = await caches.keys();
+      await Promise.all(keys.filter((k) => !kept.has(k)).map((k) => caches.delete(k)));
+      {
+        const core = await caches.open(CORE_CACHE);
+        const coreURLs = new Set(CORE_ASSETS.map((u) => new URL(u, self.location.href).href));
+        const stale = (await core.keys()).filter(
+          (req) => !coreURLs.has(req.url) && !req.url.includes('_bg.wasm')
+        );
+        if (stale.length) {
+          await Promise.all(stale.map((req) => core.delete(req)));
         }
       }
 
-      // 位图恢复 / 重建
-      if (manifest) {
-        const stored = await idbGet();
-        const fp = fingerprintOf(manifest);
-        if (stored && stored.fingerprint === fp && stored.bitmap &&
-            stored.bitmap.length === Math.ceil(manifest.count / 8)) {
-          bitmap = new Uint8Array(stored.bitmap);
-          doneCount = stored.done || 0;
-          bytesDone = stored.bytesDone || 0;
-          console.log(`[sw] 位图恢复: ${doneCount}/${manifest.count} 已缓存`);
-        } else {
-          bitmap = new Uint8Array(Math.ceil(manifest.count / 8));
-          doneCount = 0;
-          bytesDone = 0;
-          console.log(`[sw] 位图重建(fingerprint 变更或首次): ${manifest.count} 文件`);
-        }
-        // 构建 URL->index 映射
-        pathToIndex = new Map();
-        manifest.files.forEach((f, i) => {
-          pathToIndex.set(urlForPath(f.path), i);
-        });
-        await persistNow();
-      }
+      // 后台预取 wasm 到 core 缓存(不阻塞 activate):
+      // wasm 请求由 <link rel="preload"> 在 SW 接管前发出,浏览器复用其响应,
+      // 永不经过 fetch handler,因此永远不会被运行时缓存 —— 必须主动预取才能离线可玩。
+      // 延迟启动:若与 preload 并发,浏览器可能复用其已消费响应致 cache.put 报错。
+      event.waitUntil(
+        new Promise((resolve) => setTimeout(resolve, 8000)).then(() => precacheWasm())
+      );
 
       // 注意:不删除任何旧缓存 —— 除非用户主动清理,缓存永久有效
       await self.clients.claim();
@@ -400,22 +460,29 @@ self.addEventListener('message', (event) => {
   if (!data || !data.type) return;
   switch (data.type) {
     case 'START_PREFETCH':
-      startPrefetch();
+      // 确保 manifest + 位图已加载(幂等),再启动预取
+      event.waitUntil(
+        ensureInit().then(() => { startPrefetch(); })
+      );
       break;
     case 'QUERY_STATUS':
-      // 立即回复当前进度(不走节流):刷新页面时预取可能已完成,
-      // panel 需要主动拿到真实状态而非停在初始 0%。
-      if (manifest && event.source && event.source.postMessage) {
-        event.source.postMessage({
-          type: 'CACHE_PROGRESS',
-          done: doneCount,
-          total: manifest.count,
-          bytesDone,
-          bytesTotal: manifest.total_bytes,
-          current: lastCurrent,
-          speed: 0,
-        });
-      }
+      // 确保 manifest + 位图已加载后再回复(幂等);
+      // 修复 SW 冷启动时 activate 尚未完成 manifest 加载导致的 0/0 假象。
+      event.waitUntil(
+        ensureInit().then(() => {
+          if (manifest && event.source && event.source.postMessage) {
+            event.source.postMessage({
+              type: 'CACHE_PROGRESS',
+              done: doneCount,
+              total: manifest.count,
+              bytesDone,
+              bytesTotal: manifest.total_bytes,
+              current: lastCurrent,
+              speed: 0,
+            });
+          }
+        })
+      );
       break;
     case 'CLEAR_ALL':
       event.waitUntil(
@@ -427,6 +494,7 @@ self.addEventListener('message', (event) => {
           manifest = null;
           doneCount = 0;
           bytesDone = 0;
+          initPromise = null;
           console.log('[sw] 已清空全部缓存与预取状态');
         })()
       );
@@ -444,7 +512,25 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
-  if (req.mode === 'navigate') return; // 页面本身放行(网络)
+  // 导航(app-shell):network-first —— 在线拿最新 HTML 并刷新缓存,断网回退缓存
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      (async () => {
+        try {
+          const fresh = await fetchWithRetry(req);
+          if (fresh && fresh.ok) {
+            const cache = await caches.open(CORE_CACHE);
+            await cache.put(req, fresh.clone());
+            return fresh;
+          }
+        } catch (e) {}
+        const cached = await caches.match(req, { cacheName: CORE_CACHE });
+        if (cached) return cached;
+        return Response.error();
+      })()
+    );
+    return;
+  }
 
   const isAsset = url.pathname.includes('/assets/');
 
