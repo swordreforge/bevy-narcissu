@@ -269,6 +269,7 @@ let queue = [];      // 待处理索引(已按 priority/path 排序)
 let activeCount = 0; // 在途请求数
 let pumping = false; // pump 是否在跑
 let prefetchRunning = false;
+let prefetchDoneResolve = null; // 预取全部完成时 resolve,绑定到 event.waitUntil 防止浏览器杀 SW
 
 function buildQueue() {
   // 未缓存的索引,按 (priority desc, path asc) 排序
@@ -352,17 +353,31 @@ function pump() {
       prefetchRunning = false;
       lastCurrent = '完成';
       broadcastProgress();
+      if (prefetchDoneResolve) {
+        prefetchDoneResolve();
+        prefetchDoneResolve = null;
+      }
     }
   };
   step();
 }
 
 function startPrefetch() {
-  if (!manifest || prefetchRunning) return;
+  if (!manifest) return null;
+  if (prefetchRunning) {
+    // 已在预取中:返回当前完成 Promise,让新 event.waitUntil 也绑定它
+    return new Promise((resolve) => {
+      const check = setInterval(() => {
+        if (!prefetchRunning) { clearInterval(check); resolve(); }
+      }, 1000);
+    });
+  }
   prefetchRunning = true;
+  const done = new Promise((resolve) => { prefetchDoneResolve = resolve; });
   buildQueue();
   console.log(`[sw] 开始预取: ${queue.length} 个文件待下载`);
   pump();
+  return done;
 }
 
 // 预取 wasm 到 core 缓存(后台,失败静默;供离线游玩)
@@ -460,9 +475,8 @@ self.addEventListener('message', (event) => {
   if (!data || !data.type) return;
   switch (data.type) {
     case 'START_PREFETCH':
-      // 确保 manifest + 位图已加载(幂等),再启动预取
       event.waitUntil(
-        ensureInit().then(() => { startPrefetch(); })
+        ensureInit().then(() => startPrefetch() || Promise.resolve())
       );
       break;
     case 'QUERY_STATUS':
