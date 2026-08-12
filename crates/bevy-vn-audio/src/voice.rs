@@ -9,6 +9,7 @@ use bevy_vn_core::script::ScriptEngine;
 use bevy_vn_core::state::VnAppState;
 
 use crate::channel::audio_channel_impl;
+use crate::opus::OpusAudio;
 
 /// Bounded-concurrency voice preload queue.
 ///
@@ -22,8 +23,8 @@ use crate::channel::audio_channel_impl;
 #[derive(Resource, Default)]
 pub struct VoicePreloadQueue {
     pending: Vec<String>,
-    loading: Vec<(String, Handle<AudioSource>, f32)>,
-    loaded: HashMap<String, Handle<AudioSource>>,
+    loading: Vec<(String, Handle<OpusAudio>, f32)>,
+    loaded: HashMap<String, Handle<OpusAudio>>,
 }
 
 const PRELOAD_PER_FRAME: usize = 4;
@@ -37,7 +38,7 @@ impl VoicePreloadQueue {
         self.loaded.clear();
     }
 
-    fn cached(&self, file: &str) -> Option<Handle<AudioSource>> {
+    fn cached(&self, file: &str) -> Option<Handle<OpusAudio>> {
         self.loaded
             .get(file)
             .cloned()
@@ -54,9 +55,10 @@ audio_channel_impl! {
     file: |event: &PlayVoiceEvent| event.file.clone(),
     slot: |_: &PlayVoiceEvent| 0,
     volume: |event: &SetVolumeEvent| event.voice,
-    handle: |event: &PlayVoiceEvent, queue: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<AudioSource> {
+    asset: OpusAudio,
+    handle: |event: &PlayVoiceEvent, queue: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<OpusAudio> {
         let queue = queue.as_ref().expect("VoicePreloadQueue not initialized");
-        queue.cached(&event.file).unwrap_or_else(|| server.load::<AudioSource>(path))
+        queue.cached(&event.file).unwrap_or_else(|| server.load::<OpusAudio>(path))
     },
 }
 
@@ -108,7 +110,7 @@ fn drive_voice_preload(
     time: Res<Time>,
     mut queue: ResMut<VoicePreloadQueue>,
     asset_server: Res<AssetServer>,
-    assets: Res<Assets<AudioSource>>,
+    assets: Res<Assets<OpusAudio>>,
 ) {
     let now = time.elapsed_secs();
     let mut i = 0;
@@ -131,7 +133,7 @@ fn drive_voice_preload(
     let mut issued = 0;
     while issued < PRELOAD_PER_FRAME && in_flight + issued < PRELOAD_IN_FLIGHT {
         let Some(file) = queue.pending.pop() else { break };
-        let handle = asset_server.load::<AudioSource>(&format!("audio/voice/{file}.ogg"));
+        let handle = asset_server.load::<OpusAudio>(&format!("audio/voice/{file}.opus"));
         queue.loading.push((file, handle, now));
         issued += 1;
     }

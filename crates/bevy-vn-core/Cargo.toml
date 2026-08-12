@@ -9,7 +9,6 @@ bevy = { version = "0.19", default-features = false, features = [
     "bevy_asset",
     "bevy_audio",
     "bevy_log",
-    "vorbis",
     "jpeg",
     "bevy_state",
 ] }

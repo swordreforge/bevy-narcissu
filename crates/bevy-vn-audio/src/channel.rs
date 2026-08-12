@@ -20,9 +20,9 @@
 ///   `current_id` (BGM only)
 /// - `stop` (optional): stop event type + `|event| ...` slot selector; `None`
 ///   clears every slot
+/// - `asset`: the audio asset type (e.g. [`crate::opus::OpusAudio`])
 /// - `handle`: `|event, queue, server, path: String| ...` returning the
-///   `AudioSource` handle (voice consults its preload queue first, others
-///   just load)
+///   audio handle (voice consults its preload queue first, others just load)
 macro_rules! audio_channel_impl {
     (
         pub struct $name:ident;
@@ -35,6 +35,7 @@ macro_rules! audio_channel_impl {
         volume: $vol:expr,
         $(track: $track:expr,)?
         $(stop: $stop_ev:ty, stop_slot: $stop_slot:expr,)?
+        asset: $asset:ty,
         handle: $handle:expr,
     ) => {
         #[derive(Resource)]
@@ -60,11 +61,11 @@ macro_rules! audio_channel_impl {
             for event in reader.read() {
                 let slot = ($slot)(&event);
                 if let Some(e) = mgr.entities[slot] { commands.entity(e).try_despawn(); }
-                let path = format!("{}{}.ogg", $path, ($file)(&event));
+                let path = format!("{}{}.opus", $path, ($file)(&event));
                 let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
                 let handle = ($handle)(&event, &queue, &asset_server, path);
                 mgr.entities[slot] = Some(commands.spawn((
-                    AudioPlayer(handle),
+                    AudioPlayer::<$asset>(handle),
                     PlaybackSettings { mode: $mode, volume: Volume::Linear(vol), ..default() },
                 )).id());
                 $(mgr.current_id = ($track)(&event);)?
