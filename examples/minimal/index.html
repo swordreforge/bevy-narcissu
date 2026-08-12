@@ -7,7 +7,6 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link data-trunk rel="copy-dir" href="assets">
     <style>
     /* 全屏铺满视口 + 居中：
        - 真正渲染用的 canvas 是 winit 在 wasm 启动时自建的（无 id，带内联 width/height 与 min-width/min-height），
@@ -35,12 +34,24 @@
     // startup (no user gesture) so the browser starts it suspended and it never
     // gets resumed. Track every AudioContext created through the constructor
     // (including the one bevy creates) and resume them on the first gesture.
+    //
+    // Also inject latencyHint:'playback' + sampleRate:44100 into the context:
+    // cpal 0.17.3 creates AudioContextOptions without latencyHint, so the
+    // browser defaults to 'interactive' (~256-frame buffer) which underruns
+    // on the main thread → crackling/popping. 44100 matches our OGG Vorbis
+    // source rate, avoiding real-time resampling on the WASM main thread.
     (function () {
       var NativeAudioContext = window.AudioContext || window.webkitAudioContext;
       if (!NativeAudioContext) return;
       var contexts = new Set();
-      function WrappedAudioContext(...args) {
-        const ctx = new NativeAudioContext(...args);
+      var AUDIO_DEFAULTS = { latencyHint: 'playback', sampleRate: 44100 };
+      function WrappedAudioContext() {
+        var opts = arguments[0];
+        var merged = Object.assign({}, opts || {}, AUDIO_DEFAULTS);
+        const ctx = new NativeAudioContext(merged);
+        console.log('[audio] AudioContext created: sampleRate=' + ctx.sampleRate +
+          ', latencyHint=' + (merged.latencyHint || 'default') +
+          ', baseLatency=' + (ctx.baseLatency != null ? (ctx.baseLatency * 1000).toFixed(1) + 'ms' : 'N/A'));
         contexts.add(ctx);
         return ctx;
       }
@@ -194,6 +205,7 @@
       window.addEventListener('touchend', goFullscreen, { once: true, capture: true });
     })();
   </script>
+<link rel="modulepreload" href="./bevy-vn-example-c2dfd4e4200a6e9b.js" crossorigin="anonymous" integrity="sha384-re1T8WGUqVf+UXmmQYdt0fBK64LnVYtLW74uXG0MjKMLaDdu7bSV+TtBuN8DNeta"><link rel="modulepreload" href="./snippets/basisu_c_sys-3421761b302b2a06/inline0.js" crossorigin="anonymous" integrity="sha384-GrXv/7B5RHFA1X0wjK2tpwxxffBTHsa+WbnaLlOzPFGOo37szumuRJ2vZruN/T+r"><link rel="preload" href="./bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm" crossorigin="anonymous" integrity="sha384-vRobtZjqZg+kFPBjaDy7/g/clXtxt2js8GsYSEQtEsXg53kqeSE1S3lN0kA9zabx" as="fetch" type="application/wasm">
 </head>
 <body>
 <script>
@@ -208,5 +220,12 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script src="./cache-panel.js"></script>
+<script type="module">
+    import init, * as bindings from './bevy-vn-example-c2dfd4e4200a6e9b.js';
+    const wasm = await init({ module_or_path: './bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm' });
+    window.wasmBindings = bindings;
+    window.__expBootMs = performance.now();
+    dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+  </script>
 </body>
 </html>
