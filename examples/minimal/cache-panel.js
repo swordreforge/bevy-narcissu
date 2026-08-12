@@ -220,6 +220,16 @@
   }
 
   // ---- 消息消费 ----------------------------------------------------------
+  var pollTimer = null;
+  function ensurePolling(s) {
+    // 预取未完成:每 30s 轮询 SW,唤醒被浏览器杀死的 SW 进程,触发断点续传
+    if (s.total > 0 && s.done < s.total) {
+      if (!pollTimer) pollTimer = setInterval(queryStatus, 30000);
+    } else if (s.total > 0 && s.done >= s.total) {
+      if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+    }
+  }
+
   function onMessage(ui, e) {
     var d = e.data;
     if (!d || d.type !== 'CACHE_PROGRESS') return;
@@ -230,6 +240,7 @@
     state.current = d.current || '';
     state.speed = d.speed || 0;
     state.started = true;
+    ensurePolling(state);
     render(ui, state);
   }
 
