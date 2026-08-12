@@ -76,6 +76,16 @@
     (function () {
       var canvas = null;
       var activeTouches = new Map(); // pointerId -> wasSecondFinger(right)
+      // 浮动缓存窗口(#cache-panel)内的触摸事件保留原生,不转换为 canvas 鼠标事件,
+      // 否则窗口自身的拖动/点击会被本脚本拦截并吃掉。
+      function isInCachePanel(e) {
+        var t = e.target;
+        while (t) {
+          if (t.id === 'cache-panel') return true;
+          t = t.parentElement;
+        }
+        return false;
+      }
       function getCanvas() {
         if (!canvas) canvas = document.querySelector('canvas');
         return canvas || null;
@@ -101,6 +111,7 @@
       }
       window.addEventListener('pointerdown', function (e) {
         if (e.pointerType === 'mouse') return;
+        if (isInCachePanel(e)) return; // 缓存窗口内保留原生触摸
         e.preventDefault();
         e.stopPropagation();
         var isSecond = activeTouches.size >= 1;
@@ -109,6 +120,7 @@
       }, true);
       window.addEventListener('pointerup', function (e) {
         if (e.pointerType === 'mouse') return;
+        if (isInCachePanel(e)) return;
         e.preventDefault();
         e.stopPropagation();
         var wasSecond = activeTouches.get(e.pointerId);
@@ -117,12 +129,14 @@
       }, true);
       window.addEventListener('pointermove', function (e) {
         if (e.pointerType === 'mouse') return;
+        if (isInCachePanel(e)) return;
         e.preventDefault();
         e.stopPropagation();
         asMousePointer('pointermove', e, null);
       }, true);
       window.addEventListener('pointercancel', function (e) {
         if (e.pointerType === 'mouse') return;
+        if (isInCachePanel(e)) return;
         e.preventDefault();
         e.stopPropagation();
         var wasSecond = activeTouches.get(e.pointerId);
@@ -140,9 +154,18 @@
           window.matchMedia('(display-mode: fullscreen)').matches ||
           navigator.standalone === true;
       }
+      function inCachePanel(e) {
+        var t = e.target;
+        while (t) {
+          if (t.id === 'cache-panel') return true;
+          t = t.parentElement;
+        }
+        return false;
+      }
       var tried = false;
-      function goFullscreen() {
+      function goFullscreen(e) {
         if (tried) return;
+        if (inCachePanel(e)) return; // 缓存窗口内点击不触发全屏
         tried = true;
         if (isStandalone()) return;
         var el = document.documentElement;
@@ -184,5 +207,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+<script src="./cache-panel.js"></script>
 </body>
 </html>

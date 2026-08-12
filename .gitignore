@@ -13,7 +13,6 @@ examples/minimal/universal-bevy-build-wasm32-1.1.tar.xz
 examples/minimal/icon-192.png
 examples/minimal/icon-512.png
 examples/minimal/manifest.webmanifest
-examples/minimal/sw.js
 examples/minimal/.edgeone/
 examples/minimal/assets/scripts/*.br
 examples/minimal/assets/scripts/*.gz
