@@ -6,7 +6,7 @@
 
 输出格式(顶层数组,按 path 字典序,稳定排序供位图索引使用):
     [
-      {"path": "audio/voice/li/4syuji_001.ogg", "size": 29417, "priority": 0},
+      {"path": "audio/voice/li/4syuji_001.opus", "size": 29417, "priority": 0},
       ...
     ]
 
