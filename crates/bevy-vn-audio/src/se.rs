@@ -5,6 +5,7 @@ use bevy_vn_core::messages::{PlaySeEvent, SetVolumeEvent, StopSeEvent};
 use bevy_vn_core::runner::flush_audio;
 
 use crate::channel::audio_channel_impl;
+use crate::opus::OpusAudio;
 use crate::voice::VoicePreloadQueue;
 
 const MAX_CHANNELS: usize = 8;
@@ -19,8 +20,9 @@ audio_channel_impl! {
     slot: |event: &PlaySeEvent| event.channel.unwrap_or(0) % MAX_CHANNELS,
     volume: |event: &SetVolumeEvent| event.se,
     stop: StopSeEvent, stop_slot: |event: &StopSeEvent| event.channel.map(|c| c % MAX_CHANNELS),
-    handle: |_: &PlaySeEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<AudioSource> {
-        server.load::<AudioSource>(path)
+    asset: OpusAudio,
+    handle: |_: &PlaySeEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<OpusAudio> {
+        server.load::<OpusAudio>(path)
     },
 }
 

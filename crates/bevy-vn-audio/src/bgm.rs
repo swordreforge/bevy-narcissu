@@ -5,6 +5,7 @@ use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
 use bevy_vn_core::runner::flush_audio;
 
 use crate::channel::audio_channel_impl;
+use crate::opus::OpusAudio;
 use crate::voice::VoicePreloadQueue;
 
 audio_channel_impl! {
@@ -18,8 +19,9 @@ audio_channel_impl! {
     volume: |event: &SetVolumeEvent| event.bgm,
     track: |event: &PlayBgmEvent| Some(event.id.clone()),
     stop: StopBgmEvent, stop_slot: |_: &StopBgmEvent| -> Option<usize> { None },
-    handle: |_: &PlayBgmEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<AudioSource> {
-        server.load::<AudioSource>(path)
+    asset: OpusAudio,
+    handle: |_: &PlayBgmEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<OpusAudio> {
+        server.load::<OpusAudio>(path)
     },
 }
 
