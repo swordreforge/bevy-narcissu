@@ -1,3872 +1,3872 @@
 (
-    version: V1,
-    meta: (
-        name: Some("nar1_00"),
-        next_script: None,
-    ),
-    instructions: [
-        (
-            cmd: label,
-            args: (
-                name: "block_00000",
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "top",
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "z00",
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "z01",
-            ),
-        ),
-        (
-            cmd: save_point,
-            args: (
-                id: "水仙1-0",
-            ),
-        ),
-        (
-            cmd: save_point,
-            args: (
-                id: "autosave",
-            ),
-        ),
-        (
-            cmd: set_flag,
-            args: (
-                key: "chap01",
-                value: 1,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msg",
-                data: {
-                    "no": "99",
-                    "mode": "novel",
-                },
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "black",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "extra/n001",
-                channel: Some(1),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c001a",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c001b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c001",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c002",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c003",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c004",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "rain_1",
-                channel: Some(1),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora_ame03",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c02",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "■ １９９６年\u{3000}春 濑津美 ■",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00001",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_flag,
-            args: (
-                key: "chap02",
-                value: 1,
-            ),
-        ),
-        (
-            cmd: set_flag,
-            args: (
-                key: "game_clear",
-                value: 1,
-            ),
-        ),
-        (
-            cmd: play_bgm,
-            args: (
-                id: "102",
-                volume: Some(0.78431374),
-                fade_ms: Some(500),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora_ame01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「…的确，从小时候起，我的身体就不是很好…」",
-                voice: Some("li/n002"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00002",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "但也和别人一样上了小学，\n也有过暑假的时候一直玩耍到皮肤被晒黑。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00003",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "byoin_heya_yu2",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "６月。刚刚进入初中的时候。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00004",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "预定从下个月开始游泳，要用到泳装的第二天。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00005",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "那时，我第一次体验了住院这件事。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00006",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "那是第一学期期中考试不久前，下起了雨的，非常寒冷的日子",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00007",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "rain_1",
-                channel: Some(3),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora_ame03",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "下着梅雨的苍白天空。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00008",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "当然，在最开始的时候，班里的同学们几乎每天都会来探望我。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00009",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "出院的时候，每次周末，也会到我家里来玩。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00010",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "…但是，这一切也只有一开始是这样。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00011",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora_ame01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "迎接秋天，跨过冬日住院，出院，检查…之后再次住院，就这样重复着…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00012",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "曾经，那些被我当作『朋友』的同学们",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00013",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "在不知不觉中，变成了『熟人』。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00014",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "最终，成为了『陌生人』。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00015",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "每当岁月更替我从他们的记忆中逐渐的消逝",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00016",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "chara_k01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「…看来，他们似乎『不喜欢』我」",
-                voice: Some("li/n003"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00017",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「对普通人来说，我的存在只是一个累赘」",
-                voice: Some("li/n004"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00018",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "chara_k01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「所以…仿佛从记忆里消失了一样…」",
-                voice: Some("li/n005"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00019",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "rain_1",
-                channel: Some(1),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "w",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora_ame03",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「在这个只看得到自己的世界里…我送走了不知多少个季节…多少次下着梅雨的苍白天空…」",
-                voice: Some("li/n006"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00020",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「我的英语教科书，自１年级的期中考试以后，就只是一片空白」",
-                voice: Some("li/n007"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00021",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "chara_0012",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「…从那时起…",
-                voice: Some("li/n008_1"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00022",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我的时间",
-                voice: Some("li/n008_2"),
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00023",
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "静止了...」",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00024",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "chara_0013b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c005",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c0052",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: stop_bgm,
-            args: (
-                fade_ms: Some(3000),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(5),
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "z42r",
-                channel: Some(1),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "w",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c00",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "■ 8年后…2004年 主人公 初夏 ■",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00025",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "夏日。满身是汗。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00026",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "驾照考场的现场，放置着一块巨大的电子公告板。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00027",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "当公告板的LED灯同时亮起。我和其他人一样，寻找着自己的考号。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00028",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「２３７，２３７…」",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00029",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "在将近最后的LED荧屏里，我顺利的找到了自己亮起的考号。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00030",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "faan1_b",
-                channel: Some(1),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "咣当咣当、",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00031",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "刚好到了午后时间，车内尤其冷清。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00032",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "在这空旷冷清的车厢内，从考场出来的我开始了归途。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00033",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "左手握着刚刚收到的交规课本，胸前的口袋里揣着崭新的驾照。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00034",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「我现在也算是有驾照的人了…」",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00035",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "认真地嘟哝着，却也并没有什么感慨。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00036",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我不是很想要开车。也并非有着什么其他的目的。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00037",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "只是周围有很多人都去了驾校，而且他们经常劝我也去考一张驾照。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00038",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora_yoru01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "这天夜里。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00039",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我将获得驾照的事情告诉了父母，『是吗』，被如此简短的回应了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00040",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我试着问到，能否借用父亲的车子，得到了同样简短的回答，",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00041",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "『不行』!这样回复了我。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00042",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "其实我也并不是想开车，而他们的答复也和我的预想如出一辙。这就是我的父母。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00043",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "第二天。醒来后觉得胸口很难受，于是就去了医院。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00044",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "平时我和疾病什么的没有缘分。所以，初诊接待的等待时间，感觉非常无聊。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00045",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "byoin_rouka",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "好不容易等到诊察结束了的样子，接下来却是胸透和血液检查。是被迫去检查的。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00046",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "然后，经过漫长的时间，静静的等待者……",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00047",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "不知不觉，当我读完等候室的三本JUMP，向第四本伸手时，",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00048",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "就这样办理完了我的住院手续。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00049",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "一直放在胸口的口袋里的，那张崭新的驾照。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00050",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "看来暂时不会有使用到它的机会了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00051",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora07",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c03",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "■\u{3000}主人公\u{3000}２００４年\u{3000}秋\u{3000}■",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00052",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: play_bgm,
-            args: (
-                id: "83",
-                volume: Some(0.78431374),
-                fade_ms: Some(500),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora07",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "到了蝉鸣的喧嚣渐渐平静下来的时节。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00053",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我仍然待在医院之中。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00054",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "当然了，我也不是一直都住在医院里。只是不停地重复着入院与出院的过程。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00055",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "上个月，我经历了平生的第一次手术。\n出院后，要去离家５分钟车程的医院去接受定期检查。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00056",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "之后便是住院，出院，检查，住院的循环…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00057",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "尽管不知道ＰＥＴ啊易瑞沙啊都是些什么东西，\n等回过神来，这单调的循环已经持续了几个月。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00058",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "与食欲越来越差相对应，服用药物的量与种类与日俱增。\n我自己也能实际感受到，体力明显下降了",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00059",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我发觉双腿越来越消瘦，",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00060",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "”这并不是错觉”，体重计的指针告诉我。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00061",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "但是…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00062",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "像是旁观者一般看着这一切。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00063",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "与其说是旁观的那种冷漠，简直就如同只是在看着电视里播出的一段镜头似的。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00064",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "事发突然，身上发生的事情，脑袋还没有反应过来。\n我无法对发生的这一切产生任何的实感。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00065",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "所以，尽管是发生在自己身上的事情，\n但我看待它的方式却仿佛自己是局外人似的。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00066",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c033",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "sora07",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "隆冬时节。当街头巷尾的圣诞气氛终于消散殆尽的时候，",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00067",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "大概是因为到了年末了吧，我被允许回家了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00068",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "当然这也只是暂时的。即便如此我还是感到了一丝喜悦。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00069",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "amazora02",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "在雨雪交加的天气，我回到了久违的家中。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00070",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "不知道为什么，家人全都聚在一块。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00071",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "明明平时很少和我说话的父母，总觉得有点不自然地，笑着迎接我。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00072",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "平日里没少和我拌嘴的妹妹，也做好了我最爱吃的奶油炖菜和炸虾排。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00073",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "大家一起围坐在被炉边。抢着为我剥橘子皮。\n那异乎寻常的照顾。留给了我很深的印象。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00074",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "这时…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00075",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我隐约察觉到了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00076",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "静静地待在口袋里的，那张崭新的驾照。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00077",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "这张驾照，不出意外的话，永远都不会有它的用武之地了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00078",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "w",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "面对着这些不自然的笑容…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00079",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我冷静地，茫然地，漠不关心地思索着，仿佛这是别人的事情。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00080",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "black",
-                transition: Some(fade(
-                    duration: 1.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "c032",
-                transition: Some(fade(
-                    duration: 1.0,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 1500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "■\u{3000}主人公\u{3000}２００５年\u{3000}１月\u{3000}■",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00081",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "byoin_rouka",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "新年过后，我再次回到了医院里。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00082",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "不知为何，我并没有像以往那样被送到４楼，\n而是被带到了像谈话室一样的房间中。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00083",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "然后，爸爸和医生反复地交谈着，\n我夹在他们中间只是一直在听着，听着。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00084",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "这就是所谓的 病危通知 吧。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00085",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "他们拐弯抹角地说了一大堆，归结起来就是。\n我似乎快要死了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00086",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "「是吗…」",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00087",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "所以，我只简短地回答了一句。也没能想到其他可以说的话了。\n直到走出谈话室为止，我也只说了这一句话。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00088",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "听到我的回答，医生拿起圆珠笔开始写着什么。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00089",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "大概是转入关怀病房的手续吧。他始终是一副事务性的态度。\n父亲的态度也与他相仿。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00090",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "…人的死，原来这么简单啊…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00091",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "这是我发自内心的感想。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00092",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "b",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "然后，从这一天开始我由４楼转入了７楼，由６人病房变成了单人间。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00093",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "black",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "byoin7_rouka",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "而且，７楼与其他的楼层稍微有些不一样。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00094",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "首先，地板被擦得很亮。天花板也比以前高得多，宽敞得多。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00095",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "病房里面也非常漂亮，还有个很大窗户，日光透过巨大的玻璃窗射进屋内。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00096",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "…但是，窗户却只能拉开一点。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00097",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "我试了试，刚好是要伸出头还差点距离的宽度。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00098",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "另外，识别用手环的颜色也变了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00099",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "从住院那天开始，一直戴在手腕上的塑料制手环。\n上面记载着我的姓名和血型。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00100",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "还有就是，识别用手环的颜色也变了。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00101",
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "black",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(1),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(2),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(3),
-            ),
-        ),
-        (
-            cmd: stop_se,
-            args: (
-                channel: Some(4),
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "现在，它的颜色由蓝色换成了白色。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00102",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "byoin7_rouka",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "正当我来搬到７楼，又到了，每年电视台开始播放无聊的春节节目的时候。",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00103",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: dialogue,
-            args: (
-                speaker: None,
-                text: "也正是在这新年伊始的时候，我结识了那位女孩…",
-                voice: None,
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "block_00104",
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 400,
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msgoff",
-                data: {},
-            ),
-        ),
-        (
-            cmd: hide_cg,
-            args: (
-                transition: None,
-            ),
-        ),
-        (
-            cmd: hide_fg,
-            args: (
-                char_id: "all",
-                transition: None,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "black",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "nar01",
-                transition: Some(fade(
-                    duration: 0.8,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: play_se,
-            args: (
-                file: "extra/n009",
-                channel: Some(1),
-                volume: Some(0.78431374),
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "nar01",
-                transition: Some(fade(
-                    duration: 0.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "nar01c",
-                transition: Some(fade(
-                    duration: 0.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "nar01d",
-                transition: Some(fade(
-                    duration: 0.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: set_bg,
-            args: (
-                image: "black",
-                transition: Some(fade(
-                    duration: 0.5,
-                )),
-            ),
-        ),
-        (
-            cmd: wait,
-            args: (
-                time_ms: 500,
-            ),
-        ),
-        (
-            cmd: return,
-        ),
-    ],
+version: V1,
+meta: (
+name: Some("nar1_00"),
+next_script: None,
+),
+instructions: [
+(
+cmd: label,
+args: (
+name: "block_00000",
+),
+),
+(
+cmd: label,
+args: (
+name: "top",
+),
+),
+(
+cmd: label,
+args: (
+name: "z00",
+),
+),
+(
+cmd: label,
+args: (
+name: "z01",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "水仙1-0",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "autosave",
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap01",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "extra/n001",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c001b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c001",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c002",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "rain_1",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora_ame03",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c02",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "■ １９９６年\u{3000}春 濑津美 ■",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00001",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "game_clear",
+value: 1,
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "102",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora_ame01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「…的确，从小时候起，我的身体就不是很好…」",
+voice: Some("li/n002"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00002",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但也和别人一样上了小学，\n也有过暑假的时候一直玩耍到皮肤被晒黑。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00003",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "byoin_heya_yu2",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "６月。刚刚进入初中的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00004",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "预定从下个月开始游泳，要用到泳装的第二天。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00005",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那时，我第一次体验了住院这件事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00006",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那是第一学期期中考试不久前，下起了雨的，非常寒冷的日子",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00007",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: play_se,
+args: (
+file: "rain_1",
+channel: Some(3),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora_ame03",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "下着梅雨的苍白天空。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00008",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然，在最开始的时候，班里的同学们几乎每天都会来探望我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00009",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "出院的时候，每次周末，也会到我家里来玩。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00010",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…但是，这一切也只有一开始是这样。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00011",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora_ame01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "迎接秋天，跨过冬日住院，出院，检查…之后再次住院，就这样重复着…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00012",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "曾经，那些被我当作『朋友』的同学们",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00013",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在不知不觉中，变成了『熟人』。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00014",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最终，成为了『陌生人』。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00015",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "每当岁月更替我从他们的记忆中逐渐的消逝",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00016",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "chara_k01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「…看来，他们似乎『不喜欢』我」",
+voice: Some("li/n003"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00017",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对普通人来说，我的存在只是一个累赘」",
+voice: Some("li/n004"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00018",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "chara_k01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「所以…仿佛从记忆里消失了一样…」",
+voice: Some("li/n005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00019",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: play_se,
+args: (
+file: "rain_1",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "w",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora_ame03",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在这个只看得到自己的世界里…我送走了不知多少个季节…多少次下着梅雨的苍白天空…」",
+voice: Some("li/n006"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00020",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我的英语教科书，自１年级的期中考试以后，就只是一片空白」",
+voice: Some("li/n007"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00021",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "chara_0012",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「…从那时起…",
+voice: Some("li/n008_1"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00022",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我的时间",
+voice: Some("li/n008_2"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00023",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "静止了...」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00024",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "chara_0013b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c005",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c0052",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: stop_bgm,
+args: (
+fade_ms: Some(3000),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(5),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "z42r",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "w",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c00",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "■ 8年后…2004年 主人公 初夏 ■",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00025",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "夏日。满身是汗。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00026",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "驾照考场的现场，放置着一块巨大的电子公告板。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00027",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当公告板的LED灯同时亮起。我和其他人一样，寻找着自己的考号。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00028",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「２３７，２３７…」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00029",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在将近最后的LED荧屏里，我顺利的找到了自己亮起的考号。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00030",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "faan1_b",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "咣当咣当、",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00031",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "刚好到了午后时间，车内尤其冷清。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00032",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这空旷冷清的车厢内，从考场出来的我开始了归途。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00033",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "左手握着刚刚收到的交规课本，胸前的口袋里揣着崭新的驾照。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00034",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我现在也算是有驾照的人了…」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00035",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "认真地嘟哝着，却也并没有什么感慨。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00036",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我不是很想要开车。也并非有着什么其他的目的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00037",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只是周围有很多人都去了驾校，而且他们经常劝我也去考一张驾照。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00038",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora_yoru01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这天夜里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00039",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我将获得驾照的事情告诉了父母，『是吗』，被如此简短的回应了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00040",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我试着问到，能否借用父亲的车子，得到了同样简短的回答，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00041",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "『不行』!这样回复了我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00042",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "其实我也并不是想开车，而他们的答复也和我的预想如出一辙。这就是我的父母。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00043",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "第二天。醒来后觉得胸口很难受，于是就去了医院。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00044",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "平时我和疾病什么的没有缘分。所以，初诊接待的等待时间，感觉非常无聊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00045",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "byoin_rouka",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "好不容易等到诊察结束了的样子，接下来却是胸透和血液检查。是被迫去检查的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00046",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，经过漫长的时间，静静的等待者……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00047",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知不觉，当我读完等候室的三本JUMP，向第四本伸手时，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00048",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就这样办理完了我的住院手续。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00049",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一直放在胸口的口袋里的，那张崭新的驾照。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00050",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看来暂时不会有使用到它的机会了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00051",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c03",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "■\u{3000}主人公\u{3000}２００４年\u{3000}秋\u{3000}■",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00052",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "83",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "到了蝉鸣的喧嚣渐渐平静下来的时节。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00053",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我仍然待在医院之中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00054",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然了，我也不是一直都住在医院里。只是不停地重复着入院与出院的过程。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00055",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "上个月，我经历了平生的第一次手术。\n出院后，要去离家５分钟车程的医院去接受定期检查。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00056",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "之后便是住院，出院，检查，住院的循环…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00057",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "尽管不知道ＰＥＴ啊易瑞沙啊都是些什么东西，\n等回过神来，这单调的循环已经持续了几个月。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00058",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "与食欲越来越差相对应，服用药物的量与种类与日俱增。\n我自己也能实际感受到，体力明显下降了",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00059",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我发觉双腿越来越消瘦，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00060",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "”这并不是错觉”，体重计的指针告诉我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00061",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00062",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像是旁观者一般看着这一切。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00063",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "与其说是旁观的那种冷漠，简直就如同只是在看着电视里播出的一段镜头似的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00064",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "事发突然，身上发生的事情，脑袋还没有反应过来。\n我无法对发生的这一切产生任何的实感。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00065",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "所以，尽管是发生在自己身上的事情，\n但我看待它的方式却仿佛自己是局外人似的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00066",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c033",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "隆冬时节。当街头巷尾的圣诞气氛终于消散殆尽的时候，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00067",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "大概是因为到了年末了吧，我被允许回家了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00068",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然这也只是暂时的。即便如此我还是感到了一丝喜悦。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00069",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "amazora02",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在雨雪交加的天气，我回到了久违的家中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00070",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知道为什么，家人全都聚在一块。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00071",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明明平时很少和我说话的父母，总觉得有点不自然地，笑着迎接我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00072",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "平日里没少和我拌嘴的妹妹，也做好了我最爱吃的奶油炖菜和炸虾排。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00073",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "大家一起围坐在被炉边。抢着为我剥橘子皮。\n那异乎寻常的照顾。留给了我很深的印象。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00074",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这时…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00075",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我隐约察觉到了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00076",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "静静地待在口袋里的，那张崭新的驾照。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00077",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这张驾照，不出意外的话，永远都不会有它的用武之地了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00078",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "w",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "面对着这些不自然的笑容…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00079",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我冷静地，茫然地，漠不关心地思索着，仿佛这是别人的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00080",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "c032",
+transition: Some(fade(
+duration: 1.0,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "■\u{3000}主人公\u{3000}２００５年\u{3000}１月\u{3000}■",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00081",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "byoin_rouka",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "新年过后，我再次回到了医院里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00082",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知为何，我并没有像以往那样被送到４楼，\n而是被带到了像谈话室一样的房间中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00083",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，爸爸和医生反复地交谈着，\n我夹在他们中间只是一直在听着，听着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00084",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这就是所谓的 病危通知 吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00085",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "他们拐弯抹角地说了一大堆，归结起来就是。\n我似乎快要死了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00086",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是吗…」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00087",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "所以，我只简短地回答了一句。也没能想到其他可以说的话了。\n直到走出谈话室为止，我也只说了这一句话。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00088",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "听到我的回答，医生拿起圆珠笔开始写着什么。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00089",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "大概是转入关怀病房的手续吧。他始终是一副事务性的态度。\n父亲的态度也与他相仿。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00090",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…人的死，原来这么简单啊…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00091",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这是我发自内心的感想。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00092",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，从这一天开始我由４楼转入了７楼，由６人病房变成了单人间。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00093",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "byoin7_rouka",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且，７楼与其他的楼层稍微有些不一样。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00094",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "首先，地板被擦得很亮。天花板也比以前高得多，宽敞得多。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00095",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "病房里面也非常漂亮，还有个很大窗户，日光透过巨大的玻璃窗射进屋内。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00096",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…但是，窗户却只能拉开一点。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00097",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我试了试，刚好是要伸出头还差点距离的宽度。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00098",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "另外，识别用手环的颜色也变了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00099",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从住院那天开始，一直戴在手腕上的塑料制手环。\n上面记载着我的姓名和血型。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00100",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还有就是，识别用手环的颜色也变了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00101",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "现在，它的颜色由蓝色换成了白色。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00102",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "byoin7_rouka",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "正当我来搬到７楼，又到了，每年电视台开始播放无聊的春节节目的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00103",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也正是在这新年伊始的时候，我结识了那位女孩…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00104",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "nar01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: play_se,
+args: (
+file: "extra/n009",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "nar01",
+transition: Some(fade(
+duration: 0.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "nar01c",
+transition: Some(fade(
+duration: 0.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "nar01d",
+transition: Some(fade(
+duration: 0.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 0.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: return,
+),
+],
 )

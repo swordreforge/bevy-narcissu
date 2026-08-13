@@ -1,41 +1,41 @@
 (
-    version: V1,
-    meta: (
-        name: Some("chap01"),
-        next_script: None,
-    ),
-    instructions: [
-        (
-            cmd: label,
-            args: (
-                name: "block_00000",
-            ),
-        ),
-        (
-            cmd: label,
-            args: (
-                name: "top",
-            ),
-        ),
-        (
-            cmd: custom,
-            args: (
-                tag: "msg",
-                data: {
-                    "no": "99",
-                    "mode": "novel",
-                },
-            ),
-        ),
-        (
-            cmd: call_script,
-            args: (
-                script: "game-logic",
-                label: Some("story01"),
-            ),
-        ),
-        (
-            cmd: halt,
-        ),
-    ],
+version: V1,
+meta: (
+name: Some("chap01"),
+next_script: None,
+),
+instructions: [
+(
+cmd: label,
+args: (
+name: "block_00000",
+),
+),
+(
+cmd: label,
+args: (
+name: "top",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "game-logic",
+label: Some("story01"),
+),
+),
+(
+cmd: halt,
+),
+],
 )
