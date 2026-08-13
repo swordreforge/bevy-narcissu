@@ -1,0 +1,13083 @@
+(
+version: V1,
+meta: (
+name: Some("@あかり1"),
+next_script: None,
+),
+instructions: [
+(
+cmd: label,
+args: (
+name: "block_00000",
+),
+),
+(
+cmd: label,
+args: (
+name: "top",
+),
+),
+(
+cmd: label,
+args: (
+name: "z00",
+),
+),
+(
+cmd: label,
+args: (
+name: "z01",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "明的故事1",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "autosave",
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap01",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "01bg0060",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: play_se,
+args: (
+file: "rain01",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "55",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从深夜开始就下个不停的雨，把路肩变成了污浊的小河。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00001",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "6月12日，中午。\n厚实的乌云上的日光很弱。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00002",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "梅雨季才刚刚开始。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00003",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好闷热……\n为什么要在像今天这样的天气里模拟考啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00004",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "厌恶着被汗水浸湿的牛仔裤的同时，在走惯的道路上走着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00005",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_a0002d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "没过多久到达的是，七层的大楼。\n被爬山虎缠绕的氛围，与其说是古风倒不如说是破旧吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00006",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "处处可见细小的干燥龟裂。\n虽然不知道建成了多久，但也有相当的年头了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00007",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我在这破旧的建筑进出已经有1年了。\n这里是大学入学考试失败的人会来的地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00008",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "它一般被人们叫作预备学校。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00009",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_a0001",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在我身旁等待电梯的是，是一群欢闹的高中生。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00010",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "以应届生身份就读预备学校的学生们，\n和像我这样以浪人身份过来的人在气势上就不同。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00011",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "脚步的重量也不同，人们的看法也不同。\n他们是未成年。我马上就19岁了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00012",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "以前的同学已经开始选择自己的学科了，而我还没有进入大学。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00013",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「今年是最后一年了吧…… \n已经没有后路，必须要努力了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00014",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然嘴上这么说，比起热情，失意已经占据了上风。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00015",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "elv2",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "被满电梯的高中生挤着，升向目标楼层。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00016",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "他们高兴地谈论着周末计划的声音，让我感到愈发地不爽。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00017",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "于是我向着屋顶走去。\n没有什么特别的原因。旷预备学校的课也不是第一次了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00018",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不喜欢跟在成群地走向教室的他们身后。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00019",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在洁白的走廊里行走也好，\n装着大玻璃的教室也好说不定也都不喜欢。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00020",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg2060d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "kaze13",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "“咻”的一阵强风，视野有一瞬变得全白。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00021",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "眼睛习惯后，看到的是伫立在小雨中的绿色围栏。\n貌似有两米以上的高度，显得很高。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00022",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "是不去攀爬就翻越不了的障碍。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00023",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嘛，应该是为了防止自杀吧……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00024",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这种程度不用问都能想到。\n只是为了安全的话是不需要这么高的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00025",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这分隔生死的障壁的另一边，已经有人先到了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00026",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "并不是安全的这一侧，而是属于死亡领域的围栏另一侧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00027",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一个人眼神空洞地站在那里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00028",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a009c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……难道……是想跳下去吗？我想不到其他理由。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00029",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我正犹豫着该如何开口搭话时，对方先开了口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00030",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你也想死吗？」",
+voice: Some("li/tpapa_0001"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00031",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不认识的大叔说到，看起来40岁左右。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00032",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看起来很高级的青色格子领带和下巴的胡子令人印象深刻。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00033",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，你也是因为死亡的命运，来到这里的吗？」",
+voice: Some("li/tpapa_0002"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00034",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…命运？不知道他在说什么…",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00035",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「大概不是，我还不想死……啊，\n不，我也不是很清楚……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00036",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如此回答道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00037",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我不知道这种情况下该怎么回答才好。\n我想恐怕这就是我真实的心情了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00038",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a008b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「其实我也不想死……\n但好像已经到极限了」",
+voice: Some("li/tpapa_0003"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00039",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如他所说，他微微颤抖着的膝盖平静不下来。\n看起来内心非常焦躁的样子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00040",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……但是，语调却十分沉稳冷静，\n不像是现在想要寻死的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00041",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a009c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，虽然会跳下去……\n但放心好了我不会死的。 因为我是不死身」",
+voice: Some("li/tpapa_0004"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00042",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈？ 不死身？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00043",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「所以说不会死的。正确来讲应该是不老不死吧」",
+voice: Some("li/tpapa_0005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00044",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……说啥呢？\n这个不起眼的大叔是不死身？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00045",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "简直就像是把中二的话一本正经说出来的大叔。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00046",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（……明明马上就要去死，有些不对劲……）」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00047",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还是说对死亡做出了觉悟的人，往往就是这样的吗？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00048",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不要紧，这样睡下去的话，很快的……」",
+voice: Some("li/tpapa_0006"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00049",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着松开了抓住围栏的手。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00050",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂、喂、等下、停下来啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00051",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "为了穿过围栏不禁提高了声音。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00052",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知道是不是真心想阻止他。\n还是条件反射。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00053",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当眼前有打算寻死的人，\n我想谁都会做出同样的反应。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00054",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对这样的我，大叔再次转过身来……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00055",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a008",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「如果什么时候你真的有了想死的想法……让给你也行」",
+voice: Some("li/tpapa_0007"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00056",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「让？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00057",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我不是说过不老不死吗。再见啦」",
+voice: Some("li/tpapa_0008"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00058",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a008b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "宛如跟朋友说着拜拜道别一样，对我精神地挥了挥手。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00059",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后下一个瞬间，向着面前的虚空踏出了一步。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00060",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a008c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "数秒后听到了沉重的声音。\n又听到了像是什么人的悲鸣一般的声音。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00061",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在我下楼的时候，伴随着看热闹人的喧嚣，\n不知是救护车还是巡逻车的警铃声也传到了耳中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00062",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在红色积水中央趴着的大叔。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00063",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "与2分钟前跟我说话时不同，他的手脚向着平常见不到的方向弯折着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00064",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……即使没有医学上的知识也能明白。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00065",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当场死亡。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00066",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "与其说是人，不如说曾经是人的东西，\n变成了应该被称为物体的模样。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00067",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "格子花纹的领带，\n也变成了鲜红的简约式样。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00068",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……就这样，自称不死身的大叔死了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00069",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「死亡被摆在眼前的话，谁都会说些意义不明的话吧……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00070",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如此低语着，我离开了那里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00071",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "01bg0010",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―2天后。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00072",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "135",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "大清早开始，就在终于停雨了的车站前闲逛着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00073",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然翘预备学校的课也不少有，\n但由于前几天，发生了那样的事，更加不想去学校了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00074",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_maku_0002",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是真的闷热啊……\n明明才刚到10点…」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00075",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "持续行走在刚开店的商店街，目的地是随便哪家家庭餐厅。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00076",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "其实去哪里都行，只是想打发一下到傍晚的时间。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00077",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不一会儿，在某个十字路口前突然被搭话了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00078",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_04",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哟，好久不见啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00079",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "转过身来眼前是一个不认识的女性。\n看起来20岁左右。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00080",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "本以为是对其他的什么人，但周围只有我一个人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00081",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「今天也翘了预备学校的课吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00082",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呃、嗯，算是吧……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00083",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我暧昧地搪塞过去。\n因为对方是完全不认识的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00084",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「抱歉，您是哪位？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00085",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，等下……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00086",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她一边说，一边从钱包里拿出驾驶证……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00087",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那个，我叫佐佐木佳子…佐佐木、jiazi？还是guizi来着？\n 在东京居住，户籍好像是横滨吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00088",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……好像是？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00089",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_18",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，除了这些，我也不太知道」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00090",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "做出了不可思议的回答的自称佐佐木的女性。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00091",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明明气质看起来很温柔，但宛如男性的说话方式，让人感到违和。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00092",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（……虽然不是很懂，但不管怎么说我都不记得这人是谁）」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00093",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不过，在告诉她认错人了之前……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00094",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_c",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_03",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是我啊，我。之前在屋顶道别过的吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00095",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "他继续说着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00096",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「屋顶？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00097",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_19",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「说过不死身什么的吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00098",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00099",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_06",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这么快忘了吗？ 真是薄情的人啊…… \n亏我还像笨蛋一样跟你挥手」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00100",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「…………………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00101",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "听到这儿几件事就串联了起来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00102",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "光按照这个女性的话来说，\n她就是那时跳楼自杀的大叔本人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00103",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然还是相信不了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00104",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "毕竟他在我眼前跳了下去，我也以我的双眼见过了尸体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00105",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_09",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你好像还是不相信的样子啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00106",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_04",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不过也是。\n现在，只是意识附身着的状态而已」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00107",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「只有意识？ 附身？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00108",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_d",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「硬要说的话，\n现在是“暂住”在这个身体里比较恰当」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00109",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……不是很懂。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00110",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，如果按这个男性？\n所说的解释的话，身体里就是前几天的那个大叔。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00111",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_19",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「走吧。那么在意的话，就跟过来」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00112",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂、喂、等一下。\n我可哪里都不去哦」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00113",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「随便你。\n要是你嫌弃的话，我不过就是让给其他人而已」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00114",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说完这些，就立马开始走路，没再打算向我回头。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00115",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "根据那时的对话，他说的“让”指的就是不老不死。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00116",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……真是荒谬。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00117",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如此想着我还是跟了上去。\n冷静思考的话，就能理解这是不可能的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00118",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如果那时，有人看到了我们俩在屋顶对话的样子，骗人也是可能的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00119",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，想不到那样做有什么好处。\n更加不明白他的意图了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00120",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……总之，先过去看看吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00121",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "做出那样的判断后我向不认识的女性……\n自称，内里是不老不死的大叔的身后跟了过去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00122",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_a0002",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不一会儿就到了，一栋不知何处的建筑前。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00123",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "暗淡的水泥墙壁看起来像灰色而不是白色。\n让人觉得是建成了相当年头后的已经老化的大楼。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00124",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……难道是个废楼？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00125",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「算是吧。因为只有我住在这儿」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00126",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如此交谈着我们一起踏上了电梯。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00127",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "似乎是前往在顶层的第7层。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00128",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "elv2",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_a0005",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在毫无生气的走廊的最深处，写有701号的房间前我们停住了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00129",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是住这里吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00130",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「严格来说不是……不过，先进来吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00131",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "106",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―喀锵，吱……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00132",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "打开铁质的门后，催促着我进去的女性。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00133",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是房间里，仅蔓延着黑暗。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00134",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，眼睛马上就会适应了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00135",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a007",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……台子？ 啊，不对好像是床？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00136",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边长大概有10米的正方形房间，一个大房间的布局。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00137",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像是家具的东西都没有，空旷的房间中，有两个看起来像是石头台子一样的东西。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00138",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在那之上有人正在睡觉。一位是中年的男性，还有一位是年轻的女性。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00139",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然都是我不认识的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00140",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……这里究竟是？ 还有这些人是？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00141",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「能看到那边不起眼的老爸吧，那就是我」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00142",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……我？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00143",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「刚刚也说了吧。不是暂住的身体，而是我的本体的意思」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00144",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「现在的这个身体，只是附身在上面而已」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00145",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这里又出现了，“附体”这个单词。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00146",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "确实，考虑到至今发生的事情，如果真的是有那种能力的话就能解释得通了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00147",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_akari_0003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「需要说明吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00148",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊。说起来，说是要让的，指的就是不死之身的能力吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00149",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_12",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「结果上来说都是一样的。躺在这个床上之后，意识……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00150",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「也就是说可以只让灵魂附身在别人的身上。 你能明白这个意思吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00151",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……啊~。那确实是不死之身」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00152",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "和我一直认为的不死之身有些不太一样，不过想想附身他人也相当于不死之身吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00153",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因为，不管用附身后的身体做多过分的事情……\n即使是弄出会死掉的伤，本体也不会受到影响。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00154",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因为只是灵魂附体罢了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00155",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "前几天，在我眼前死掉也没有关系如今这样灵魂附体在另一个人身上活得好好的大叔。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00156",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "无论多么令人难以置信，这个样子就证明了这是事实。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00157",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_11",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嘛，准确来说这不仅仅是不死之身而是不老不死……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00158",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不过解释起来太长了，你就问她去吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00159",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a007e",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着指向的是，在另一张床上睡着的女性。\n长长的头发和粉色的睡衣让人印象深刻。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00160",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看起来跟自己年龄差不多。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00161",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「她也是同伴吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00162",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_akari_0003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_06",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「同伴吗……如你所见，算是室友吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00163",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「室友？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00164",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_11",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这个能力的缺点就是，不能一个人活这样」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00165",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「为什么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00166",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你也躺床上就知道了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00167",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说到这儿，从口袋里取出来了某种药物一样的东西。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00168",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a0013",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这是特别强力的安眠药」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00169",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「马上我就……也就是说，\n这具身体要睡过去了，应该半天都起不来吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00170",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「？？？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00171",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这也是，为了把床让给你而做的准备」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00172",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着就将几片药含在了嘴里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00173",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_akari_0003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_04",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好了，有问题的话就赶紧说。\n还有3分多钟我就睡过去了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00174",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「欸，啊……知道了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00175",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "被他掌握住了进度，重要的事情也没问到。\n先不说信还是不信，不明白的事情太多了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00176",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "归根到底，如果他真的有那种能力，为什么就要把这能力放弃掉？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00177",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……难道说，会有什么缺点吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00178",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那要停下来吗？\n试一下不就知道了嘛，你也真是」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00179",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00180",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "被这样子回答了也就是说，问什么都没意义了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00181",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_11",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，还有最后一件事忘了说……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00182",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「从这个床上下来的话，会死掉的小心点哦」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00183",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00184",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_04",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么这次就是真的再见了。拜……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00185",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着的同时，就把床上睡着的男性，搬了下来。\n如大叔所说，这就是他自己的身体了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00186",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "与此同时倒在地板上的男性。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00187",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a001",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……没有呼吸？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00188",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "走近后发觉到了。\n看不到什么明显的外伤，但是已经死了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00189",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也就是说，和刚才的说明一样，因为从床上下来了，就死掉了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00190",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「究竟是怎样才能变成这样的……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00191",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我先整理了一下情况，不这样做的话就会混乱起来， 无法冷静。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00192",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「现在，在这个地方，除了我还有三个人」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00193",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一个是，现在，死掉的大叔。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00194",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还有一个是，刚刚还在说是被大叔附体了的女性。\n现在好像在睡觉了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00195",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最后的一个是，从来的时候就一直在床上睡觉的女性。\n而且，在她旁边的床，从刚才开始已经是什么都没有的状态了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00196",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……如果相信大叔的说明，姑且，能解释得通」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00197",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "接下来我只要这样躺到空着的床上，就能获得附身的能力。他这么说过",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00198",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然我是不打算信的，但现在大叔已经在我眼前死了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00199",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……怎么办？\n虽然不是很清楚……要赶快从这里离开吗？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00200",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也有被卷进什么糟糕事件里的可能性。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00201",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "想也不想是，转身要走向房间出口的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00202",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "137",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_akari_0003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_01",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/1koa_0011"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00203",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "回过头来，那里有一位不认识的女孩子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00204",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_11",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「别就这么随便死掉啊…」",
+voice: Some("li/1koa_0001"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00205",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呃，你是……？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00206",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没有在跟你说话哦」",
+voice: Some("li/1koa_0002"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00207",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么说着，把视线投向了倒在地板上的大叔。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00208",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_10",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「把我叫到这里来如果说是什么事情的话…」",
+voice: Some("li/1koa_0003"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00209",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你……难道说，是这个大叔认识的人？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00210",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「算是吧」",
+voice: Some("li/1koa_0004"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00211",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "盯着已经不会再动的大叔这么说道。\n对于已死之人，这过于冷淡的语气很让我在意。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00212",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……已经浮现出了几个疑问，\n不过首先想到的是，这家伙到底是什么人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00213",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如果说没有什么目的的话，不会有人会来这种地方。\n何况这样的小女孩就更不会了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00214",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「话说回来，你是谁啊？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00215",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_c",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_15",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不就在那儿吗」",
+voice: Some("li/1koa_0005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00216",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "手指着的是，现在还在床上睡着的女性。\n也就是刚才，被大叔称作室友的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00217",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「难道说，这就是你……\n啊，不对，应该是本体来着？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00218",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「算是吧，比起这个你啊，快点做完了比较好哦……」",
+voice: Some("li/1koa_0006"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00219",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么说着，催促着我躺上床的女孩子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00220",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我，稍微考虑了一下，最终还是躺在了床上。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00221",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a006",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "触感像石头一样坚硬，但并不硌。\n也不会觉得痛之类的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00222",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也足够的宽敞。\n就算是用力伸展身体也还是有足够空间的大小。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00223",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「话说，这样的下一步是？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00224",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_akari_0003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_01",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在这个人身上，附身就好了啊」",
+voice: Some("li/1koa_0007"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00225",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这个人指的就是，刚才躺下了的女性。\n看起来现在还在熟睡中",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00226",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_c",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_12",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「除了在对方睡着了之后，是没有其他办法附身的」",
+voice: Some("li/1koa_0008"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00227",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「原来如此……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00228",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "终于，能够理解刚才的大叔的言行了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00229",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "刚开始的时候并不明白他到底在做什么，\n原来说的“为了我”也是，指的这个事吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00230",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么，要怎么做，才可以灵魂附体呢？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00231",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_b1",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在心里面，想着想要灵魂附体」",
+voice: Some("li/1koa_0009"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00232",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……就这？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00233",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_14",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就这些了。\n面向对方吧」",
+voice: Some("li/1koa_0010"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00234",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这也过于简单了，反而觉得没干劲了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00235",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_07",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/1koa_0011"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00236",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "s_akar_09",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「和我说也没用啊」",
+voice: Some("li/1koa_0012"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00237",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「额，啊，也对……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00238",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知为何，有些生闷气的她。\n我，还是半信半疑地，照她说的做了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00239",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在床上躺着，熟睡着的女性。\n盯着那个女性，我专注的想了起来",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00240",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……灵魂附体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00241",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……我想要灵魂附体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00242",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……灵魂附体……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00243",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因为不是很明白怎么才算专注地想，\n我将其当做话语，在心中默念了数次。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00244",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "做了之后……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00245",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "sinpi01",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a020",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a020b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a020c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a020d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "4w",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "下个瞬间，我的视野发生了变化。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00246",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "到刚才为止，一直盯着的那个女性从视野中消失了，\n取而代之看到的是房间的墙壁。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00247",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，就注意到自己的手腕和手，变成了女性的手腕。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00248",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在一瞬间，我以为是自己的身体变成了女性的身体，\n马上就意识到并不是那么回事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00249",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "ev_a007c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因为眼前的床，睡着的我在上面。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00250",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……原来如此。灵魂附体后，\n自己的身体就会一直在这里休眠这样吗。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00251",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_akari_0003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_01",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「看起来，进行地很顺利嘛……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00252",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么说着，就发觉到了身体有一丝沉重。\n恐怕是，因为附身到了比我年龄更大的人身上才会这样我如此推测到。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00253",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_01",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_03",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「说起来你的……名字是？」",
+voice: Some("li/1koa_0013"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00254",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_c",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_03",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……名字？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00255",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_03",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "本想立马回答却哽住了，不知为何只有这里想不起来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00256",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_09",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不对，之前的对话也是，内容都还记得。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00257",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "应该说自己的名字什么的，就像是被虫子咬了一样只能想到一些碎片。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00258",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_01",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那就出发吧…」",
+voice: Some("li/1koa_0014"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00259",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_h",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_14",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啥，喂、喂、出发是、要去哪儿？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00260",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_08",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哪里呢……」",
+voice: Some("li/1koa_0015"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00261",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_h",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_06",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂、哪儿是那儿啊？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00262",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_03",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不过，目前会和你在一起的……\n到你习惯了为止」",
+voice: Some("li/1koa_0016"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00263",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_14",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「习惯指的是？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00264",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_10",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就算是靠不住，也就只有你在了」",
+voice: Some("li/1koa_0017"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00265",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "满是疑惑的我。\n但是，也只能跟着她走了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00266",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "01bg0010",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "136",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "格外晴朗的寻常正午。\n并排着走出大楼的我们。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00267",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_maku_0002",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对于我来说，和自己的身体不一样…\n而且还是变成了女性身体的这件事有很多的惊奇之处。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00268",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "现在还是有种做梦一样的感觉。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00269",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_04",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「也不要，总是摸自己的身体比较好……」",
+voice: Some("li/1koa_0018"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00270",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「欸……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00271",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_12",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "s_akar_a_b1",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「看上去像是奇怪的人，会很显眼哦」",
+voice: Some("li/1koa_0019"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00272",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊、嗯嗯、也对……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00273",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "被她这么说了之后抬眼一看，周围的行人都在盯着这边。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00274",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0011",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "走向附近公园的我们。\n这是因为人比较多的地方会不方便。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00275",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「首先，有几个想要问的问题…可以问吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00276",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_01",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「请问吧。\n我也希望你能马上理解」",
+voice: Some("li/1koa_0020"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00277",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不管是什么人都，\n可以附身上去的吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00278",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_03",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「可以的哦。\n只要是睡着的人」",
+voice: Some("li/1koa_0021"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00279",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_d",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_05",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么，一旦附身上去，就再也出不来了吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00280",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没那回事」",
+voice: Some("li/1koa_0022"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00281",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "目前为止，都还是我所能预想到的事情。\n看看以前的大叔就能理解了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00282",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，附身的状态可以，持续多长时间？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00283",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「看是谁了」",
+voice: Some("li/1koa_0023"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00284",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「看是谁？ 那是什么意思？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00285",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "s_akar_a_b1",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「字面上的意思咯」",
+voice: Some("li/1koa_0024"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00286",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不是很明白。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00287",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "简单来说，不是我自己有没有能力的问题，\n而是根据附身对象的不同，会有一些变化。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00288",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……也就是说，附身对象要慎重一些的选择会比较好吗？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00289",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我正在呆呆地思考着这些东西的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00290",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_12",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「肚子饿啦」",
+voice: Some("li/1koa_0025"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00291",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "突然就说出了这个。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00292",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_06",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「去买些什么回来吧」",
+voice: Some("li/1koa_0026"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00293",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「欸、啊、知道了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00294",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那么回答后，就想到了，\n现在的我，还是之前那位女性的身体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00295",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_18",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "s_akar_a_b1",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「还没好吗？ 果然起床之后肚子就会饿……」",
+voice: Some("li/1koa_0027"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00296",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「稍微等一下」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00297",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我从衣服里拿出钱包看了看，里面只有卡套。\n里面也只有写着住在横滨的，名为佐佐木什么的驾驶证。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00298",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没有现金啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00299",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然有好几张卡片放在里面，可是又不知道密码。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00300",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你，没有带钱吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00301",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对啊，因为很突然嘛」",
+voice: Some("li/1koa_0028"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00302",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「突然？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00303",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_02",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「别在意了」",
+voice: Some("li/1koa_0029"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00304",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "毫无感情的这么回答到。\n看上去也并没有，把这奇怪的事情向我说明的样子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00305",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_15",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「比起那个，就用那个人吧」",
+voice: Some("li/1koa_0030"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00306",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那里有着，在长凳上打盹儿的上班族样貌的男人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00307",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "笔挺的西服上搭配橙色的领带。\n应该有将近30岁吧？ 看起来有些职场精英的感觉。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00308",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0011",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「现在，正在打着瞌睡应该可以办到」",
+voice: Some("li/1koa_0031"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00309",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_14",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「也就是说，又要去附身上去吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00310",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_14",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯。\n和之前的要点一样再去试一次吧」",
+voice: Some("li/1koa_0032"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00311",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然对于她那种莫名命令似的语气，稍微有些抗拒……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00312",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "尽管这家伙也是，和我一样灵魂附身的状态，\n但因为她外表和小孩一样所以就不由得会这么想。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00313",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_01",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_09",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「马上去做」",
+voice: Some("li/1koa_0033"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00314",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这次就明显是命令的语气了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00315",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0011",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_10",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「可别误会了」",
+voice: Some("li/1koa_0034"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00316",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我啊，只在你习惯之前，陪在你身边而已」",
+voice: Some("li/1koa_0035"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00317",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_03",
+x: 120.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_10",
+x: 720.0,
+y: -20.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这样吗，我明白了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00318",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "用和之前一样的方法，我看向在椅子上打着瞌睡的男性。\n然后我就，专注地想着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00319",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……灵魂附体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00320",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……我想要灵魂附体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00321",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……灵魂附体……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00322",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "sinpi01",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "4w",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0011",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_a",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_01",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_14",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「貌似挺顺利的样子嘛」",
+voice: Some("li/1koa_0036"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00323",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_b",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_10",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00324",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么简单的就能够灵魂附体……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00325",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "的确如此一来，就能像大叔所说的那样，\n根据方法不老不死也是可以做到的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00326",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_02",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「怎么样？ 钱，带着吗？」",
+voice: Some("li/1koa_0037"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00327",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_d",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_18",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「别这么催嘛……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00328",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0011",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边回答一边从包里拿出钱包。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00329",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "里面，基本都是卡片之类的，只发现了不到1万元的现金。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00330",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_15",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那我就要，芝士汉堡和奶昔布丁」",
+voice: Some("li/1koa_0038"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00331",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "指着路对面的快餐店这么说到。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00332",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "无论怎么说，也是把别人的钱包呀钱给偷走的行为，\n却完全没有愧疚的样子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00333",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……难不成这家伙，一直做着这种事情生活吗？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00334",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽说这样的话总感觉效率也太低了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00335",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_14",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶呀，这里是……？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00336",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "回头望去，刚才为止，\n被我附体了的女性应该是因为我离开了而恢复了意识吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00337",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_13",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「都已经过去2天了吗？\n ……应该是周五晚上从公司出来之后……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00338",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就这么的，边看着手机日历和手表边说着。\n似乎被附体时候的记忆，本人并不会记得。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00339",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_04",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，那边的你，这里是哪儿呀？ 不是横滨吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00340",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呃，那个……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00341",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "要怎么回答呢，哽在了那里。\n说到底，说明也没有什么意义。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00342",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_09",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「究竟怎么回事呢？ \n不知不觉2天都过去了，好奇怪啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00343",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "似乎开始有些混乱了的样子。\n以她的角度来说也是理所当然的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00344",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只是，实在是无法给出能让她接受的说明……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00345",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_09",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_03",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，阿姨……」",
+voice: Some("li/1koa_0039"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00346",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_a",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_03",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「欸、啊、什么？ 这个孩子是……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00347",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_b",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_06",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "s_akar_a_b1",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「阿姨是佐佐木女士吗？」",
+voice: Some("li/1koa_0040"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00348",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_02",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「虽说是……你，知道些什么吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00349",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_03",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在那边，有个人在找一个叫佐佐木女士的人哦」",
+voice: Some("li/1koa_0041"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00350",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "hmama_a_b",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "hmama_14",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「真的？ 那边说的，是这个方向么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00351",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_d",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_15",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯。快一点会比较好哦」",
+voice: Some("li/1koa_0042"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00352",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "连回复也顾不上，女性跑开了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00353",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，刚才说的是真的吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00354",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_06",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「怎么可能。\n只是嫌麻烦而已」",
+voice: Some("li/1koa_0043"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00355",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一脸理所当然地说道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00356",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "肯定，这样的事情已经做过好多次了，\n应该已经很有经验了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00357",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_01",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好了，赶快去买东西吧」",
+voice: Some("li/1koa_0044"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00358",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "01bg0010",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "6月的天空格外晴朗。\n简直像是要宣示夏天似的蔚蓝天空和生气。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00359",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "104",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这样的天空下，单手拿着汉堡行走着的她。\n尽管不知道要往哪里去，步伐倒是十分的轻盈。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00360",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0014",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_f",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_03",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_02",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我说你啊，平时一直都是这样子的吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00361",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_02",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这样子？\n ……什么样子？」",
+voice: Some("li/1koa_0045"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00362",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_f",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_10",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就是，像刚才那样附身之后、只是偷钱包那样……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00363",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「也差不多吧。\n这是最基本的呦」",
+voice: Some("li/1koa_0046"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00364",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "听到这话的我，浮现出了各种各样的想法，首先就，冒出了这样的疑问。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00365",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_c",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_05",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这样事情不做也，没问题吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00366",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_b",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_08",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "s_akar_a_b1",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不喜欢芝士汉堡吗？」",
+voice: Some("li/1koa_0047"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00367",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_c",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_12",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不是说那个，是用这个能力的话什么都能做到吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00368",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "至少，不是为了些小钱而去附体，吃汉堡这样的事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00369",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "根据使用方法的话，什么事都能做到吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00370",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_12",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「也不是那样的。其实相当的不方便来着」",
+voice: Some("li/1koa_0048"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00371",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_b",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_03",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是啊，极端点说，就算是这个身体死了，也没什么关系对吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00372",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_04",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「算是吧。所以呢？」",
+voice: Some("li/1koa_0049"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00373",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_c",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_15",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「也就是说，不管宿主怎么样，\n只要本体没事的话，果然不就和不死之身一样了呗」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00374",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "之前，那个大叔，在我眼前跳了下去，\n然后理所当然的死了的应该……但，没有事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00375",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也就是说，杀死被附身的人也是很简单的。\n只要自杀就好了。对在床上睡着的本体没有任何影响。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00376",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "既然都有如此厉害的能力了，为什么就做这种类似偷些小钱的事情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00377",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「又不能继承记忆，附体对象的」",
+voice: Some("li/1koa_0050"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00378",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_f",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_03",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_c",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那又怎么了吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00379",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_d",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_06",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嘛，马上你就知道了。\n这有多不方便」",
+voice: Some("li/1koa_0051"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00380",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "记忆继承不了这个，不用说明也知道。\n现在的我也，完全不知道被附身的男性的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00381",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如果记忆都可以共有的话，一开始就直接刷卡了。\n也不至于要去收集现金了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00382",
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "确实有些不大方便，但这种程度的不方便的话……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00383",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "keitai_call1",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "哔哔哔……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00384",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「电话吗？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00385",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看起来好像是从我衣服内部口袋传出的声音。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00386",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0014",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_06",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「最好不要接哦，会变成各种各样的麻烦事」",
+voice: Some("li/1koa_0052"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00387",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「虽说如此，但是放着不管也……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00388",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_12",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在响个不停的烦人铃声里，我按下了通话按钮。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00389",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "pi",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，喂喂……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00390",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，现在，几点了你觉得？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00391",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从电话那头传来的，可以说是愤怒的声音。\n似乎是个年轻的男性。在我说出，“喂……”之前就先开了口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00392",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「从刚才开始客户就，一直在等已经不耐烦了喂」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00393",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「欸、啊啊、那个……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00394",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「总之，那个报价书，是你带着的吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00395",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「报价书？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00396",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知道到底在说什么东西，就随便的翻了一下包。\n不过也是理所当然的，只是随便抽出来的文件也没有意义。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00397",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「话说，你现在到底，是在哪儿啊！？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00398",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，嗯……3丁目的xi pu公园？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00399",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0014",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "把附近看到的路牌，读了出来。\n是我自己也不太熟悉的地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00400",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「知道了，那……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00401",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "噗呲，呲……呲……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00402",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_07",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对方的话语，就这样中途挂断了。\n因为身旁的她，把我电话直接关掉了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00403",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_09",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你是……笨蛋吗？」",
+voice: Some("li/1koa_0053"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00404",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呃，也不是……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00405",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 420.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「真是的，那个人已经不能用了」",
+voice: Some("li/1koa_0054"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00406",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_a",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_01",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_11",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看着我说道，正确的来讲，\n应该说是化为这个人的样子的我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00407",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_08",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「总之先换个地方吧。\n又得换个新的人了」",
+voice: Some("li/1koa_0055"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00408",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "3",
+image: "doct_a_a",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "4",
+image: "doct_18",
+x: 120.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_e",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_08",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，喂，等下嘛」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00409",
+),
+),
+(
+cmd: sprite,
+args: (
+id: "5",
+image: "s_akar_a_a",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "6",
+image: "s_akar_09",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: sprite,
+args: (
+id: "7",
+image: "nobaby",
+x: 720.0,
+y: 40.0,
+anchor_x: None,
+anchor_y: None,
+z: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「快点跟过来。\n刚才的那些人，马上就要过来了哦」",
+voice: Some("li/1koa_0056"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00410",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_h_0014",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在快步走着的她身后，我也跟了上来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00411",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "的确，刚才的应对方式，我自己都觉得像是个傻子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00412",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且，对于她所说的，\n“相当的不方便”这句话的意思也稍稍的能够理解了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00413",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1000,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: stop_bgm,
+args: (
+fade_ms: Some(1000),
+),
+),
+(
+cmd: return,
+),
+],
+)

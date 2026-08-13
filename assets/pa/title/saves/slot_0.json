@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "timestamp": 1786166596,
+  "description": "auto-1786166596",
+  "engine": {
+    "current_script": "@あかり2",
+    "current_line": 12,
+    "call_stack": [],
+    "flags": {
+      "chap01": 1
+    },
+    "global_flags": {},
+    "current_route": null,
+    "finished": false
+  },
+  "meta": {
+    "bg": null,
+    "chapter": null,
+    "preview": null,
+    "last_dialogue": null
+  },
+  "subsystems": {}
+}

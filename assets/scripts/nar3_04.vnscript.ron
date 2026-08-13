@@ -1,0 +1,9095 @@
+(
+version: V1,
+meta: (
+name: Some("nar3_04"),
+next_script: None,
+),
+instructions: [
+(
+cmd: label,
+args: (
+name: "block_00000",
+),
+),
+(
+cmd: label,
+args: (
+name: "top",
+),
+),
+(
+cmd: label,
+args: (
+name: "z00",
+),
+),
+(
+cmd: label,
+args: (
+name: "z01",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "水仙 伊丽丝-4",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "autosave",
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap01",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_c_05",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―那一夜。我们再次向森林中进发。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00001",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "为了更好的取暖，正寻找着合适的地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00002",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "134",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊……」",
+voice: Some("li/n3iri_0077"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00003",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3099",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "公主殿下罕见的开口了。不知为何她在一块旧的告示牌前站着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00004",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，看来这是原国界」",
+voice: Some("li/yohanp_1056"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00005",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "“原”是指，如今这个国家也已经战败，全部都已经被吞并了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00006",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「因为战争的原因，\n现在离开这个国家所需要的距离多了近一倍……喂，你要去哪里」",
+voice: Some("li/yohanp_1057"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00007",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知为何，公主殿下开始往眼前的森林中走去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00008",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "禁不住，观察周围，看是不是有士兵出现，完全没有人的气息。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00009",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「等一下啊」",
+voice: Some("li/yohanp_1058"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00010",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知是不是真的听不见我的声音，那家伙没有理会我，继续走进森林。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00011",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……真没办法……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00012",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我有点在意，跟了上去……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00013",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在铺着薄雪的地面不知挖出了什么东西，拿在手里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00014",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那是什么东西……」",
+voice: Some("li/yohanp_1059"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00015",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……是浮雕贝壳」",
+voice: Some("li/n3iri_0078"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00016",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还是那样简单的回答。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00017",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……看上去上面有烧焦的痕迹，有点陈旧，肮脏破碎的贝壳而已……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00018",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知为何，这家伙很珍惜的看着那件东西。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00019",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「难道是你以前埋下的？」",
+voice: Some("li/yohanp_1060"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00020",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0079"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00021",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她并没有作出任何回答。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00022",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只是默默的把手中的东西放开……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00023",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "再次把它埋起来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00024",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……这家伙到底想干什么？难得挖了出来，又把它埋了？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00025",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3099",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……呐，要撒上水嘛？」",
+voice: Some("li/yohanp_1061"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00026",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……？」",
+voice: Some("li/n3iri_0080"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00027",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「说不定会像小麦那样，发出芽来呢」",
+voice: Some("li/yohanp_1062"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00028",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然这只是开玩笑。也有点讽刺她这意味不明的举动。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00029",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然而……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00030",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……是的话就好了」",
+voice: Some("li/n3iri_0081"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00031",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只嘟哝一声，回答道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00032",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那个脸，显得比平常任何时候都孤单，还是第一次见到这家伙时的表情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00033",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……走吧」",
+voice: Some("li/n3iri_0082"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00034",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最后只说了那样的话，就赶快离开了那个地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00035",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明明到刚才为止她都那样注视着贝壳的，但现在却再也没有回头看……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00036",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，等一下公主殿下」",
+voice: Some("li/yohanp_1063"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00037",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3099",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我说你啊，能不能给我适可而止」",
+voice: Some("li/n3iri_0083"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00038",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你指什么？」",
+voice: Some("li/yohanp_1064"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00039",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「称呼我公主殿下」",
+voice: Some("li/n3iri_0084"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00040",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，又用平常那严肃的脸对着我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00041",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，该怎么称呼你呢？」",
+voice: Some("li/yohanp_1065"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00042",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0085"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00043",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没什么……叫什么都行，随便你」",
+voice: Some("li/n3iri_0086"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00044",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，又转身开始向前走。我仍旧不太明白这家伙。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00045",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只是，这时候，她露出的那少见的，有点孤单……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00046",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像是怀念着什么的表情，给我留下了很深的印象。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00047",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……………………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00048",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00049",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0013",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―第二天。夜。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00050",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "雪静静地飘下。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00051",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "90",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "犹如灰色的天空下着的是白色的飞虫，渐渐树木被涂成白色。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00052",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "今天我们继续在山路上赶路。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00053",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_13b2",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后……跟往常一样，那家伙袭击了一个不知名的士兵。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00054",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「请，请饶我一命……」",
+voice: Some("li/npetcm38_001"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00055",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……放弃吧，反正中毒了也是要死的」",
+voice: Some("li/n3iri_0088"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00056",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边说着，一边向喉咙割去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00057",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那个年轻的士兵看来已经对自己的死有了觉悟。\n放弃了抵抗，双手闭合仰望着天空开始了祈祷。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00058",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「愿这个人有一颗慈悲之心……」",
+voice: Some("li/npetcm38_002"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00059",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "kiru01_1",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "话一说完，年轻士兵便沉默了。这样的情况已经是4次了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00060",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3099",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「结束了……」",
+voice: Some("li/yohanp_1066"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00061",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「恩，已经把他杀了」",
+voice: Some("li/n3iri_0089"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00062",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "接着跟平常一样，从染了血的皮袋里，找出面包，往嘴里送去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00063",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「还是那样毫不留情啊，公主……明明可以不置他于死地的」",
+voice: Some("li/yohanp_1067"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00064",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……我可不想被先去拿面包的人说教」",
+voice: Some("li/n3iri_0090"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00065",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，也对」",
+voice: Some("li/yohanp_1068"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00066",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "经过了几天相处，相对来说开始了解这家伙了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00067",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她的剑术还算不错。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00068",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然一直都是在对方身后冷不防地出剑，看过的人都知道。那是正统的刀法。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00069",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然，在实际的战场上是行不通的。因为太过端正了，并不是在乱战时使用的刀法。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00070",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，一对一战斗的话，也不会输给山贼或佣兵程度的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00071",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "再者，这家伙最厉害的地方是，毫不留情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00072",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "换句话说，就是对活着有着极大执着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00073",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不过啊，你连同胞也毫不留情呢……」",
+voice: Some("li/yohanp_1069"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00074",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……同胞？」",
+voice: Some("li/n3iri_0091"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00075",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「恩，再怎么说你也是这个国家的人吧」",
+voice: Some("li/yohanp_1070"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00076",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你错了，而且，除了自己以外，所有人都是外人」",
+voice: Some("li/n3iri_0092"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00077",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后指着躺在地上的尸体，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00078",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「活下去的道路只有一条……而死亡的道路却有无数条」",
+voice: Some("li/n3iri_0093"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00079",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「原来如此……那么这士兵的惨死，只是无数种死法其中的一种吧？」",
+voice: Some("li/yohanp_1071"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00080",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是的。 我的生存之道，除此以外再无其他」",
+voice: Some("li/n3iri_0094"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00081",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边说着，一边把这再不会动的尸体，踢下山谷。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00082",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "尸体滚落压断了树枝发出巨大的响声，毫无抵抗地滚下去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00083",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那家伙连看都不看，一句话没说的把剑上的血迹抹去。也不在意脸上的血。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00084",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我一边看着她，一边说。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00085",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3099",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「公主殿下，再问你一个问题可以吗？」",
+voice: Some("li/yohanp_1072"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00086",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……什么？」",
+voice: Some("li/n3iri_0095"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00087",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你……就那么想活命吗？」",
+voice: Some("li/yohanp_1073"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00088",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没错，因为生命只有一次」",
+voice: Some("li/n3iri_0096"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00089",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不假思索地回答。一点犹豫的样子也没有。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00090",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……那么年轻，却杀人不眨眼，毫不留情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00091",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我并不觉得这是种悲哀。反倒觉得，悲哀的应该是这个世界……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00092",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0001",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―数日后。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00093",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们今天依然回避人群，在森林里前进。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00094",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "久违的晴空，格外高远。放射着冬天特有的温暖阳光。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00095",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_27b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是无论白天夜晚，都好像跟这家伙没有关系。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00096",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只要是在食物没的时候，就会袭击路过的士兵。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00097",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "kiru01_1",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……毫不留情地杀死求饶的对方，把食物银币抢夺过来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00098",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "脸上染着血迹，口中吃着面包干粮。无情，冷酷，残忍，染满鲜血。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00099",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也就是说……这就是平常的公主殿下。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00100",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_3007",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……怎么了？」",
+voice: Some("li/n3iri_0097"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00101",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没什么，只是想你一点也没变啊……」",
+voice: Some("li/yohanp_1074"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00102",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……没办法，对我来说，没有其他活下去的道路了」",
+voice: Some("li/n3iri_0098"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00103",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嘛，可能的确如此……」",
+voice: Some("li/yohanp_1075"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00104",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像以前所说的那样，这家伙似乎没有归宿。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00105",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且还被人追杀着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00106",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对于这个国家来说，\n是不会对一个即将行刑的人的逃跑视而不见的。况且还是战败国王族的幸存者。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00107",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "至少在离开这个国家之前，被追杀也不奇怪。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00108",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然并不是想维护她，\n也不是不能理解她那每次发现士兵的时候，都想把士兵杀死的心情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00109",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……虽然这么说，但为了面包就杀人还是有点那个……」",
+voice: Some("li/yohanp_1076"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00110",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对着我那像是自言自语的问题，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00111",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对我来说，只能这样做了……」",
+voice: Some("li/n3iri_0099"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00112",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她嘟囔了一句。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00113",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「还是说……你可以教我种小麦的方法吗？」",
+voice: Some("li/n3iri_0100"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00114",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不好意思……很可惜的是，我也是除了杀人外，什么也不会」",
+voice: Some("li/yohanp_1077"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00115",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那就闭嘴……」",
+voice: Some("li/n3iri_0101"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00116",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，脸上露出少许寂寞的样子低下头去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00117",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……肯定，这家伙也是知道的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00118",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "总不能一直过着这种生活。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00119",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然直到现在，都是出其不意偷袭对方才赢得了的，\n但如果是多对一，或者对付正规军队，骑士之类我想是行不通的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00120",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_3003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，公主，如果遇到你赢不了的对手时，怎么办？」",
+voice: Some("li/yohanp_1078"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00121",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……你觉得我为什么跟你一起走？」",
+voice: Some("li/n3iri_0102"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00122",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "原来如此。确实是简单的回答。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00123",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是，如果我自己一个人逃跑了呢？」",
+voice: Some("li/yohanp_1079"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00124",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0103"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00125",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我以前说过……」",
+voice: Some("li/yohanp_1080"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00126",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我只是在寻找合适的死法，并不是像你那样渴望活下去」",
+voice: Some("li/yohanp_1081"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00127",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "是的。我的目的就是如此而已。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00128",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如今这样避人耳目，去其他领地是因为，\n待在这个国家，因为无关痛痒的事而死去的可能性高。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00129",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「一旦发生什么紧急情况我会抛弃你哦。会自己逃跑」",
+voice: Some("li/yohanp_1082"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00130",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……那时候，我也就只能死了」",
+voice: Some("li/n3iri_0104"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00131",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「什么嘛，你看得那么开啊」",
+voice: Some("li/yohanp_1083"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00132",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那也是没办法的，不是么。因为连接死亡的道路有着无数条……」",
+voice: Some("li/n3iri_0105"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00133",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然没有清清楚楚地说出口，但如果靠这种方式活到现在的话……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00134",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那实在是过于残酷的人生啊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00135",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是公主殿下，我还是要给你一个忠告」",
+voice: Some("li/yohanp_1084"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00136",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……忠告？」",
+voice: Some("li/n3iri_0106"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00137",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……是啊，作为杀人者的前辈，看来你并不知道这件事」",
+voice: Some("li/yohanp_1085"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00138",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，我指着眼前的尸体。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00139",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「看见从这家伙身上流出来的血了么？」",
+voice: Some("li/yohanp_1086"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00140",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……那又怎么样？」",
+voice: Some("li/n3iri_0107"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00141",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么， 有感觉你自己也在流血么？」",
+voice: Some("li/yohanp_1087"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00142",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈？」",
+voice: Some("li/n3iri_0108"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00143",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "四处看着自己全身，活动着身体，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00144",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我并没有受伤啊」",
+voice: Some("li/n3iri_0109"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00145",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不，在你砍那家伙的时候……你的心就已经受伤了」",
+voice: Some("li/yohanp_1088"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00146",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……心？」",
+voice: Some("li/n3iri_0110"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00147",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不知道吧？ 心也会流血的……」",
+voice: Some("li/yohanp_1089"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00148",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后血不断地流着……不久……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00149",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_3003",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……烦死了，反正又不会死」",
+voice: Some("li/n3iri_0111"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00150",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，并不会死。只不过……",
+voice: Some("li/yohanp_1090"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00151",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "心里会打开一个缺口而已」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00152",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0112"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00153",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「总之，种麦子是很麻烦的事情……杀人也不简单就是了」",
+voice: Some("li/yohanp_1091"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00154",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，拍了拍这家伙的头，然后又开始出发了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00155",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0001b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "仰望天空，不知何时出现了白色的气息。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00156",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从那天空中，又开始下起零散的小雪。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00157",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "“伤口”的话……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00158",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "似乎伤得越深，治愈所需的时间就越长。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00159",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……所以流出来的血，必须在某处得到治疗。\n纵使已经流出过多的血，能治好的程度也很有限。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00160",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如果，无法治愈的话……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00161",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "心中就会产生缺口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00162",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这就是作为杀人者前辈，唯一能对这家伙说的话……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00163",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……………………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00164",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那天夜里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00165",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0011b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "太阳慢慢下山，在空中巨大的月亮刚露出头的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00166",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "138",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边听着小溪涓涓的流水声，我们在溪边坐下，烧着火取暖。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00167",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3021",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，稍微洗一下澡吧……」",
+voice: Some("li/yohanp_1092"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00168",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0103"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00169",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "没有特别的反应，恐怕是默许了我的提案了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00170",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就这样，公主慢慢走到溪边。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00171",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算是这家伙。到处沾满血迹也会感觉不舒服吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00172",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "water02",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "冰冷的水浸过我的腰间，哗啦哗啦地洗着脸。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00173",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_23",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这大雪纷飞的天气中，呼着白气。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00174",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "向旁边看看，那家伙同样把腿伸进水中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00175",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，并不像我那样豪爽地泡入水中……似乎在顾虑着什么，该说是有点怯懦的碰着水。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00176",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "战战兢兢，用手碰了碰水，因为太冷又缩了回去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00177",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_23b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看上去，洗个脸就很辛苦的样子……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00178",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "平时几乎完全不表露出情感，现在却罕见的露出了有点恼怒，不高兴的样子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00179",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……完全看不出，她是个冷血的杀手啊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00180",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那样的行为和表情，无论怎么看都像普通的小孩子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00181",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，如果说有些不同的地方的话，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00182",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那个，公主殿下，像现在就可以把剑放下了吧」",
+voice: Some("li/yohanp_1094"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00183",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「做不到……已经跟手粘在一起了」",
+voice: Some("li/n3iri_0113"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00184",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那是啥？」",
+voice: Some("li/yohanp_1095"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00185",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0114"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00186",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，她凝视自己的手和剑，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00187",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对我来说， 放下剑，就等于死了……」",
+voice: Some("li/n3iri_0115"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00188",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哦~，那样想很好。 不愧是公主殿下」",
+voice: Some("li/yohanp_1096"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00189",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……别捉弄我」",
+voice: Some("li/n3iri_0116"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00190",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "与其说杀气……不如说像是在闹别扭一样的感觉，公主殿下的脸稍微鼓胀了起来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00191",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看来她自己也挺在意的，就这样憋住呼吸，一口气泡入水中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00192",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "water02",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00193",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "把衣服和身体都一并洗了之后，我们在河滩上点火取暖。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00194",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "夜空的月亮，变得更大更明朗。黎明前一定会相当冷吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00195",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3021",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "takibi01",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "噼里啪啦燃烧的火。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00196",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "取暖是必然的，但在这时期湿着身子的话，可是会冻死的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00197",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们都把衣服晾在旁边的树干上，裸赤裸着靠着火取暖……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00198",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算是这位公主殿下，也感到不好意思吧，她转过身子，背对着火焰。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00199",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……嗯？」",
+voice: Some("li/yohanp_1097"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00200",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "偶然一看，一只飞虫停着在手臂上。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00201",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边想在这季节很罕见，一边毫不犹豫地把它投进火堆里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00202",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对我来说，这是自然而然的动作……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00203",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3021",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……你真奇怪啊」",
+voice: Some("li/n3iri_0117"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00204",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "背对着我的那家伙，开口说话了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00205",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在说什么？」",
+voice: Some("li/yohanp_1098"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00206",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你刚才，把蟋蟀杀了吧」",
+voice: Some("li/n3iri_0118"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00207",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……那又怎么样？」",
+voice: Some("li/yohanp_1099"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00208",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「杀蟋蟀很不吉利哦」",
+voice: Some("li/n3iri_0119"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00209",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……不吉利？才刚想她究竟想说什么……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00210",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我才不知道那蟋蟀传出来的谣言」",
+voice: Some("li/yohanp_1100"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00211",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……蟋蟀传出来的？」",
+voice: Some("li/n3iri_0120"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00212",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，是为了保护自己，才流传出去的吧……」",
+voice: Some("li/yohanp_1101"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00213",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「原来如此……」",
+voice: Some("li/n3iri_0121"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00214",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然，我本是想开玩笑的，这家伙却露出了一面钦佩的表情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00215",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你意外的聪明啊……」",
+voice: Some("li/n3iri_0122"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00216",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……“意外的”是多余的」",
+voice: Some("li/yohanp_1102"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00217",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我笑了笑，然后向夜空看去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00218",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明亮的月，无数的繁星。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00219",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "星光虽然被月光掩盖了，但依然微弱地闪烁着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00220",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那点小小的星光是北极星。指着北方。\n指向巨人的左脚——参宿七，和御夫座α星的前方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00221",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "并且，高高闪耀着的金星是冬天的证明。这全都是以前的远征经验告诉我的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00222",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「离春天还很久呢……」",
+voice: Some("li/yohanp_1103"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00223",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「看星星就能知道？」",
+voice: Some("li/n3iri_0123"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00224",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「恩，看星座的位置我大概就能知道了」",
+voice: Some("li/yohanp_1104"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00225",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「知识很渊博呢……还说除了杀人以外什么都不懂」",
+voice: Some("li/n3iri_0124"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00226",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「真遗憾，那也是作为杀人的一环知道的」",
+voice: Some("li/yohanp_1105"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00227",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……已经有二十年了……不，可能有三十年了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00228",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "学会的时候，我还是一个小孩子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00229",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "回想起那久远的记忆……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00230",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这家伙也嘟哝一声，继续说话了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00231",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么，这也知道吗？」",
+voice: Some("li/n3iri_0125"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00232",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后再次向夜空望去……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00233",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「黎明前的天空……是最为黑暗的」",
+voice: Some("li/n3iri_0126"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00234",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不，不知道……」",
+voice: Some("li/yohanp_1106"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00235",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "被这么一说确实有这种感觉，但也没试过认真去确认。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00236",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在东边天亮之前……是最黑暗的」",
+voice: Some("li/n3iri_0127"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00237",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她露出了有些寂寞的表情，说出了这句话。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00238",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "简直就像我之前那样，回忆往事般的嘟哝了一声。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00239",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……你也是因为，这是杀人的一环而知道的吗？」",
+voice: Some("li/yohanp_1107"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00240",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「谁知道呢……」",
+voice: Some("li/n3iri_0128"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00241",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……到现在这家伙还有很多谜团。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00242",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "没有归宿，没有目的地。还被人追杀着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00243",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算侥幸可以逃出这个国家，之后这家伙准备怎么办呢？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00244",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……逃跑，不断地逃跑……但是，她在追求着些什么呢……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00245",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "为了什么目的，而生存下去呢……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00246",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0001b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "第二天。雪依然在白色的天空中，星星点点地落着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00247",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "跟往常一样走在森林当中，快要来到开阔地方的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00248",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "88",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……谁在哪里？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00249",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "走在前面的公主殿下也突然停下了脚步。看来她也觉察到了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00250",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3020",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂……」",
+voice: Some("li/n3iri_0129"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00251",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，大概2~3个人吧」",
+voice: Some("li/yohanp_1108"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00252",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对方是谁并不知道。有可能性太多了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00253",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "有可能是追杀这家伙也说不定，又或者是为了在路上被我们杀死的人复仇的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00254",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不过，无论哪方面，会有敌人出现都是预料之中的事情。\n也没想过可以顺顺利利直截了当走出这个国家。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00255",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0130"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00256",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "公主看着我，似乎觉察着我在想什么。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00257",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……不安吗？」",
+voice: Some("li/yohanp_1109"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00258",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……你觉得我为了什么才跟你一起走？」",
+voice: Some("li/n3iri_0131"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00259",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，原来如此」",
+voice: Some("li/yohanp_1110"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00260",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "首先我向能预先观察对方的地方移动。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00261",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这样的场合，跟对方正面相对才是上策。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00262",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算能从这里逃跑，躲起来。问题并不会解决。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00263",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "反而会被一直跟踪着，在没防备时受到突然袭击就麻烦了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00264",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "首先要确定对方的人数，我们先在树荫里监视着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00265",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（……看上去，只有三个人而已……）」",
+voice: Some("li/yohanp_1111"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00266",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "确定他们没有增援后，我示意公主，在他们面前出现。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00267",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_14c07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那几个不知名的士兵可能没想到我们会突然出现吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00268",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "显得有些惊讶。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00269",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从服装上看不像是山贼之类的，但是又不像是正规士兵。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00270",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……那样的话，是我这样的佣兵吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00271",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从没有装备短弓看来，应该是受委托抓这家伙回去的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00272",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（……呐，想怎么办？）」",
+voice: Some("li/n3iri_0132"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00273",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（没问题，交给我吧）」",
+voice: Some("li/yohanp_1112"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00274",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "暂且，按住旁边的这个家伙。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00275",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从正面冲突的话，可能会两败俱伤。他们也知道这种事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00276",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "首先，由我向对方搭话。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00277",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_14c07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你们难道是为了这家伙来的吗？」",
+voice: Some("li/yohanp_1113"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00278",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "指着旁边的公主殿下说道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00279",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，能乖乖把她交给我们吗」",
+voice: Some("li/npetcm36_010"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00280",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，和我们对峙着的敌人把手放在剑上。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00281",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看来对方也不是突然就砍过来的傻瓜。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00282",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……那样的话还有交涉的余地，还可以有其他方法。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00283",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "要是正规士兵和骑士，会把使命放在第一位吧，但他们只是为了钱接下任务的佣兵。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00284",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我从皮包里，拿出了1枚金币。是枚罕见的罗马金币。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00285",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就这样，拿钱离开好吗？」",
+voice: Some("li/yohanp_1114"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00286",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……金币？ 难道真是金币？」",
+voice: Some("li/npetcm36_011"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00287",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对，不信的话也可以拿去看」",
+voice: Some("li/yohanp_1115"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00288",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说着，把金币投到他们的脚下。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00289",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/npetcm36_012"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00290",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "面对脚下的金币，佣兵们不禁你眼看我眼。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00291",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看样子，收买他们是有可能的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00292",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "毕竟只是被钱雇佣的家伙。他们也就只有这种程度吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00293",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……但是，我……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00294",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "并没想让他们就这样离开。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00295",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "等他们其中一个人，弯腰捡金币的时候……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00296",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这时，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00297",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_19f",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_19g",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈！」",
+voice: Some("li/yohanp_1116"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00298",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我一下冲了过去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00299",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "同时往斜肩砍去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00300",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_19h",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "kiru01_1",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "突然一个同伴被砍倒了，剩下的两人十分惊恐和狼狈。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00301",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对着这两个人，我连给他们抽剑的机会也没给。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00302",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "kiru02",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "马上一挥刀，砍倒了他们的脚。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00303",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「唔挖~~」",
+voice: Some("li/npetcm36_013"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00304",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "抱着流血的脚在地上打滚的三人。在寂静的山谷间，回响着他们的悲鸣。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00305",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……并不是会立刻死掉的致命伤也行。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00306",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "把他们弄成像这样，无法逃跑，又不能好好战斗的状态的话也一样。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00307",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在战场的话……濒死就等于死亡。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00308",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这就是我战斗的方法，思考的方法。我可不想跟敌人在正面白刃交锋。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00309",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "之后慢慢的，一个个割破喉咙就好了。人的生命，脆弱得一瞬间就可以毁灭掉。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00310",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「别杀我，我们只是被委托了而已……」",
+voice: Some("li/npetcm36_014"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00311",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「很遗憾，我不能放过你们」",
+voice: Some("li/yohanp_1117"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00312",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……真是天真。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00313",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "有空去捡金币，倒不如先把对方砍倒了再说。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00314",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那种东西，明明可以杀死我们后，慢慢抢的……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00315",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3015",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……还是老样子，残忍的杀人手段」",
+voice: Some("li/n3iri_0137"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00316",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「公主殿下，你想说这很卑鄙吗？」",
+voice: Some("li/yohanp_1118"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00317",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……没什么」",
+voice: Some("li/n3iri_0138"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00318",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "和所说的话一样，毫无表情的回答着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00319",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然不知道她是不是真的这么想，至少这家伙可以毫不在乎的看着这一切。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00320",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是，刚才的事只是那些家伙们太天真了。他们战场经验不足吧」",
+voice: Some("li/yohanp_1119"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00321",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……不愧是前辈，学习到东西了」",
+voice: Some("li/n3iri_0139"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00322",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明显是在挖苦我的回答。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00323",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知为何，我不可思议的觉得这样才像是她。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00324",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是你…… 普通地战斗，也很强不是嘛？」",
+voice: Some("li/n3iri_0140"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00325",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「恩。别看我这样，其实我是个骑士」",
+voice: Some("li/yohanp_1120"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00326",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……真是个不好笑的笑话呢」",
+voice: Some("li/n3iri_0141"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00327",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「恩，是个不好笑的笑话……」",
+voice: Some("li/yohanp_1121"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00328",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们把砍倒的尸体扔下了山谷后，便离开了那里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00329",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……恐怕那些是只要给他钱，就会乖乖离开的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00330",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那种程度的佣兵吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00331",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，活着回去的话，肯定会对其他人说起这件事。所以要杀他们灭口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00332",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（不过，就算是这样…… 像他们那样的家伙还会来吧……）」",
+voice: Some("li/yohanp_1122"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00333",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "跟普通死刑犯逃亡不同。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00334",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "战败国王族的幸存者，不可能轻易就饶恕。至少在离开这个国家前是不会太平的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00335",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……或许是时候该跟这家伙告别了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00336",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边想着，我从山间走向荒野。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00337",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0001b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―第二天。离开了森林，我们进入了荒野。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00338",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "kaze3",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3018b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然积雪少,可是，刺骨的寒风夺走体温。在没有遮蔽物的这个地方更是厉害。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00339",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_21",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂。把头压低点。迎风走要斜着身子……」",
+voice: Some("li/yohanp_1123"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00340",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……嗯」",
+voice: Some("li/n3iri_0142"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00341",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不时，对旁边这家伙发出指示。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00342",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，这也是你在杀人的日子里知道的么？」",
+voice: Some("li/n3iri_0143"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00343",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「当然」",
+voice: Some("li/yohanp_1124"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00344",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……从那开始我就想。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00345",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "即使要离开这个国家，也不是说去哪个国家都好。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00346",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "现在的这个国家，并没有关系特别好的国家，\n到和这个国家随时都会爆发战争的国家是最理想的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00347",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在那么紧张的状态的地方的话，很难想象会越过国界追捕我们。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00348",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……从前几天的那些佣兵来到的日数计算，必须尽快离开这个国家了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00349",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "所以，即使知道“危险”，也选择了跨过这个荒野。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00350",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3018b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（……应该是在这附近才对……）」",
+voice: Some("li/yohanp_1125"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00351",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不知道多少年前，我来到过这里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00352",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从那时候的经验看来，在走出山岳的这个地点，会有麻烦的东西在。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00353",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边这样想着，边东张西望地前进着……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00354",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……有了」",
+voice: Some("li/yohanp_1126"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00355",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我在遥远的岩石地表的对面，发现了城寨。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00356",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_3006",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然想着，说不定已经没了，不过果然现在还保留着关卡。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00357",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "即使这样，抱着没有屯驻士兵的希望，眯着眼睛一看……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00358",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「（不妙啊……）」",
+voice: Some("li/yohanp_1127"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00359",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不仅是士兵，连骑兵也看见。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00360",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "被发现就麻烦了，而且迂回的道路也没有。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00361",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "是察觉到我的异状吧，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00362",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「怎么了？」",
+voice: Some("li/n3iri_0144"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00363",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不，没什么……」",
+voice: Some("li/yohanp_1128"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00364",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0145"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00365",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……是出问题了吧」",
+voice: Some("li/n3iri_0146"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00366",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「算是吧」",
+voice: Some("li/yohanp_1129"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00367",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我开始对她简单的说明了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00368",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_3006",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那边的城寨看得见吧？ 被他们发现就麻烦了……」",
+voice: Some("li/yohanp_1130"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00369",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「有看守在？」",
+voice: Some("li/n3iri_0147"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00370",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，虽然这里不能确认，但肯定有不会错的」",
+voice: Some("li/yohanp_1131"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00371",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……为什么那样断言？」",
+voice: Some("li/n3iri_0148"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00372",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那是因为，我的直觉对越糟糕的事就越准」",
+voice: Some("li/yohanp_1132"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00373",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那就是了」",
+voice: Some("li/n3iri_0149"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00374",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "公主殿下马上就相信我了。肯定这家伙和我一样吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00375",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且不仅仅是直觉。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00376",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "战后不久的这个国家的话，应该还会驻守一定的士兵在那里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00377",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「话说在前， 别想着把对方干掉什么的啊」",
+voice: Some("li/yohanp_1133"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00378",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "首先要制止边上的公主殿下。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00379",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这家伙到现在所杀的，都只是回乡的士兵。还是从背后偷袭才得手的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00380",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但现在是正规军。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00381",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算我能跟几名山贼佣兵之类的战斗，但跟军队根本没得打。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00382",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……被发现了的话，不会轻易了事的。肯定不会有错，会用长弓硬弩招呼我们吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00383",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且即使躲过箭雨，他们会同时派出骑士过来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00384",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3018b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「听好了， 从这里开始藏身之处就没几个地方了」",
+voice: Some("li/yohanp_1134"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00385",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那怎么办？」",
+voice: Some("li/n3iri_0150"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00386",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「只能趁着夜色跑过去」",
+voice: Some("li/yohanp_1135"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00387",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00388",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "二人等待着天黑，总算在太阳完全下山时，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00389",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3105c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们在岩石地表上奔跑过。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00390",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "129",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，把身体压低点跑」",
+voice: Some("li/yohanp_1136"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00391",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "一边前进一边不时的给她下指示。这里跟山中不同，可以隐蔽的地方很少。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00392",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因此需要跑一小段就躲起来，并不断重复。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00393",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我的记忆没错的话，夜间的监视肯定有的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00394",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这里的距离很长，月亮被遮住的时候一口气跑过去」",
+voice: Some("li/yohanp_1137"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00395",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "3105c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "两人都背靠着岩石，等候着下次跑出去的时机。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00396",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……如果是我一人的话，就不必做这样危险的事了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00397",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "突然想到。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00398",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我又没有被这个国家追捕。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00399",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只是个在先前的战争结束后，没了利用价值的佣兵而已。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00400",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因为前几天的祭司他们都被我全杀光了，也没有从那里被发现这件事的机会。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00401",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "可以给出钱银，从正面过关，说是商队的护卫混过去也没问题。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00402",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，她就不行。通缉令肯定已经送到那里呢。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00403",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……果然要抛弃她了吗……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00404",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这种想法再次出现在脑海。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00405",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_3106b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……怎么了？」",
+voice: Some("li/n3iri_0194"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00406",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不，没什么……」",
+voice: Some("li/yohanp_1138"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00407",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这时……月色被云遮挡了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00408",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，跑起来」",
+voice: Some("li/yohanp_1139"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00409",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们再次飞奔出去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00410",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "毫无遮挡的地方就全力飞奔过去，跑到各处有岩石的地方时，就在那里整理好呼吸。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00411",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这样重复着，直到城寨那边看不见我们之前，只能想尽办法前进了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00412",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不久，快到中间位置的时候，云遮挡的月亮，又出来了",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00413",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "★☆「快点，月光出来了」",
+voice: Some("li/yohanp_1139_1"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00414",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像滑过去一样，跑进了眼前的岩石后。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00415",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这时，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00416",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好痛……」",
+voice: Some("li/n3iri_0153"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00417",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "na03_20",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这家伙跑得太急，扭到脚了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00418",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「给我看看……」",
+voice: Some("li/yohanp_1140"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00419",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我跑到她跟前，试着触摸那个脚。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00420",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……看起来不是骨折，但是很严重的扭伤……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00421",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……能走吗？」",
+voice: Some("li/yohanp_1142"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00422",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……应该能」",
+voice: Some("li/n3iri_0154"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00423",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，能跑吗？」",
+voice: Some("li/yohanp_1143"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00424",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那个……我想不行」",
+voice: Some("li/n3iri_0155"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00425",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……这样啊」",
+voice: Some("li/yohanp_1144"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00426",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……怎么办呢……至少天明前要离开这里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00427",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "要是太阳出来了，别说躲起来了，马上就会被在关卡上的看守找到了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00428",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，可以等我一下吗？」",
+voice: Some("li/n3iri_0156"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00429",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不行」",
+voice: Some("li/yohanp_1145"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00430",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "果断回答。离城寨看不见的地方，还有近一半路程。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00431",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这里磨磨蹭蹭的话，就会在黎明的时候被发现。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00432",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「抱歉，我要先走了」",
+voice: Some("li/yohanp_1146"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00433",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「………………」",
+voice: Some("li/n3iri_0161"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00434",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我之前就说过了，\n要寻找合适的死法，我可不想在这种地方被许多人围着死去」",
+voice: Some("li/yohanp_1147"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00435",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是么……」",
+voice: Some("li/n3iri_0157"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00436",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「还是说我帮不了你，对我有怨恨？」",
+voice: Some("li/yohanp_1148"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00437",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……不会，那也是没办法的」",
+voice: Some("li/n3iri_0158"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00438",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，果然理解得很快啊……」",
+voice: Some("li/yohanp_1149"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00439",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "再见了公主殿下，轻轻挥了挥手，把她留了下来，自己一个人继续前进。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00440",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "bg_0011",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……对。这也是没办法。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00441",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最初就打算，如果她变成累赘，无论什么时候都会置之不理。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00442",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "恐怕那家伙被捉回去处刑的时候，我已经到了其他国家了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00443",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "并且，这个冬天结束的时候，就会把她的事全部忘记了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00444",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……只是，这样罢了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00445",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1000,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: stop_bgm,
+args: (
+fade_ms: Some(1000),
+),
+),
+(
+cmd: return,
+),
+],
+)

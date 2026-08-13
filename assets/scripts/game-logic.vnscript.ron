@@ -1,0 +1,1745 @@
+(
+version: V1,
+meta: (
+name: Some("game-logic"),
+next_script: None,
+),
+instructions: [
+(
+cmd: label,
+args: (
+name: "block_00000",
+),
+),
+(
+cmd: label,
+args: (
+name: "z01",
+),
+),
+(
+cmd: label,
+args: (
+name: "top",
+),
+),
+(
+cmd: label,
+args: (
+name: "z00",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "menu_unlocked",
+value: 1,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "选择要开始的故事：",
+voice: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "1. 水仙1代 → 使用标签 story01",
+voice: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "2. 水仙2代 → 使用标签 story02_part1",
+voice: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "3. 水仙Zero → 使用标签 story03",
+voice: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "4. 水仙堇篇 → 使用标签 story04_part1",
+voice: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "5. 姬子终章 → 使用标签 story05",
+voice: None,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "6. 小小伊丽丝 → 使用标签 story06",
+voice: None,
+),
+),
+(
+cmd: call,
+args: (
+label: "story01",
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "puroro",
+value: 1,
+),
+),
+(
+cmd: call,
+args: (
+label: "story01",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story01",
+),
+),
+(
+cmd: label,
+args: (
+name: "z02",
+),
+),
+(
+cmd: label,
+args: (
+name: "z07",
+),
+),
+(
+cmd: label,
+args: (
+name: "z04",
+),
+),
+(
+cmd: label,
+args: (
+name: "z11",
+),
+),
+(
+cmd: label,
+args: (
+name: "story01",
+),
+),
+(
+cmd: label,
+args: (
+name: "z05",
+),
+),
+(
+cmd: label,
+args: (
+name: "z08",
+),
+),
+(
+cmd: label,
+args: (
+name: "z09",
+),
+),
+(
+cmd: label,
+args: (
+name: "z03",
+),
+),
+(
+cmd: label,
+args: (
+name: "z06",
+),
+),
+(
+cmd: label,
+args: (
+name: "z10",
+),
+),
+(
+cmd: label,
+args: (
+name: "z12",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then collectgarbage(\'step\', 200) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_00",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_01",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 2,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_02",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 3,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_03",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 4,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 100)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_04",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 5,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_05",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 6,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_06",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 7,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_07",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 8,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar1_08",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story01_complete",
+value: 9,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "game_clear",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story02_part1",
+),
+),
+(
+cmd: label,
+args: (
+name: "story02_part1",
+),
+),
+(
+cmd: label,
+args: (
+name: "story02",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then collectgarbage(\'step\', 200) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_01",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_02",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 2,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_03",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 3,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 150)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_04",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 4,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_05",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 5,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_06",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 6,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 150)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_07",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 7,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_08",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 8,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_09",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 9,
+),
+),
+(
+cmd: call,
+args: (
+label: "story02_part2",
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story02_part2",
+),
+),
+(
+cmd: label,
+args: (
+name: "story02_part2",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'collect\')",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(100) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_10",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 10,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_11",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 11,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_12",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 12,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 150)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_13",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 13,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_14",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 14,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_15",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 15,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 150)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_16",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 16,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_17",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 17,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_18",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 18,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar2_19",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story02_complete",
+value: 19,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "game_clear",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story03",
+),
+),
+(
+cmd: label,
+args: (
+name: "story03",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then collectgarbage(\'step\', 200) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_00",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_01",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 2,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_02",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 3,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_03",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 4,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 100)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_04",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 5,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_05",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 6,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_06",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 7,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 100)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_07",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 8,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_08",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 9,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_09",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 10,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_10",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 11,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar4_ep",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 12,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "4atogaki",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story03_complete",
+value: 13,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "game_clear",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story04_part1",
+),
+),
+(
+cmd: label,
+args: (
+name: "story04_part1",
+),
+),
+(
+cmd: label,
+args: (
+name: "story04",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then collectgarbage(\'step\', 200) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "@あかり1",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "@あかり2",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 2,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "@あかり3",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 3,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 100)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "@あかり4",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 4,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "@あかり5",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 5,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "@あかり6",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 6,
+),
+),
+(
+cmd: call,
+args: (
+label: "story04_part2",
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story04_part2",
+),
+),
+(
+cmd: label,
+args: (
+name: "story04_part2",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'collect\')",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(100) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi00",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 7,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi01",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 8,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi02",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 9,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 150)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi03",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 10,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi04",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 11,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi05",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 12,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 150)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi06",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 13,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi07",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 14,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "narsumi08",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 15,
+),
+),
+(
+cmd: call,
+args: (
+label: "story04_part3",
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story04_part3",
+),
+),
+(
+cmd: label,
+args: (
+name: "story04_part3",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'collect\')",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(100) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"no": "99",
+"mode": "novel",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "omake",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story04_complete",
+value: 22,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "game_clear",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story05",
+),
+),
+(
+cmd: label,
+args: (
+name: "story05",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then collectgarbage(\'step\', 200) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "himeko_ep00",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story05_complete",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "himeko_ep01",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story05_complete",
+value: 2,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "himeko_atogaki",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story05_complete",
+value: 3,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "game_clear",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: label,
+args: (
+name: "block_story06",
+),
+),
+(
+cmd: label,
+args: (
+name: "story06",
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then collectgarbage(\'step\', 200) end",
+data: {},
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_00",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:if game.os == \'vita\' then e:wait(50) end",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_01",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 2,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_02",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 3,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_03",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 4,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "eval:collectgarbage(\'step\', 100)",
+data: {},
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_04",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 5,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_05",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 6,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_06",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 7,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_07",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 8,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "nar3_08",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 9,
+),
+),
+(
+cmd: call_script,
+args: (
+script: "atogaki",
+label: None,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "story06_complete",
+value: 10,
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap02",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "タイトル",
+data: {},
+),
+),
+(
+cmd: halt,
+),
+],
+)

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "timestamp": 1786157732,
+  "description": "08/08 02:55",
+  "engine": {
+    "current_script": "nar1_00",
+    "current_line": 126,
+    "call_stack": [
+      [
+        "game-logic",
+        32
+      ]
+    ],
+    "flags": {
+      "chap01": 1,
+      "game_clear": 1,
+      "chap02": 1
+    },
+    "global_flags": {},
+    "current_route": null,
+    "finished": false
+  },
+  "meta": {
+    "bg": "chara_k01",
+    "chapter": "7F",
+    "preview": "最终，成为了『陌生人』。\n每当岁月更替我从他们的记忆中逐渐的消逝\n「…看来，他们似乎『不喜欢』我」",
+    "last_dialogue": [
+      null,
+      "「…看来，他们似乎『不喜欢』我」"
+    ]
+  },
+  "subsystems": {}
+}

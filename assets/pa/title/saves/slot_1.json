@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "timestamp": 1786157717,
+  "description": "08/08 02:55",
+  "engine": {
+    "current_script": "nar1_00",
+    "current_line": 52,
+    "call_stack": [
+      [
+        "game-logic",
+        32
+      ]
+    ],
+    "flags": {
+      "chap01": 1
+    },
+    "global_flags": {},
+    "current_route": null,
+    "finished": false
+  },
+  "meta": {
+    "bg": "c02",
+    "chapter": "7F",
+    "preview": "■ １９９６年　春 濑津美 ■",
+    "last_dialogue": [
+      null,
+      "■ １９９６年　春 濑津美 ■"
+    ]
+  },
+  "subsystems": {}
+}

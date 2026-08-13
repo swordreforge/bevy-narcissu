@@ -1,0 +1,10536 @@
+(
+version: V1,
+meta: (
+name: Some("nar4_05"),
+next_script: None,
+),
+instructions: [
+(
+cmd: label,
+args: (
+name: "block_00000",
+),
+),
+(
+cmd: label,
+args: (
+name: "top",
+),
+),
+(
+cmd: label,
+args: (
+name: "z00",
+),
+),
+(
+cmd: label,
+args: (
+name: "z01",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "水仙零 - 05",
+),
+),
+(
+cmd: save_point,
+args: (
+id: "autosave",
+),
+),
+(
+cmd: set_flag,
+args: (
+key: "chap01",
+value: 1,
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msg",
+data: {
+"mode": "novel",
+"no": "99",
+},
+),
+),
+(
+cmd: hide_cg,
+args: (
+transition: None,
+),
+),
+(
+cmd: hide_fg,
+args: (
+char_id: "all",
+transition: None,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "black",
+transition: Some(fade(
+duration: 1.5,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "自那之后差不多过了一个多月的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00001",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "到了夜里会觉得冷，白天又会经常微微出汗的时候……\n当学校的制服，无论是冬季校服还是夏季校服都可以穿的时候。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00002",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "105",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_004a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，哥哥，我先出门啦」",
+voice: Some("li/np4imo_1028"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00003",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "妹妹精神饱满地从房间里出去了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00004",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边目送着她的背影，我也边慢悠悠地出了家门。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00005",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后在养老院的入口停下脚步，东张西望地环顾了一下四周……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00006",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……那家伙，又睡过头了啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00007",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这里说的『那家伙』，当然是指日下。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00008",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她早起的时候，会随随便便就闯进别人家里面，\n而见不到她的时候，基本都是在睡懒觉不会有错。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00009",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……还是说，她会不会染上了感冒呢？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00010",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那家伙，本来好像就不属于身体素质强的那种类型，如今也会偶尔休假……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00011",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边想着这些事，边在养老院前等了一会后，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00012",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈——哈——，呼……」",
+voice: Some("li/n4yoko_0060"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00013",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ime_002_01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「早，早上好，莳绘君……」",
+voice: Some("li/n4yoko_0061"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00014",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "日下喘着粗气来了。看来，今天也好像和平常一样睡过头了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00015",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你又写日记熬夜了吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00016",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，啊哈哈哈……」",
+voice: Some("li/n4yoko_0063"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00017",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从她用害羞地笑着来蒙混过关看来，是被我说中了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00018",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……经由这一个多月的共同行动，我掌握了她的几个行动模式。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00019",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那本交换日记，日下写的那天的第二天，她经常会晚起。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00020",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明明没有什么特别的事情，日下还是会满满地写上１页。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00021",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如果当天发生了稍许有趣的事情的话，写个３～４页的情况也是存在的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00022",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嘛算了，那走吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00023",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，嗯」",
+voice: Some("li/n4yoko_0095"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00024",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在清爽的春日阳光里，我们边聊着边向前走。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00025",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像平常一样并排走在上学路上。现在的这个样子，已经逐渐变得理所当然了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00026",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「早上好，日下同学，莳绘君」",
+voice: Some("li/etcw1_1008"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00027",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，早上好」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00028",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "偶尔，和过来搭话的同班同学互相打招呼。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00029",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最近，好像是我是不良的传闻？也渐渐开始消散了，\n相应地班里的同学们也开始与我接触。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00030",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽说取而代之的是……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00031",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「莳绘学长，今天你们俩也关系很好呢」",
+voice: Some("li/etcm1_1005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00032",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「闭嘴啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00033",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然一如既往的被称呼为学长，\n因为总是和日下在一起，所以被开玩笑的次数也增多了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00034",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而每次被人开玩笑，日下和我的距离就会拉开一点。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00035",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……真没办法啊，这家伙也是。虽然，现在也知道那不是害羞……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00036",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_005_01a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，那里是岩浆啊，日下，你要着了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00037",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哇，哇啊，完了，好热好热」",
+voice: Some("li/n4yoko_0144"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00038",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像这样，蹦蹦跳跳地回到我的身旁来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00039",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且，我感觉这家伙也是乐在其中。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00040",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_007a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「话说回来明天，是要来新人对吧？」",
+voice: Some("li/n4yoko_0216"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00041",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，从我爸那听说了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00042",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这里说的新人，当然是指养老院的新人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00043",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然在平时我们莳绘之家有４０多个人住着，\n但还是会以差不多每月一个的速度有新人加入。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00044",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「难道说你，又要来帮忙么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00045",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯。从学校回来的时候顺路就去了」",
+voice: Some("li/n4yoko_0217"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00046",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然日下这么说完并向我笑了笑，但实际上，她帮了很多忙。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00047",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "本来，人手就完全不够，而在新来的人住进来的日子，就会更忙了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00048",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……只是，就像她以前和我说过的那样，她好像想成为医生来着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00049",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "嘛，虽然不知道她认真到什么程度，\n但如果不很努力地学习的话我觉得这是很困难的……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00050",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂——日下，还需要两人份，能拜托你么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00051",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，嗯，马上就准备」",
+voice: Some("li/n4yoko_0218"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00052",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "放学不久后，日下就直接来到了我家的厨房里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00053",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "顺带一提做的是甜甜圈。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00054",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在新人住进来的那一天，会办一个称作欢迎会的简单宴会。\n而每到这个时候就会例行做这个东西。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00055",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然不知道为什么会这样，但好像自然而然的就定下来了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00056",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但这，可以说是在这个没规定什么活动的养老院里，唯一的习俗吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00057",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「抱歉啊，老让你帮我们忙」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00058",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没什么啦。\u{3000}我也就只有擅长做这种程度的料理罢了」",
+voice: Some("li/n4yoko_0219"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00059",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哎呀哎呀，还是老样子关系很要好呢」",
+voice: Some("li/np4imo_1029"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00060",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么说着，从旁插嘴的是妹妹博美。这家伙和平时一样翘课了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00061",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂博美，你呀也来帮帮忙啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00062",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶——，不也挺好的么。就交给日下同学去做」",
+voice: Some("li/np4imo_1030"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00063",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「话说，干脆嫁到我们家来吧」",
+voice: Some("li/np4imo_1031"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00064",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_004b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈？\u{3000}嫁？」",
+voice: Some("li/n4yoko_0220"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00065",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯。然后和哥哥两人一起，把这个院子做得风生水起」",
+voice: Some("li/np4imo_1032"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00066",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，你在随便说些什么呢」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00067",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「因为啊，这样做的话我的值班就会减少啊——」",
+voice: Some("li/np4imo_1033"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00068",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「结果是因为是这个啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00069",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哎，日下同学，会嫁到我家来吧？\u{3000}会吧？」",
+voice: Some("li/np4imo_1034"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00070",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，那个，那我一个人决定不了……ｃｈｉｒａ」",
+voice: Some("li/n4yoko_0221"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00071",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_004c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00072",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「盯～……，ｃｈｉｒａ，ｃｈｉｒａ」",
+voice: Some("li/n4yoko_0222"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00073",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后日下把视线转向我。话说，嘴里别ｃｈｉｒａｃｈｉｒａ的啊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00074",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好啦好啦，别说蠢话了快干活干活」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00075",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呜呜，被说是蠢话了……」",
+voice: Some("li/n4yoko_0223"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00076",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没关系啦，哥哥就算看起来是那样，也只是害羞了而已……」",
+voice: Some("li/np4imo_1035"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00077",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_004b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶，是这样么？」",
+voice: Some("li/n4yoko_0224"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00078",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那当然啦，从小时候开始……\u{3000}啊，日下同学想听么？」",
+voice: Some("li/np4imo_1036"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00079",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呜，嗯嗯」",
+voice: Some("li/n4yoko_0225"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00080",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这是我珍藏的故事哦……」",
+voice: Some("li/np4imo_1037"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00081",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，两个人非常热闹地聊了起来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00082",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "偶尔，能够听见叽叽喳喳地说话的声音，大概是在笑和我有关的事吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00083",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "话说，不知从何时开始这两个人也变得关系很好了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00084",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在那之后，日下也像平常一样经常来这。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00085",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "已经像是这个养老院的员工……反正是像家人一样地融入进来了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00086",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……这个家伙，什么时候变成老熟人了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00087",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然这样想着，但在实际上对于人手不足的我们来说，她帮了非常大的忙。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00088",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，老奶奶，让您久等啦」",
+voice: Some("li/n4yoko_0226"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00089",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「谢谢你啊」",
+voice: Some("li/etcw2_1003"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00090",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "日下就像平常一样在莳绘之家里面炸着甜甜圈。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00091",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "碰到像今天这样的好天气，经常会召集家里的老人们来到中庭一起分享。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00092",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「小阳子真的是个，好孩子呢」",
+voice: Some("li/etcw2_1004"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00093",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没有啦，这么说……好害羞」",
+voice: Some("li/n4yoko_0227"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00094",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「像这么好的孩子，就赶紧给他当新娘子吧」",
+voice: Some("li/etcw2_1005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00095",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么说着，老奶奶看向了我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00096",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "嗯，只是因为她经常来家里和我待在一起，让家里的老人们这么想也没办法。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00097",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且养老院的人们，因为平日里话题比较少的缘故，我们便正好成为了合适的话题。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00098",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那博史啊，到底什么时候呢？\u{3000}婚礼？」",
+voice: Some("li/etcw2_1006"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00099",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「居然说婚礼……我们还是初中生啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00100",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啦？\u{3000}似乎是这样……」",
+voice: Some("li/etcw2_1007"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00101",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "朝我露出有些迷惑的表情，真是难以回应啊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00102",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "是真的忘了呢，还是在捉弄我呢，真是微妙啊。嗯，应该是在捉弄我吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00103",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是，迟早有一天，会娶她做新娘子吧？」",
+voice: Some("li/etcw2_1008"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00104",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00105",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "突如其来的直白的提问。不由得思考着该怎么回答……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00106",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「盯～………」",
+voice: Some("li/n4yoko_0228"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00107",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "噫，日下那家伙，死死盯着这里。感觉她的表情挺有趣的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00108",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你看，小阳子也在期待着等你的回答，要好好回答哦」",
+voice: Some("li/etcw2_1009"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00109",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，那——个，就是……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00110",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "可恶。这不就完全地，被耍着玩么。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00111",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说真的，和怎么回答没关系，感觉这都会成为他们聊天的梗。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00112",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么，再问一遍啊……」",
+voice: Some("li/etcw2_1010"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00113",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「博史君你，会把小阳子……娶来做新娘子么？」",
+voice: Some("li/etcw2_1011"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00114",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对，对对……嗯……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00115",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呜哇，居然肯定了」",
+voice: Some("li/n4yoko_0229"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00116",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「怎么办，到底怎么办？\u{3000}好为难，啊不一点都没为难」",
+voice: Some("li/n4yoko_0230"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00117",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不是，真够了，吵死啦。你啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00118",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们就像这个样子经常被养老院里的人当做话柄。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00119",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "她肯定会在今天的日记里，写一篇关于这件事的有趣的长长的文章吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00120",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说不好的话，感觉她会写个４页左右带插画的……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00121",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_se,
+args: (
+file: "z0002",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "叮咚当咚",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00122",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_007a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好了，今天的课也上完了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00123",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂——日下，要回去了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00124",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，嗯」",
+voice: Some("li/n4yoko_0095"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00125",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_005_01a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "无聊的课程也结束了，像平时一样走在回家路上。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00126",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还是老样子，在过人行横道的时候，\n日下还是只对着斑马线的白色部分一跳一跳地蹦着走。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00127",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像这样她在我旁边并排走在一起的样子，如今也已经完全习惯了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00128",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "走了不久，便马上就能看到的十字路口。\n从那里左转就是养老院，直走的话就是日下家。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00129",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，就算不用特别去说也会变成每次都和我一起左转的模式。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00130",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……嗯，虽然每天都过来也没什么问题就是了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00131",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最初，像这样每天都泡在我家里，还想着日下的家人会担心来着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00132",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是前些天顺道去了趟日下家，日下阿姨好像并没有那么在意。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00133",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……不如说，神情非常的开朗并且很高兴。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00134",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边想着这样的事边走着，突然……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00135",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_003_01d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂，喂，博史君……」",
+voice: Some("li/n4yoko_0231"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00136",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00137",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那个，博史君你，早饭是纳豆派？\u{3000}还是生鸡蛋派？」",
+voice: Some("li/n4yoko_0232"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00138",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……怎么回事，这是？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00139",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "并不是，因为被突如其来的意味不明的话吓到了。\n日下这家伙说这类话，是常有的事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00140",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "让我感到惊讶的是，她以『博史君』我的名字来称呼我。\n至今为止，明明都是以莳绘君我的姓来称呼我的……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00141",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂日下，你突然，说些什么啊？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00142",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_003_01b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，真是的，在这种情况下，不是称呼我为日下，\n而应该称我为阳子才对」",
+voice: Some("li/n4yoko_0233"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00143",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "用着有些别扭的，撒娇的声音反驳道……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00144",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "话说，这家伙突然说些什么啊？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00145",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_003_01b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂喂，博史君～」",
+voice: Some("li/n4yoko_0234"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00146",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「敲」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00147",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "n4_pesi",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_003_01c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊好痛」",
+voice: Some("li/n4yoko_0235"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00148",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「称呼你的话用日下就足够了。\u{3000}要是再叫我博史的话，还会，敲你的」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00149",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_003_01d",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呜呜，真害羞啊，博史君」",
+voice: Some("li/n4yoko_0236"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00150",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我敲」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00151",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "n4pesipesi",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "砰砰",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00152",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_003_01c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊痛死啦，对不起，我再也不会说了啦」",
+voice: Some("li/n4yoko_0237"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00153",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "真是的，这家伙真是的……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00154",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "平常明明都很软弱，但立刻就能得意洋洋起来，还说出了这么害羞的话。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00155",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，即使是这样她还是不吸取教训……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00156",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从那以后，一有机会，她就会反复叫我的名字。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00157",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且不顾时间地点场合，就像突然袭击那样直呼我的名字会很难收场。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00158",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_0034b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「早上好」",
+voice: Some("li/n4yoko_0191_2"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00159",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，早上好」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00160",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像平常的早上一样我们互相打招呼，然后边聊着没营养的事情边向前走。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00161",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后突然，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00162",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_0032b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，博史君。关于明天的值班……」",
+voice: Some("li/n4yoko_0238"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00163",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「谁是博史君啊，哈」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00164",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "n4_pesi",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "碰",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00165",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_0033b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊好痛」",
+voice: Some("li/n4yoko_0239"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00166",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，重新说一遍」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00167",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_0034",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「重新说！？」",
+voice: Some("li/n4yoko_0240"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00168",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_0033b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呜呜，我知道了……」",
+voice: Some("li/n4yoko_0241"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00169",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_0032",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，那个莳绘君，关于明天的值班……」",
+voice: Some("li/n4yoko_0242"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00170",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像这样的事，已经重复了很多很多次了……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00171",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "意外地不能掉以轻心啊，这日下陷阱。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00172",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不过，她应该也，还是想直呼我的名字吧……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00173",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这之上，她还希望我不叫她的姓氏而是直呼她的名字……希望我叫她阳子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00174",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……而且我，对直呼她的名字这件事，也并没有觉得那么害羞……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00175",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这种行为本身，就像两个人在做游戏一样……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00176",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "数日后。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00177",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像往常一样，是在写完和那家伙之间的交换日记后，一段在房间里悠闲度过的时间。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00178",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "101",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_003c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「在啊博史，还没睡么？」",
+voice: Some("li/np4mama_1005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00179",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没，差不多要睡了……\u{3000}有什么事的话我可以帮忙哦」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00180",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没有哦，妈妈也才刚刚把事情忙完」",
+voice: Some("li/np4mama_1006"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00181",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "妈妈边这么说着边摘下了围裙。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00182",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "直到刚才，还和妹妹一起准备明天的早饭来着，看来是终于做完了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00183",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像我们家这样的小型养老院，家里所有人分担工作是理所当然之事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00184",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而在这之中，负责做饭的妈妈的工作是很多的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00185",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「说起来你，最近好像有认真去学校了啊」",
+voice: Some("li/np4mama_1007"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00186",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯啊，已经不想留级了啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00187",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呼——，嘛，这挺好的」",
+voice: Some("li/np4mama_1008"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00188",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还有如果翘课的话日下那家伙会很烦的。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00189",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，刚才，你爸爸找你来着」",
+voice: Some("li/np4mama_1009"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00190",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「老爹？\u{3000}我知道了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00191",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我从房间里出来，前往父亲那里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00192",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "做饭和洗涤衣物是由母亲和妹妹来负责，粗活和诸项杂务则是在我和老爸的管辖范围。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00193",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "所以，我和老爸商量着来做的事也必然会很多。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00194",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_004c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「怎么了吗，老爸？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00195",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，事发突然有些抱歉，明天，要有新人来了所以……」",
+voice: Some("li/np4papa_1039"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00196",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这样。无所谓啦，我反正也是以这里为优先的」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00197",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我爽快的回答道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00198",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然现在尽量做到不从学校缺席，但这其中的理由，也不过只是为了陪陪日下罢了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00199",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然知道那家伙说过想要成为医生……但是，说到底这还是她自己的事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00200",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么要来的新人是个什么样的人呢？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00201",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「听说是叫村上，是个男性……」",
+voice: Some("li/np4papa_1040"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00202",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算双方不说出口，也知道毫无疑问是个老年人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00203",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那顺带明天，新来的人是要和家人一起来么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00204",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不，我想大概是一个人……」",
+voice: Some("li/np4papa_1041"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00205",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "从刚才开始，老爸就有些闪烁其词。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00206",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "养老院的人们，亲人住在远方的也很多，在其中也有完全没有亲属的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00207",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "所以一个人来这件事本身，也并不是那么稀奇的事情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00208",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "刚想问到底是怎么一回事的时候，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00209",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「因为他要住进１０７号房」",
+voice: Some("li/np4papa_1042"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00210",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶，那不是…」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00211",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，就是这么回事。\u{3000}你也做好相应的准备」",
+voice: Some("li/np4papa_1043"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00212",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00213",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说完这句话，老爸便回屋里去了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00214",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算不继续追问，我也明白了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00215",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_004c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……１０７号房啊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00216",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "至今为止，这个莳绘之家，一共有２１间房间。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00217",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "基本上不论是哪个房间，都是３人住在一起的房间，\n但是，唯一，只有这个房间是单人间。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00218",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "顺带一提，是１Ｆ最靠头的那间房，平常谁也不会进去。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00219",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还有，住进这间房间的人……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00220",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "无一例外，都是从医院暂时出院的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00221",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "―翌日。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00222",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "今天，比平常早起了一些。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00223",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因为大部分情况下，要住进来的人，中午之前就要到了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00224",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「早上好，莳绘君……诶？」",
+voice: Some("li/n4yoko_0243"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00225",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "日下就像平常一样地来迎接我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00226",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "但是，看到还穿着便服的我后便止住了嘴。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00227",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「难道说今天，学校那边，要请假了？」",
+voice: Some("li/n4yoko_0244"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00228",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是啊，因为突然有新人要住进来了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00229",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，我也来帮忙吧？」",
+voice: Some("li/n4yoko_0245"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00230",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不用，你还是好好去上学吧。\u{3000}偶尔也能一个人去吧？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00231",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，嗯……」",
+voice: Some("li/n4yoko_0246"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00232",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "朝我露出有些不满的表情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00233",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看着这样的日下，我无意中说出了口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00234",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你啊，好像是要成为医生来着吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00235",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，嗯，姑且是这样……」",
+voice: Some("li/n4yoko_0247"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00236",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么……不再努力一点学习可不行啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00237",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我一边这么说着，一边邦地敲了一下她的脑袋把她送出去了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00238",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……是啊。如果这里真的有医生在的话……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00239",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "偶然间，我看着１０７号房间的门如此嘟囔道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00240",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00241",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "之后，我们匆匆忙忙地完成了房间的整理。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00242",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不同于其他房间里的人，需要对住进１０７号房间的人多关心一些。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00243",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "毕竟我们还可能会遇到直接从医院方面收到相关指示的情况。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00244",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不久，稍微超过１０点的时候……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00245",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我和父亲两个人，一起等在养老院门口的时候，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00246",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你们好，请多多关照」",
+voice: Some("li/etcm2_1003"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00247",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "老爷爷这么说着礼貌地鞠了一躬。这个人就是，之前所说的新入住的村上先生。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00248",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「欢迎您的光临。\u{3000}就把这里当做是自己家一样，请安心入住」",
+voice: Some("li/np4papa_1044"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00249",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂博史，\u{3000}给村上先生带路」",
+voice: Some("li/np4papa_1045"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00250",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好的，那么，我来帮您拿行李」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00251",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，多谢你」",
+voice: Some("li/etcm2_1004"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00252",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_002a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "于是我，边给老爷爷带路，边开始做养老院的介绍。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00253",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "已经数不清至今为止做过多少次了，所以也已经习惯。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00254",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_009a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这里是看电视的房间。晚上１２点会关门，在那之前都可以自由出入」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00255",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「还有，电话也在这间屋子里放着，用的时候请您打声招呼」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00256",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这里是食堂。用餐时间分为早中晚３次……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00257",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就像这样，我一个接一个的介绍着养老院里的设施。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00258",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "到现在为止都是些驾轻就熟的东西……但是，接下来，就和平时有些不同了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00259",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_004a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "笔直地在走廊中前进，然后在１Ｆ的最里头停下了脚步。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00260",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，慢慢的将那扇门打开。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00261",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_010a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这里是１０７号房间，是村上先生您的房间」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00262",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「谢谢你，真是一个看了让人安心的好房间啊」",
+voice: Some("li/etcm2_1005"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00263",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "说是单人房，但房间本身和合住的房间没有大的差别。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00264",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "因此，我开始继续说明仅存的一点不同之处。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00265",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "首先，指向了从壁橱里伸出来的，白色的电线，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00266",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「您知道，这个开关么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00267",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶，啊啊……是紧急呼叫吧？」",
+voice: Some("li/etcm2_1006"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00268",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「如果，突然觉得身体不舒服的时候，请按这边」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00269",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "如果按了这个开关，我们家里的人就会被通知到。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00270",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「以及……有件事非常抱歉……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00271",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……这间房间没有配备钥匙」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00272",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没钥匙？\u{3000}那怎么锁门？」",
+voice: Some("li/etcm2_1007"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00273",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就是那个……至少请您把贵重物品，交给我们来保管…」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00274",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我如果想我的身体就是最贵重的物品的话？」",
+voice: Some("li/etcm2_1008"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00275",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00276",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "他这么说的话，那就没法回答了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00277",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……如果突然倒下的话，会很棘手。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00278",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这间房间位于转角，可以方便把人搬进救护车里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00279",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这些不能说出来。就算事实如此在本人面前也不能说出来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00280",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不久，老爷爷对着有点不知所措的我说道，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00281",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_010a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，不好意思。 并不是想刁难你来着……」",
+voice: Some("li/etcm2_1009"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00282",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，不，我才是要跟您道歉……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00283",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我深深地鞠了一躬，然后离开了那个地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00284",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "抬头望去，眼前是６月的彻头彻尾澄澈的天空。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00285",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "再过不久，就要步入真正的夏天了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00286",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……长的话半年啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00287",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "嘟囔了一句。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00288",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "至今为止住进那间房间里面的人，大家都是这样。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00289",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这里住上一个多月，又马上回到医院。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00290",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后这个过程会重复数回，然后不知何时起就不再来了。\n换言之，就是离开了这个世界。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00291",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "对于如影随形的『死』，这个老爷爷，多少也应该有些自觉。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00292",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "作为一个老年人，又冠以病人的身份，便更为如此。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00293",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_002a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「我回来啦……诶，怎么？」",
+voice: Some("li/np4imo_1038"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00294",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哥哥，工作，已经结束了？」",
+voice: Some("li/np4imo_1039"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00295",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，啊啊，博美啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00296",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看到刚从学校回来的博美。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00297",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这么说，你可能也已经听说了，今天来的人是……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00298",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊……嗯，从妈妈那听说了……」",
+voice: Some("li/np4imo_1040"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00299",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这样啊……那也不需要我特别说些什么了吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00300",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "妹妹也大致明白。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00301",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "和我一样，从小时候开始，就一直在这个养老院帮忙的话，明白它是理所当然的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00302",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……博美这家伙一定也想着同样的事吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00303",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这次来的人，会住多长时间呢……」",
+voice: Some("li/np4imo_1041"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00304",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「谁知道呢……长一点估计也就１个月左右吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00305",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哎哥哥，为什么那些人，\u{3000}不能一直，待在医院里呢？」",
+voice: Some("li/np4imo_1042"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00306",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那是不可能的。\u{3000}我以前也，问过老爹同样的事」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00307",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "医院是医疗设施。而不是可以不住院的人待着的地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00308",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然如此，但这里也不是医疗设施。当然也不是家。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00309",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "既有家人住在远方的情况，也有本来就无依无靠的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00310",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "所以，只要医院还是个医疗设施……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00311",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "今后就不会没人来１０７号房间……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00312",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，这样啊……」",
+voice: Some("li/np4imo_1043"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00313",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那反过来……\u{3000}如果这里有医生的话不就好了么？」",
+voice: Some("li/np4imo_1044"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00314",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00315",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「这样的话，其他房间里的人也能安心」",
+voice: Some("li/np4imo_1045"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00316",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「你说得对……可能是这样吧」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00317",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "妹妹将过去我曾考虑过的事说了出来。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00318",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "没错。就算没有像样的医疗设施也没关系。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00319",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只要有具备资格和知识的人在这里的话就会有所不同。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00320",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就算不是这样，在这个离死亡很近，老人们居住的养老院里……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00321",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "应该也会成为他们的精神支柱。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00322",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……但是，在养老院这种存在本身都还很少，怎么做都尚处摸索的现在……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00323",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这种理想似乎很遥远……难以企及。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00324",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora012b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "…………",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00325",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "自那之后过了数小时。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00326",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看了一眼表是下午３点半。差不多到放学的时候了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00327",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……那家伙，今天一个人在学校没问题么？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00328",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不由得想着这件事的时候……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00329",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈啊哈啊，我，我回来了」",
+voice: Some("li/n4yoko_0248"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00330",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "日下跑得上气不接下气。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00331",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "看来是连家都没回直接就过来了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00332",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哟，看来有好好去学校啊」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00333",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，算是吧……啊，先把这个给你」",
+voice: Some("li/n4yoko_0249"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00334",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这么说着从包里面取出了什么东西，递给了我。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00335",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……笔记本？\u{3000}而且还是好几本？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00336",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "其中一本，是平时写的交换日记所以一眼就能看出来……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00337",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，这个笔记本是什么？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00338",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那个，这个是，给你抄的今天上课的笔记」",
+voice: Some("li/n4yoko_0250"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00339",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哈？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00340",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「真是的，以前不是定好了么，如果没法去学校的话要互相帮助」",
+voice: Some("li/n4yoko_0251"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00341",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，我记得这事来着……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00342",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "确实，当时定的规矩是这么一回事来着。我们在对方请假的时候，要互相帮助。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00343",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "原来还以为，我是用不上这条规矩来着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00344",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这顶多也就是为了日下缺席的时候制定的规矩，而且我也完全没有升学的意思。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00345",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且，现在也只是为了陪着这家伙，才会每天都去学校……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00346",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，话说回来今天，有新人来了吧？」",
+voice: Some("li/n4yoko_0252"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00347",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯？\u{3000}啊啊，已经来了哦」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00348",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那么照例，料理我来帮着做吧」",
+voice: Some("li/n4yoko_0253"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00349",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，不，今天的话……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00350",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就这样，在我制止她之前，日下就匆忙的去了厨房。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00351",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……真是，没办法啊。总感觉她已经，在我家完全混熟了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00352",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最近一段时间不只是早饭，连晚饭都变得和我一起吃了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00353",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_004",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后，像往常一样地开始做料理。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00354",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哎，今天的甜甜圈，要做几个呢？」",
+voice: Some("li/n4yoko_0254"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00355",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不是，今天不做也没关系的……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00356",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶？\u{3000}为什么？\u{3000}当有新人来的时候，不是要给大家也做甜甜圈么？」",
+voice: Some("li/n4yoko_0255"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00357",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……那，做我们吃的份就行了」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00358",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然日下露出不可思议的表情，但我并没有对她再做详细的说明。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00359",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然我们之间有着不能相互隐瞒任何事情的规矩，\n但我没有好好向日下详细说明的自信。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00360",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_009a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啦，小阳子你来啦」",
+voice: Some("li/etcw2_1012"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00361",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊，奶奶，午安」",
+voice: Some("li/n4yoko_0256"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00362",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "过来的是，３０２号房间的老奶奶。最近这段时间，她时常会来我们这。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00363",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "大概是很喜欢日下吧，她来的时候，老奶奶经常会来我们这露脸。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00364",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "可能也因为是这样，日下这家伙好像也很亲近老奶奶。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00365",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对啦。奶奶也要吃甜甜圈么？」",
+voice: Some("li/n4yoko_0257"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00366",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊那太好了，难道说来了哪个新人啦？」",
+voice: Some("li/etcw2_1013"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00367",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「是的，但是好像不打算开欢迎会」",
+voice: Some("li/n4yoko_0258"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00368",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……啊，这样……原来是这么一回事」",
+voice: Some("li/etcw2_1014"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00369",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边含糊其辞，边一晃地看了我一眼。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00370",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，是１０７号房间……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00371",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "大概，只要这样就能判断出来吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00372",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这个老奶奶也是，已经住进这个养老院数年了。\n住进这里比较久的人也知道大概的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00373",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「让您久等啦，是刚刚炸出来的甜甜圈哦」",
+voice: Some("li/n4yoko_0259"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00374",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「多谢你，那我就收下啦」",
+voice: Some("li/etcw2_1015"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00375",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "还是老样子我们去了中庭。然后日下把刚炸好的甜甜圈分给了大家。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00376",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当然日下这家伙，最开始炸的时候也会失败，但现在已经完全熟练了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00377",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……嗯，像这样，经常做一做的话也就熟能生巧了吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00378",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且这家伙，不光在来新人的时候，有空闲的话就会做些什么。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00379",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是小阳子，真是个好孩子呢」",
+voice: Some("li/etcw2_1016"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00380",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶，是这样么？\u{3000}没被这么说过，我会害羞的……」",
+voice: Some("li/n4yoko_0260"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00381",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对了。下次给你做件连衣裙吧？」",
+voice: Some("li/etcw2_1017"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00382",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「连衣裙，奶奶做么？」",
+voice: Some("li/n4yoko_0261"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00383",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「对啊，别看我这样，我原来可是裁缝，可拿手啦」",
+voice: Some("li/etcw2_1018"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00384",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哇，是这样么，好厉害」",
+voice: Some("li/n4yoko_0262"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00385",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，下周之前会给你缝好的，好好期待吧」",
+voice: Some("li/etcw2_1019"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00386",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好，谢谢您。我很期待」",
+voice: Some("li/n4yoko_0263"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00387",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "两人乐乐呵呵的看起来非常的高兴。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00388",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我默默地看着她们这样聊天的样子。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00389",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00390",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4ev_005",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶？\u{3000}怎么啦，莳绘君？」",
+voice: Some("li/n4yoko_0264"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00391",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没，没什么……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00392",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora06",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那一夜。我还是老样子将那么晚回家的日下，送到家门口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00393",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……我该说么？还是说，还是应该不在意地不去管这件事……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00394",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我一直很在意白天发生过的事情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00395",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只考虑了一瞬该怎么办，我便开了口。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00396",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_0052c",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，日下……关于今天的事……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00397",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「今天的事，是关于上课的笔记么？」",
+voice: Some("li/n4yoko_0265"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00398",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「不，不是这件事……就是，３０２号房间的老奶奶的事」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00399",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那个，怎么了么？」",
+voice: Some("li/n4yoko_0266"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00400",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "日下有些莫名其妙地看着这里。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00401",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我又只想了一下该怎么说才好，稍稍犹豫之后……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00402",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "边轻叹着气边继续说。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00403",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「和那些人们，做约定什么的是不可以的……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00404",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「为什么？」",
+voice: Some("li/n4yoko_0267"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00405",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那是因为……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00406",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我的话卡住了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00407",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「没，没什么……别在意」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00408",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呼，莳绘君真奇怪」",
+voice: Some("li/n4yoko_0268"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00409",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "最后，我……也没能多说什么。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00410",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……不对，准确来讲，我没有能够好好说并……解释清楚的自信。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00411",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora01",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "３天后。这件事发生得非常的突然。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00412",
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "62",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "像平常一样从学校回来后，",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00413",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_001a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「喂博史，今晚，要守夜了」",
+voice: Some("li/np4papa_1046"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00414",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「等下，守夜，是给谁守夜？」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00415",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就是，３０２号房间的老奶奶」",
+voice: Some("li/np4papa_1047"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00416",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00417",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我很吃惊。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00418",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "明明就在前几天还那么健康……明明昨天见面的时候还像平常一样聊天来着。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00419",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，我和你妈妈要去公民馆了，之后就拜托你了」",
+voice: Some("li/np4papa_1048"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00420",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "父亲他们留下这些话就走了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00421",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而我因为事发突然，并没有什么实感。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00422",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……但是……我的话还好……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00423",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "虽然说是突然发生的事，但至今为止也有类似的经历了。还抱有一定的觉悟。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00424",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "妹妹博美大概也，和我差不多吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00425",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……但是，日下却不同。如果她知道这件事的话，一定会伤心吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00426",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那么我……该怎么告诉她才好呢……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00427",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "hikido_2",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "n4bg_004a",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「早安，莳绘君在么？」",
+voice: Some("li/n4yoko_0269"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00428",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "刚好在思考这件事的时候日下来了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00429",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐，发生什么了？\u{3000}今天，没看见什么人啊……」",
+voice: Some("li/n4yoko_0270"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00430",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊，是有点事……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00431",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……该怎么说呢？",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00432",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "日下这家伙，一定没有经历过亲近之人的死亡吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00433",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而我也是，因为这份家业才有了这种经历……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00434",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这对于普通的初中生来说是过于沉重的内容。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00435",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……虽是这么说，但一直隐瞒下去也是不可能的。而且，那样也没有意义。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00436",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "短暂的思考后，我决定将这件事原原本本的告诉她。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00437",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呐日下，其实关于之前的那个老奶奶啊……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00438",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，我很期待哦，连衣裙」",
+voice: Some("li/n4yoko_0271"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00439",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好像，是说下周来着，是不是快做好了呢」",
+voice: Some("li/n4yoko_0272"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00440",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「好像走了，今天」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00441",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「什么走了？」",
+voice: Some("li/n4yoko_0273"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00442",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就是说，去世了啊。那个老奶奶」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00443",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶？」",
+voice: Some("li/n4yoko_0274"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00444",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "并不是……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00445",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……理解不了我说的话。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00446",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "只是，从意义上……作为在现实中发生的事情，还未能理解吧。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00447",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "然后她那吃惊的表情……慢慢地变成了悲伤的表情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00448",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……莳绘君，那是真的么？」",
+voice: Some("li/n4yoko_0275"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00449",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯，我听说今天要守夜而明天就是告别式了……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00450",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「呜呜，呜，呜呜，呜呜……」",
+voice: Some("li/n4yoko_0276"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00451",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "不久便听到了她的呜咽声。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00452",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这是一直以来都无忧无虑地笑着的她，我所见到的第一次落泪。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00453",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「怎，怎么会，就在上周明明还好好的……」",
+voice: Some("li/n4yoko_0277"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00454",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "就这样蹲在走廊里哭泣的她……看起来非常的痛苦。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00455",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这种时候，我也不明白到底该跟她说些什么才好……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00456",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "是应该和以前一样，好好安慰她呢……还是说，该让她打起精神来呢我也不知道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00457",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……这是这世上不计其数的，“无计可施”之事。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00458",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "当遇到的时候……果然我还是，除了沉默之外一无所措……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00459",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora06",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那一夜。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00460",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我们久违的，来到了往常的那个海边。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00461",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "nami3",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "umibe3",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: play_bgm,
+args: (
+id: "66",
+volume: Some(0.78431374),
+fade_ms: Some(500),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "海潮的声音静静响起。海边一片漆黑空无一人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00462",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "黑暗的天空融入海里，海平线向远方无限延伸。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00463",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在这之中，日下长长的头发随风飘扬。手里握着据说是那个老奶奶做的连衣裙。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00464",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……她的脸上，既不是平常的那副害羞的表情，也不是难为情的愁苦表情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00465",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而是浮现出寂寞且……让人感觉有点严肃的表情。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00466",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「哎莳绘君……」",
+voice: Some("li/n4yoko_0278"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00467",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「之前你说的，就是指这件事嘛？」",
+voice: Some("li/n4yoko_0279"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00468",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊……和那些人，是不能约定什么事情的」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00469",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「嗯……可能是这样吧……」",
+voice: Some("li/n4yoko_0280"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00470",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "我也明白。毕竟从懂事的时候开始，就一直注视着养老院里面的人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00471",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……死。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00472",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "也就是指从这个世界消失。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00473",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "那是，无论对谁都一样的平等之事。即避不开，也逃不掉。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00474",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「常常有人离去，也有人到来……没有穷尽」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00475",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「总觉得……就像是，在按顺序等待的等候室一样……」",
+voice: Some("li/n4yoko_0281"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00476",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「啊啊……但是，并不是按排好的顺序来的」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00477",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且……决定其顺序的是谁也不知道。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00478",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「如果是走运与不走运的话，\u{3000}是决定这两个的人吧……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00479",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「果然，这是由神明来决定的么？」",
+voice: Some("li/n4yoko_0282"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00480",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「谁知道呢。肯定谁也不知道吧……」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00481",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「那，如果……如果我是医生的话……」",
+voice: Some("li/n4yoko_0283"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00482",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「……能够救她么？\u{3000}那个老奶奶」",
+voice: Some("li/n4yoko_0284"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00483",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「诶，这就…………」",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00484",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……这我也不明白。而且，本来，养老院的人们就不是病人。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00485",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "通常，要说在好好活着的人中谁更接近死亡的话，那就只有老年人了。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00486",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "在那个像是等候室一样的地方……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00487",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "而且并不是按顺序来的，我们究竟到底能做些什么呢……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00488",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「但是……我的话，因为成为不了神明……」",
+voice: Some("li/n4yoko_0285"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00489",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "「就只能成为医生了吧？」",
+voice: Some("li/n4yoko_0286"),
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00490",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这样说着，日下像在凝望着很遥远的什么地方。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00491",
+),
+),
+(
+cmd: play_se,
+args: (
+file: "nami3",
+channel: Some(1),
+volume: Some(0.78431374),
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "sora07",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……在那一天。我们制定了新的规则。",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00492",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "有人请假不去学校时的笔记，甜甜圈，交换日记，人行横道的岩浆，一直在一起……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00493",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "除此之外又追加了新的规则……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00494",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "和那些人们……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00495",
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 400,
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "……不要做约定。和已经没有未来的人，不要谈论将来的事情……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00496",
+),
+),
+(
+cmd: dialogue,
+args: (
+speaker: None,
+text: "这也是曾经……我说给自己听的事……",
+voice: None,
+),
+),
+(
+cmd: label,
+args: (
+name: "block_00497",
+),
+),
+(
+cmd: set_bg,
+args: (
+image: "b",
+transition: Some(fade(
+duration: 0.8,
+)),
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 500,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: custom,
+args: (
+tag: "msgoff",
+data: {},
+),
+),
+(
+cmd: wait,
+args: (
+time_ms: 1000,
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(1),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(2),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(3),
+),
+),
+(
+cmd: stop_se,
+args: (
+channel: Some(4),
+),
+),
+(
+cmd: stop_bgm,
+args: (
+fade_ms: Some(1000),
+),
+),
+(
+cmd: return,
+),
+],
+)
