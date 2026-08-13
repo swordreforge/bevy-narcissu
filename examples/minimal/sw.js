@@ -38,7 +38,7 @@ const CONCURRENCY = 4;
 const CORE_ASSETS = [
   './',
   './index.html',
-  './bevy-vn-example-c2dfd4e4200a6e9b.js',
+  './bevy-vn-example-c92ceb269710bc0f.js',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
@@ -396,7 +396,7 @@ function startPrefetch() {
 
 // 预取 wasm 到 core 缓存(后台,失败静默;供离线游玩)
 // wasm 文件名带 hash,更新后文件名变化 → 重新下载;旧文件残留由 activate 保留策略容忍
-const WASM_URL = './bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm';
+const WASM_URL = './bevy-vn-example-c92ceb269710bc0f_bg.wasm';
 function precacheWasm() {
   if (!WASM_URL) return;
   (async () => {

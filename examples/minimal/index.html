@@ -205,7 +205,7 @@
       window.addEventListener('touchend', goFullscreen, { once: true, capture: true });
     })();
   </script>
-<link rel="modulepreload" href="./bevy-vn-example-c2dfd4e4200a6e9b.js" crossorigin="anonymous" integrity="sha384-re1T8WGUqVf+UXmmQYdt0fBK64LnVYtLW74uXG0MjKMLaDdu7bSV+TtBuN8DNeta"><link rel="modulepreload" href="./snippets/basisu_c_sys-3421761b302b2a06/inline0.js" crossorigin="anonymous" integrity="sha384-GrXv/7B5RHFA1X0wjK2tpwxxffBTHsa+WbnaLlOzPFGOo37szumuRJ2vZruN/T+r"><link rel="preload" href="./bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm" crossorigin="anonymous" integrity="sha384-vRobtZjqZg+kFPBjaDy7/g/clXtxt2js8GsYSEQtEsXg53kqeSE1S3lN0kA9zabx" as="fetch" type="application/wasm">
+<link rel="modulepreload" href="./bevy-vn-example-c92ceb269710bc0f.js" crossorigin="anonymous" integrity="sha384-ATgKj4Kt8QUBj27xCzlQUfmwamnTW4fcOEViZ6ScUdRCUURlQVrZy1rFHfdpj61X"><link rel="modulepreload" href="./snippets/basisu_c_sys-3421761b302b2a06/inline0.js" crossorigin="anonymous" integrity="sha384-ltAE3Mhd6JylPFSl0vkyLqiPjL8/S0qhxxR4I/k0RUOvgSNfUZEysNiWuFBWlppf"><link rel="preload" href="./bevy-vn-example-c92ceb269710bc0f_bg.wasm" crossorigin="anonymous" integrity="sha384-MjtaKuex7bBmNAqKncTJAMp0r4UekGBX5ehPHTA1feupnH7HBHYnZspeE9ietMH1" as="fetch" type="application/wasm">
 </head>
 <body>
 <script>
@@ -221,8 +221,8 @@ if ('serviceWorker' in navigator) {
 </script>
 <script src="./cache-panel.js"></script>
 <script type="module">
-    import init, * as bindings from './bevy-vn-example-c2dfd4e4200a6e9b.js';
-    const wasm = await init({ module_or_path: './bevy-vn-example-c2dfd4e4200a6e9b_bg.wasm' });
+    import init, * as bindings from './bevy-vn-example-c92ceb269710bc0f.js';
+    const wasm = await init({ module_or_path: './bevy-vn-example-c92ceb269710bc0f_bg.wasm' });
     window.wasmBindings = bindings;
     window.__expBootMs = performance.now();
     dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
