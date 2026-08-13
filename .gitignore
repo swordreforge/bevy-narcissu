@@ -8,6 +8,8 @@ examples/minimal/dist/
 # example 部署/构建产物(不入库)
 examples/minimal/experiments/
 examples/minimal/dist.tar.xz
+examples/minimal/assets.zip
+examples/minimal/bevy-vn-example
 examples/minimal/universal-bevy-build-wasm32-1.1/
 examples/minimal/universal-bevy-build-wasm32-1.1.tar.xz
 examples/minimal/icon-192.png
