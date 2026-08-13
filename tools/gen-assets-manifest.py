@@ -79,8 +79,9 @@ def main() -> None:
         if not f.is_file():
             continue
         rel = f.relative_to(root).as_posix()
-        # 清单自身不进入清单(部署时 SW 会单独拉取清单文件)
-        if rel == "assets-manifest.json":
+        # 清单自身不进入清单;.br/.gz 是 prep.sh 的预压缩产物,由服务器内容协商
+        # 透明服务(客户端只请求源文件),不是需要 SW 预取的真实资产。
+        if rel == "assets-manifest.json" or rel.endswith((".br", ".gz")):
             continue
         size = f.stat().st_size
         entries.append(
