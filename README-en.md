@@ -22,7 +22,7 @@ A general-purpose visual novel engine built on **Bevy 0.19**, supporting script�
 ## Quick Start
 
 ```bash
-cargo run -p minimal --release
+cargo run --release --bin bevy-vn-example
 ```
 
 ### WASM Build
@@ -60,7 +60,7 @@ All assets required to run the game are already committed to Git (~291 MB, abo
 
 ### Generated Assets and Git Status Filtering
 
-The 1231 textures under `examples/minimal/assets/image/` are **ETC1S KTX2 files regenerated from PNG sources** (the original PNG backups are in `/home/swordreforge/下载/水仙10周年版本_1.2.0.zip`). Locally regenerating or tweaking these files will cause `git status` to show thousands of modified lines.
+The 1231 textures under `examples/minimal/assets/image/` are **ETC1S KTX2 files regenerated from PNG sources**. Locally regenerating or tweaking these files will cause `git status` to show thousands of modified lines.
 
 A management script [`tools/assets-git-manage.sh`](tools/assets-git-manage.sh) is provided to mark these files as "locally ignored" using `git update-index --skip-worktree`:
 
@@ -95,8 +95,18 @@ A management script [`tools/assets-git-manage.sh`](tools/assets-git-manage.sh) i
 
 ```
 If you only want to browse the code without downloading hundreds of megabytes of images/models, clone like this:
-git clone --filter=blob:none --sparse 
-cd <repo-name>
+# 1. Clone the repository, but do not check out any files yet
+git clone --filter=blob:none --no-checkout https://github.com/swordreforge/bevy-vn-engine
+cd bevy-vn-engine/
+
+# 2. Enable sparse-checkout feature (recommended cone mode) [reference:1]
+git sparse-checkout init --cone
+
+# 3. Set the directories you want to check out (i.e., src, crates, tools)
+git sparse-checkout set src crates tools
+
+# 4. Finally, check out files from the remote repository
+git checkout main
 git sparse-checkout set src crates tools   # only fetch code folders
 ```
 
