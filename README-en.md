@@ -1,4 +1,4 @@
-# Bevy VN Engine
+# bevy-narcissu
 [中文版](./README.md) | [English](./README-en.md)
 
 A general-purpose visual novel engine built on **Bevy 0.19**, supporting script‑driven AVG games. Currently powering the *Narcissu 10th Anniversary* porting project.
