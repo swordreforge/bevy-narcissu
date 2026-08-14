@@ -87,7 +87,7 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 ```
 如果只想看代码，不想下载几百兆的图片/模型，可以这样克隆：
 git clone --filter=blob:none --sparse https://github.com/swordreforge/bevy-vn-engine.git
-cd <仓库名>
+cd bevy-vn-engine/
 git sparse-checkout set src crates tools  # 只拉取代码文件夹
 ```
 ## 文档
