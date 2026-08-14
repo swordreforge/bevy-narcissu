@@ -576,7 +576,7 @@ pub struct Text2d(pub String);
 // 基础加载
 asset_server.load::<Font>("fonts/my-font.ttf")
 asset_server.load::<Image>("images/bg.png")
-asset_server.load::<AudioSource>("audio/bgm.ogg")
+asset_server.load::<OpusAudio>("audio/bgm.opus") // bevy-opus-audio crate
 
 // LoadBuilder — 批量加载
 asset_server.load_builder()
@@ -651,7 +651,8 @@ Handle::weak_from(strong_handle)
 #[derive(Component, FromTemplate)]
 #[require(PlaybackSettings)]
 pub struct AudioPlayer<Source = AudioSource>(pub Handle<Source>);
-// PlaybackSettings 字段不变
+// 引擎实际用 bevy-opus-audio 的 OpusAudio 替代默认 AudioSource：
+//   AudioPlayer::<OpusAudio>(handle)
 
 // AudioPlugin 不变
 app.add_plugins(AudioPlugin::default());
@@ -662,7 +663,7 @@ app.add_plugins(AudioPlugin::default());
 ```rust
 // 背景音乐 (Loop)
 commands.spawn((
-    AudioPlayer(asset_server.load::<AudioSource>("audio/bgm/title.ogg")),
+    AudioPlayer::<OpusAudio>(asset_server.load::<OpusAudio>("audio/bgm/title.opus")),
     PlaybackSettings {
         mode: PlaybackMode::Loop,
         volume: Volume::new(0.8),
@@ -672,7 +673,7 @@ commands.spawn((
 
 // 音效 (OneShot — PlaybackSettings::DESPAWN)
 commands.spawn((
-    AudioPlayer(asset_server.load::<AudioSource>("audio/se/click.ogg")),
+    AudioPlayer::<OpusAudio>(asset_server.load::<OpusAudio>("audio/se/click.opus")),
     PlaybackSettings::DESPAWN,
 ));
 
@@ -850,9 +851,9 @@ edition = "2021"
 bevy = { version = "0.19", features = [
     "bevy_asset",
     "bevy_audio",
-    "vorbis",
     "jpeg",
 ] }
+bevy-opus-audio = "0.1"
 # bevy-vn-core = { path = "../crates/bevy-vn-core" }
 # bevy-vn-render = { path = "../crates/bevy-vn-render" }
 # bevy-vn-audio = { path = "../crates/bevy-vn-audio" }

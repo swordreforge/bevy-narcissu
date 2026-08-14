@@ -14,7 +14,7 @@
 | D2 | 存档存储 | **`localStorage`**(小 JSON,同步语义,5MB 配额足够) |
 | D3 | 资产存储 | **`OPFS`(Origin Private File System)**(400MB 二进制小文件场景:写入快 3-4 倍、无单文件大小限制、文件系统语义匹配;**注意**:Bevy 自带 `web_asset_cache` 是 native-only 且写本地磁盘,wasm 端无任何现成缓存,需自研 `AssetReader` 包装层,见 §2.4) |
 | D4 | 脚本加载 | **AssetServer 懒加载 + ScriptManifest 清单**(统一原生/wasm,顺带修 theme CWD bug;**wasm 上 `load_folder` 不可用**——Bevy 0.19 `HttpWasmAssetReader::read_directory` 返回空流,见 §2 手段 C) |
-| D5 | 体积优化 | **后续再做**(本期直接静态托管 440M,AssetServer 天然按需加载) |
+| D5 | 体积优化 | **后续再做**(本期直接静态托管 300M,AssetServer 天然按需加载) |
 | D6 | 部署 | **GitHub Pages**(静态托管 + MIME 配置) |
 | D7 | 日志级别 | **wasm 发布段 `LogPlugin { level: Level::ERROR }`**(浏览器控制台只输出 ERROR,屏蔽 INFO/WARN 刷屏;注意 Bevy 0.19 `Level` 无 `OFF`,`Level::ERROR` 即最低)。浏览器自身警告(`WEBGL_debug_renderer_info deprecated`、AudioContext autoplay、WebGL lazy init)由浏览器内核发出,**无法从 Rust 侧关闭**,只能忽略 |
 | D8 | 路径隐藏 | **`.cargo/config.toml` 的 `--remap-path-prefix`**(wasm target 专属),把 `/home/.../.cargo/registry/...` → `/registry`、项目路径 → `/src`。⚠️ **`strip = "symbols"` 不足以隐藏路径**:日志中的 `file!()` 路径是编译期嵌入的**静态字符串**(非调试符号),strip 只删 DWARF 段碰不到它们(实测 1241 处残留→remap 后仅 57 处,且残留全部为 std 库/emscripten C 代码路径,仅在**内核 panic**时可见,常规日志已 100% 清洗) |
@@ -32,12 +32,12 @@
 | `multi_threaded` | **显式开启** | wasm 无多线程（除非 threads feature），必须改 `single_threaded` |
 | `x11` / `wayland` | 显式开启（Linux 窗口后端） | wasm 不需要，可保留（按 target 自动失效）或剔除 |
 | `png` | 开启 | 无影响 |
-| `vorbis`（lewton 纯 Rust 解码） | 开启 | ✅ wasm 可用 |
+| `rusty-opus`（纯 Rust Opus 解码，`bevy-opus-audio` crate） | 开启 | ✅ wasm 可用 |
 | `wgpu` | `29.0.4` | wasm 走 WebGPU/WebGL2 |
 | `rodio` | `0.22.2` | wasm 需 bevy_audio 的 web 支持 |
 | `bevy_basisu_loader` | `0.6.1` | ✅ 官方支持 wasm（内嵌 Emscripten 编译的 basisu transcoder，通过 wasm-bindgen/js-sys 调用），ETC1S/UASTC 均可转码 |
 
-**关键结论**：纹理（KTX2）与音频（OGG vorbis）两条资产管线在 wasm 上原生可用，无阻塞性库问题。
+**关键结论**：纹理（KTX2）与音频（Opus）两条资产管线在 wasm 上原生可用，无阻塞性库问题。
 
 ### 1.2 平台硬依赖（std::fs）清单
 
@@ -60,18 +60,18 @@ wasm 下没有文件系统，以下 `std::fs` 使用点**全部编译可通过�
 ### 1.4 资产体积（最大痛点）
 
 ```
-audio   363M   (7844 个 ogg)
+audio   235M   (7904 个 opus)
 image    40M   (1231 个 ktx2 + 103 png)
-fonts    16M   (otf)
-scripts  15M   (83 个 vnscript.ron)
+fonts    1.5M  (otf, 已子集化)
+scripts  7.3M  (83 个 vnscript.ron, 已 minify)
 pa       4.4M
 ui       1.1M
 ─────────────────────
-合计   ≈ 440M
+合计   ≈ 300M
 ```
 
 - Bevy AssetServer 本身就是**懒加载**（用到才 fetch），浏览器下按需 HTTP 拉取，首屏不必全量加载。
-- 但 440M 直接静态托管 = 加载慢 + 服务器带宽成本高；若追求体积，需启用已存在的 `bevy-vn-asset-packer`（BPAK v1 + zstd）——注意：**packer 目前只生产 .pak 文件，运行时没有任何 AssetReader 消费它**，要打通需写自定义 `AssetReader`（zstd 解码在 wasm 可用，但 BPAK 是流式 zstd 编码，需确认解码方式）。
+- 但 300M 直接静态托管 = 加载慢 + 服务器带宽成本高；若追求体积，需启用已存在的 `bevy-vn-asset-packer`（BPAK v1 + zstd）——注意：**packer 目前只生产 .pak 文件，运行时没有任何 AssetReader 消费它**，要打通需写自定义 `AssetReader`（zstd 解码在 wasm 可用，但 BPAK 是流式 zstd 编码，需确认解码方式）。
 
 ### 1.5 其他
 
@@ -93,7 +93,7 @@ bevy = { version = "0.19", default-features = false, features = [
     "bevy_ui_render", "bevy_log", "bevy_state",
     "bevy_winit", "bevy_window", "bevy_render", "bevy_core_pipeline",
     "webgl2", "webgpu",   # 双后端(可共存;wgpu 29 运行时自动 fallback,见 Phase 0 冒烟结论)
-    "png", "vorbis",
+    "png",
 ] }
 ```
 
@@ -268,7 +268,7 @@ cd ../../ && ./prep.sh
 ### Phase 3 — 运行时验证 + OPFS 缓存（1-2 天）
 - [ ] **D3**：实现 `OpfsAssetReader`（包装 `WebAssetReader`，主线程异步 OPFS API），wasm 段注册；首次加载后刷新页面验证命中缓存（Network 面板无重复请求）。
 - [ ] 进游戏：BG/立绘/CG 纹理（basisu transcoder 在浏览器转码）✅/❌。
-- [ ] BGM/语音/SE（rodio web + lewton ogg 解码）✅/❌。
+- [ ] BGM/语音/SE（rodio web + rusty-opus 解码）✅/❌。
 - [ ] 存档/读档/删档（**localStorage / D2**）、设置保存 ✅/❌。
 - [ ] 脚本跳转、自定义 tag（タイトル/brandlogo）✅/❌。
 - [ ] 加载进度 UI（若需要）。
@@ -276,9 +276,9 @@ cd ../../ && ./prep.sh
 
 ### Phase 4 — 部署 GitHub Pages（半天，D6）
 - [ ] `trunk build --release` 产物提交到 `gh-pages` 分支（或 `dist/` 目录 + Actions workflow）。
-- [ ] 静态服务器 MIME 配置（`.wasm`、`.pkg`/`.data`、`.ktx2`、`.ogg`）。
+- [ ] 静态服务器 MIME 配置（`.wasm`、`.pkg`/`.data`、`.ktx2`、`.opus`）。
 - [ ] 仓库 Settings → Pages → 指定分支/目录。
-- **验证**：`https://<user>.github.io/bevy-vn-engine/` 冷启动可玩，刷新不 404（SPA fallback 或纯静态无路由即可）。
+- **验证**：`https://<user>.github.io/bevy-narcissu/` 冷启动可玩，刷新不 404（SPA fallback 或纯静态无路由即可）。
 
 ### Phase 5 — 体积优化（后续再做，D5）
 - [ ] 评估首屏实际拉取量（懒加载下 fonts 16M + theme + 首图首曲）。
@@ -292,17 +292,17 @@ cd ../../ && ./prep.sh
 
 | # | 风险 | 等级 | 说明 / 缓解 |
 |---|---|---|---|
-| R1 | **资产体积 440M** | 🔴 高 | 带宽与加载时间成本。缓解：AssetServer 懒加载天然按需（D5 后续优化）；IndexedDB 缓存（D3）让二次访问零下载。 |
+| R1 | **资产体积 300M** | 🔴 高 | 带宽与加载时间成本。缓解：AssetServer 懒加载天然按需（D5 后续优化）；IndexedDB 缓存（D3）让二次访问零下载。 |
 | R2 | **multi_threaded 在 wasm 不可用** | 🔴 高 | 不改必编译失败/运行 panic。Phase 2 必做，风险低但必须做对。 |
 | R3 | **ETC1S→WebGPU 转码兼容性** | 🟠 中 | bevy_basisu_loader 0.6.1 声明支持 wasm，但具体浏览器（WebGPU 下 ASTC 支持）需实测。缓解：Phase 3 专项验证；WebGL2 fallback 路径已就绪（D1 双后端,无需回退切换）。 |
-| R4 | **rodio web 音频** | 🟠 中 | bevy_audio 0.19 在 wasm 走 web audio；7844 个 ogg 逐个懒加载，需验证切换流畅性与内存。 |
+| R4 | **rodio web 音频** | 🟠 中 | bevy_audio 0.19 在 wasm 走 web audio；7904 个 opus 逐个懒加载，需验证切换流畅性与内存。 |
 | R5 | **存档/设置移植** | 🟠 中 | 全在 Phase 1 抽象范围内；**localStorage（D2）为同步 API**，可保持现有同步语义，改动最小。 |
 | R6 | **theme.ron CWD bug** | 🟢 低 | 现存 bug，wasm 下必炸，Phase 1 顺手修。 |
 | R7 | **字体 16M otf** | 🟢 低 | 首屏必拉，一次性；可考虑子集化（Phase 5 优化项）。 |
 | R8 | **渲染后端浏览器覆盖** | 🟢 低 | **双后端已覆盖全浏览器**：Chrome/Brave/Edge/Safari 17+ 走 WebGPU；Firefox 全平台走 WebGL2 fallback（Phase 0 已实机验证 Firefox Linux）。无浏览器被排除。 |
 | R9 | **视频 stub 无实现** | 🟢 低 | 当前本来就是模拟 EOS，wasm 禁用即可，行为与原生一致（都不真放视频）。 |
 | R10 | **OPFS 自研缓存层** | 🟠 中 | Bevy 0.19 **无现成 OPFS 支持**(`web_asset_cache` 为 native-only 写本地磁盘;`WebAssetReader` 纯 fetch;代码库无 `opfs` 模块,已核实源码),自研 `AssetReader` 需覆盖 read/meta/directory 三接口 + 版本失效策略;主线程 OPFS 为异步 API(Web Worker 内才有同步句柄)。底层库 `opfs`(anchpop)已 clone 源码核实:wasm 端无 tokio、API 全覆盖,唯一注意点是 JS handle `!Send+!Sync`(解法:结构体不持有 handle,调用时现取)。缓解：Phase 3 独立验证命中/失效路径;浏览器需 Chrome 86+/FF 111+/Safari 16.4+。 |
-| R11 | **GitHub Pages 单包体积** | 🟢 低 | Pages 单文件 100MB 上限,trunk 产物（wasm ~50-100MB debug 或 release 更小）+ 440M assets 需确认：assets 若 push 进仓库则仓库膨胀（当前 assets 已在 git 中 439MB）；若 assets 走 release 附件/独立 CDN 则需改部署结构。Phase 4 评估。 |
+| R11 | **GitHub Pages 单包体积** | 🟢 低 | Pages 单文件 100MB 上限,trunk 产物（wasm ~50-100MB debug 或 release 更小）+ 300M assets 需确认：assets 若 push 进仓库则仓库膨胀（当前 assets 已在 git 中 291MB）；若 assets 走 release 附件/独立 CDN 则需改部署结构。Phase 4 评估。 |
 
 ---
 
@@ -317,4 +317,4 @@ cd ../../ && ./prep.sh
 - [ ] Phase 2 的 wasm feature 组合与 Bevy 0.19 官方 wasm 示例是否一致（尤其 single_threaded 缺省、webgpu 覆盖 webgl2 的语义）。
 - [ ] R3/R4 是否安排了独立验证步骤，而非混在整体联调里。
 - [ ] **D3** OpfsAssetReader 的 read/meta/directory 三接口实现与版本失效策略（Phase 3 独立验证命中/失效）；浏览器兼容基线 Chrome 86+/FF 111+/Safari 16.4+。
-- [ ] **R11** GitHub Pages 的 440M assets 部署结构（git 仓库内 vs 外部 CDN/release）。
+- [ ] **R11** GitHub Pages 的 300M assets 部署结构（git 仓库内 vs 外部 CDN/release）。
