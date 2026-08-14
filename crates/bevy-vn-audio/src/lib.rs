@@ -8,14 +8,13 @@
 
 pub mod bgm;
 mod channel;
-pub mod opus;
 pub mod se;
 pub mod voice;
 pub mod volume;
 
 use bevy::prelude::*;
+use bevy_opus_audio::OpusAudioPlugin;
 use bgm::BgmPlugin;
-use opus::OpusAudioPlugin;
 use se::SePlugin;
 use voice::VoicePlugin;
 use volume::VolumePlugin;

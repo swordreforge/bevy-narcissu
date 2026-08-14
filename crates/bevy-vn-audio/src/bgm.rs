@@ -5,8 +5,8 @@ use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
 use bevy_vn_core::runner::flush_audio;
 
 use crate::channel::audio_channel_impl;
-use crate::opus::OpusAudio;
 use crate::voice::VoicePreloadQueue;
+use bevy_opus_audio::OpusAudio;
 
 audio_channel_impl! {
     pub struct BgmManager;

@@ -9,5 +9,4 @@ bevy = { version = "0.19", default-features = false, features = [
     "bevy_audio",
 ] }
 bevy-vn-core = { path = "../bevy-vn-core" }
-rusty-opus = "0.9.1"
-ogg = "0.8"
+bevy-opus-audio = { path = "../bevy-opus-audio" }
