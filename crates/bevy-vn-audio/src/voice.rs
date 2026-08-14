@@ -9,7 +9,7 @@ use bevy_vn_core::script::ScriptEngine;
 use bevy_vn_core::state::VnAppState;
 
 use crate::channel::audio_channel_impl;
-use crate::opus::OpusAudio;
+use bevy_opus_audio::OpusAudio;
 
 /// Bounded-concurrency voice preload queue.
 ///

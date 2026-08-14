@@ -1,9 +1,26 @@
-//! Ogg-Opus audio decoding via `rusty-opus` (pure Rust, zero C/FFI).
+//! Pure-Rust Ogg-Opus audio decoding for [Bevy], backed by [`rusty-opus`].
 //!
-//! Bevy 0.19 has no Opus support — `bevy_audio`'s feature flags stop at
-//! vorbis/flac/mp3/aac/wav, and rodio's `symphonia-libopus` links C `libopus`.
-//! This module instead registers a custom [`Decodable`] asset type backed by
-//! `rusty-opus` so the whole pipeline stays pure Rust on native *and* wasm.
+//! Bevy 0.19 has no Opus support out of the box — `bevy_audio`'s feature flags
+//! stop at vorbis/flac/mp3/aac/wav, and rodio's `symphonia-libopus` links the
+//! C `libopus`. This crate registers a custom [`Decodable`] asset type so the
+//! whole pipeline stays pure Rust (no C, no FFI) on native *and* wasm.
+//!
+//! # Usage
+//!
+//! ```no_run
+//! use bevy::prelude::*;
+//! use bevy_opus_audio::{OpusAudio, OpusAudioPlugin};
+//!
+//! App::new()
+//!     .add_plugins((DefaultPlugins, OpusAudioPlugin))
+//!     .add_systems(Startup, |mut commands: Commands, server: Res<AssetServer>| {
+//!         let handle = server.load::<OpusAudio>("audio/bgm/title.opus");
+//!         commands.spawn((AudioPlayer::<OpusAudio>(handle), PlaybackSettings::LOOP));
+//!     })
+//!     .run();
+//! ```
+//!
+//! [Bevy]: https://bevyengine.org
 
 use std::io::Cursor;
 use std::sync::Arc;
@@ -50,9 +67,8 @@ fn parse_opus_head(bytes: &[u8]) -> Result<(u16, u32, u16), &'static str> {
     Ok((channels, sample_rate, pre_skip))
 }
 
-/// Streaming `rodio::Source` that lazily demuxes Ogg packets and decodes them
-/// with `rusty-opus`. Mirrors rodio's own Vorbis decoder: `current_span_len`
-/// reports the buffered sample count, `total_duration` is `None` (unknown).
+/// Streaming [`Source`] that lazily demuxes Ogg packets and decodes them with
+/// `rusty-opus`, yielding interleaved `f32` samples.
 pub struct OpusSource {
     packets: PacketReader<Cursor<Arc<[u8]>>>,
     decoder: OpusDecoder,
@@ -174,8 +190,8 @@ impl Decodable for OpusAudio {
     }
 }
 
-/// AssetLoader for `.opus` files — parses the OpusHead header up front so the
-/// decoder is built with the correct channel count / sample rate / pre-skip.
+/// [`AssetLoader`] for `.opus` files — parses the OpusHead header up front so
+/// the decoder is built with the correct channel count / sample rate / pre-skip.
 #[derive(TypePath)]
 pub struct OpusAudioLoader;
 
@@ -207,6 +223,7 @@ impl AssetLoader for OpusAudioLoader {
     }
 }
 
+/// Registers [`OpusAudio`] as a decodable audio source and its `.opus` loader.
 pub struct OpusAudioPlugin;
 
 impl Plugin for OpusAudioPlugin {

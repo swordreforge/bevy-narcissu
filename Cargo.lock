@@ -455,6 +455,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy-opus-audio"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "ogg",
+ "rusty-opus",
+]
+
+[[package]]
 name = "bevy-vn-asset-packer"
 version = "0.1.0"
 dependencies = [
@@ -470,9 +479,8 @@ name = "bevy-vn-audio"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy-opus-audio",
  "bevy-vn-core",
- "ogg",
- "rusty-opus",
 ]
 
 [[package]]
