@@ -4,7 +4,7 @@
 
 **本仓库仅供学习、研究与技术交流之用。**
 
-1. **版权归属**：本仓库所涉及的游戏《Narcissu 10th Anniversary Anthology Project》及其相关素材（包括但不限于文本、图像、音乐、音效等）的版权归原作者 **stage-nana** 及发行商 **Sekai Project** 所有[reference:0]。本仓库不拥有任何版权，亦不以此牟利[reference:1]。
+1. **版权归属**：本仓库所涉及的游戏《Narcissu 10th Anniversary Anthology Project》及其相关素材（包括但不限于文本、图像、音乐、音效等）的版权归原作者 **stage-nana** 及发行商 **Sekai Project** 所有。本仓库不拥有任何版权，亦不以此牟利。
 
 2. **非商业用途**：本仓库内容**严禁用于任何商业用途**。请勿将本仓库内容用于任何非法或未授权的活动[reference:3]。
 
@@ -52,7 +52,7 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 
 ### 资产生成物与 git status 过滤
 
-`examples/minimal/assets/image/` 下的 1231 张纹理是**从 PNG 重转的 ETC1S KTX2 生成物**(原始 PNG 备份见 `/home/swordreforge/下载/水仙10周年版本_1.2.0.zip`)。本地重转/微调这些文件会让 `git status` 刷出上千行 modified。
+`examples/minimal/assets/image/` 下的 1231 张纹理是**从 PNG 重转的 ETC1S KTX2 生成物**。本地重转/微调这些文件会让 `git status` 刷出上千行 modified。
 
 为此提供了管理脚本 [`tools/assets-git-manage.sh`](tools/assets-git-manage.sh),用 `git update-index --skip-worktree` 把这些文件标记为"本地忽略":
 
@@ -76,10 +76,10 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 
 | 目录 | 大小 | 说明 |
 |---|---|---|
-| `audio/` | 363M | OGG 音频 |
+| `audio/` | 200+M | OPUS 音频 |
 | `image/` | 40M | ETC1S KTX2 纹理(重转生成物,skip-worktree) |
 | `fonts/` | 16M | 字体 |
-| `scripts/` | 15M | 游戏脚本 |
+| `scripts/` | 6M | 游戏脚本 |
 | `pa/` | 4.4M | 立绘 |
 | `ui/` | 1.1M | UI 素材 |
 
