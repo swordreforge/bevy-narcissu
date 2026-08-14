@@ -6,7 +6,7 @@
 
 1. **版权归属**：本仓库所涉及的游戏《Narcissu 10th Anniversary Anthology Project》及其相关素材（包括但不限于文本、图像、音乐、音效等）的版权归原作者 **stage-nana** 及发行商 **Sekai Project** 所有。本仓库不拥有任何版权，亦不以此牟利。
 
-2. **非商业用途**：本仓库内容**严禁用于任何商业用途**。请勿将本仓库内容用于任何非法或未授权的活动[reference:3]。
+2. **非商业用途**：本仓库内容**严禁用于任何商业用途**。请勿将本仓库内容用于任何非法或未授权的活动。
 
 3. **用户责任**：使用本仓库内容所产生的任何后果（包括但不限于法律纠纷等）**由使用者自行承担**，与本仓库作者无关。
 
@@ -18,7 +18,7 @@
 ## 快速开始
 
 ```bash
-cargo run -p minimal --release
+cargo run --release --bin bevy-vn-example
 ```
 
 ### WASM 构建
@@ -86,9 +86,21 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 ### 预览代码(git 稀疏检出)
 ```
 如果只想看代码，不想下载几百兆的图片/模型，可以这样克隆：
-git clone --filter=blob:none --sparse https://github.com/swordreforge/bevy-vn-engine.git
+# 1. 克隆仓库，但先不检出任何文件
+git clone --filter=blob:none --no-checkout https://github.com/swordreforge/bevy-vn-engine
 cd bevy-vn-engine/
-git sparse-checkout set src crates tools  # 只拉取代码文件夹
+
+# 2. 启用 sparse-checkout 功能（推荐使用 cone 模式）
+git sparse-checkout init --cone
+
+# 3. 设置你想要检出的目录（即 src、crates、tools）
+git sparse-checkout set src crates tools
+
+# 4. 最后，从远程仓库检出文件
+git checkout main
+
+# 仅获取代码文件夹（与第 3 步重复，可省略）
+git sparse-checkout set src crates tools   # 仅获取代码文件夹
 ```
 ## 文档
 
