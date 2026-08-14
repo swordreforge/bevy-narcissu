@@ -1,4 +1,6 @@
 # Bevy VN Engine
+[中文](./README.md) | [English](./README-en.md)
+
 基于 Bevy 0.19 的通用视觉小说引擎,支持脚本驱动的 AVG 游戏。当前承载《水仙 10 周年》移植项目。
 ## ⚠️ 重要声明 / Legal Disclaimer
 
