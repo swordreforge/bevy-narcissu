@@ -87,8 +87,8 @@ A management script [`tools/assets-git-manage.sh`](tools/assets-git-manage.sh) i
 |-----------|------|-------------|
 | `audio/` | 200+ MB | OPUS audio |
 | `image/` | 40 MB | ETC1S KTX2 textures (regenerated artifacts, skip‑worktree) |
-| `fonts/` | 16 MB | Fonts |
-| `scripts/` | 6 MB | Game scripts |
+| `fonts/` | 1.5 MB | Fonts (subset) |
+| `scripts/` | 7.3 MB | Game scripts (minified) |
 | `pa/` | 4.4 MB | Character sprites |
 | `ui/` | 1.1 MB | UI assets |
 
@@ -97,8 +97,8 @@ A management script [`tools/assets-git-manage.sh`](tools/assets-git-manage.sh) i
 ```
 If you only want to browse the code without downloading hundreds of megabytes of images/models, clone like this:
 # 1. Clone the repository, but do not check out any files yet
-git clone --filter=blob:none --no-checkout https://github.com/swordreforge/bevy-vn-engine
-cd bevy-vn-engine/
+git clone --filter=blob:none --no-checkout https://github.com/swordreforge/bevy-narcissu
+cd bevy-narcissu/
 
 # 2. Enable sparse-checkout feature (recommended cone mode) [reference:1]
 git sparse-checkout init --cone

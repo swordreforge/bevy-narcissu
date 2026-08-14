@@ -50,7 +50,7 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 
 ## 资产
 
-游戏运行所需全部资产已提交进 git(约 439MB,9263 个文件),clone 后即可直接运行。
+游戏运行所需全部资产已提交进 git(约 291MB,9400 个文件),clone 后即可直接运行。
 
 ### 资产生成物与 git status 过滤
 
@@ -80,8 +80,8 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 |---|---|---|
 | `audio/` | 200+M | OPUS 音频 |
 | `image/` | 40M | ETC1S KTX2 纹理(重转生成物,skip-worktree) |
-| `fonts/` | 16M | 字体 |
-| `scripts/` | 6M | 游戏脚本 |
+| `fonts/` | 1.5M | 字体(已子集化) |
+| `scripts/` | 7.3M | 游戏脚本(已 minify) |
 | `pa/` | 4.4M | 立绘 |
 | `ui/` | 1.1M | UI 素材 |
 
@@ -89,8 +89,8 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 ```
 如果只想看代码，不想下载几百兆的图片/模型，可以这样克隆：
 # 1. 克隆仓库，但先不检出任何文件
-git clone --filter=blob:none --no-checkout https://github.com/swordreforge/bevy-vn-engine
-cd bevy-vn-engine/
+git clone --filter=blob:none --no-checkout https://github.com/swordreforge/bevy-narcissu
+cd bevy-narcissu/
 
 # 2. 启用 sparse-checkout 功能（推荐使用 cone 模式）
 git sparse-checkout init --cone
