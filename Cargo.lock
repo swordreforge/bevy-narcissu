@@ -457,6 +457,8 @@ dependencies = [
 [[package]]
 name = "bevy-opus-audio"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2bdb858d1a1ed68c1340dd211c50d4f3d66177fd9f575fdabf89da0758816421"
 dependencies = [
  "bevy",
  "ogg",
