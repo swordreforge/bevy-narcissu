@@ -14,6 +14,7 @@ audio_channel_impl! {
     pub struct SeManager;
     channels: MAX_CHANNELS,
     path: "audio/se/",
+    ext: ".opus",
     mode: PlaybackMode::Despawn,
     play: PlaySeEvent,
     file: |event: &PlaySeEvent| event.file.clone(),

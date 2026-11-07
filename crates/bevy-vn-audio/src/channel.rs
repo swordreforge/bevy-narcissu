@@ -12,6 +12,7 @@
 /// down the per-channel differences:
 /// - `channels`: slot count (BGM/voice 1, SE 8)
 /// - `path`: asset directory prefix, e.g. `"audio/bgm/"`
+/// - `ext`: file extension including the dot, e.g. `".opus"` / `".m4a"`
 /// - `mode`: `PlaybackMode` for spawned players
 /// - `file`: `|event| ...` extracting the file-id string from the play event
 /// - `slot`: `|event| ...` picking the entity slot to replace
@@ -28,6 +29,7 @@ macro_rules! audio_channel_impl {
         pub struct $name:ident;
         channels: $channels:expr,
         path: $path:literal,
+        ext: $ext:literal,
         mode: $mode:expr,
         play: $play_ev:ty,
         file: $file:expr,
@@ -61,7 +63,7 @@ macro_rules! audio_channel_impl {
             for event in reader.read() {
                 let slot = ($slot)(&event);
                 if let Some(e) = mgr.entities[slot] { commands.entity(e).try_despawn(); }
-                let path = format!("{}{}.opus", $path, ($file)(&event));
+                let path = format!("{}{}{}", $path, ($file)(&event), $ext);
                 let vol = event.volume.unwrap_or(mgr.volume.max(0.01));
                 let handle = ($handle)(&event, &queue, &asset_server, path);
                 mgr.entities[slot] = Some(commands.spawn((

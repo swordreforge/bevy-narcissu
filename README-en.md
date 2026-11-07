@@ -85,7 +85,7 @@ A management script [`tools/assets-git-manage.sh`](tools/assets-git-manage.sh) i
 
 | Directory | Size | Description |
 |-----------|------|-------------|
-| `audio/` | 200+ MB | OPUS audio |
+| `audio/` | 183 MB | BGM in xHE-AAC `.m4a`, SE/voice in Opus |
 | `image/` | 40 MB | ETC1S KTX2 textures (regenerated artifacts, skip‑worktree) |
 | `fonts/` | 1.5 MB | Fonts (subset) |
 | `scripts/` | 7.3 MB | Game scripts (minified) |

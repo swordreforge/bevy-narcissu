@@ -42,6 +42,8 @@ const CORE_ASSETS = [
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
+  './licenses/fdk-aac.html',
+  './licenses/fdk-aac-LICENSE.txt',
 ];
 
 // --------------------------------------------------------------------------

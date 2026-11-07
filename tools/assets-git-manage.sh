@@ -3,8 +3,8 @@
 # assets-git-manage.sh — 管理已跟踪资产在 git status 中的可见性
 #
 # 背景: examples/minimal/assets/ 全部资产(439MB)已提交进 git。
-#       其中 image/ (1231 个 ETC1S KTX2) 是频繁重转的生成物,本地微调后
-#       会在 `git status` 刷出上千行 modified。本脚本用
+#       其中 image/ (1231 个 ETC1S KTX2) 是频繁重转的生成物,
+#       本地微调后会在 `git status` 刷出上千行 modified。本脚本用
 #       `git update-index --skip-worktree` 把这些文件标记为"本地忽略",
 #       让 status 保持干净,同时保留 git 内的版本(新 clone 仍可拉取)。
 #

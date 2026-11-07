@@ -50,6 +50,7 @@ audio_channel_impl! {
     pub struct VoiceManager;
     channels: 1,
     path: "audio/voice/",
+    ext: ".opus",
     mode: PlaybackMode::Despawn,
     play: PlayVoiceEvent,
     file: |event: &PlayVoiceEvent| event.file.clone(),

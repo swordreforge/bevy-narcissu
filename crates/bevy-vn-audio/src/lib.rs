@@ -8,6 +8,7 @@
 
 pub mod bgm;
 mod channel;
+pub mod m4a;
 pub mod se;
 pub mod voice;
 pub mod volume;
@@ -15,6 +16,7 @@ pub mod volume;
 use bevy::prelude::*;
 use bevy_opus_audio::OpusAudioPlugin;
 use bgm::BgmPlugin;
+use m4a::M4aAudioPlugin;
 use se::SePlugin;
 use voice::VoicePlugin;
 use volume::VolumePlugin;
@@ -24,6 +26,13 @@ pub struct VnAudioPlugin;
 
 impl Plugin for VnAudioPlugin {
     fn build(&self, app: &mut App) {
-        app.add_plugins((OpusAudioPlugin, BgmPlugin, SePlugin, VoicePlugin, VolumePlugin));
+        app.add_plugins((
+            OpusAudioPlugin,
+            M4aAudioPlugin,
+            BgmPlugin,
+            SePlugin,
+            VoicePlugin,
+            VolumePlugin,
+        ));
     }
 }

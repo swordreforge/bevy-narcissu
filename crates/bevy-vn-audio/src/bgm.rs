@@ -5,13 +5,14 @@ use bevy_vn_core::messages::{PlayBgmEvent, SetVolumeEvent, StopBgmEvent};
 use bevy_vn_core::runner::flush_audio;
 
 use crate::channel::audio_channel_impl;
+use crate::m4a::M4aAudio;
 use crate::voice::VoicePreloadQueue;
-use bevy_opus_audio::OpusAudio;
 
 audio_channel_impl! {
     pub struct BgmManager;
     channels: 1,
     path: "audio/bgm/",
+    ext: ".m4a",
     mode: PlaybackMode::Loop,
     play: PlayBgmEvent,
     file: |event: &PlayBgmEvent| event.id.clone(),
@@ -19,9 +20,9 @@ audio_channel_impl! {
     volume: |event: &SetVolumeEvent| event.bgm,
     track: |event: &PlayBgmEvent| Some(event.id.clone()),
     stop: StopBgmEvent, stop_slot: |_: &StopBgmEvent| -> Option<usize> { None },
-    asset: OpusAudio,
-    handle: |_: &PlayBgmEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<OpusAudio> {
-        server.load::<OpusAudio>(path)
+    asset: M4aAudio,
+    handle: |_: &PlayBgmEvent, _: &Option<Res<VoicePreloadQueue>>, server: &AssetServer, path: String| -> Handle<M4aAudio> {
+        server.load::<M4aAudio>(path)
     },
 }
 

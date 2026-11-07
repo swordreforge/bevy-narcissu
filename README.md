@@ -78,7 +78,7 @@ cargo build --target wasm32-unknown-unknown --release --package bevy-vn-example 
 
 | 目录 | 大小 | 说明 |
 |---|---|---|
-| `audio/` | 200+M | OPUS 音频 |
+| `audio/` | 183M | BGM 为 xHE-AAC `.m4a`，SE/语音为 Opus |
 | `image/` | 40M | ETC1S KTX2 纹理(重转生成物,skip-worktree) |
 | `fonts/` | 1.5M | 字体(已子集化) |
 | `scripts/` | 7.3M | 游戏脚本(已 minify) |

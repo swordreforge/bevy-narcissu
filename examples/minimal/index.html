@@ -28,6 +28,28 @@
       /* 触屏:阻止浏览器手势(双击缩放/滚动)拦截画布输入,事件全部交给 wasm */
       touch-action: none;
     }
+    /* FDK AAC / xHE-AAC 许可入口：固定在 canvas 之上左下角，不拦截游戏输入 */
+    #license-notice {
+      position: fixed;
+      left: 10px;
+      bottom: 8px;
+      z-index: 2147483647;
+      pointer-events: none;
+      font: 12px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    #license-notice a {
+      pointer-events: auto;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: rgba(255, 255, 255, 0.55);
+      background: rgba(0, 0, 0, 0.35);
+      text-decoration: none;
+    }
+    #license-notice a:hover {
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(0, 0, 0, 0.65);
+    }
   </style>
   <script>
     // Unlock WebAudio autoplay policy: bevy/cpal creates its AudioContext at
@@ -227,5 +249,10 @@ if ('serviceWorker' in navigator) {
     window.__expBootMs = performance.now();
     dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
   </script>
+<!-- xHE-AAC（BGM）解码使用的 FDK AAC 许可证入口 -->
+<div id="license-notice">
+  <a href="./licenses/fdk-aac.html" target="_blank" rel="noopener"
+     title="xHE-AAC 解码使用 fdk-aac-rs（Fraunhofer FDK AAC 许可证，不授予专利许可）">xHE-AAC · FDK AAC License</a>
+</div>
 </body>
 </html>

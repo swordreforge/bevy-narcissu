@@ -10,3 +10,9 @@ bevy = { version = "0.19", default-features = false, features = [
 ] }
 bevy-vn-core = { path = "../bevy-vn-core" }
 bevy-opus-audio = "0.1"
+# xHE-AAC / USAC + AAC-LC / HE-AAC decoding for BGM. `fdk-aac-rs` is a
+# bit-exact pure-Rust port of FDK-AAC 2.0.3 (no C/FFI, builds on wasm).
+# `symphonia` only demuxes the MP4 container (ASC + access units) — its own
+# AAC decoder is not used because it only supports AAC-LC.
+fdk-aac-rs = { version = "0.1", default-features = false, features = ["decoder"] }
+symphonia = { version = "0.5", default-features = false, features = ["isomp4"] }
